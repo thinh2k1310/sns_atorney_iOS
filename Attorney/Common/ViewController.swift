@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
     var overlayWindow: UIWindow?
 
     var viewModel: ViewModel?
-//    var provider: AttorneyAPI?
+    var provider: AttorneyAPI?
     let disposeBag = DisposeBag()
     var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.invalid
 
@@ -40,6 +40,7 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = Color.background
+        self.tabBarController?.delegate = self
         bindViewModel()
         setupDataInViewDidLoad()
         setupUI()

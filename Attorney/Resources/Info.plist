@@ -16,10 +16,25 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>ProximaNova-Sbold.otf</string>
+		<string>ProximaNova-RegIt.otf</string>
+		<string>ProximaNova-Reg.otf</string>
+		<string>ProximaNova-XBold.otf</string>
+		<string>ProximaNova-BoldIt.otf</string>
+		<string>ProximaNova-Bold.otf</string>
+		<string>ProximaNova-LightIt.otf</string>
+		<string>ProximaNova-Ligh.otf</string>
+		<string>ProximaNova-SboldIt.otf</string>
+		<string>Sigvar-Serial-Regular.ttf</string>
+		<string>SFProText-Regular.ttf</string>
+		<string>ProximaNova-ThinIt.otf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
-	<string>Login</string>
+	<string>Launch Screen</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Login</string>
+	<string>SplashScreen</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

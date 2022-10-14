@@ -9,4 +9,22 @@ import UIKit
 
 final class HomeViewController: ViewController{
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .green
+    }
+    
+    override func setupUI() {
+        super.setupUI()
+        configureTabBar()
+    }
+    
+    private func configureTabBar() {
+        tabBarController?.selectedIndex = 0
+        tabBarController?.tabBar.barTintColor = Color.backgroundTabbar
+        tabBarController?.tabBar.unselectedItemTintColor = Color.unselectedTabbar // color for unselected item on TabBar
+        tabBarController?.tabBar.tintColor = Color.selectedTabBar // color for selected item on TabBar
+        tabBarController?.tabBar.isTranslucent = false
+        tabBarController?.tabBar.isOpaque = false
+    }
 }

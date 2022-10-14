@@ -8,8 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		0EBB24BFF25640264271378A /* Pods_Attorney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0C7BD7D7A2D53E0A8E5ECF4 /* Pods_Attorney.framework */; };
+		F31EF4F828F1E18E0043E7AB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F31EF4FA28F1E18E0043E7AB /* Localizable.strings */; };
+		F32C522128F2A73A00E6C840 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C522028F2A73A00E6C840 /* UIColorExtension.swift */; };
+		F32C522328F3262300E6C840 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F32C522228F3262300E6C840 /* Launch Screen.storyboard */; };
+		F32C522928F32D7E00E6C840 /* launchScreen.json in Resources */ = {isa = PBXBuildFile; fileRef = F32C522828F32D7D00E6C840 /* launchScreen.json */; };
+		F32C522A28F334F200E6C840 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F37CB00028E819D30061B273 /* Assets.xcassets */; };
+		F32C522D28F33AD700E6C840 /* AttorneySNSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C522C28F33AD700E6C840 /* AttorneySNSAPI.swift */; };
+		F32C522F28F33BF700E6C840 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C522E28F33BF700E6C840 /* Application.swift */; };
+		F32C523128F33D1400E6C840 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C523028F33D1400E6C840 /* Networking.swift */; };
+		F32C523328F33EDC00E6C840 /* Reachablity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C523228F33EDC00E6C840 /* Reachablity.swift */; };
+		F32C523528F409C700E6C840 /* RestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C523428F409C700E6C840 /* RestAPI.swift */; };
+		F32C523728F40A8500E6C840 /* AttorneyAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C523628F40A8500E6C840 /* AttorneyAPIProtocol.swift */; };
+		F32C523928F4649F00E6C840 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C523828F4649F00E6C840 /* UserService.swift */; };
+		F32C523B28F4650E00E6C840 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C523A28F4650E00E6C840 /* UserInfo.swift */; };
+		F32C523D28F4777F00E6C840 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C523C28F4777F00E6C840 /* UIButtonExtension.swift */; };
+		F32C523F28F477F300E6C840 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C523E28F477F300E6C840 /* UIViewExtension.swift */; };
+		F32C525228F5E50200E6C840 /* ProximaNova-SboldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = F32C524428F5E4FD00E6C840 /* ProximaNova-SboldIt.otf */; };
+		F32C525328F5E50200E6C840 /* ProximaNova-BoldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = F32C524528F5E4FD00E6C840 /* ProximaNova-BoldIt.otf */; };
+		F32C525428F5E50200E6C840 /* ProximaNova-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F32C524628F5E4FD00E6C840 /* ProximaNova-Black.otf */; };
+		F32C525528F5E50200E6C840 /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F32C524728F5E4FE00E6C840 /* ProximaNova-Bold.otf */; };
+		F32C525628F5E50200E6C840 /* ProximaNova-Sbold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F32C524828F5E4FE00E6C840 /* ProximaNova-Sbold.otf */; };
+		F32C525728F5E50200E6C840 /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F32C524928F5E4FE00E6C840 /* ProximaNova-Light.otf */; };
+		F32C525828F5E50200E6C840 /* ProximaNova-RegIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = F32C524A28F5E4FF00E6C840 /* ProximaNova-RegIt.otf */; };
+		F32C525928F5E50200E6C840 /* ProximaNova-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F32C524B28F5E4FF00E6C840 /* ProximaNova-Thin.otf */; };
+		F32C525A28F5E50200E6C840 /* ProximaNova-ThinIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = F32C524C28F5E50000E6C840 /* ProximaNova-ThinIt.otf */; };
+		F32C525B28F5E50200E6C840 /* ProximaNova-Xbold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F32C524D28F5E50000E6C840 /* ProximaNova-Xbold.otf */; };
+		F32C525C28F5E50200E6C840 /* ProximaNova-Reg.otf in Resources */ = {isa = PBXBuildFile; fileRef = F32C524E28F5E50000E6C840 /* ProximaNova-Reg.otf */; };
+		F32C525D28F5E50200E6C840 /* ProximaNova-LightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = F32C524F28F5E50000E6C840 /* ProximaNova-LightIt.otf */; };
+		F32C525E28F5E50200E6C840 /* ProximaNova-XboldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = F32C525028F5E50100E6C840 /* ProximaNova-XboldIt.otf */; };
+		F32C525F28F5E50200E6C840 /* ProximaNova-BlackIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = F32C525128F5E50100E6C840 /* ProximaNova-BlackIt.otf */; };
+		F32C526328F7259200E6C840 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C526228F7259200E6C840 /* UITextFieldExtension.swift */; };
+		F32C526528F725FE00E6C840 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C526428F725FE00E6C840 /* StringExtension.swift */; };
 		F37CAFF828E819D10061B273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CAFF728E819D10061B273 /* AppDelegate.swift */; };
-		F37CB00128E819D30061B273 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F37CB00028E819D30061B273 /* Assets.xcassets */; };
 		F37CB01728E81BE40061B273 /* DebugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CB01628E81BE40061B273 /* DebugLog.swift */; };
 		F37CB01928E81D570061B273 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CB01828E81D570061B273 /* ApplicationCoordinator.swift */; };
 		F37CB01E28E8233D0061B273 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CB01D28E8233D0061B273 /* ViewController.swift */; };
@@ -23,7 +53,7 @@
 		F37CB03128E83DC90061B273 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F37CB03028E83DC90061B273 /* Register.storyboard */; };
 		F37CB03A28E840930061B273 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CB03928E840930061B273 /* LoginViewController.swift */; };
 		F37CB03C28E840CA0061B273 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CB03B28E840CA0061B273 /* RegisterViewController.swift */; };
-		F37CB03E28E840E10061B273 /* DashboardTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CB03D28E840E10061B273 /* DashboardTabbarController.swift */; };
+		F37CB03E28E840E10061B273 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CB03D28E840E10061B273 /* DashboardTabBarController.swift */; };
 		F37CB04028E840F50061B273 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CB03F28E840F50061B273 /* MenuViewController.swift */; };
 		F37CB04228E841010061B273 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CB04128E841010061B273 /* HomeViewController.swift */; };
 		F37CB04428E841140061B273 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CB04328E841140061B273 /* NotificationsViewController.swift */; };
@@ -34,13 +64,48 @@
 		F37CB04F28E848AE0061B273 /* Observable+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CB04E28E848AE0061B273 /* Observable+Operators.swift */; };
 		F37CB05228E849520061B273 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CB05128E849520061B273 /* Configurations.swift */; };
 		F3886F1128E97B6D00A14F47 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3886F1028E97B6C00A14F47 /* R.generated.swift */; };
-		F3B0719028E8B58600CC9793 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F3B0718F28E8B58600CC9793 /* Localizable.strings */; };
+		F3886F1828EFD06600A14F47 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3886F1728EFD06600A14F47 /* SplashViewController.swift */; };
+		F3886F1A28EFD1B400A14F47 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3886F1928EFD1B400A14F47 /* SplashScreen.storyboard */; };
+		F3886F1D28EFEA4100A14F47 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3886F1C28EFEA4100A14F47 /* HomeCoordinator.swift */; };
+		F3886F1F28EFEA5B00A14F47 /* MessageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3886F1E28EFEA5B00A14F47 /* MessageCoordinator.swift */; };
+		F3886F2128EFEA6E00A14F47 /* NotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3886F2028EFEA6E00A14F47 /* NotificationCoordinator.swift */; };
+		F3886F2328EFEA8A00A14F47 /* MenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3886F2228EFEA8A00A14F47 /* MenuCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1C28909D11430D56557CD478 /* Pods-Attorney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attorney.debug.xcconfig"; path = "Target Support Files/Pods-Attorney/Pods-Attorney.debug.xcconfig"; sourceTree = "<group>"; };
 		4DD08C80DA4F645AE4041E8A /* Pods-Attorney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attorney.release.xcconfig"; path = "Target Support Files/Pods-Attorney/Pods-Attorney.release.xcconfig"; sourceTree = "<group>"; };
 		E0C7BD7D7A2D53E0A8E5ECF4 /* Pods_Attorney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Attorney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F31EF4F928F1E18E0043E7AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F32C522028F2A73A00E6C840 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		F32C522228F3262300E6C840 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		F32C522828F32D7D00E6C840 /* launchScreen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = launchScreen.json; sourceTree = "<group>"; };
+		F32C522C28F33AD700E6C840 /* AttorneySNSAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttorneySNSAPI.swift; sourceTree = "<group>"; };
+		F32C522E28F33BF700E6C840 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		F32C523028F33D1400E6C840 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		F32C523228F33EDC00E6C840 /* Reachablity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachablity.swift; sourceTree = "<group>"; };
+		F32C523428F409C700E6C840 /* RestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPI.swift; sourceTree = "<group>"; };
+		F32C523628F40A8500E6C840 /* AttorneyAPIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttorneyAPIProtocol.swift; sourceTree = "<group>"; };
+		F32C523828F4649F00E6C840 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		F32C523A28F4650E00E6C840 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		F32C523C28F4777F00E6C840 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		F32C523E28F477F300E6C840 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		F32C524428F5E4FD00E6C840 /* ProximaNova-SboldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-SboldIt.otf"; sourceTree = "<group>"; };
+		F32C524528F5E4FD00E6C840 /* ProximaNova-BoldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-BoldIt.otf"; sourceTree = "<group>"; };
+		F32C524628F5E4FD00E6C840 /* ProximaNova-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Black.otf"; sourceTree = "<group>"; };
+		F32C524728F5E4FE00E6C840 /* ProximaNova-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Bold.otf"; sourceTree = "<group>"; };
+		F32C524828F5E4FE00E6C840 /* ProximaNova-Sbold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Sbold.otf"; sourceTree = "<group>"; };
+		F32C524928F5E4FE00E6C840 /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.otf"; sourceTree = "<group>"; };
+		F32C524A28F5E4FF00E6C840 /* ProximaNova-RegIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-RegIt.otf"; sourceTree = "<group>"; };
+		F32C524B28F5E4FF00E6C840 /* ProximaNova-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Thin.otf"; sourceTree = "<group>"; };
+		F32C524C28F5E50000E6C840 /* ProximaNova-ThinIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-ThinIt.otf"; sourceTree = "<group>"; };
+		F32C524D28F5E50000E6C840 /* ProximaNova-Xbold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Xbold.otf"; sourceTree = "<group>"; };
+		F32C524E28F5E50000E6C840 /* ProximaNova-Reg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Reg.otf"; sourceTree = "<group>"; };
+		F32C524F28F5E50000E6C840 /* ProximaNova-LightIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-LightIt.otf"; sourceTree = "<group>"; };
+		F32C525028F5E50100E6C840 /* ProximaNova-XboldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-XboldIt.otf"; sourceTree = "<group>"; };
+		F32C525128F5E50100E6C840 /* ProximaNova-BlackIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-BlackIt.otf"; sourceTree = "<group>"; };
+		F32C526228F7259200E6C840 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		F32C526428F725FE00E6C840 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		F37CAFF428E819D10061B273 /* Attorney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Attorney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37CAFF728E819D10061B273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F37CB00028E819D30061B273 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,7 +123,7 @@
 		F37CB03028E83DC90061B273 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		F37CB03928E840930061B273 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F37CB03B28E840CA0061B273 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		F37CB03D28E840E10061B273 /* DashboardTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabbarController.swift; sourceTree = "<group>"; };
+		F37CB03D28E840E10061B273 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
 		F37CB03F28E840F50061B273 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		F37CB04128E841010061B273 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F37CB04328E841140061B273 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
@@ -69,7 +134,12 @@
 		F37CB04E28E848AE0061B273 /* Observable+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Operators.swift"; sourceTree = "<group>"; };
 		F37CB05128E849520061B273 /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
 		F3886F1028E97B6C00A14F47 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
-		F3B0718F28E8B58600CC9793 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		F3886F1728EFD06600A14F47 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		F3886F1928EFD1B400A14F47 /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
+		F3886F1C28EFEA4100A14F47 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		F3886F1E28EFEA5B00A14F47 /* MessageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCoordinator.swift; sourceTree = "<group>"; };
+		F3886F2028EFEA6E00A14F47 /* NotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCoordinator.swift; sourceTree = "<group>"; };
+		F3886F2228EFEA8A00A14F47 /* MenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +161,60 @@
 				4DD08C80DA4F645AE4041E8A /* Pods-Attorney.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F32C522B28F33AA300E6C840 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F32C522C28F33AD700E6C840 /* AttorneySNSAPI.swift */,
+				F32C523028F33D1400E6C840 /* Networking.swift */,
+				F32C523428F409C700E6C840 /* RestAPI.swift */,
+				F32C523628F40A8500E6C840 /* AttorneyAPIProtocol.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F32C524028F5DD4700E6C840 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F32C524328F5E4D500E6C840 /* Proxima Nova */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F32C524328F5E4D500E6C840 /* Proxima Nova */ = {
+			isa = PBXGroup;
+			children = (
+				F32C524628F5E4FD00E6C840 /* ProximaNova-Black.otf */,
+				F32C525128F5E50100E6C840 /* ProximaNova-BlackIt.otf */,
+				F32C524728F5E4FE00E6C840 /* ProximaNova-Bold.otf */,
+				F32C524528F5E4FD00E6C840 /* ProximaNova-BoldIt.otf */,
+				F32C524928F5E4FE00E6C840 /* ProximaNova-Light.otf */,
+				F32C524F28F5E50000E6C840 /* ProximaNova-LightIt.otf */,
+				F32C524E28F5E50000E6C840 /* ProximaNova-Reg.otf */,
+				F32C524A28F5E4FF00E6C840 /* ProximaNova-RegIt.otf */,
+				F32C524828F5E4FE00E6C840 /* ProximaNova-Sbold.otf */,
+				F32C524428F5E4FD00E6C840 /* ProximaNova-SboldIt.otf */,
+				F32C524B28F5E4FF00E6C840 /* ProximaNova-Thin.otf */,
+				F32C524C28F5E50000E6C840 /* ProximaNova-ThinIt.otf */,
+				F32C524D28F5E50000E6C840 /* ProximaNova-Xbold.otf */,
+				F32C525028F5E50100E6C840 /* ProximaNova-XboldIt.otf */,
+			);
+			path = "Proxima Nova";
+			sourceTree = "<group>";
+		};
+		F32C526028F719B500E6C840 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F32C526628F737A100E6C840 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Logic;
 			sourceTree = "<group>";
 		};
 		F35992460E2986ADF177DDA5 /* Frameworks */ = {
@@ -126,6 +250,7 @@
 				F37CB00C28E81A3D0061B273 /* Common */,
 				F37CB05028E849380061B273 /* Configurations */,
 				F37CB00D28E81A5C0061B273 /* Model */,
+				F32C522B28F33AA300E6C840 /* Networking */,
 				F37CB00E28E81AD20061B273 /* Resources */,
 				F37CB00F28E81AE40061B273 /* Screens */,
 				F37CB01028E81AF90061B273 /* Services */,
@@ -141,6 +266,7 @@
 			children = (
 				F37CAFF728E819D10061B273 /* AppDelegate.swift */,
 				F37CB01828E81D570061B273 /* ApplicationCoordinator.swift */,
+				F32C522E28F33BF700E6C840 /* Application.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -148,6 +274,7 @@
 		F37CB00C28E81A3D0061B273 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F32C526028F719B500E6C840 /* View */,
 				F37CB01D28E8233D0061B273 /* ViewController.swift */,
 				F37CB01F28E8260F0061B273 /* ViewModel.swift */,
 			);
@@ -157,6 +284,7 @@
 		F37CB00D28E81A5C0061B273 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F32C523A28F4650E00E6C840 /* UserInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,6 +292,8 @@
 		F37CB00E28E81AD20061B273 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F32C524028F5DD4700E6C840 /* Fonts */,
+				F32C522828F32D7D00E6C840 /* launchScreen.json */,
 				F3886F1028E97B6C00A14F47 /* R.generated.swift */,
 				F37CB05728E855A60061B273 /* Localizable */,
 				F37CB00528E819D30061B273 /* Info.plist */,
@@ -175,6 +305,8 @@
 		F37CB00F28E81AE40061B273 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F3886F1B28EFE9FD00A14F47 /* Coordinatior */,
+				F3886F1628EFD04B00A14F47 /* SplashScreen */,
 				F37CB03828E83E530061B273 /* Messages */,
 				F37CB03728E83E4B0061B273 /* Notifications */,
 				F37CB03628E83E3E0061B273 /* Home */,
@@ -189,6 +321,8 @@
 		F37CB01028E81AF90061B273 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F32C523228F33EDC00E6C840 /* Reachablity.swift */,
+				F32C523828F4649F00E6C840 /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -203,6 +337,8 @@
 				F37CB02A28E83D890061B273 /* Notifications.storyboard */,
 				F37CB02C28E83D940061B273 /* Menu.storyboard */,
 				F37CB02E28E83DB60061B273 /* Messages.storyboard */,
+				F3886F1928EFD1B400A14F47 /* SplashScreen.storyboard */,
+				F32C522228F3262300E6C840 /* Launch Screen.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -210,6 +346,7 @@
 		F37CB01228E81B210061B273 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F32C526628F737A100E6C840 /* Logic */,
 				F37CB01528E81B810061B273 /* Logger */,
 				F37CB01428E81B5C0061B273 /* Extensions */,
 				F37CB01328E81B440061B273 /* Constant */,
@@ -229,6 +366,11 @@
 			isa = PBXGroup;
 			children = (
 				F37CB04E28E848AE0061B273 /* Observable+Operators.swift */,
+				F32C522028F2A73A00E6C840 /* UIColorExtension.swift */,
+				F32C523C28F4777F00E6C840 /* UIButtonExtension.swift */,
+				F32C523E28F477F300E6C840 /* UIViewExtension.swift */,
+				F32C526228F7259200E6C840 /* UITextFieldExtension.swift */,
+				F32C526428F725FE00E6C840 /* StringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -260,7 +402,7 @@
 		F37CB03428E83E1C0061B273 /* DashboardTabbar */ = {
 			isa = PBXGroup;
 			children = (
-				F37CB03D28E840E10061B273 /* DashboardTabbarController.swift */,
+				F37CB03D28E840E10061B273 /* DashboardTabBarController.swift */,
 			);
 			path = DashboardTabbar;
 			sourceTree = "<group>";
@@ -317,9 +459,28 @@
 		F37CB05728E855A60061B273 /* Localizable */ = {
 			isa = PBXGroup;
 			children = (
-				F3B0718F28E8B58600CC9793 /* Localizable.strings */,
+				F31EF4FA28F1E18E0043E7AB /* Localizable.strings */,
 			);
 			path = Localizable;
+			sourceTree = "<group>";
+		};
+		F3886F1628EFD04B00A14F47 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F3886F1728EFD06600A14F47 /* SplashViewController.swift */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		F3886F1B28EFE9FD00A14F47 /* Coordinatior */ = {
+			isa = PBXGroup;
+			children = (
+				F3886F1C28EFEA4100A14F47 /* HomeCoordinator.swift */,
+				F3886F1E28EFEA5B00A14F47 /* MessageCoordinator.swift */,
+				F3886F2028EFEA6E00A14F47 /* NotificationCoordinator.swift */,
+				F3886F2228EFEA8A00A14F47 /* MenuCoordinator.swift */,
+			);
+			path = Coordinatior;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,14 +546,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F32C525228F5E50200E6C840 /* ProximaNova-SboldIt.otf in Resources */,
 				F37CB02528E83CE90061B273 /* Login.storyboard in Resources */,
+				F3886F1A28EFD1B400A14F47 /* SplashScreen.storyboard in Resources */,
+				F32C525928F5E50200E6C840 /* ProximaNova-Thin.otf in Resources */,
+				F32C525D28F5E50200E6C840 /* ProximaNova-LightIt.otf in Resources */,
+				F32C525F28F5E50200E6C840 /* ProximaNova-BlackIt.otf in Resources */,
+				F31EF4F828F1E18E0043E7AB /* Localizable.strings in Resources */,
+				F32C525328F5E50200E6C840 /* ProximaNova-BoldIt.otf in Resources */,
+				F32C525728F5E50200E6C840 /* ProximaNova-Light.otf in Resources */,
 				F37CB02B28E83D890061B273 /* Notifications.storyboard in Resources */,
+				F32C522928F32D7E00E6C840 /* launchScreen.json in Resources */,
+				F32C525828F5E50200E6C840 /* ProximaNova-RegIt.otf in Resources */,
 				F37CB02728E83D200061B273 /* DashboardTabbar.storyboard in Resources */,
+				F32C525628F5E50200E6C840 /* ProximaNova-Sbold.otf in Resources */,
+				F32C525E28F5E50200E6C840 /* ProximaNova-XboldIt.otf in Resources */,
+				F32C522328F3262300E6C840 /* Launch Screen.storyboard in Resources */,
 				F37CB02D28E83D940061B273 /* Menu.storyboard in Resources */,
-				F3B0719028E8B58600CC9793 /* Localizable.strings in Resources */,
 				F37CB02F28E83DB60061B273 /* Messages.storyboard in Resources */,
-				F37CB00128E819D30061B273 /* Assets.xcassets in Resources */,
+				F32C525428F5E50200E6C840 /* ProximaNova-Black.otf in Resources */,
+				F32C525C28F5E50200E6C840 /* ProximaNova-Reg.otf in Resources */,
+				F32C525A28F5E50200E6C840 /* ProximaNova-ThinIt.otf in Resources */,
 				F37CB02928E83D5C0061B273 /* Home.storyboard in Resources */,
+				F32C525528F5E50200E6C840 /* ProximaNova-Bold.otf in Resources */,
+				F32C522A28F334F200E6C840 /* Assets.xcassets in Resources */,
+				F32C525B28F5E50200E6C840 /* ProximaNova-Xbold.otf in Resources */,
 				F37CB03128E83DC90061B273 /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,28 +680,57 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F32C523728F40A8500E6C840 /* AttorneyAPIProtocol.swift in Sources */,
+				F3886F1828EFD06600A14F47 /* SplashViewController.swift in Sources */,
 				F37CB03A28E840930061B273 /* LoginViewController.swift in Sources */,
 				F37CB01928E81D570061B273 /* ApplicationCoordinator.swift in Sources */,
+				F32C523128F33D1400E6C840 /* Networking.swift in Sources */,
+				F32C523328F33EDC00E6C840 /* Reachablity.swift in Sources */,
 				F37CB05228E849520061B273 /* Configurations.swift in Sources */,
-				F37CB03E28E840E10061B273 /* DashboardTabbarController.swift in Sources */,
+				F37CB03E28E840E10061B273 /* DashboardTabBarController.swift in Sources */,
+				F32C523F28F477F300E6C840 /* UIViewExtension.swift in Sources */,
 				F37CB03C28E840CA0061B273 /* RegisterViewController.swift in Sources */,
 				F37CB04F28E848AE0061B273 /* Observable+Operators.swift in Sources */,
 				F37CB04D28E846D30061B273 /* ErrorTracker.swift in Sources */,
+				F3886F1F28EFEA5B00A14F47 /* MessageCoordinator.swift in Sources */,
 				F37CB04B28E846C20061B273 /* ActivityIndicator.swift in Sources */,
+				F32C523928F4649F00E6C840 /* UserService.swift in Sources */,
 				F37CB04828E843510061B273 /* ColorConstants.swift in Sources */,
+				F32C522128F2A73A00E6C840 /* UIColorExtension.swift in Sources */,
 				F37CB04028E840F50061B273 /* MenuViewController.swift in Sources */,
 				F37CB04228E841010061B273 /* HomeViewController.swift in Sources */,
+				F3886F2328EFEA8A00A14F47 /* MenuCoordinator.swift in Sources */,
+				F3886F2128EFEA6E00A14F47 /* NotificationCoordinator.swift in Sources */,
+				F32C523B28F4650E00E6C840 /* UserInfo.swift in Sources */,
 				F3886F1128E97B6D00A14F47 /* R.generated.swift in Sources */,
 				F37CB04628E841220061B273 /* MessagesViewController.swift in Sources */,
+				F32C523D28F4777F00E6C840 /* UIButtonExtension.swift in Sources */,
+				F32C522D28F33AD700E6C840 /* AttorneySNSAPI.swift in Sources */,
 				F37CAFF828E819D10061B273 /* AppDelegate.swift in Sources */,
 				F37CB01E28E8233D0061B273 /* ViewController.swift in Sources */,
+				F32C523528F409C700E6C840 /* RestAPI.swift in Sources */,
 				F37CB04428E841140061B273 /* NotificationsViewController.swift in Sources */,
+				F32C526328F7259200E6C840 /* UITextFieldExtension.swift in Sources */,
+				F3886F1D28EFEA4100A14F47 /* HomeCoordinator.swift in Sources */,
+				F32C526528F725FE00E6C840 /* StringExtension.swift in Sources */,
 				F37CB01728E81BE40061B273 /* DebugLog.swift in Sources */,
+				F32C522F28F33BF700E6C840 /* Application.swift in Sources */,
 				F37CB02028E8260F0061B273 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F31EF4FA28F1E18E0043E7AB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F31EF4F928F1E18E0043E7AB /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F37CB00628E819D30061B273 /* Debug */ = {
