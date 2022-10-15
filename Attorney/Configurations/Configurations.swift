@@ -11,7 +11,7 @@ import RxSwift
 
 typealias AppConfigs = Configurations.App
 typealias CompletionClosure = ((_ success: Bool) -> Void)
-//typealias StringConstants = R.string
+typealias StringConstants = R.string
 typealias ObservableResult<Value> = Observable<Swift.Result<Value, Error>>
 let preferredLanguages = AppConfigs.preferredLanguages
 

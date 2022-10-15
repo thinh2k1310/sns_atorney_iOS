@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0345C93D28FA71610029F4F9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345C93C28FA71610029F4F9 /* R.generated.swift */; };
 		0EBB24BFF25640264271378A /* Pods_Attorney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0C7BD7D7A2D53E0A8E5ECF4 /* Pods_Attorney.framework */; };
 		F31EF4F828F1E18E0043E7AB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F31EF4FA28F1E18E0043E7AB /* Localizable.strings */; };
 		F32C522128F2A73A00E6C840 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C522028F2A73A00E6C840 /* UIColorExtension.swift */; };
@@ -63,7 +64,6 @@
 		F37CB04D28E846D30061B273 /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CB04C28E846D30061B273 /* ErrorTracker.swift */; };
 		F37CB04F28E848AE0061B273 /* Observable+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CB04E28E848AE0061B273 /* Observable+Operators.swift */; };
 		F37CB05228E849520061B273 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CB05128E849520061B273 /* Configurations.swift */; };
-		F3886F1128E97B6D00A14F47 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3886F1028E97B6C00A14F47 /* R.generated.swift */; };
 		F3886F1828EFD06600A14F47 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3886F1728EFD06600A14F47 /* SplashViewController.swift */; };
 		F3886F1A28EFD1B400A14F47 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3886F1928EFD1B400A14F47 /* SplashScreen.storyboard */; };
 		F3886F1D28EFEA4100A14F47 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3886F1C28EFEA4100A14F47 /* HomeCoordinator.swift */; };
@@ -73,6 +73,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0345C93C28FA71610029F4F9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		1C28909D11430D56557CD478 /* Pods-Attorney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attorney.debug.xcconfig"; path = "Target Support Files/Pods-Attorney/Pods-Attorney.debug.xcconfig"; sourceTree = "<group>"; };
 		4DD08C80DA4F645AE4041E8A /* Pods-Attorney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attorney.release.xcconfig"; path = "Target Support Files/Pods-Attorney/Pods-Attorney.release.xcconfig"; sourceTree = "<group>"; };
 		E0C7BD7D7A2D53E0A8E5ECF4 /* Pods_Attorney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Attorney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,7 +134,6 @@
 		F37CB04C28E846D30061B273 /* ErrorTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
 		F37CB04E28E848AE0061B273 /* Observable+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Operators.swift"; sourceTree = "<group>"; };
 		F37CB05128E849520061B273 /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
-		F3886F1028E97B6C00A14F47 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		F3886F1728EFD06600A14F47 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		F3886F1928EFD1B400A14F47 /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		F3886F1C28EFEA4100A14F47 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
@@ -294,7 +294,7 @@
 			children = (
 				F32C524028F5DD4700E6C840 /* Fonts */,
 				F32C522828F32D7D00E6C840 /* launchScreen.json */,
-				F3886F1028E97B6C00A14F47 /* R.generated.swift */,
+				0345C93C28FA71610029F4F9 /* R.generated.swift */,
 				F37CB05728E855A60061B273 /* Localizable */,
 				F37CB00528E819D30061B273 /* Info.plist */,
 				F37CB00028E819D30061B273 /* Assets.xcassets */,
@@ -691,6 +691,7 @@
 				F32C523F28F477F300E6C840 /* UIViewExtension.swift in Sources */,
 				F37CB03C28E840CA0061B273 /* RegisterViewController.swift in Sources */,
 				F37CB04F28E848AE0061B273 /* Observable+Operators.swift in Sources */,
+				0345C93D28FA71610029F4F9 /* R.generated.swift in Sources */,
 				F37CB04D28E846D30061B273 /* ErrorTracker.swift in Sources */,
 				F3886F1F28EFEA5B00A14F47 /* MessageCoordinator.swift in Sources */,
 				F37CB04B28E846C20061B273 /* ActivityIndicator.swift in Sources */,
@@ -702,7 +703,6 @@
 				F3886F2328EFEA8A00A14F47 /* MenuCoordinator.swift in Sources */,
 				F3886F2128EFEA6E00A14F47 /* NotificationCoordinator.swift in Sources */,
 				F32C523B28F4650E00E6C840 /* UserInfo.swift in Sources */,
-				F3886F1128E97B6D00A14F47 /* R.generated.swift in Sources */,
 				F37CB04628E841220061B273 /* MessagesViewController.swift in Sources */,
 				F32C523D28F4777F00E6C840 /* UIButtonExtension.swift in Sources */,
 				F32C522D28F33AD700E6C840 /* AttorneySNSAPI.swift in Sources */,
