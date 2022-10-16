@@ -38,7 +38,7 @@ extension String {
     }
 
     public func isValidPassword() -> Bool {
-        let pwdRegex = KrisPayFormatter.shared.getPassRegEx()
+        let pwdRegex = AttorneyFormatter.shared.getPassRegEx()
         return NSPredicate(format: "SELF MATCHES %@", pwdRegex).evaluate(with: self)
     }
 
@@ -58,7 +58,7 @@ extension String {
     }
     
     public func isValidPasswordRegister() -> Bool {
-        let pwdRegex = KrisPayFormatter.shared.getPassRegEx()
+        let pwdRegex = AttorneyFormatter.shared.getPassRegEx()
         return NSPredicate(format: "SELF MATCHES %@", pwdRegex).evaluate(with: self)
     }
 
@@ -68,12 +68,12 @@ extension String {
     }
 
     public func isValidNumberPhoneSequential() -> Bool {
-        let numberPhoneSequential = KrisPayFormatter.shared.getPhoneNumberRegEx()
+        let numberPhoneSequential = AttorneyFormatter.shared.getPhoneNumberRegEx()
         return NSPredicate(format: "SELF MATCHES %@", numberPhoneSequential).evaluate(with: self)
     }
 
     public func isValidNumberPhoneRegister() -> Bool {
-        let numberPhoneRegex = KrisPayFormatter.shared.getPhoneNumberRegEx()
+        let numberPhoneRegex = AttorneyFormatter.shared.getPhoneNumberRegEx()
         return NSPredicate(format: "SELF MATCHES %@", numberPhoneRegex).evaluate(with: self)
     }
 }

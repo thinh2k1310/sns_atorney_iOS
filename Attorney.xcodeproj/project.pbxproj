@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0345C93D28FA71610029F4F9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345C93C28FA71610029F4F9 /* R.generated.swift */; };
+0345C93D28FA71610029F4F9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345C93C28FA71610029F4F9 /* R.generated.swift */; };
+		0345C93F28FAA1290029F4F9 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345C93E28FAA1290029F4F9 /* Keys.swift */; };
+		0345C94128FAA5FC0029F4F9 /* AttorneyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345C94028FAA5FC0029F4F9 /* AttorneyFormatter.swift */; };
+		038F24D928FBEA2700F20009 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038F24D828FBEA2700F20009 /* UIFontExtension.swift */; };
 		0EBB24BFF25640264271378A /* Pods_Attorney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0C7BD7D7A2D53E0A8E5ECF4 /* Pods_Attorney.framework */; };
 		F31EF4F828F1E18E0043E7AB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F31EF4FA28F1E18E0043E7AB /* Localizable.strings */; };
 		F32C522128F2A73A00E6C840 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C522028F2A73A00E6C840 /* UIColorExtension.swift */; };
@@ -73,7 +76,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0345C93C28FA71610029F4F9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+0345C93C28FA71610029F4F9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		0345C93E28FAA1290029F4F9 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		0345C94028FAA5FC0029F4F9 /* AttorneyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyFormatter.swift; path = Attorney/Common/AttorneyFormatter.swift; sourceTree = SOURCE_ROOT; };
+		038F24D828FBEA2700F20009 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		1C28909D11430D56557CD478 /* Pods-Attorney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attorney.debug.xcconfig"; path = "Target Support Files/Pods-Attorney/Pods-Attorney.debug.xcconfig"; sourceTree = "<group>"; };
 		4DD08C80DA4F645AE4041E8A /* Pods-Attorney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attorney.release.xcconfig"; path = "Target Support Files/Pods-Attorney/Pods-Attorney.release.xcconfig"; sourceTree = "<group>"; };
 		E0C7BD7D7A2D53E0A8E5ECF4 /* Pods_Attorney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Attorney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,6 +219,7 @@
 		F32C526628F737A100E6C840 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				0345C94028FAA5FC0029F4F9 /* AttorneyFormatter.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -277,6 +284,7 @@
 				F32C526028F719B500E6C840 /* View */,
 				F37CB01D28E8233D0061B273 /* ViewController.swift */,
 				F37CB01F28E8260F0061B273 /* ViewModel.swift */,
+				0345C93E28FAA1290029F4F9 /* Keys.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -371,6 +379,7 @@
 				F32C523E28F477F300E6C840 /* UIViewExtension.swift */,
 				F32C526228F7259200E6C840 /* UITextFieldExtension.swift */,
 				F32C526428F725FE00E6C840 /* StringExtension.swift */,
+				038F24D828FBEA2700F20009 /* UIFontExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -490,8 +499,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F37CB00828E819D30061B273 /* Build configuration list for PBXNativeTarget "Attorney" */;
 			buildPhases = (
-				F37CB02128E82A690061B273 /* SortByName */,
 				123AE7A5742C9BD9B1DA7C5C /* [CP] Check Pods Manifest.lock */,
+				F37CB02128E82A690061B273 /* SortByName */,
 				F37CB02228E82AB60061B273 /* R.swift */,
 				F37CB02328E82B2C0061B273 /* Sort and Remove duplicates Localizable.strings */,
 				F37CAFF028E819D10061B273 /* Sources */,
@@ -705,6 +714,7 @@
 				F32C523B28F4650E00E6C840 /* UserInfo.swift in Sources */,
 				F37CB04628E841220061B273 /* MessagesViewController.swift in Sources */,
 				F32C523D28F4777F00E6C840 /* UIButtonExtension.swift in Sources */,
+				038F24D928FBEA2700F20009 /* UIFontExtension.swift in Sources */,
 				F32C522D28F33AD700E6C840 /* AttorneySNSAPI.swift in Sources */,
 				F37CAFF828E819D10061B273 /* AppDelegate.swift in Sources */,
 				F37CB01E28E8233D0061B273 /* ViewController.swift in Sources */,
@@ -714,6 +724,8 @@
 				F3886F1D28EFEA4100A14F47 /* HomeCoordinator.swift in Sources */,
 				F32C526528F725FE00E6C840 /* StringExtension.swift in Sources */,
 				F37CB01728E81BE40061B273 /* DebugLog.swift in Sources */,
+				0345C94128FAA5FC0029F4F9 /* AttorneyFormatter.swift in Sources */,
+				0345C93F28FAA1290029F4F9 /* Keys.swift in Sources */,
 				F32C522F28F33BF700E6C840 /* Application.swift in Sources */,
 				F37CB02028E8260F0061B273 /* ViewModel.swift in Sources */,
 			);

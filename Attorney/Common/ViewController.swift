@@ -39,7 +39,10 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = Color.background
+        navigationController?.isNavigationBarHidden = false
+        self.view.backgroundColor = UIColor.white
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.tintColor = UIColor.black
         self.tabBarController?.delegate = self
         bindViewModel()
         setupDataInViewDidLoad()

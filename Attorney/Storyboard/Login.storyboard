@@ -13,6 +13,9 @@
         <array key="ProximaNova-Reg.otf">
             <string>ProximaNova-Regular</string>
         </array>
+        <array key="ProximaNova-Sbold.otf">
+            <string>ProximaNova-Semibold</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Login View Controller-->
@@ -32,8 +35,45 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3wu-aa-2cf" userLabel="Content View">
                                 <rect key="frame" x="0.0" y="338.5" width="414" height="557.5"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9uQ-yA-iwL" userLabel="Error Message View">
+                                        <rect key="frame" x="30" y="24" width="354" height="70"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconLoginWarning" translatesAutoresizingMaskIntoConstraints="NO" id="rzU-QL-V0D">
+                                                <rect key="frame" x="24" y="24" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="4kA-pG-MNM"/>
+                                                    <constraint firstAttribute="width" constant="30" id="CVY-IM-pXk"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SDD-h9-Ze3">
+                                                <rect key="frame" x="69" y="2" width="265" height="66"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu">
+                                                        <attributes>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" metaFont="menu" size="14"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="rzU-QL-V0D" firstAttribute="leading" secondItem="9uQ-yA-iwL" secondAttribute="leading" constant="24" id="IyE-6h-rQT"/>
+                                            <constraint firstItem="SDD-h9-Ze3" firstAttribute="centerY" secondItem="9uQ-yA-iwL" secondAttribute="centerY" id="MLX-q4-1dc"/>
+                                            <constraint firstAttribute="height" constant="70" id="Zmm-lG-NLG"/>
+                                            <constraint firstItem="rzU-QL-V0D" firstAttribute="centerY" secondItem="9uQ-yA-iwL" secondAttribute="centerY" constant="4.25" id="ahI-Sb-cPZ"/>
+                                            <constraint firstItem="SDD-h9-Ze3" firstAttribute="leading" secondItem="rzU-QL-V0D" secondAttribute="trailing" constant="15" id="bVK-2N-E51"/>
+                                            <constraint firstItem="SDD-h9-Ze3" firstAttribute="top" secondItem="9uQ-yA-iwL" secondAttribute="top" constant="2" id="dnY-J4-PDh"/>
+                                            <constraint firstAttribute="trailing" secondItem="SDD-h9-Ze3" secondAttribute="trailing" constant="20" id="nfK-C8-uPZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="SDD-h9-Ze3" secondAttribute="bottom" constant="2" id="p1j-hb-4c3"/>
+                                        </constraints>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hoa-fp-TIR" userLabel="TF Stack View">
-                                        <rect key="frame" x="30" y="40" width="354" height="120"/>
+                                        <rect key="frame" x="30" y="118" width="354" height="120"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZUo-Ah-Trl">
                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
@@ -146,7 +186,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="ha2-Gk-HaG" userLabel="Btn Stack View">
-                                        <rect key="frame" x="30" y="200" width="354" height="170"/>
+                                        <rect key="frame" x="30" y="278" width="354" height="170"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylX-dJ-gRe" userLabel="Forgot password" customClass="UIControl">
                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="20"/>
@@ -167,6 +207,9 @@
                                                             <constraint firstItem="mrv-cw-6WH" firstAttribute="centerX" secondItem="vB9-65-cXU" secondAttribute="centerX" id="O3O-gs-7yJ"/>
                                                             <constraint firstAttribute="width" constant="170" id="ixn-nv-M8Y"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <action selector="didTapForgotPasswordControl:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="4hF-X0-oUW"/>
+                                                        </connections>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -181,11 +224,11 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="6Tp-AR-dgY"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="LOG IN">
-                                                    <fontDescription key="titleFontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="14"/>
-                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="14"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="LOG IN">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="25"/>
@@ -199,7 +242,7 @@
                                                 <rect key="frame" x="0.0" y="150" width="354" height="20"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8eZ-Gj-kru" userLabel="Control" customClass="UIControl">
-                                                        <rect key="frame" x="72" y="9.5" width="210" height="20"/>
+                                                        <rect key="frame" x="72" y="0.0" width="210" height="20"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN UP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dc-nA-LUT" userLabel="SIGN UP">
                                                                 <rect key="frame" x="0.0" y="2" width="210" height="15.5"/>
@@ -217,13 +260,16 @@
                                                             <constraint firstItem="3dc-nA-LUT" firstAttribute="centerY" secondItem="8eZ-Gj-kru" secondAttribute="centerY" id="M6S-1o-X4c"/>
                                                             <constraint firstItem="3dc-nA-LUT" firstAttribute="centerX" secondItem="8eZ-Gj-kru" secondAttribute="centerX" id="csp-eL-R9i"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <action selector="didTapRegisterControl:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="YMs-Ca-EXX"/>
+                                                        </connections>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="7iK-AF-DTO"/>
                                                     <constraint firstItem="8eZ-Gj-kru" firstAttribute="centerX" secondItem="X4D-5a-P5B" secondAttribute="centerX" id="Eb4-bA-bEw"/>
-                                                    <constraint firstItem="8eZ-Gj-kru" firstAttribute="top" secondItem="X4D-5a-P5B" secondAttribute="top" constant="9.5" id="cF7-j7-qAh"/>
+                                                    <constraint firstItem="8eZ-Gj-kru" firstAttribute="top" secondItem="X4D-5a-P5B" secondAttribute="top" id="cF7-j7-qAh"/>
                                                     <constraint firstItem="8eZ-Gj-kru" firstAttribute="height" secondItem="X4D-5a-P5B" secondAttribute="height" id="eeu-Um-4fl"/>
                                                 </constraints>
                                             </view>
@@ -236,11 +282,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="hoa-fp-TIR" secondAttribute="trailing" constant="30" id="0zV-kZ-gPf"/>
-                                    <constraint firstItem="hoa-fp-TIR" firstAttribute="top" secondItem="3wu-aa-2cf" secondAttribute="top" constant="40" id="LZu-zr-hO2"/>
+                                    <constraint firstAttribute="trailing" secondItem="9uQ-yA-iwL" secondAttribute="trailing" constant="30" id="1VT-co-WDS"/>
+                                    <constraint firstItem="9uQ-yA-iwL" firstAttribute="top" secondItem="3wu-aa-2cf" secondAttribute="top" constant="24" id="2Mx-9t-3e6"/>
+                                    <constraint firstItem="hoa-fp-TIR" firstAttribute="top" secondItem="3wu-aa-2cf" secondAttribute="top" constant="118" id="ZUt-VO-8ei"/>
                                     <constraint firstItem="ha2-Gk-HaG" firstAttribute="leading" secondItem="3wu-aa-2cf" secondAttribute="leading" constant="30" id="dJo-fC-HFq"/>
                                     <constraint firstAttribute="trailing" secondItem="ha2-Gk-HaG" secondAttribute="trailing" constant="30" id="eWo-bc-hMO"/>
                                     <constraint firstItem="ha2-Gk-HaG" firstAttribute="top" secondItem="hoa-fp-TIR" secondAttribute="bottom" constant="40" id="i02-vg-ce9"/>
                                     <constraint firstItem="hoa-fp-TIR" firstAttribute="leading" secondItem="3wu-aa-2cf" secondAttribute="leading" constant="30" id="lZ7-IA-Jxr"/>
+                                    <constraint firstItem="9uQ-yA-iwL" firstAttribute="leading" secondItem="3wu-aa-2cf" secondAttribute="leading" constant="30" id="t3y-6V-ZtQ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -264,12 +313,15 @@
                     <connections>
                         <outlet property="contentView" destination="3wu-aa-2cf" id="6f9-OP-4dN"/>
                         <outlet property="emailTextField" destination="4Zy-VT-D3d" id="Uyd-JD-IRm"/>
+                        <outlet property="errorMessageView" destination="9uQ-yA-iwL" id="kDu-Sh-um1"/>
+                        <outlet property="errorTextView" destination="SDD-h9-Ze3" id="S4e-Dr-wGQ"/>
                         <outlet property="forgotPasswordControl" destination="ylX-dJ-gRe" id="Sma-mQ-eYi"/>
                         <outlet property="logInButton" destination="yhF-sO-4dJ" id="kuG-nn-9a1"/>
                         <outlet property="passwordTextField" destination="1Pe-tj-vsK" id="KZ2-ei-8Oa"/>
                         <outlet property="showPasswordButton" destination="oCs-5h-1Ug" id="K9T-TX-HMN"/>
                         <outlet property="signUpControl" destination="8eZ-Gj-kru" id="LAJ-OD-4rO"/>
                         <outlet property="signUpLabel" destination="3dc-nA-LUT" id="3Cx-gW-MUw"/>
+                        <outlet property="textFieldStackViewTopConstraint" destination="ZUt-VO-8ei" id="1vD-5F-cbY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -278,12 +330,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="hidePassword" width="512" height="512"/>
+        <image name="hidePassword" width="24" height="24"/>
+        <image name="iconLoginWarning" width="102" height="87"/>
         <image name="loginBG" width="5664" height="3776"/>
         <image name="maskImage" width="375" height="310"/>
-        <image name="passwordIcon" width="100" height="100"/>
-        <image name="showPassword" width="512" height="512"/>
-        <image name="userIcon" width="96" height="96"/>
+        <image name="passwordIcon" width="24" height="24"/>
+        <image name="showPassword" width="24" height="24"/>
+        <image name="userIcon" width="24" height="24"/>
         <namedColor name="354052">
             <color red="0.20784313725490197" green="0.25098039215686274" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

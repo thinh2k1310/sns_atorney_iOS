@@ -118,7 +118,8 @@ extension ApplicationCoordinator: SplashViewControllerDelegate {
         } else {
             // Replace Window Root View controller with Login view controller
             let loginViewController = R.storyboard.login.loginViewController()!
-            rootViewController = loginViewController
+            let navigationController = UINavigationController(rootViewController: loginViewController)
+            rootViewController = navigationController
         }
         window?.rootViewController = rootViewController
     }

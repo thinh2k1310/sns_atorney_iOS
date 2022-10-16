@@ -16,4 +16,7 @@ struct Color {
     static let unselectedTabbar = UIColor.init(rgb: 0x7E8FA3)
     static let backgroundTabbar = UIColor.init(rgb: 0xFFFFFF)
     static let tabBarTinColor = UIColor.clear
+    static let textColor = UIColor.init(rgb: 0x354052)
+    static let deactivatedButton = UIColor.init(rgb: 0xCDCDEF)
+   
 }

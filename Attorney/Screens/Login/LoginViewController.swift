@@ -17,26 +17,29 @@ final class LoginViewController: ViewController{
     @IBOutlet private weak var logInButton: UIButton!
     @IBOutlet private weak var signUpControl: UIControl!
     @IBOutlet private weak var signUpLabel: UILabel!
+    @IBOutlet private weak var errorMessageView: UIView!
+    @IBOutlet private weak var errorTextView: UITextView!
+    @IBOutlet private weak var textFieldStackViewTopConstraint: NSLayoutConstraint!
     
     // MARK: - Section 2 - Private variable
     private var errorMessageString: String?
-    private var isCheckBoxChecked: Bool = false {
-        didSet {
-            loginButtonShouldEnable()
-        }
-    }
-    
+
     // MARK: - Section 3 - Licycle View Controller
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpTextField()
-        setUpLoginButton()
+        setupContentView()
+        setupTextField()
+        setupSignUpLabel()
+        setupErrorMessageView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
         loginButtonShouldEnable()
+        if let email = UserService.shared.lastEmail, email.isValidEmail() {
+            emailTextField.text = email
+        }
     }
     
     // MARK: - Section 4 - Binding, subcribe
@@ -54,8 +57,6 @@ final class LoginViewController: ViewController{
         
         if userLogin != nil {
 //            self.loginCallAPI()
-        } else {
-//            showPopView()
         }
     }
 
@@ -70,13 +71,32 @@ final class LoginViewController: ViewController{
         errorMessageString = nil
         loginButtonShouldEnable()
     }
+    
+    @IBAction private func didTapRegisterControl(_ sender: UIControl) {
+        let registerViewController = R.storyboard.register.registerViewController()!
+        navigationController?.pushViewController(registerViewController, animated: true)
+    }
+    
+    @IBAction private func didTapForgotPasswordControl(_ sender: UIControl) {
+        let forgotPasswordViewController = R.storyboard.register.registerViewController()!
+        navigationController?.pushViewController(forgotPasswordViewController, animated: true)
+    }
 
 // MARK: - Section 6 - Private functions
+    
+    private func setupErrorMessageView() {
+        // Do any additional setup after loading the view.
+        errorMessageView.clipsToBounds = true
+        errorMessageView.layer.cornerRadius = 16
+        errorMessageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        hideErrorMessageView(true)
+        textFieldStackViewTopConstraint.constant = 24.0
+    }
     
     private func setupTextField() {
         let attributes: [NSAttributedString.Key: Any] = [
             .font: R.font.proximaNovaRegular(size: 14)!,
-            .foregroundColor: R.color.354052()!
+            .foregroundColor: Color.textColor
         ]
 
         self.emailTextField.maxLength = 50
@@ -90,53 +110,49 @@ final class LoginViewController: ViewController{
     }
 
     @objc private func textFieldDidChange(_ textField: UITextField) {
-        isCheckBoxChecked = false
-    }
-    
-    private func setUpLoginButton() {
         
     }
     
+    private func setupContentView(){
+        contentView.roundCorners(corners: [.topLeft, .topRight], radius: 20)
+    }
+    
     private func setupSignUpLabel() {
-         
+        let centerParagraphStyle = NSMutableParagraphStyle()
+        centerParagraphStyle.alignment = .center
+        let text = NSMutableAttributedString(string: R.string.localizable.string_dont_have_account(),
+                                             attributes: [.foregroundColor: Color.textColor,
+                                                                        .font: UIFont.appFont(size: 14),
+                                                                        .paragraphStyle: centerParagraphStyle])
+        let singupText = NSMutableAttributedString(string: R.string.localizable.string_sign_up(),
+                                                          attributes: [.foregroundColor: Color.appTintColor,
+                                                                       .font: UIFont.appBoldFont(size: 14),
+                                                                       .paragraphStyle: centerParagraphStyle])
+        let attributedText = NSMutableAttributedString()
+        attributedText.append(text)
+        attributedText.append(singupText)
+        signUpLabel.attributedText = attributedText
     }
     
     private func loginButtonShouldEnable() {
         guard let username = emailTextField.text?.trim(), !username.isEmpty,
               let password = passwordTextField.text?.trim(), !password.isEmpty,
-              password.isValidLoginPassword(),
-              isCheckBoxChecked else {
-                loginButton.deactivate()
+              password.isValidLoginPassword() else {
+                logInButton.deactivate()
                 return
         }
-        UIView.transition(with: loginButton, duration: 0.4, options: .transitionCrossDissolve, animations: {
-            self.loginButton.activate()
+        UIView.transition(with: logInButton, duration: 0.4, options: .transitionCrossDissolve, animations: {
+            self.logInButton.activate()
         })
     }
 
     private func hideErrorMessageView(_ isHidden: Bool) {
         self.errorMessageView.isHidden = isHidden
         self.errorMessageView.clipsToBounds = true
-        self.topLayoutContraintUsernameView.constant = isHidden ? 24.0 : 30.0
     }
 }
 
 // MARK: - UITextViewDelegate
 extension LoginViewController: UITextViewDelegate {
-    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-        if URL.absoluteString == "termCondition://" {
-            let storyboard = UIStoryboard(name: "Login", bundle: nil)
-            let termsAndConditionVC = storyboard.instantiateViewController(withIdentifier: "TermsOfUseViewController") as! TermsOfUseViewController
-            termsAndConditionVC.nameFileHTML = "TOU"
-            termsAndConditionVC.headerText = "Terms of Use for Kris+"
-            termsAndConditionVC.termsOfType = .termsOfUse
-            termsAndConditionVC.callback = {termsAndConditionVC.dismiss(animated: true, completion: nil)}
-            termsAndConditionVC.modalTransitionStyle = .coverVertical
-            self.present(termsAndConditionVC, animated: true, completion: nil)
-        } else {
-            let safariVC = SFSafariViewController(url: URL)
-            present(safariVC, animated: true, completion: nil)
-        }
-        return false
-    }
+
 }

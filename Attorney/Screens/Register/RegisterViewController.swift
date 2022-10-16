@@ -7,6 +7,9 @@
 
 import UIKit
 
-final class RegisterViewController: ViewController{
-    
+final class RegisterViewController: ViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    }
 }

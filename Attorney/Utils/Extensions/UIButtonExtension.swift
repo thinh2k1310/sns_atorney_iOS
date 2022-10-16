@@ -8,7 +8,8 @@
 import UIKit
 
 extension UIButton {
-    func applyGradient(colors: [CGColor]) {
+    func applyGradient() {
+        let colors: [CGColor] = [Color.appTintColor.cgColor, Color.appLightTintColor.cgColor]
             self.backgroundColor = nil
             self.layoutIfNeeded()
             let gradientLayer = CAGradientLayer()
@@ -27,4 +28,15 @@ extension UIButton {
             self.layer.insertSublayer(gradientLayer, at: 0)
             self.contentVerticalAlignment = .center
         }
+    
+    @objc public func activate() {
+        applyGradient()
+        self.setTitleColor(UIColor.white, for: .normal)
+        self.isEnabled = true
+    }
+    @objc public func deactivate() {
+        self.layer.backgroundColor = Color.deactivatedButton.cgColor
+        self.setTitleColor(UIColor.white, for: .normal)
+        self.isEnabled = false
+    }
 }
