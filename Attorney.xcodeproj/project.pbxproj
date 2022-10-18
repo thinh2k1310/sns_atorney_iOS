@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-0345C93D28FA71610029F4F9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345C93C28FA71610029F4F9 /* R.generated.swift */; };
+		0345C93D28FA71610029F4F9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345C93C28FA71610029F4F9 /* R.generated.swift */; };
 		0345C93F28FAA1290029F4F9 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345C93E28FAA1290029F4F9 /* Keys.swift */; };
 		0345C94128FAA5FC0029F4F9 /* AttorneyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345C94028FAA5FC0029F4F9 /* AttorneyFormatter.swift */; };
 		038F24D928FBEA2700F20009 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038F24D828FBEA2700F20009 /* UIFontExtension.swift */; };
+		03D7309128FED12100BBA498 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D7309028FED12100BBA498 /* ResetPasswordViewController.swift */; };
+		03D7309328FED13C00BBA498 /* ResetPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D7309228FED13C00BBA498 /* ResetPassword.storyboard */; };
+		03D7309628FEDAA300BBA498 /* EnterEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D7309528FEDAA300BBA498 /* EnterEmailViewController.swift */; };
+		03D7309928FEDB7800BBA498 /* ResetPasswordSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D7309828FEDB7800BBA498 /* ResetPasswordSuccessView.swift */; };
+		03D7309B28FEDBB200BBA498 /* ResetPasswordSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03D7309A28FEDBB200BBA498 /* ResetPasswordSuccessView.xib */; };
+		03D7309D28FEEE4D00BBA498 /* VerifyOTP.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D7309C28FEEE4D00BBA498 /* VerifyOTP.storyboard */; };
+		03D730A028FEEF4C00BBA498 /* VerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D7309F28FEEF4C00BBA498 /* VerifyOTPViewController.swift */; };
 		0EBB24BFF25640264271378A /* Pods_Attorney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0C7BD7D7A2D53E0A8E5ECF4 /* Pods_Attorney.framework */; };
 		F31EF4F828F1E18E0043E7AB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F31EF4FA28F1E18E0043E7AB /* Localizable.strings */; };
 		F32C522128F2A73A00E6C840 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C522028F2A73A00E6C840 /* UIColorExtension.swift */; };
@@ -76,10 +83,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-0345C93C28FA71610029F4F9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		0345C93C28FA71610029F4F9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		0345C93E28FAA1290029F4F9 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		0345C94028FAA5FC0029F4F9 /* AttorneyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyFormatter.swift; path = Attorney/Common/AttorneyFormatter.swift; sourceTree = SOURCE_ROOT; };
 		038F24D828FBEA2700F20009 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
+		03D7309028FED12100BBA498 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		03D7309228FED13C00BBA498 /* ResetPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ResetPassword.storyboard; sourceTree = "<group>"; };
+		03D7309528FEDAA300BBA498 /* EnterEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterEmailViewController.swift; sourceTree = "<group>"; };
+		03D7309828FEDB7800BBA498 /* ResetPasswordSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResetPasswordSuccessView.swift; path = Attorney/Screens/EnterEmail/ResetPasswordSuccessView.swift; sourceTree = SOURCE_ROOT; };
+		03D7309A28FEDBB200BBA498 /* ResetPasswordSuccessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ResetPasswordSuccessView.xib; path = Attorney/Screens/EnterEmail/ResetPasswordSuccessView.xib; sourceTree = SOURCE_ROOT; };
+		03D7309C28FEEE4D00BBA498 /* VerifyOTP.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerifyOTP.storyboard; sourceTree = "<group>"; };
+		03D7309F28FEEF4C00BBA498 /* VerifyOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewController.swift; sourceTree = "<group>"; };
 		1C28909D11430D56557CD478 /* Pods-Attorney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attorney.debug.xcconfig"; path = "Target Support Files/Pods-Attorney/Pods-Attorney.debug.xcconfig"; sourceTree = "<group>"; };
 		4DD08C80DA4F645AE4041E8A /* Pods-Attorney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attorney.release.xcconfig"; path = "Target Support Files/Pods-Attorney/Pods-Attorney.release.xcconfig"; sourceTree = "<group>"; };
 		E0C7BD7D7A2D53E0A8E5ECF4 /* Pods_Attorney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Attorney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +174,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03D7308F28FED0EB00BBA498 /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				03D7309028FED12100BBA498 /* ResetPasswordViewController.swift */,
+			);
+			path = ResetPassword;
+			sourceTree = "<group>";
+		};
+		03D7309428FEDA8300BBA498 /* EnterEmail */ = {
+			isa = PBXGroup;
+			children = (
+				03D7309528FEDAA300BBA498 /* EnterEmailViewController.swift */,
+			);
+			path = EnterEmail;
+			sourceTree = "<group>";
+		};
+		03D7309728FEDB2B00BBA498 /* ResetPasswordView */ = {
+			isa = PBXGroup;
+			children = (
+				03D7309828FEDB7800BBA498 /* ResetPasswordSuccessView.swift */,
+				03D7309A28FEDBB200BBA498 /* ResetPasswordSuccessView.xib */,
+			);
+			name = ResetPasswordView;
+			path = Attorney/Common/View/ResetPasswordView;
+			sourceTree = "<group>";
+		};
+		03D7309E28FEEF3400BBA498 /* VerifyOTP */ = {
+			isa = PBXGroup;
+			children = (
+				03D7309F28FEEF4C00BBA498 /* VerifyOTPViewController.swift */,
+			);
+			path = VerifyOTP;
+			sourceTree = "<group>";
+		};
 		4A9757E99D5E2D419360BE07 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +260,7 @@
 		F32C526028F719B500E6C840 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				03D7309728FEDB2B00BBA498 /* ResetPasswordView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -313,6 +362,9 @@
 		F37CB00F28E81AE40061B273 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				03D7309E28FEEF3400BBA498 /* VerifyOTP */,
+				03D7309428FEDA8300BBA498 /* EnterEmail */,
+				03D7308F28FED0EB00BBA498 /* ResetPassword */,
 				F3886F1B28EFE9FD00A14F47 /* Coordinatior */,
 				F3886F1628EFD04B00A14F47 /* SplashScreen */,
 				F37CB03828E83E530061B273 /* Messages */,
@@ -347,6 +399,8 @@
 				F37CB02E28E83DB60061B273 /* Messages.storyboard */,
 				F3886F1928EFD1B400A14F47 /* SplashScreen.storyboard */,
 				F32C522228F3262300E6C840 /* Launch Screen.storyboard */,
+				03D7309228FED13C00BBA498 /* ResetPassword.storyboard */,
+				03D7309C28FEEE4D00BBA498 /* VerifyOTP.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -555,6 +609,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03D7309B28FEDBB200BBA498 /* ResetPasswordSuccessView.xib in Resources */,
 				F32C525228F5E50200E6C840 /* ProximaNova-SboldIt.otf in Resources */,
 				F37CB02528E83CE90061B273 /* Login.storyboard in Resources */,
 				F3886F1A28EFD1B400A14F47 /* SplashScreen.storyboard in Resources */,
@@ -563,6 +618,7 @@
 				F32C525F28F5E50200E6C840 /* ProximaNova-BlackIt.otf in Resources */,
 				F31EF4F828F1E18E0043E7AB /* Localizable.strings in Resources */,
 				F32C525328F5E50200E6C840 /* ProximaNova-BoldIt.otf in Resources */,
+				03D7309328FED13C00BBA498 /* ResetPassword.storyboard in Resources */,
 				F32C525728F5E50200E6C840 /* ProximaNova-Light.otf in Resources */,
 				F37CB02B28E83D890061B273 /* Notifications.storyboard in Resources */,
 				F32C522928F32D7E00E6C840 /* launchScreen.json in Resources */,
@@ -575,6 +631,7 @@
 				F37CB02F28E83DB60061B273 /* Messages.storyboard in Resources */,
 				F32C525428F5E50200E6C840 /* ProximaNova-Black.otf in Resources */,
 				F32C525C28F5E50200E6C840 /* ProximaNova-Reg.otf in Resources */,
+				03D7309D28FEEE4D00BBA498 /* VerifyOTP.storyboard in Resources */,
 				F32C525A28F5E50200E6C840 /* ProximaNova-ThinIt.otf in Resources */,
 				F37CB02928E83D5C0061B273 /* Home.storyboard in Resources */,
 				F32C525528F5E50200E6C840 /* ProximaNova-Bold.otf in Resources */,
@@ -701,6 +758,7 @@
 				F37CB03C28E840CA0061B273 /* RegisterViewController.swift in Sources */,
 				F37CB04F28E848AE0061B273 /* Observable+Operators.swift in Sources */,
 				0345C93D28FA71610029F4F9 /* R.generated.swift in Sources */,
+				03D730A028FEEF4C00BBA498 /* VerifyOTPViewController.swift in Sources */,
 				F37CB04D28E846D30061B273 /* ErrorTracker.swift in Sources */,
 				F3886F1F28EFEA5B00A14F47 /* MessageCoordinator.swift in Sources */,
 				F37CB04B28E846C20061B273 /* ActivityIndicator.swift in Sources */,
@@ -710,12 +768,15 @@
 				F37CB04028E840F50061B273 /* MenuViewController.swift in Sources */,
 				F37CB04228E841010061B273 /* HomeViewController.swift in Sources */,
 				F3886F2328EFEA8A00A14F47 /* MenuCoordinator.swift in Sources */,
+				03D7309928FEDB7800BBA498 /* ResetPasswordSuccessView.swift in Sources */,
 				F3886F2128EFEA6E00A14F47 /* NotificationCoordinator.swift in Sources */,
+				03D7309628FEDAA300BBA498 /* EnterEmailViewController.swift in Sources */,
 				F32C523B28F4650E00E6C840 /* UserInfo.swift in Sources */,
 				F37CB04628E841220061B273 /* MessagesViewController.swift in Sources */,
 				F32C523D28F4777F00E6C840 /* UIButtonExtension.swift in Sources */,
 				038F24D928FBEA2700F20009 /* UIFontExtension.swift in Sources */,
 				F32C522D28F33AD700E6C840 /* AttorneySNSAPI.swift in Sources */,
+				03D7309128FED12100BBA498 /* ResetPasswordViewController.swift in Sources */,
 				F37CAFF828E819D10061B273 /* AppDelegate.swift in Sources */,
 				F37CB01E28E8233D0061B273 /* ViewController.swift in Sources */,
 				F32C523528F409C700E6C840 /* RestAPI.swift in Sources */,

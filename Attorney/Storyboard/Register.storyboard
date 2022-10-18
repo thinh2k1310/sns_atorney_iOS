@@ -32,11 +32,23 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qq4-OD-olR" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0DA-Q1-tdA">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0DA-Q1-tdA" userLabel="Ad view">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join Attorney, the SNS connects people who loves law" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyF-PS-Pfs">
+                                                        <rect key="frame" x="24" y="24" width="280" height="72"/>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="18"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="lyF-PS-Pfs" firstAttribute="top" secondItem="0DA-Q1-tdA" secondAttribute="top" constant="24" id="WCV-ph-FJB"/>
+                                                    <constraint firstAttribute="trailing" secondItem="lyF-PS-Pfs" secondAttribute="trailing" constant="110" id="f30-Ly-R6G"/>
+                                                    <constraint firstAttribute="bottom" secondItem="lyF-PS-Pfs" secondAttribute="bottom" constant="24" id="hci-V5-nZn"/>
                                                     <constraint firstAttribute="height" constant="120" id="i6I-Tk-MUr"/>
+                                                    <constraint firstItem="lyF-PS-Pfs" firstAttribute="leading" secondItem="0DA-Q1-tdA" secondAttribute="leading" constant="24" id="znF-uO-pJm"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gYo-zA-8NQ">
@@ -426,10 +438,10 @@
                                             <constraint firstItem="0DA-Q1-tdA" firstAttribute="leading" secondItem="Qq4-OD-olR" secondAttribute="leading" id="CX5-eA-65k"/>
                                             <constraint firstAttribute="trailing" secondItem="gYo-zA-8NQ" secondAttribute="trailing" constant="24" id="DII-oQ-QC6"/>
                                             <constraint firstItem="hwc-a6-Qfo" firstAttribute="leading" secondItem="Qq4-OD-olR" secondAttribute="leading" id="NbP-j9-Gvr"/>
+                                            <constraint firstItem="0DA-Q1-tdA" firstAttribute="top" secondItem="Qq4-OD-olR" secondAttribute="top" id="OSM-P5-bl8"/>
                                             <constraint firstAttribute="height" constant="1500" id="SPK-ut-2J2"/>
                                             <constraint firstItem="GSK-W0-RTn" firstAttribute="leading" secondItem="Qq4-OD-olR" secondAttribute="leading" constant="30" id="WJQ-4c-dyD"/>
                                             <constraint firstItem="gYo-zA-8NQ" firstAttribute="leading" secondItem="Qq4-OD-olR" secondAttribute="leading" constant="24" id="YQH-Kk-vWU"/>
-                                            <constraint firstItem="0DA-Q1-tdA" firstAttribute="top" secondItem="Qq4-OD-olR" secondAttribute="top" id="YZ1-Kv-es8"/>
                                             <constraint firstItem="gYo-zA-8NQ" firstAttribute="top" secondItem="0DA-Q1-tdA" secondAttribute="bottom" constant="24" id="ZLa-i6-T66"/>
                                             <constraint firstItem="Lu6-iH-2hC" firstAttribute="top" secondItem="hwc-a6-Qfo" secondAttribute="bottom" id="eVU-fJ-Ejx"/>
                                             <constraint firstItem="hwc-a6-Qfo" firstAttribute="top" secondItem="gYo-zA-8NQ" secondAttribute="bottom" id="g3g-2U-ER3"/>
@@ -441,11 +453,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="Qq4-OD-olR" firstAttribute="top" secondItem="p0w-D0-j0m" secondAttribute="top" id="VAq-gg-sPa"/>
-                                    <constraint firstItem="Qq4-OD-olR" firstAttribute="trailing" secondItem="p0w-D0-j0m" secondAttribute="trailing" id="gpO-4w-9w4"/>
-                                    <constraint firstItem="Qq4-OD-olR" firstAttribute="bottom" secondItem="p0w-D0-j0m" secondAttribute="bottom" id="oPH-D2-xN4"/>
-                                    <constraint firstItem="Qq4-OD-olR" firstAttribute="leading" secondItem="p0w-D0-j0m" secondAttribute="leading" id="rWw-ty-QUy"/>
-                                    <constraint firstItem="Qq4-OD-olR" firstAttribute="width" secondItem="CZ5-YS-Z6a" secondAttribute="width" id="x4n-e5-yeU"/>
+                                    <constraint firstItem="Qq4-OD-olR" firstAttribute="bottom" secondItem="p0w-D0-j0m" secondAttribute="bottom" id="3OQ-Gy-hgN"/>
+                                    <constraint firstItem="Qq4-OD-olR" firstAttribute="width" secondItem="CZ5-YS-Z6a" secondAttribute="width" id="6lc-dr-6a4"/>
+                                    <constraint firstItem="Qq4-OD-olR" firstAttribute="leading" secondItem="p0w-D0-j0m" secondAttribute="leading" id="G0h-SG-RSW"/>
+                                    <constraint firstItem="Qq4-OD-olR" firstAttribute="top" secondItem="p0w-D0-j0m" secondAttribute="top" id="Iej-WN-1Sb"/>
+                                    <constraint firstItem="Qq4-OD-olR" firstAttribute="trailing" secondItem="p0w-D0-j0m" secondAttribute="trailing" id="eAO-fy-Aee"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="p0w-D0-j0m"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="CZ5-YS-Z6a"/>
@@ -460,6 +472,9 @@
                             <constraint firstAttribute="bottom" secondItem="KKf-Uk-89T" secondAttribute="bottom" id="boj-Nb-SoV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="adView" destination="0DA-Q1-tdA" id="MxA-5r-3jc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

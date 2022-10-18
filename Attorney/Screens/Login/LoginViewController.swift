@@ -78,7 +78,7 @@ final class LoginViewController: ViewController{
     }
     
     @IBAction private func didTapForgotPasswordControl(_ sender: UIControl) {
-        let forgotPasswordViewController = R.storyboard.register.registerViewController()!
+        let forgotPasswordViewController = R.storyboard.resetPassword.enterEmailViewController()!
         navigationController?.pushViewController(forgotPasswordViewController, animated: true)
     }
 

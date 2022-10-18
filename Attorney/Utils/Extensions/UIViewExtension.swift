@@ -68,4 +68,18 @@ extension UIView {
             self.layer.mask = maskLayer
         }
     }
+    
+    func applyGradientBG() {
+        let colors: [CGColor] = [Color.appTintColor.cgColor, Color.appLightTintColor.cgColor]
+            self.backgroundColor = nil
+            self.layoutIfNeeded()
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.colors = colors
+            gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+            gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+            gradientLayer.frame = self.bounds
+            gradientLayer.masksToBounds = false
+     
+            self.layer.insertSublayer(gradientLayer, at: 0)
+        }
 }
