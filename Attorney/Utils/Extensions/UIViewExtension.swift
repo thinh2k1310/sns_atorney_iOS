@@ -83,3 +83,21 @@ extension UIView {
             self.layer.insertSublayer(gradientLayer, at: 0)
         }
 }
+
+extension UIView {
+    func hasSuperview(_ superview: UIView) -> Bool {
+        return viewHasSuperview(self, superview: superview)
+    }
+
+    func viewHasSuperview(_ view: UIView, superview: UIView) -> Bool {
+        if let sview = view.superview {
+            if sview === superview {
+                return true
+            } else {
+                return viewHasSuperview(sview, superview: superview)
+            }
+        } else {
+            return false
+        }
+    }
+}

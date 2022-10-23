@@ -2,5 +2,12 @@
 "string_dont_have_account" = "Don't have account?";
 "string_password" = "Password";
 "string_sign_up" = "SIGN UP";
+"string_tooltip_date_of_birth" = "Member must be at least 16 years old for registration in Attorney.";
+"string_tooltip_email_warning" = "The email address must be unique and not shared with another account.";
+"string_tooltip_password_warning" = "Password must include:";
+"string_tooltip_password_warning_first_line" = "• 8 to 16 alphanumeric characters";
+"string_tooltip_password_warning_fourth_line" = "• upper case character (A-Z)";
+"string_tooltip_password_warning_second_line" = "• number (0-9)";
+"string_tooltip_password_warning_third_line" = "• lower case character (a-z)";
 "string_username" = "Username";
 "string_welcome" = "Welcome";

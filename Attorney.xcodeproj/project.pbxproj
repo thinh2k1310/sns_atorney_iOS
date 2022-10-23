@@ -7,10 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0309D987290048B50000F9D6 /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0309D986290048B50000F9D6 /* InputTextField.swift */; };
 		0345C93D28FA71610029F4F9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345C93C28FA71610029F4F9 /* R.generated.swift */; };
 		0345C93F28FAA1290029F4F9 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345C93E28FAA1290029F4F9 /* Keys.swift */; };
 		0345C94128FAA5FC0029F4F9 /* AttorneyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345C94028FAA5FC0029F4F9 /* AttorneyFormatter.swift */; };
+		035DF5302901956900A80C8E /* CoachmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035DF52F2901956900A80C8E /* CoachmarkView.swift */; };
+		035DF533290196CF00A80C8E /* CoachmarkPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035DF532290196CF00A80C8E /* CoachmarkPreferences.swift */; };
+		035DF5352901970C00A80C8E /* CoachmarkContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035DF5342901970C00A80C8E /* CoachmarkContent.swift */; };
+		035DF5372901973C00A80C8E /* CoachmarkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035DF5362901973C00A80C8E /* CoachmarkType.swift */; };
+		035DF53929019E8E00A80C8E /* CGReactExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035DF53829019E8E00A80C8E /* CGReactExtension.swift */; };
 		038F24D928FBEA2700F20009 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038F24D828FBEA2700F20009 /* UIFontExtension.swift */; };
+		03A63D9E2905371300C1C72D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A63D9D2905371300C1C72D /* RegisterViewController.swift */; };
+		03A63DA02905388000C1C72D /* ValidationRegistrationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A63D9F2905388000C1C72D /* ValidationRegistrationForm.swift */; };
+		03A63DA229053ABA00C1C72D /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A63DA129053ABA00C1C72D /* DateExtension.swift */; };
+		03A63DA429053C9800C1C72D /* RegistrasionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A63DA329053C9800C1C72D /* RegistrasionViewModel.swift */; };
+		03A63DA629057B5900C1C72D /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A63DA529057B5900C1C72D /* Register.swift */; };
 		03D7309128FED12100BBA498 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D7309028FED12100BBA498 /* ResetPasswordViewController.swift */; };
 		03D7309328FED13C00BBA498 /* ResetPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D7309228FED13C00BBA498 /* ResetPassword.storyboard */; };
 		03D7309628FEDAA300BBA498 /* EnterEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D7309528FEDAA300BBA498 /* EnterEmailViewController.swift */; };
@@ -63,7 +74,6 @@
 		F37CB02F28E83DB60061B273 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F37CB02E28E83DB60061B273 /* Messages.storyboard */; };
 		F37CB03128E83DC90061B273 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F37CB03028E83DC90061B273 /* Register.storyboard */; };
 		F37CB03A28E840930061B273 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CB03928E840930061B273 /* LoginViewController.swift */; };
-		F37CB03C28E840CA0061B273 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CB03B28E840CA0061B273 /* RegisterViewController.swift */; };
 		F37CB03E28E840E10061B273 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CB03D28E840E10061B273 /* DashboardTabBarController.swift */; };
 		F37CB04028E840F50061B273 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CB03F28E840F50061B273 /* MenuViewController.swift */; };
 		F37CB04228E841010061B273 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CB04128E841010061B273 /* HomeViewController.swift */; };
@@ -83,10 +93,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0309D986290048B50000F9D6 /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
 		0345C93C28FA71610029F4F9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		0345C93E28FAA1290029F4F9 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		0345C94028FAA5FC0029F4F9 /* AttorneyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyFormatter.swift; path = Attorney/Common/AttorneyFormatter.swift; sourceTree = SOURCE_ROOT; };
+		035DF52F2901956900A80C8E /* CoachmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachmarkView.swift; sourceTree = "<group>"; };
+		035DF532290196CF00A80C8E /* CoachmarkPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachmarkPreferences.swift; sourceTree = "<group>"; };
+		035DF5342901970C00A80C8E /* CoachmarkContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachmarkContent.swift; sourceTree = "<group>"; };
+		035DF5362901973C00A80C8E /* CoachmarkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachmarkType.swift; sourceTree = "<group>"; };
+		035DF53829019E8E00A80C8E /* CGReactExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGReactExtension.swift; sourceTree = "<group>"; };
 		038F24D828FBEA2700F20009 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
+		03A63D9D2905371300C1C72D /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		03A63D9F2905388000C1C72D /* ValidationRegistrationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationRegistrationForm.swift; sourceTree = "<group>"; };
+		03A63DA129053ABA00C1C72D /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		03A63DA329053C9800C1C72D /* RegistrasionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrasionViewModel.swift; sourceTree = "<group>"; };
+		03A63DA529057B5900C1C72D /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		03D7309028FED12100BBA498 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		03D7309228FED13C00BBA498 /* ResetPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ResetPassword.storyboard; sourceTree = "<group>"; };
 		03D7309528FEDAA300BBA498 /* EnterEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterEmailViewController.swift; sourceTree = "<group>"; };
@@ -143,7 +164,6 @@
 		F37CB02E28E83DB60061B273 /* Messages.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
 		F37CB03028E83DC90061B273 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		F37CB03928E840930061B273 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		F37CB03B28E840CA0061B273 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F37CB03D28E840E10061B273 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
 		F37CB03F28E840F50061B273 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		F37CB04128E841010061B273 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +194,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		035DF5312901969200A80C8E /* CoachmarkView */ = {
+			isa = PBXGroup;
+			children = (
+				035DF52F2901956900A80C8E /* CoachmarkView.swift */,
+				035DF532290196CF00A80C8E /* CoachmarkPreferences.swift */,
+				035DF5342901970C00A80C8E /* CoachmarkContent.swift */,
+				035DF5362901973C00A80C8E /* CoachmarkType.swift */,
+			);
+			path = CoachmarkView;
+			sourceTree = "<group>";
+		};
 		03D7308F28FED0EB00BBA498 /* ResetPassword */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +292,8 @@
 			isa = PBXGroup;
 			children = (
 				03D7309728FEDB2B00BBA498 /* ResetPasswordView */,
+				0309D986290048B50000F9D6 /* InputTextField.swift */,
+				035DF5312901969200A80C8E /* CoachmarkView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -342,6 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				F32C523A28F4650E00E6C840 /* UserInfo.swift */,
+				03A63DA529057B5900C1C72D /* Register.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -434,6 +468,8 @@
 				F32C526228F7259200E6C840 /* UITextFieldExtension.swift */,
 				F32C526428F725FE00E6C840 /* StringExtension.swift */,
 				038F24D828FBEA2700F20009 /* UIFontExtension.swift */,
+				035DF53829019E8E00A80C8E /* CGReactExtension.swift */,
+				03A63DA129053ABA00C1C72D /* DateExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -457,7 +493,9 @@
 		F37CB03328E83E150061B273 /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				F37CB03B28E840CA0061B273 /* RegisterViewController.swift */,
+				03A63D9D2905371300C1C72D /* RegisterViewController.swift */,
+				03A63D9F2905388000C1C72D /* ValidationRegistrationForm.swift */,
+				03A63DA329053C9800C1C72D /* RegistrasionViewModel.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -746,33 +784,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03A63DA429053C9800C1C72D /* RegistrasionViewModel.swift in Sources */,
 				F32C523728F40A8500E6C840 /* AttorneyAPIProtocol.swift in Sources */,
+				03A63DA229053ABA00C1C72D /* DateExtension.swift in Sources */,
 				F3886F1828EFD06600A14F47 /* SplashViewController.swift in Sources */,
 				F37CB03A28E840930061B273 /* LoginViewController.swift in Sources */,
 				F37CB01928E81D570061B273 /* ApplicationCoordinator.swift in Sources */,
+				035DF5352901970C00A80C8E /* CoachmarkContent.swift in Sources */,
 				F32C523128F33D1400E6C840 /* Networking.swift in Sources */,
 				F32C523328F33EDC00E6C840 /* Reachablity.swift in Sources */,
 				F37CB05228E849520061B273 /* Configurations.swift in Sources */,
 				F37CB03E28E840E10061B273 /* DashboardTabBarController.swift in Sources */,
+				035DF5372901973C00A80C8E /* CoachmarkType.swift in Sources */,
 				F32C523F28F477F300E6C840 /* UIViewExtension.swift in Sources */,
-				F37CB03C28E840CA0061B273 /* RegisterViewController.swift in Sources */,
+				035DF5302901956900A80C8E /* CoachmarkView.swift in Sources */,
 				F37CB04F28E848AE0061B273 /* Observable+Operators.swift in Sources */,
 				0345C93D28FA71610029F4F9 /* R.generated.swift in Sources */,
 				03D730A028FEEF4C00BBA498 /* VerifyOTPViewController.swift in Sources */,
+				035DF533290196CF00A80C8E /* CoachmarkPreferences.swift in Sources */,
 				F37CB04D28E846D30061B273 /* ErrorTracker.swift in Sources */,
 				F3886F1F28EFEA5B00A14F47 /* MessageCoordinator.swift in Sources */,
 				F37CB04B28E846C20061B273 /* ActivityIndicator.swift in Sources */,
 				F32C523928F4649F00E6C840 /* UserService.swift in Sources */,
 				F37CB04828E843510061B273 /* ColorConstants.swift in Sources */,
 				F32C522128F2A73A00E6C840 /* UIColorExtension.swift in Sources */,
+				03A63DA02905388000C1C72D /* ValidationRegistrationForm.swift in Sources */,
 				F37CB04028E840F50061B273 /* MenuViewController.swift in Sources */,
 				F37CB04228E841010061B273 /* HomeViewController.swift in Sources */,
 				F3886F2328EFEA8A00A14F47 /* MenuCoordinator.swift in Sources */,
 				03D7309928FEDB7800BBA498 /* ResetPasswordSuccessView.swift in Sources */,
+				035DF53929019E8E00A80C8E /* CGReactExtension.swift in Sources */,
 				F3886F2128EFEA6E00A14F47 /* NotificationCoordinator.swift in Sources */,
 				03D7309628FEDAA300BBA498 /* EnterEmailViewController.swift in Sources */,
 				F32C523B28F4650E00E6C840 /* UserInfo.swift in Sources */,
 				F37CB04628E841220061B273 /* MessagesViewController.swift in Sources */,
+				03A63DA629057B5900C1C72D /* Register.swift in Sources */,
 				F32C523D28F4777F00E6C840 /* UIButtonExtension.swift in Sources */,
 				038F24D928FBEA2700F20009 /* UIFontExtension.swift in Sources */,
 				F32C522D28F33AD700E6C840 /* AttorneySNSAPI.swift in Sources */,
@@ -782,6 +828,8 @@
 				F32C523528F409C700E6C840 /* RestAPI.swift in Sources */,
 				F37CB04428E841140061B273 /* NotificationsViewController.swift in Sources */,
 				F32C526328F7259200E6C840 /* UITextFieldExtension.swift in Sources */,
+				03A63D9E2905371300C1C72D /* RegisterViewController.swift in Sources */,
+				0309D987290048B50000F9D6 /* InputTextField.swift in Sources */,
 				F3886F1D28EFEA4100A14F47 /* HomeCoordinator.swift in Sources */,
 				F32C526528F725FE00E6C840 /* StringExtension.swift in Sources */,
 				F37CB01728E81BE40061B273 /* DebugLog.swift in Sources */,

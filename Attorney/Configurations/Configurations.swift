@@ -11,7 +11,7 @@ import RxSwift
 
 typealias AppConfigs = Configurations.App
 typealias CompletionClosure = ((_ success: Bool) -> Void)
-typealias StringConstants = R.string
+typealias StringConstants = R.string.localizable
 typealias ObservableResult<Value> = Observable<Swift.Result<Value, Error>>
 let preferredLanguages = AppConfigs.preferredLanguages
 
@@ -28,7 +28,9 @@ struct Configurations {
         }
     }
     struct Format {
-
+        static let dateFromServer = "yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\'"
+        static let dateOfBirth = "dd/MM/yyyy"
+        static let dateFormatYear = "yyyy"
     }
 
     struct Network {

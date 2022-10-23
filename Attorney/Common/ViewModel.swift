@@ -17,12 +17,13 @@ protocol ViewModelType {
 
 class ViewModel: NSObject {
     let disposeBag = DisposeBag()
-//    let provider: AttorneyAPI
+    let provider: AttorneyAPI
     let bodyLoading = ActivityIndicator()
     let error = ErrorTracker()
     public let pushViewControllerSuccess = PublishSubject<Void>()
 
-    override init() {
+    init(provider: AttorneyAPI) {
+        self.provider = provider
         super.init()
         error.asDriver()
             .drive(onNext: { (error) in
