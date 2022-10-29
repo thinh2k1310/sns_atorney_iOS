@@ -15,19 +15,37 @@ class UserService {
     
     fileprivate let usernameKey = "UsernameKey"
     fileprivate let pwAccessKey = "PasswordKey"
+    fileprivate let lastIdKey = "LastIdKey"
     fileprivate let lastEmailKey = "LastEmailKey"
-    fileprivate let lastPwEncryptKey = "LastPasswordKey"
     fileprivate let token = "accessToken"
     fileprivate let keychain = Keychain(service: Configurations.App.bundleIdentifier ?? "thinh.com")
 
     public private (set) var userInfo: UserInfo?
     
-    private var accessToken: String? {
+    let disposeBag = DisposeBag()
+    
+    var accessToken: String? {
         return UserDefaults.standard.string(forKey: token)
     }
     
+    public private (set) var loginResponse: LoginResponse?
+    
     var isSignedIn: Bool {
         return accessToken != nil
+    }
+    
+    var lastId: String? {
+        get {
+            guard let lastId = keychain[lastIdKey] else { return nil }
+            return lastId
+        }
+        set {
+            if let lastId = newValue {
+                keychain[lastIdKey] = lastId
+            } else {
+                keychain[lastIdKey] = nil
+            }
+        }
     }
     
     var lastEmail: String? {
@@ -43,6 +61,14 @@ class UserService {
             }
         }
     }
+        
+    public func setLoginResponse(_ res: LoginResponse?) {
+        self.loginResponse = res
+    }
+    
+    public func setUserInfo(info: UserInfo?) {
+        self.userInfo = info
+    }
     
     func saveInfoNameKey(nameKey: String) {
         keychain[nameKey] = nameKey
@@ -54,5 +80,17 @@ class UserService {
 
     func removeKeyFromKeychain(nameKey: String) {
         keychain[nameKey] = nil
+    }
+    
+    func saveAccessToken(token: String) {
+        UserDefaults.standard.setValue(token, forKey: self.token)
+    }
+    
+    class func saveLastId(id: String) {
+        UserService.shared.lastId = id
+    }
+
+    class func saveLastEmail(email: String) {
+        UserService.shared.lastEmail = email
     }
 }

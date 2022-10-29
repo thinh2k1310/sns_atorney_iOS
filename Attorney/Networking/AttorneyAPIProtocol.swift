@@ -10,5 +10,6 @@ import Moya
 import RxSwift
 
 protocol AttorneyAPI {
-    
+    // MARK: - Auth
+    func login(email: String, password: String) -> Single<LoginResponse>
 }

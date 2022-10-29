@@ -34,7 +34,7 @@ struct OnlineProvider<Target> where Target: Moya.TargetType {
         var trustManager: ServerTrustManager?
         if let baseURL = (Bundle.main.object(forInfoDictionaryKey: "BaseURL") as? String) {
             let url = URL(string: baseURL)
-            trustManager = ServerTrustManager(evaluators: [url?.host ?? "": PublicKeysTrustEvaluator()])
+            trustManager = ServerTrustManager(evaluators: [url?.host ?? "": DisabledTrustEvaluator()])
         }
         let serverTrustManager = isTrustServer ? trustManager : nil
         let pinnedSession = Session(configuration: configuration,
@@ -42,6 +42,25 @@ struct OnlineProvider<Target> where Target: Moya.TargetType {
                                     serverTrustManager: serverTrustManager)
         
         self.provider = MoyaProvider(endpointClosure: endpointClosure, requestClosure: requestClosure, stubClosure: stubClosure, session: pinnedSession, plugins: plugins, trackInflights: trackInflights)
+    }
+    
+    func request(_ token: Target) -> Observable<Moya.Response> {
+        let actualRequest = provider.rx
+            .request(token, callbackQueue: DispatchQueue.global(qos: .background))
+        return online
+            .ignore(value: false)
+            .take(1)
+            .flatMap({ _ in
+                return actualRequest
+                    .flatMap { response in
+                        return Single.just(response)
+                    }
+            .catchAttorneyError()
+            .excuteError()
+            .asObservable()
+            .observe(on: MainScheduler.instance)
+            .share()
+            })
     }
 }
 
@@ -94,5 +113,12 @@ extension NetworkingType {
                 log.error(error.localizedDescription)
             }
         }
+    }
+}
+
+extension AttorneyNetworking {
+    func request(_ token: AttorneySNSAPI) -> Observable<Moya.Response> {
+        let actualRequest = self.provider.request(token)
+        return actualRequest
     }
 }

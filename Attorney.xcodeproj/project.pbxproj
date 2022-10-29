@@ -29,6 +29,16 @@
 		03D7309B28FEDBB200BBA498 /* ResetPasswordSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03D7309A28FEDBB200BBA498 /* ResetPasswordSuccessView.xib */; };
 		03D7309D28FEEE4D00BBA498 /* VerifyOTP.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D7309C28FEEE4D00BBA498 /* VerifyOTP.storyboard */; };
 		03D730A028FEEF4C00BBA498 /* VerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D7309F28FEEF4C00BBA498 /* VerifyOTPViewController.swift */; };
+		03EE2BB2290D060300A8317A /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EE2BB1290D060300A8317A /* Login.swift */; };
+		03EE2BB4290D0D3A00A8317A /* PrimitiveSequenceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EE2BB3290D0D3A00A8317A /* PrimitiveSequenceExtension.swift */; };
+		03EE2BB8290D0DBA00A8317A /* AttorneyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EE2BB7290D0DBA00A8317A /* AttorneyError.swift */; };
+		03EE2BBA290D105100A8317A /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EE2BB9290D105100A8317A /* ErrorResponse.swift */; };
+		03EE2BBC290D10EA00A8317A /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EE2BBB290D10EA00A8317A /* Codable.swift */; };
+		03EE2BBE290D1AAC00A8317A /* ObservableType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EE2BBD290D1AAC00A8317A /* ObservableType+Codable.swift */; };
+		03EE2BC0290D1ACE00A8317A /* Response+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EE2BBF290D1ACE00A8317A /* Response+Codable.swift */; };
+		03EE2BC2290D20BD00A8317A /* Single+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EE2BC1290D20BD00A8317A /* Single+Codable.swift */; };
+		03EE2BC4290D4F2700A8317A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EE2BC3290D4F2700A8317A /* LoginViewModel.swift */; };
+		03EE2BC6290D502D00A8317A /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EE2BC5290D502D00A8317A /* ErrorMessage.swift */; };
 		0EBB24BFF25640264271378A /* Pods_Attorney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0C7BD7D7A2D53E0A8E5ECF4 /* Pods_Attorney.framework */; };
 		F31EF4F828F1E18E0043E7AB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F31EF4FA28F1E18E0043E7AB /* Localizable.strings */; };
 		F32C522128F2A73A00E6C840 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C522028F2A73A00E6C840 /* UIColorExtension.swift */; };
@@ -115,6 +125,16 @@
 		03D7309A28FEDBB200BBA498 /* ResetPasswordSuccessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ResetPasswordSuccessView.xib; path = Attorney/Screens/EnterEmail/ResetPasswordSuccessView.xib; sourceTree = SOURCE_ROOT; };
 		03D7309C28FEEE4D00BBA498 /* VerifyOTP.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerifyOTP.storyboard; sourceTree = "<group>"; };
 		03D7309F28FEEF4C00BBA498 /* VerifyOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewController.swift; sourceTree = "<group>"; };
+		03EE2BB1290D060300A8317A /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		03EE2BB3290D0D3A00A8317A /* PrimitiveSequenceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimitiveSequenceExtension.swift; sourceTree = "<group>"; };
+		03EE2BB7290D0DBA00A8317A /* AttorneyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttorneyError.swift; sourceTree = "<group>"; };
+		03EE2BB9290D105100A8317A /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		03EE2BBB290D10EA00A8317A /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
+		03EE2BBD290D1AAC00A8317A /* ObservableType+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+Codable.swift"; sourceTree = "<group>"; };
+		03EE2BBF290D1ACE00A8317A /* Response+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Response+Codable.swift"; sourceTree = "<group>"; };
+		03EE2BC1290D20BD00A8317A /* Single+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+Codable.swift"; sourceTree = "<group>"; };
+		03EE2BC3290D4F2700A8317A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		03EE2BC5290D502D00A8317A /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		1C28909D11430D56557CD478 /* Pods-Attorney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attorney.debug.xcconfig"; path = "Target Support Files/Pods-Attorney/Pods-Attorney.debug.xcconfig"; sourceTree = "<group>"; };
 		4DD08C80DA4F645AE4041E8A /* Pods-Attorney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attorney.release.xcconfig"; path = "Target Support Files/Pods-Attorney/Pods-Attorney.release.xcconfig"; sourceTree = "<group>"; };
 		E0C7BD7D7A2D53E0A8E5ECF4 /* Pods_Attorney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Attorney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -255,6 +275,8 @@
 				F32C523028F33D1400E6C840 /* Networking.swift */,
 				F32C523428F409C700E6C840 /* RestAPI.swift */,
 				F32C523628F40A8500E6C840 /* AttorneyAPIProtocol.swift */,
+				03EE2BB7290D0DBA00A8317A /* AttorneyError.swift */,
+				03EE2BB9290D105100A8317A /* ErrorResponse.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -367,6 +389,7 @@
 				F37CB01D28E8233D0061B273 /* ViewController.swift */,
 				F37CB01F28E8260F0061B273 /* ViewModel.swift */,
 				0345C93E28FAA1290029F4F9 /* Keys.swift */,
+				03EE2BC5290D502D00A8317A /* ErrorMessage.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -376,6 +399,7 @@
 			children = (
 				F32C523A28F4650E00E6C840 /* UserInfo.swift */,
 				03A63DA529057B5900C1C72D /* Register.swift */,
+				03EE2BB1290D060300A8317A /* Login.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -470,6 +494,11 @@
 				038F24D828FBEA2700F20009 /* UIFontExtension.swift */,
 				035DF53829019E8E00A80C8E /* CGReactExtension.swift */,
 				03A63DA129053ABA00C1C72D /* DateExtension.swift */,
+				03EE2BB3290D0D3A00A8317A /* PrimitiveSequenceExtension.swift */,
+				03EE2BBB290D10EA00A8317A /* Codable.swift */,
+				03EE2BBD290D1AAC00A8317A /* ObservableType+Codable.swift */,
+				03EE2BBF290D1ACE00A8317A /* Response+Codable.swift */,
+				03EE2BC1290D20BD00A8317A /* Single+Codable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -486,6 +515,7 @@
 			isa = PBXGroup;
 			children = (
 				F37CB03928E840930061B273 /* LoginViewController.swift */,
+				03EE2BC3290D4F2700A8317A /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -790,6 +820,7 @@
 				F3886F1828EFD06600A14F47 /* SplashViewController.swift in Sources */,
 				F37CB03A28E840930061B273 /* LoginViewController.swift in Sources */,
 				F37CB01928E81D570061B273 /* ApplicationCoordinator.swift in Sources */,
+				03EE2BB4290D0D3A00A8317A /* PrimitiveSequenceExtension.swift in Sources */,
 				035DF5352901970C00A80C8E /* CoachmarkContent.swift in Sources */,
 				F32C523128F33D1400E6C840 /* Networking.swift in Sources */,
 				F32C523328F33EDC00E6C840 /* Reachablity.swift in Sources */,
@@ -799,11 +830,15 @@
 				F32C523F28F477F300E6C840 /* UIViewExtension.swift in Sources */,
 				035DF5302901956900A80C8E /* CoachmarkView.swift in Sources */,
 				F37CB04F28E848AE0061B273 /* Observable+Operators.swift in Sources */,
+				03EE2BB2290D060300A8317A /* Login.swift in Sources */,
 				0345C93D28FA71610029F4F9 /* R.generated.swift in Sources */,
 				03D730A028FEEF4C00BBA498 /* VerifyOTPViewController.swift in Sources */,
 				035DF533290196CF00A80C8E /* CoachmarkPreferences.swift in Sources */,
 				F37CB04D28E846D30061B273 /* ErrorTracker.swift in Sources */,
+				03EE2BC0290D1ACE00A8317A /* Response+Codable.swift in Sources */,
+				03EE2BC6290D502D00A8317A /* ErrorMessage.swift in Sources */,
 				F3886F1F28EFEA5B00A14F47 /* MessageCoordinator.swift in Sources */,
+				03EE2BBC290D10EA00A8317A /* Codable.swift in Sources */,
 				F37CB04B28E846C20061B273 /* ActivityIndicator.swift in Sources */,
 				F32C523928F4649F00E6C840 /* UserService.swift in Sources */,
 				F37CB04828E843510061B273 /* ColorConstants.swift in Sources */,
@@ -827,6 +862,8 @@
 				F37CB01E28E8233D0061B273 /* ViewController.swift in Sources */,
 				F32C523528F409C700E6C840 /* RestAPI.swift in Sources */,
 				F37CB04428E841140061B273 /* NotificationsViewController.swift in Sources */,
+				03EE2BC2290D20BD00A8317A /* Single+Codable.swift in Sources */,
+				03EE2BC4290D4F2700A8317A /* LoginViewModel.swift in Sources */,
 				F32C526328F7259200E6C840 /* UITextFieldExtension.swift in Sources */,
 				03A63D9E2905371300C1C72D /* RegisterViewController.swift in Sources */,
 				0309D987290048B50000F9D6 /* InputTextField.swift in Sources */,
@@ -836,6 +873,9 @@
 				0345C94128FAA5FC0029F4F9 /* AttorneyFormatter.swift in Sources */,
 				0345C93F28FAA1290029F4F9 /* Keys.swift in Sources */,
 				F32C522F28F33BF700E6C840 /* Application.swift in Sources */,
+				03EE2BBA290D105100A8317A /* ErrorResponse.swift in Sources */,
+				03EE2BBE290D1AAC00A8317A /* ObservableType+Codable.swift in Sources */,
+				03EE2BB8290D0DBA00A8317A /* AttorneyError.swift in Sources */,
 				F37CB02028E8260F0061B273 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -974,6 +1014,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BaseURL = "https://attorney-sns.herokuapp.com/api";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2J63PFPHXC;
@@ -1005,6 +1046,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BaseURL = "https://attorney-sns.herokuapp.com/api";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2J63PFPHXC;

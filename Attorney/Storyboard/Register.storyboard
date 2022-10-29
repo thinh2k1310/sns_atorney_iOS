@@ -521,7 +521,7 @@
                                                 <rect key="frame" x="0.0" y="776.5" width="387" height="73"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vu2-FG-gUl" userLabel="Seperator Line">
-                                                        <rect key="frame" x="0.0" y="0.0" width="387" height="2"/>
+                                                        <rect key="frame" x="0.0" y="5" width="387" height="2"/>
                                                         <color key="backgroundColor" name="DFE3E9_PaymentSuccessBottom"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="vQv-dG-RyD"/>
@@ -578,7 +578,7 @@
                                                     <constraint firstItem="vu2-FG-gUl" firstAttribute="leading" secondItem="PkH-Kj-tI8" secondAttribute="leading" id="5T5-ZP-x18"/>
                                                     <constraint firstAttribute="trailing" secondItem="VGg-KS-xNS" secondAttribute="trailing" id="Ve7-2F-k2q"/>
                                                     <constraint firstAttribute="bottom" secondItem="VGg-KS-xNS" secondAttribute="bottom" id="ZxO-I9-ht4"/>
-                                                    <constraint firstItem="vu2-FG-gUl" firstAttribute="top" secondItem="PkH-Kj-tI8" secondAttribute="top" id="iFr-fC-8bI"/>
+                                                    <constraint firstItem="vu2-FG-gUl" firstAttribute="top" secondItem="PkH-Kj-tI8" secondAttribute="top" constant="5" id="iFr-fC-8bI"/>
                                                     <constraint firstItem="VGg-KS-xNS" firstAttribute="top" secondItem="PkH-Kj-tI8" secondAttribute="top" id="l3H-Va-YOZ"/>
                                                     <constraint firstAttribute="trailing" secondItem="vu2-FG-gUl" secondAttribute="trailing" id="xDj-LO-SG5"/>
                                                     <constraint firstItem="VGg-KS-xNS" firstAttribute="leading" secondItem="PkH-Kj-tI8" secondAttribute="leading" id="zNl-1P-yGc"/>

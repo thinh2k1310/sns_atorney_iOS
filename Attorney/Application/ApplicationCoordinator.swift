@@ -58,6 +58,15 @@ class ApplicationCoordinator {
             .disposed(by: disposeBag)
     }
     
+    func initDashboard() {
+        let tabBarController = DashboardTabBarController()
+        guard let provider = Application.shared.provider else { return }
+        initTabbar(tabBarController: tabBarController, provider: provider)
+        rootViewController = tabBarController
+        currentIndexTabbarEvent.onNext(0)
+        window?.rootViewController = rootViewController
+    }
+    
 
     public func getPreviousIndex() -> Int {
         return self.previousIndex
@@ -117,7 +126,9 @@ extension ApplicationCoordinator: SplashViewControllerDelegate {
             currentIndexTabbarEvent.onNext(0)
         } else {
             // Replace Window Root View controller with Login view controller
+            let loginViewModel = LoginViewModel(provider: provider)
             let loginViewController = R.storyboard.login.loginViewController()!
+            loginViewController.viewModel = loginViewModel
             let navigationController = UINavigationController(rootViewController: loginViewController)
             rootViewController = navigationController
         }

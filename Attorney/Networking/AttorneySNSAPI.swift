@@ -11,16 +11,29 @@ import RxSwift
 
 enum AttorneySNSAPI {
     // MARK: - Auth
-    
+    case loginOTP(loginOTPRequest: LoginRequest)
 }
 
 extension AttorneySNSAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "")!
+        let url = Bundle.main.object(forInfoDictionaryKey: "BaseURL") as? String
+        return URL(string: url ?? "")!
     }
     
     var path: String {
-        return ""
+        switch self {
+        case .loginOTP:
+            return "auth/login"
+        }
+    }
+    
+    var method: Moya.Method {
+        switch self {
+        case .loginOTP:
+            return .post
+        default:
+            return .get
+        }
     }
     
     var parameters: [String: Any]? {
@@ -35,16 +48,17 @@ extension AttorneySNSAPI: TargetType {
         return Data()
     }
     
-    var method: Moya.Method {
-        return .post
-    }
-    
     var task: Task {
-        return .requestPlain
+        switch self {
+        case .loginOTP(let loginOTPRequest):
+            return .requestJSONEncodable(loginOTPRequest)
+        }
     }
     
     var headers: [String : String]? {
-        var headersValue = ["Authorization" : "Bearer"] 
+        var headersValue: [String: String] = [:]
+        guard let token = UserService.shared.accessToken else { return headersValue }
+        headersValue = ["Authorization" : "Bearer \(token)"]
         return headersValue
     }
     

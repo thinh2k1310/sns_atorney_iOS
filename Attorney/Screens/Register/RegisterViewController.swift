@@ -73,6 +73,12 @@ final class RegisterViewController: ViewController {
         setupButton()
     }
     
+    // MARK: - Section 4 - Binding, subcribe
+    override func bindViewModel() {
+        super.bindViewModel()
+        bindingValidationForm()
+    }
+    
     // MARK: - Section 5 - IBAction
     
     @objc func touchEvent(recognizer: UITapGestureRecognizer) {
@@ -151,7 +157,7 @@ final class RegisterViewController: ViewController {
     }
     
     @IBAction private func didTapShowConfirmPassword(_ sender: UIButton) {
-        self.passwordTextField.isSecureTextEntry = !self.passwordTextField.isSecureTextEntry
+        self.confirmPasswordTextField.isSecureTextEntry = !self.confirmPasswordTextField.isSecureTextEntry
         self.showConfirmPassword.isSelected = !self.showConfirmPassword.isSelected
     }
     
@@ -384,7 +390,6 @@ extension RegisterViewController {
 }
 
 // MARK: Binding Event
-// swiftlint:disable function_body_length
 extension RegisterViewController {
     fileprivate func bindingUIWithValidationRule() {
         // Input firstname textfield event
@@ -466,7 +471,7 @@ extension RegisterViewController {
             })
             .disposed(by: disposeBag)
 
-        // Input Confirm Email textfield event
+        // Input Confirm Password textfield event
         self.confirmPasswordTextField.rx.controlEvent([.editingDidEnd, .editingChanged])
             .asObservable()
             .subscribe(onNext: { [weak self] _ in
@@ -531,6 +536,15 @@ extension RegisterViewController {
             .subscribe(onNext: { [weak self] status in
                 guard let this = self else { return }
                 this.handleDisplayPassword(status: status)
+            })
+            .disposed(by: disposeBag)
+        
+        // Confirm password
+        self.validationRegistrationForm
+            .validationStatusConfirmPassword
+            .subscribe(onNext: { [weak self] status in
+                guard let this = self else { return }
+                this.handleDisplayConfirmPassword(status: status)
             })
             .disposed(by: disposeBag)
 

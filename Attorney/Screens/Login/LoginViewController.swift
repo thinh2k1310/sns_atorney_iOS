@@ -43,7 +43,40 @@ final class LoginViewController: ViewController{
     }
     
     // MARK: - Section 4 - Binding, subcribe
-    
+    override func bindViewModel() {
+        super.bindViewModel()
+        guard let viewModel = viewModel as? LoginViewModel else { return}
+
+        // track logging in process
+//        viewModel.bodyLoading.asObservable()
+//            .bind(to: KrisPlusTransition.rx.isAnimating)
+//            .disposed(by: disposeBag)
+
+        viewModel.events
+            .subscribe(onNext: { [weak self] event in
+                guard let self = self else { return }
+                switch event {
+                case .successLogin:
+                    if UserService.shared.userInfo?.id?.isEmpty ?? true {
+                        self.errorTextView.attributedText = NSAttributedString(string: MessageError.loginError)
+                        self.hideErrorMessageView(false)
+                        return
+                    }
+                    self.errorMessageString = nil
+                    self.onLoginSuccess()
+
+                case .errorLogin(let errorMessage):
+                    self.errorTextView.delegate = self
+                    self.errorMessageString = errorMessage
+                    self.errorTextView.text = errorMessage
+                    self.hideErrorMessageView(false)
+                
+                case .performLogin(let email, let password):
+                    self.callApiLogin(email: email, password: password)
+                }
+            })
+            .disposed(by: disposeBag)
+    }
     // MARK: - Section 5 - IBActions
     @IBAction private func showPasswordButtonAction(_ sender: Any) {
         self.passwordTextField.isSecureTextEntry.toggle()
@@ -52,12 +85,7 @@ final class LoginViewController: ViewController{
     
     @IBAction private func loginByUsernameAndPassword(_ sender: UIButton) {
         self.view.endEditing(true)
-        let usernameKey = UserKey.kRemindUserName + (emailTextField.text ?? "")
-        let userLogin = UserService.shared.getInfoNameKey(nameKey: usernameKey)
-        
-        if userLogin != nil {
-//            self.loginCallAPI()
-        }
+        self.performLogin()
     }
 
     @IBAction private func usernameChanged(_ sender: Any) {
@@ -83,6 +111,24 @@ final class LoginViewController: ViewController{
     }
 
 // MARK: - Section 6 - Private functions
+    
+    private func performLogin() {
+        guard let viewModel = viewModel as? LoginViewModel,
+              let email = emailTextField.text, let password = passwordTextField.text else { return }
+        viewModel.performLogin(email: email, password: password)
+    }
+    private func onLoginSuccess(){
+        guard let window = AppDelegate.shared()?.window else {
+            return
+        }
+        let appCoordinator = ApplicationCoordinator(window: window)
+        appCoordinator.initDashboard()
+    }
+    private func callApiLogin(email: String, password: String) {
+        guard let viewModel = viewModel as? LoginViewModel else { return }
+        viewModel.loginUser(email: email,
+                            password: password)
+    }
     
     private func setupErrorMessageView() {
         // Do any additional setup after loading the view.
@@ -135,7 +181,7 @@ final class LoginViewController: ViewController{
     }
     
     private func loginButtonShouldEnable() {
-        guard let username = emailTextField.text?.trim(), !username.isEmpty,
+        guard let email = emailTextField.text?.trim(), !email.isEmpty,
               let password = passwordTextField.text?.trim(), !password.isEmpty,
               password.isValidLoginPassword() else {
                 logInButton.deactivate()
