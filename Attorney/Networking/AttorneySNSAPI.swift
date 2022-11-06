@@ -12,6 +12,10 @@ import RxSwift
 enum AttorneySNSAPI {
     // MARK: - Auth
     case loginOTP(loginOTPRequest: LoginRequest)
+    case register(registerRequest: RegisterRequest)
+    case validateEmail(validateEmailRequest: ValidateEmailRequest)
+    case sendOTP(sendOTPRequest: SendOTPRequest)
+    case resetPassword(resetPasswordRequest: ResetPasswordRequest)
 }
 
 extension AttorneySNSAPI: TargetType {
@@ -24,13 +28,29 @@ extension AttorneySNSAPI: TargetType {
         switch self {
         case .loginOTP:
             return "auth/login"
+        
+        case .register:
+            return "auth/register"
+            
+        case .validateEmail:
+            return "auth/validate"
+            
+        case .sendOTP:
+            return "auth/sendOTP"
+            
+        case .resetPassword:
+            return "auth/password/reset"
         }
+        
     }
     
     var method: Moya.Method {
         switch self {
-        case .loginOTP:
+        case .loginOTP, .register:
             return .post
+        
+        case .validateEmail, .sendOTP, .resetPassword:
+            return .put
         default:
             return .get
         }
@@ -52,6 +72,14 @@ extension AttorneySNSAPI: TargetType {
         switch self {
         case .loginOTP(let loginOTPRequest):
             return .requestJSONEncodable(loginOTPRequest)
+        case .register(let registerRequest):
+            return .requestJSONEncodable(registerRequest)
+        case .validateEmail(let validateEmailRequest):
+            return .requestJSONEncodable(validateEmailRequest)
+        case .sendOTP(let sendOTPRequest):
+            return .requestJSONEncodable(sendOTPRequest)
+        case .resetPassword(let resetPasswordRequest):
+            return .requestJSONEncodable(resetPasswordRequest)
         }
     }
     

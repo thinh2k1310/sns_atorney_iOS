@@ -41,10 +41,9 @@ extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
             if let error = error as? AttorneyError {
                 switch error {
                 case .disconnect, .timeOut, .serverError:
-                    // show common error screen with generic network error
-                    log.debug("error")
+                    ErrorViewController.showErrorVC()
 
-                case .information(let code, let message):
+                case .information(let _, let message):
                     log.debug(message)
                 
                 default:

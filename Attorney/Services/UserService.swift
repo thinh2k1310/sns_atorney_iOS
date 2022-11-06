@@ -86,6 +86,10 @@ class UserService {
         UserDefaults.standard.setValue(token, forKey: self.token)
     }
     
+    func removeAccessToken() {
+        UserDefaults.standard.setValue(nil, forKey: self.token)
+    }
+    
     class func saveLastId(id: String) {
         UserService.shared.lastId = id
     }

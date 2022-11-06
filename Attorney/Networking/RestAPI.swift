@@ -24,6 +24,22 @@ extension RestAPI {
         let loginRequest = LoginRequest(email: email, password: password)
         return requestObject(.loginOTP(loginOTPRequest: loginRequest), type: LoginResponse.self)
     }
+    
+    func register(registerRequest: RegisterRequest) -> Single<RegisterResponse> {
+        return requestObject(.register(registerRequest: registerRequest), type: RegisterResponse.self)
+    }
+    
+    func validateEmail(validateEmailRequest: ValidateEmailRequest) -> Single<ValidateEmailResponse> {
+        return requestObject(.validateEmail(validateEmailRequest: validateEmailRequest), type: ValidateEmailResponse.self)
+    }
+    
+    func sendOTP(sendOTPRequest: SendOTPRequest) -> Single<SendOTPResponse> {
+        return requestObject(.sendOTP(sendOTPRequest: sendOTPRequest), type: SendOTPResponse.self)
+    }
+    
+    func resetPassword(resetPasswordRequest: ResetPasswordRequest) -> Single<ResetPasswordResponse> {
+        return requestObject(.resetPassword(resetPasswordRequest: resetPasswordRequest), type: ResetPasswordResponse.self)
+    }
 }
 
 extension RestAPI {

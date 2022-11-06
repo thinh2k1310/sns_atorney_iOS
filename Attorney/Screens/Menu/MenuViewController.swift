@@ -27,4 +27,13 @@ final class MenuViewController: ViewController{
         tabBarController?.tabBar.isTranslucent = false
         tabBarController?.tabBar.isOpaque = false
     }
+    
+    @IBAction private func didTapLogOut(_ sender: UIButton) {
+        UserService.shared.removeAccessToken()
+        guard let window = AppDelegate.shared()?.window else {
+            return
+        }
+        let appCoordinator = ApplicationCoordinator(window: window)
+        appCoordinator.popToLogin()
+    }
 }

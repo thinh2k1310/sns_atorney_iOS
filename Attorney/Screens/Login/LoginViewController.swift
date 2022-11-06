@@ -12,6 +12,7 @@ final class LoginViewController: ViewController{
     @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var passwordView: UIView!
     @IBOutlet private weak var forgotPasswordControl: UIControl!
     @IBOutlet private weak var showPasswordButton: UIButton!
     @IBOutlet private weak var logInButton: UIButton!
@@ -19,7 +20,6 @@ final class LoginViewController: ViewController{
     @IBOutlet private weak var signUpLabel: UILabel!
     @IBOutlet private weak var errorMessageView: UIView!
     @IBOutlet private weak var errorTextView: UITextView!
-    @IBOutlet private weak var textFieldStackViewTopConstraint: NSLayoutConstraint!
     
     // MARK: - Section 2 - Private variable
     private var errorMessageString: String?
@@ -47,10 +47,9 @@ final class LoginViewController: ViewController{
         super.bindViewModel()
         guard let viewModel = viewModel as? LoginViewModel else { return}
 
-        // track logging in process
-//        viewModel.bodyLoading.asObservable()
-//            .bind(to: KrisPlusTransition.rx.isAnimating)
-//            .disposed(by: disposeBag)
+        viewModel.bodyLoading.asObservable()
+            .bind(to: AttorneyTransition.rx.isTinyAnimating)
+            .disposed(by: disposeBag)
 
         viewModel.events
             .subscribe(onNext: { [weak self] event in
@@ -102,11 +101,17 @@ final class LoginViewController: ViewController{
     
     @IBAction private func didTapRegisterControl(_ sender: UIControl) {
         let registerViewController = R.storyboard.register.registerViewController()!
+        guard let provider = Application.shared.provider else { return }
+        let registerViewModel = RegistrationViewModel(provider: provider)
+        registerViewController.viewModel = registerViewModel
         navigationController?.pushViewController(registerViewController, animated: true)
     }
     
     @IBAction private func didTapForgotPasswordControl(_ sender: UIControl) {
-        let forgotPasswordViewController = R.storyboard.resetPassword.enterEmailViewController()!
+        let forgotPasswordViewController = R.storyboard.resetPassword.requestOTPViewController()!
+        guard let provider = Application.shared.provider else { return }
+        let requestOTPViewModel = RequestOTPViewModel(provider: provider)
+        forgotPasswordViewController.viewModel = requestOTPViewModel
         navigationController?.pushViewController(forgotPasswordViewController, animated: true)
     }
 
@@ -136,7 +141,7 @@ final class LoginViewController: ViewController{
         errorMessageView.layer.cornerRadius = 16
         errorMessageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         hideErrorMessageView(true)
-        textFieldStackViewTopConstraint.constant = 24.0
+        errorTextView.centerVertically()
     }
     
     private func setupTextField() {
@@ -195,6 +200,10 @@ final class LoginViewController: ViewController{
     private func hideErrorMessageView(_ isHidden: Bool) {
         self.errorMessageView.isHidden = isHidden
         self.errorMessageView.clipsToBounds = true
+        self.passwordView.borderColor = isHidden ? Color.normalBorder : Color.warningBorder
+        if !isHidden {
+            self.passwordTextField.text = ""
+        }
     }
 }
 

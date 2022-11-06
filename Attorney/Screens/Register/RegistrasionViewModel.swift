@@ -42,10 +42,7 @@ extension Array where Element: Hashable {
     }
 }
 
-class RegistrationViewModel: ViewModel {
-    var listMobileNumber: [String] = []
-    var countryCode: String!
-
+final class RegistrationViewModel: ViewModel {
     let events = PublishSubject<RegistrationEvent>()
 
     let eventChooseCountry = PublishSubject<String?>()
@@ -53,76 +50,55 @@ class RegistrationViewModel: ViewModel {
     let dateToFocus = BehaviorRelay<String?>(value: "DD/MM/YYYY")
 
     var registerBody: RegisterRequest?
-    var referralCode: String?
     // MARK: - Submit check box term & conditions and privacy policy variable
-    var receiveKrisFlyerAndSIASelected = false
-    var receiveSIAPromotionSelected = false
-    var bySubmitPrivacyAndTermSelected = false
-    var bySubmitTurkeyPrivacySelected = false
-    var bySubmitKoreanTermAndConditionSelected = false
-    var bySubmitKoreanPrivacyPolicySelected = false
-
+    var isAttorney: Bool = false
+   
     override init(provider: AttorneyAPI) {
         super.init(provider: provider)
     }
 
-    func getValidationStatusTaCAndPrivacy() -> Bool {
-        return self.bySubmitPrivacyAndTermSelected
-    }
 }
 
 extension RegistrationViewModel {
     func handleRegister(with validationForm: ValidationRegistrationForm) {
         registerBody = mergeData(from: validationForm)
-//        register()
+        register()
     }
 
     private func mergeData(from validationForm: ValidationRegistrationForm) -> RegisterRequest? {
-        let address = ""
-        let phoneNumber = ""
-        let otpValidationRequest = ""
-
-        return RegisterRequest(address: address,
-                               birthDate: validationForm.dateOfBirth.formatDateMappingAPI(),
-                               customerPassword: validationForm.password,
+        var role = "ROLE_USER"
+        if validationForm.isAttorney {
+            role = "ROLE_ATTORNEY"
+        }
+        return RegisterRequest(address: validationForm.address ?? "",
+                               dob: validationForm.dateOfBirth,
+                               password: validationForm.password,
                                email: validationForm.email,
-                               familyName: validationForm.lastName,
-                               givenName: validationForm.isSelectedHideFirstNameButton ? "" : validationForm.firstName,
-                               phoneNumber: phoneNumber,
-                               otpValidationRequest: otpValidationRequest)
+                               firstName: validationForm.firstName,
+                               lastName: validationForm.lastName,
+                               phoneNumber: validationForm.mobile,
+                               role: role)
     }
 
-//    private func register() {
-//        guard let registerBody = registerBody else { return }
-//        self.provider.register(registerRequest: registerBody)
-//            .trackActivity(self.bodyLoading).asSingle()
-//            .subscribe(onSuccess: { [weak self] regResponse in
-//                if regResponse.status == "SUCCESS" && regResponse.response?.isUniqueEmail == "true" {
-//                    RealmServiceRegister.shared.resetDBRegister()
-//                    RealmServiceRegister.shared.saveRegister(register: registerBody)
-//                    self?.events.onNext(.registerSuccess(response: regResponse, registerBody: registerBody))
-//                } else if regResponse.status == "SUCCESS" && regResponse.response?.isUniqueEmail == "false" {
-//                    self?.events.onNext(.errorDuplicateEmail)
-//                } else if regResponse.status == "FAILURE" {
-//                    let params: [String: Any] = [
-//                        "error_code": regResponse.response?.errorCode ?? "",
-//                        "error_message": regResponse.response?.errorDescription ?? ""
-//                    ]
-//                    FirebaseService.shared.reportLogEventToFireBase(eventName: "sign_up_failure", params: params)
-//                    self?.events.onNext(.registerFailure(errorMessage: regResponse.response?.errorDescription))
-//                }
-//            }, onFailure: { [weak self] error in
-//                if let krisPayError = error as? KrisPayError {
-//                    let params: [String: Any] = [
-//                        "error_code": krisPayError.errorCodeString,
-//                        "error_message": krisPayError.description
-//                    ]
-//                    FirebaseService.shared.reportLogEventToFireBase(eventName: "sign_up_failure", params: params)
-//                    self?.events.onNext(.registerFailure(errorMessage: krisPayError.description))
-//                } else {
-//                    self?.events.onNext(.registerFailure(errorMessage: error.localizedDescription))
-//                }
-//            })
-//            .disposed(by: disposeBag)
-//    }
+    private func register() {
+        guard let registerBody = registerBody else { return }
+        self.provider.register(registerRequest: registerBody)
+            .trackActivity(self.bodyLoading).asSingle()
+            .subscribe(onSuccess: { [weak self] regResponse in
+                if regResponse.success == true {
+                    self?.events.onNext(.registerSuccess(response: regResponse, registerBody: registerBody))
+                } else if regResponse.isUniqueEmail == false {
+                    self?.events.onNext(.errorDuplicateEmail)
+                } else {
+                    self?.events.onNext(.registerFailure(errorMessage: regResponse.message))
+                }
+            }, onFailure: { [weak self] error in
+                if let attorneyError = error as? AttorneyError {
+                    self?.events.onNext(.registerFailure(errorMessage: attorneyError.description))
+                } else {
+                    self?.events.onNext(.registerFailure(errorMessage: error.localizedDescription))
+                }
+            })
+            .disposed(by: disposeBag)
+    }
 }

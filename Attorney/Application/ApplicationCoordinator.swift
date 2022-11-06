@@ -67,6 +67,16 @@ class ApplicationCoordinator {
         window?.rootViewController = rootViewController
     }
     
+    func popToLogin() {
+        guard let provider = Application.shared.provider else { return }
+        let loginViewModel = LoginViewModel(provider: provider)
+        let loginViewController = R.storyboard.login.loginViewController()!
+        loginViewController.viewModel = loginViewModel
+        let navigationController = UINavigationController(rootViewController: loginViewController)
+        rootViewController = navigationController
+        window?.rootViewController = rootViewController
+    }
+    
 
     public func getPreviousIndex() -> Int {
         return self.previousIndex

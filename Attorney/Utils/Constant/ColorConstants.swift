@@ -19,10 +19,12 @@ struct Color {
     static let textColor = UIColor.init(rgb: 0x354052)
     static let deactivatedButton = UIColor.init(rgb: 0xCDCDEF)
     static let colorBorderTextField = UIColor.init(rgb: 0xDFE3E9, alpha: 1)
+    static let colorBackgroundTextField = UIColor.init(rgb: 0xF3F5F7, alpha: 1)
     static let colorError = UIColor.init(rgb: 0xF85359, alpha: 1)
     static let FEEDEE = UIColor.init(rgb: 0xFEEDEE, alpha: 1)
     static let warningBackground = UIColor.init(rgb: 0xFFECEC)
     static let warningBorder = UIColor.init(rgb: 0xD70520)
+    static let normalBorder = UIColor.init(rgb: 0x7F8487)
     static let historyDetailBorder = UIColor.init(rgb: 0xC5D0DE)
     static let FF4052 = UIColor.init(rgb: 0xFF4052)
     static let DFE3E9 = UIColor.init(rgb: 0xDFE3E9)
@@ -30,5 +32,6 @@ struct Color {
                                      green: 64.0 / 255.0,
                                      blue: 82.0 / 255.0,
                                      alpha: 1.0)
+    static let colorPaymentError = UIColor.init(rgb: 0xF85359, alpha: 1)
    
 }

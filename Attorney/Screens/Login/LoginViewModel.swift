@@ -10,12 +10,6 @@ import RxSwift
 
 class LoginViewModel: ViewModel {
     let events = PublishSubject<ResponseLoginViewModelEvent>()
-    var isLoginToGuest: Bool = false
-    var isLoginToMyAccount: Bool = false
-    var isLoginFromHighlight: Bool = false
-    var isLoginFromKrisShop = false
-    var isLoginFromChallenges = false
-    var isLoginFromSqkii = false
 
     override init(provider: AttorneyAPI) {
         super.init(provider: provider)
@@ -54,12 +48,6 @@ class LoginViewModel: ViewModel {
                                           password: password)
                 } else {
                     this.events.onNext(.errorLogin(error: MessageError.unVerified))
-                }
-            }, onFailure: { [weak self] error in
-                if let attorneyError = error as? AttorneyError {
-                    self?.events.onNext(.errorLogin(error: attorneyError.description))
-                } else {
-                    self?.events.onNext(.errorLogin(error: error.localizedDescription))
                 }
             })
             .disposed(by: disposeBag)

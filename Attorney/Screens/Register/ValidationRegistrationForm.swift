@@ -10,19 +10,19 @@ import RxSwift
 
 
 class ValidationRegistrationForm {
-    public private(set) var firstName: String?
-    public private(set) var isSelectedHideFirstNameButton: Bool = false
+    public private(set) var firstName: String!
 
     public private(set) var lastName: String!
     public private(set) var dateOfBirth: String!
     public private(set) var email: String!
     public private(set) var mobile: String!
-    public private(set) var address: String!
+    public private(set) var address: String?
+    public private(set) var isAttorney: Bool = false
+    public var isUniqueEmail: Bool = true
 
     public private(set) var password: String!
-    public private(set) var confirmPasword: String?
+    public private(set) var confirmPassword: String?
 
-    public var isBetweenTwoAndSixteen: Bool = false
 
     private var bySubmitPrivacyAndTermSelected = false
 
@@ -34,6 +34,8 @@ class ValidationRegistrationForm {
     let valueConfirmPassword = PublishSubject<String?>()
     let valueDatePicker = PublishSubject<String?>()
     let valueTermsAndPrivacyCheckboxSelected = PublishSubject<Bool>()
+    let valueAddress = PublishSubject<String?>()
+    let valueIsAttorney = PublishSubject<Bool>()
 
     // Need validation form
     let validationStatusFirstName = PublishSubject<StatusField>()
@@ -50,13 +52,13 @@ class ValidationRegistrationForm {
     let disposeBag = DisposeBag()
 
     init() {
-        self.recieveEventNeedToValidationForm()
+        self.receiveEventNeedToValidationForm()
         self.handleValidationAllForm()
     }
 
     // swiftlint:disable function_body_length
     // swiftlint:disable cyclomatic_complexity
-    private func recieveEventNeedToValidationForm() {
+    private func receiveEventNeedToValidationForm() {
         self.valueFirstName
             .subscribe(onNext: { [weak self] firstName in
                 guard let this = self else { return }
@@ -65,10 +67,8 @@ class ValidationRegistrationForm {
                     return
                 }
                 this.firstName = firstName
-                if !this.isSelectedHideFirstNameButton {
-                    let validation = this.executeValidationFirstName()
-                    this.validationStatusFirstName.onNext(validation ? .valid : .invalid)
-                }
+                let validation = this.executeValidationFirstName()
+                this.validationStatusFirstName.onNext(validation ? .valid : .invalid)
             })
             .disposed(by: disposeBag)
 
@@ -99,18 +99,18 @@ class ValidationRegistrationForm {
                 guard let this = self else { return }
                 this.email = email
                 let validation = this.executeValidationEmail()
-                if this.confirmPasword != nil && (this.password == "" || this.confirmPasword != "") {
-                    let validation = this.excuteValidationConfirmPassword()
-                    this.validationStatusConfirmPassword.onNext(validation ? .valid : .invalid)
+                if this.email != nil {
+                    let validation = this.executeValidationEmail()
+                    this.validationStatusEmail.onNext(validation ? .valid : .invalid)
                 }
                 this.validationStatusEmail.onNext(validation ? .valid : .invalid)
             })
             .disposed(by: disposeBag)
 
         self.valueConfirmPassword
-            .subscribe(onNext: { [weak self] confirmPasword in
+            .subscribe(onNext: { [weak self] confirmPassword in
                 guard let this = self else { return }
-                this.confirmPasword = confirmPasword
+                this.confirmPassword = confirmPassword
                 let validation = this.excuteValidationConfirmPassword()
                 this.validationStatusConfirmPassword.onNext(validation ? .valid : .invalid)
             })
@@ -141,6 +141,18 @@ class ValidationRegistrationForm {
                 let validation = this.excuteValidationTaCAndPrivacySelected()
                 this.validationStatusTermsAndPrivacyCheckboxSelected.onNext(validation ? .valid : .invalid)
             }).disposed(by: disposeBag)
+        
+        self.valueAddress
+            .subscribe(onNext: { [weak self] address in
+                guard let this = self else { return }
+                this.address = address
+            }).disposed(by: disposeBag)
+        
+        self.valueIsAttorney
+            .subscribe(onNext: { [weak self] isAttorney in
+                guard let this = self else { return }
+                this.isAttorney = isAttorney
+            }).disposed(by: disposeBag)
     }
 
     private func handleValidationAllForm() {
@@ -155,13 +167,14 @@ class ValidationRegistrationForm {
                          )
             .subscribe(onNext: { [weak self] _ in
                 guard let this = self else { return }
-                var valid = this.executeValidationLastName() &&
+                let valid = this.executeValidationLastName() &&
                 this.executeValidationDate() &&
                 this.executeValidationEmail() &&
                 this.excuteValidationConfirmPassword() &&
                 this.executeValidationMobile() &&
                 this.executeValidationPassword() &&
-                this.excuteValidationTaCAndPrivacySelected()
+                this.excuteValidationTaCAndPrivacySelected() &&
+                this.isUniqueEmail
 
                 log.debug("validForm:--\(valid)")
                 this.validtionForm.onNext(valid)
@@ -188,7 +201,6 @@ extension ValidationRegistrationForm {
         let date = dateOfBirth.convertStringToDate(fortmat: Configurations.Format.dateOfBirth)
         let components = Calendar.current.dateComponents([.month], from: date, to: Date().toDateLocalTime())
         let isLargerSixteenYear = components.month ?? 0 >= 192 ? true : false
-//        self.isBetweenTwoAndSixteen = (components.month ?? 0 >= 24 && components.month ?? 0 < 192) ? true: false
         return isLargerSixteenYear
     }
 
@@ -198,7 +210,7 @@ extension ValidationRegistrationForm {
     }
 
     private func excuteValidationConfirmPassword() -> Bool {
-        guard confirmPasword != nil, confirmPasword?.lowercased() == password?.lowercased() || (confirmPasword == "" && password == nil) else { return false }
+        guard confirmPassword != nil, confirmPassword?.lowercased() == password?.lowercased() || (confirmPassword == "" && password == nil) else { return false }
         return true
     }
 
@@ -222,11 +234,13 @@ extension ValidationRegistrationForm {
 public enum StatusField {
     case valid
     case invalid
+    case isDuplicateEmail
 }
 extension StatusField: Equatable {
     public static func == (lhs: StatusField, rhs: StatusField) -> Bool {
         switch (lhs, rhs) {
         case (.valid, .valid),
+             (.isDuplicateEmail, .isDuplicateEmail),
              (.invalid, .invalid):
             return true
 

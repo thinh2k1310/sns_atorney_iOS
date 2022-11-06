@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ProximaNova-Reg.otf">
+            <string>ProximaNova-Regular</string>
+        </array>
+        <array key="ProximaNova-Sbold.otf">
+            <string>ProximaNova-Semibold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noInternet" translatesAutoresizingMaskIntoConstraints="NO" id="aJT-y2-Baf">
+                                <rect key="frame" x="57" y="198" width="300" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="FAB-ce-R5D"/>
+                                    <constraint firstAttribute="height" constant="200" id="OOU-oK-GRH"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WeH-a8-Qq0" userLabel="Try again">
+                                <rect key="frame" x="57" y="598" width="300" height="50"/>
+                                <color key="backgroundColor" name="AppTintColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="OV3-Wi-m40"/>
+                                    <constraint firstAttribute="height" constant="50" id="b7N-w7-s4K"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="14"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Try again">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No internet connection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMa-Ho-Hbj">
+                                <rect key="frame" x="115" y="438" width="208" height="22"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="18"/>
+                                <color key="textColor" name="FF4052"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn on mobile data or use Wifi to access internet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFm-8U-Tee">
+                                <rect key="frame" x="40" y="480" width="334" height="41.5"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
+                                <color key="textColor" name="354052"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WeH-a8-Qq0" firstAttribute="top" secondItem="aJT-y2-Baf" secondAttribute="bottom" constant="200" id="7gi-cw-ETJ"/>
+                            <constraint firstItem="aJT-y2-Baf" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="B4W-pM-HR7"/>
+                            <constraint firstItem="fFm-8U-Tee" firstAttribute="top" secondItem="LMa-Ho-Hbj" secondAttribute="bottom" constant="20" id="Bzh-zt-IAF"/>
+                            <constraint firstItem="aJT-y2-Baf" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-150" id="OlJ-8e-duC"/>
+                            <constraint firstItem="LMa-Ho-Hbj" firstAttribute="top" secondItem="aJT-y2-Baf" secondAttribute="bottom" constant="40" id="WH5-ch-8JE"/>
+                            <constraint firstItem="WeH-a8-Qq0" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="dNV-HY-E9F"/>
+                            <constraint firstItem="fFm-8U-Tee" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="emR-Qv-gDI"/>
+                            <constraint firstItem="LMa-Ho-Hbj" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="muI-tR-4HR"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fFm-8U-Tee" secondAttribute="trailing" constant="40" id="shu-bQ-ntw"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-17.39130434782609" y="16.741071428571427"/>
+        </scene>
+        <!--Error View Controller-->
+        <scene sceneID="Ewc-AP-0CQ">
+            <objects>
+                <viewController storyboardIdentifier="ErrorViewController" id="DvQ-ju-H9Z" customClass="ErrorViewController" customModule="Attorney" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jcq-n7-tWq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="commonError" translatesAutoresizingMaskIntoConstraints="NO" id="hJa-Gm-z1o">
+                                <rect key="frame" x="57" y="198" width="300" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="6vN-c5-8zu"/>
+                                    <constraint firstAttribute="height" constant="200" id="nPh-g3-grg"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YrF-ZS-lqY" userLabel="Try again">
+                                <rect key="frame" x="57" y="598" width="300" height="50"/>
+                                <color key="backgroundColor" name="AppTintColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="a9v-Yx-g0k"/>
+                                    <constraint firstAttribute="height" constant="50" id="ioB-f0-dNk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="14"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Try again">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapTryAgain:" destination="DvQ-ju-H9Z" eventType="touchUpInside" id="z27-Hs-7R3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Server error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ych-6b-Mec">
+                                <rect key="frame" x="159" y="438" width="96" height="22"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="18"/>
+                                <color key="textColor" name="FF4052"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attorney is currently experiencing some technical difficulties.  Please try again later." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJT-wp-WXP">
+                                <rect key="frame" x="40" y="480" width="334" height="83"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
+                                <color key="textColor" name="354052"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6h-O8-Rfp" userLabel="Go back">
+                                <rect key="frame" x="57" y="688" width="300" height="50"/>
+                                <color key="backgroundColor" name="AppTintColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="7o2-tV-muN"/>
+                                    <constraint firstAttribute="width" constant="300" id="Pj4-l5-NtS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="14"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Go back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapGoBack:" destination="DvQ-ju-H9Z" eventType="touchUpInside" id="gUN-E0-z65"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="J2J-2L-Xq2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ych-6b-Mec" firstAttribute="centerX" secondItem="Jcq-n7-tWq" secondAttribute="centerX" id="06T-10-2X1"/>
+                            <constraint firstItem="J2J-2L-Xq2" firstAttribute="trailing" secondItem="lJT-wp-WXP" secondAttribute="trailing" constant="40" id="0xM-f8-bHl"/>
+                            <constraint firstItem="hJa-Gm-z1o" firstAttribute="centerX" secondItem="Jcq-n7-tWq" secondAttribute="centerX" id="4bs-0Y-rxp"/>
+                            <constraint firstItem="YrF-ZS-lqY" firstAttribute="top" secondItem="hJa-Gm-z1o" secondAttribute="bottom" constant="200" id="Aos-cL-JKe"/>
+                            <constraint firstItem="w6h-O8-Rfp" firstAttribute="centerX" secondItem="Jcq-n7-tWq" secondAttribute="centerX" id="Eqs-4m-rqj"/>
+                            <constraint firstItem="w6h-O8-Rfp" firstAttribute="top" secondItem="YrF-ZS-lqY" secondAttribute="bottom" constant="40" id="IKN-7X-fIf"/>
+                            <constraint firstItem="Ych-6b-Mec" firstAttribute="top" secondItem="hJa-Gm-z1o" secondAttribute="bottom" constant="40" id="MMc-yM-jbd"/>
+                            <constraint firstItem="lJT-wp-WXP" firstAttribute="leading" secondItem="J2J-2L-Xq2" secondAttribute="leading" constant="40" id="Txk-9P-dDj"/>
+                            <constraint firstItem="lJT-wp-WXP" firstAttribute="top" secondItem="Ych-6b-Mec" secondAttribute="bottom" constant="20" id="ZEc-Ar-i0F"/>
+                            <constraint firstItem="YrF-ZS-lqY" firstAttribute="centerX" secondItem="Jcq-n7-tWq" secondAttribute="centerX" id="iGw-0U-XCq"/>
+                            <constraint firstItem="hJa-Gm-z1o" firstAttribute="centerY" secondItem="Jcq-n7-tWq" secondAttribute="centerY" constant="-150" id="uIW-PZ-g4m"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="goBackButton" destination="w6h-O8-Rfp" id="kN4-1o-lUT"/>
+                        <outlet property="tryAgainButton" destination="YrF-ZS-lqY" id="oIr-sB-25Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7N5-py-DoK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="845" y="17"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="commonError" width="5157" height="3438"/>
+        <image name="noInternet" width="7500" height="5000"/>
+        <namedColor name="354052">
+            <color red="0.20784313725490197" green="0.25098039215686274" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppTintColor">
+            <color red="0.31764705882352939" green="0.31764705882352939" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="FF4052">
+            <color red="1" green="0.25098039215686274" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

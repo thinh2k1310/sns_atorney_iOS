@@ -12,4 +12,8 @@ import RxSwift
 protocol AttorneyAPI {
     // MARK: - Auth
     func login(email: String, password: String) -> Single<LoginResponse>
+    func register(registerRequest: RegisterRequest) -> Single<RegisterResponse>
+    func validateEmail(validateEmailRequest: ValidateEmailRequest) -> Single<ValidateEmailResponse>
+    func sendOTP(sendOTPRequest: SendOTPRequest) -> Single<SendOTPResponse>
+    func resetPassword(resetPasswordRequest: ResetPasswordRequest) -> Single<ResetPasswordResponse>
 }

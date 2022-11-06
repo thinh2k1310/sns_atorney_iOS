@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 final class RegisterViewController: ViewController {
     // MARK: - Section 1 - IBOutlet
@@ -37,6 +38,8 @@ final class RegisterViewController: ViewController {
     @IBOutlet private weak var showPassword: UIButton!
     @IBOutlet private weak var showConfirmPassword: UIButton!
     
+    @IBOutlet private weak var attorneyButton: UIButton!
+    @IBOutlet private weak var attorneyCheckboxImageView: UIImageView!
     @IBOutlet private weak var privacyCheckboxButton: UIButton!
     @IBOutlet private weak var privacyCheckboxImageView: UIImageView!
     @IBOutlet private weak var registerButton: UIButton!
@@ -53,7 +56,8 @@ final class RegisterViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scrollView.delegate = self
-        setupTapGestures()
+        self.setupTapGestures()
+        self.bindingEvent()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -71,12 +75,58 @@ final class RegisterViewController: ViewController {
         super.setupUI()
         adView.applyGradientBG()
         setupButton()
+        testData()
+    }
+    
+    private func testData() {
+        firstNameTextField.text = "thinh"
+        lastNameTextField.text = "thinh"
+        emailTextField.text = "thinh2k@gmail.com"
+        mobileTextField.text = "0796844698"
+        passwordTextField.text = "Thinh@1310"
+        confirmPasswordTextField.text = "Thinh@1310"
     }
     
     // MARK: - Section 4 - Binding, subcribe
     override func bindViewModel() {
         super.bindViewModel()
         bindingValidationForm()
+    }
+    
+    private func bindingEvent() {
+        guard let viewModel = self.viewModel as? RegistrationViewModel else { return }
+        
+        viewModel.bodyLoading.asObservable()
+            .bind(to: AttorneyTransition.rx.isTinyAnimating)
+            .disposed(by: disposeBag)
+        
+        viewModel.events
+            .subscribe(onNext: { [weak self] event in
+                guard let strongSelf = self else { return }
+                switch event {
+                case .registerSuccess( _, let registerBody):
+                    strongSelf.showOTPRegisterScreen(email: registerBody.email)
+                    break
+                        
+                case .registerFailure:
+                    ErrorViewController.showErrorVC()
+
+                case .errorDuplicateEmail:
+                    strongSelf.validationRegistrationForm.isUniqueEmail = false
+                    strongSelf.validationRegistrationForm
+                        .validationStatusEmail.onNext(.isDuplicateEmail)
+                }
+                })
+                .disposed(by: disposeBag)
+        
+        viewModel.dateToFocus
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                guard let this = self,
+                      let value = value else { return }
+                this.dobLabel.text = value
+                this.dateOfBirthPicker.date = value.toDate(format: Configurations.Format.dateOfBirth) ?? Date()
+            }).disposed(by: disposeBag)
     }
     
     // MARK: - Section 5 - IBAction
@@ -162,7 +212,7 @@ final class RegisterViewController: ViewController {
     }
     
     @IBAction private func didTapOpenCalendar(_ sender : UIButton) {
-//        guard let viewModel = self.viewModel as? RegistrationViewModel else { return }
+        guard let viewModel = self.viewModel as? RegistrationViewModel else { return }
         view.endEditing(true)
         if !isOpeningDatePicker {
             self.isOpeningDatePicker = true
@@ -179,11 +229,11 @@ final class RegisterViewController: ViewController {
             components.calendar = calendar
             components.year = -16
             let selectDate = calendar.date(byAdding: components, to: date)!
-//            if dateOfBirthLabel.text == "DD/MM/YYYY" {
-//                viewModel.dateToFocus.accept(selectDate.toStringLocalTime(format: Configurations.Format.dateOfBirth))
-//            } else {
-//                viewModel.dateToFocus.accept(self.dateOfBirthLabel.text!)
-//            }
+            if dobLabel.text == "DD/MM/YYYY" {
+                viewModel.dateToFocus.accept(selectDate.toStringLocalTime(format: Configurations.Format.dateOfBirth))
+            } else {
+                viewModel.dateToFocus.accept(self.dobLabel.text!)
+            }
 
             // limited min select datePicker past 100 years
             dateFormatter.dateFormat = "yyyy"
@@ -257,10 +307,20 @@ final class RegisterViewController: ViewController {
     @IBAction private func didTapPrivacyCheckbox(_ sender: UIButton) {
         self.privacyCheckboxButton.isSelected = !self.privacyCheckboxButton.isSelected
         self.privacyCheckboxImageView.image = self.privacyCheckboxButton.isSelected ? R.image.checkBox() : R.image.uncheckBox()
+        validateTaCAndPrivacyStatus(status: self.privacyCheckboxButton.isSelected)
+    }
+    
+    @IBAction private func didTapAttorneyCheckbox(_ sender: UIButton) {
+        guard let viewModel = self.viewModel as? RegistrationViewModel else { return }
+        self.attorneyButton.isSelected.toggle()
+        self.attorneyCheckboxImageView.image = self.attorneyButton.isSelected ? R.image.checkBox() : R.image.uncheckBox()
+        viewModel.isAttorney =  self.attorneyButton.isSelected
+        self.validationRegistrationForm.valueIsAttorney.onNext(self.attorneyButton.isSelected)
     }
     
     @IBAction private func didTapRegister(_ sender: UIButton) {
-        
+        guard let viewModel = self.viewModel as? RegistrationViewModel else { return }
+        viewModel.handleRegister(with: self.validationRegistrationForm)
     }
     
     // MARK: - Section 6 - Private function
@@ -276,7 +336,18 @@ final class RegisterViewController: ViewController {
     
     private func setupButton() {
         self.privacyCheckboxButton.isSelected = false
+        self.attorneyButton.isSelected = false
         self.registerButton.deactivate()
+    }
+    
+    private func showOTPRegisterScreen(email: String) {
+        guard let provider = Application.shared.provider,
+              let otpVc = R.storyboard.verifyOTP.verifyOTPViewController() else { return }
+        let viewModel = VerifyOTPViewModel(provider: provider)
+        viewModel.email = email
+        viewModel.isUser = false
+        otpVc.viewModel = viewModel
+        self.navigationController?.pushViewController(otpVc, animated: true)
     }
     
     private func removeTooltips() {
@@ -311,18 +382,6 @@ final class RegisterViewController: ViewController {
         recognizer.delegate = self
         self.scrollView.addGestureRecognizer(recognizer)
     }
-    
-//    private func showOTPRegisterScreen(registerResponse response: RegisterResponse, registerBody: RegisterRequest) {
-//        guard let provider = Application.shared.provider,
-//              let otpVc = R.storyboard.verifyOTP.verifyOTPViewController() else { return }
-//        let viewModel = RegisterOTPViewModel(provider: provider)
-//        viewModel.customerID = response.response?.customerId
-//        viewModel.registerBody = registerBody
-//        viewModel.typeOTP = "SMS"
-//        otpVc.viewModel = viewModel
-//        self.navigationController?.pushViewController(otpVc, animated: true)
-//    }
-
 }
 
 // MARK: - Date Picker
@@ -446,6 +505,7 @@ extension RegisterViewController {
             .asObservable()
             .subscribe(onNext: { [weak self] _ in
                 guard let this = self else { return }
+                this.validationRegistrationForm.isUniqueEmail = true
                 this.validationRegistrationForm.valueEmail
                     .onNext(this.emailTextField.text)
             })
@@ -458,6 +518,16 @@ extension RegisterViewController {
                 guard let this = self else { return }
                 this.validationRegistrationForm.valueMobileNumber
                     .onNext(this.mobileTextField.text)
+            })
+            .disposed(by: disposeBag)
+        
+        // Input address textfield event
+        self.addressTextField.rx.controlEvent([.editingDidEnd, .editingChanged])
+            .asObservable()
+            .subscribe(onNext: { [weak self] _ in
+                guard let this = self else { return }
+                this.validationRegistrationForm.valueAddress
+                    .onNext(this.addressTextField.text)
             })
             .disposed(by: disposeBag)
 
@@ -566,7 +636,11 @@ extension RegisterViewController {
     }
 
     fileprivate func handleRegisterButton(isEnable: Bool) {
-        self.registerButton.isEnabled = isEnable
+        if isEnable {
+            registerButton.activate()
+        } else {
+            registerButton.deactivate()
+        }
 
     }
 
@@ -582,7 +656,7 @@ extension RegisterViewController {
             if dateOfBirth == "DD/MM/YYYY" {
                 self.setupUIForTermConditionTextView(content: "Please enter your date of birth")
             } else {
-                self.setupUIForTermConditionTextView(content: "Member must be at least 16 years old for KrisFlyer registration in Kris+. If you are between 2-16 years old, please click here to register for an account instead.")
+                self.setupUIForTermConditionTextView(content: "Member must be at least 16 years old for registration in Attorney.")
             }
         } else {
             self.validationDob.isHidden = true
@@ -645,6 +719,10 @@ extension RegisterViewController {
         if status == .invalid {
             self.textFieldError(label: validationEmail, textField: emailTextField)
             validationEmail.text = "Please enter a valid email address"
+        } else if status == .isDuplicateEmail {
+            self.textFieldError(label: validationEmail, textField: emailTextField)
+            validationEmail.text = "This email is already in use"
+            self.scrollView.setContentOffset(.zero, animated: true)
         } else {
             self.textFieldNormal(label: validationEmail, textField: emailTextField)
         }
@@ -726,5 +804,11 @@ extension RegisterViewController {
         }
 
         return result
+    }
+}
+
+extension RegisterViewController {
+    func validateTaCAndPrivacyStatus(status: Bool) {
+        self.validationRegistrationForm.valueTermsAndPrivacyCheckboxSelected.onNext(status)
     }
 }

@@ -163,3 +163,18 @@ extension String {
     }
 }
 
+extension String {
+    func toDate(format: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+        return dateFormatter.date(from: self)
+    }
+
+    func toDouble() -> Double? {
+        return NumberFormatter().number(from: self)?.doubleValue
+    }
+}
+
+
