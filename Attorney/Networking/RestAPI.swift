@@ -40,6 +40,18 @@ extension RestAPI {
     func resetPassword(resetPasswordRequest: ResetPasswordRequest) -> Single<ResetPasswordResponse> {
         return requestObject(.resetPassword(resetPasswordRequest: resetPasswordRequest), type: ResetPasswordResponse.self)
     }
+    
+    func fetchNewsFeed(request: PostsRequest) -> Single<PostsResponse> {
+        return requestObject(.fetchNewsFeed(request: request), type: PostsResponse.self)
+    }
+    
+    func getPostDetail(postId: String) -> Single<PostDetailResponse> {
+        return requestObject(.getPostDetail(postId: postId), type: PostDetailResponse.self)
+    }
+    
+    func getPostComments(postId: String) -> Single<PostCommentsResponse> {
+        return requestObject(.getPostComments(postId: postId), type: PostCommentsResponse.self)
+    }
 }
 
 extension RestAPI {

@@ -16,6 +16,9 @@ enum AttorneySNSAPI {
     case validateEmail(validateEmailRequest: ValidateEmailRequest)
     case sendOTP(sendOTPRequest: SendOTPRequest)
     case resetPassword(resetPasswordRequest: ResetPasswordRequest)
+    case fetchNewsFeed(request: PostsRequest)
+    case getPostDetail(postId: String)
+    case getPostComments(postId: String)
 }
 
 extension AttorneySNSAPI: TargetType {
@@ -40,13 +43,22 @@ extension AttorneySNSAPI: TargetType {
             
         case .resetPassword:
             return "auth/password/reset"
+            
+        case .fetchNewsFeed:
+            return "post/news"
+        
+        case .getPostDetail(let postId):
+            return "post/\(postId)"
+            
+        case .getPostComments(let postId):
+            return "post/\(postId)/comments"
         }
         
     }
     
     var method: Moya.Method {
         switch self {
-        case .loginOTP, .register:
+        case .loginOTP, .register, .fetchNewsFeed:
             return .post
         
         case .validateEmail, .sendOTP, .resetPassword:
@@ -80,6 +92,11 @@ extension AttorneySNSAPI: TargetType {
             return .requestJSONEncodable(sendOTPRequest)
         case .resetPassword(let resetPasswordRequest):
             return .requestJSONEncodable(resetPasswordRequest)
+        case .fetchNewsFeed(let request):
+            return .requestJSONEncodable(request)
+        
+        default:
+            return .requestPlain
         }
     }
     

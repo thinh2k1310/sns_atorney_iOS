@@ -10,10 +10,11 @@ import RxSwift
 
 class HomeCoordinator: Coordinator {
     public var homeNavigationViewController: UINavigationController!
-    
+    public var homeViewModel: HomeViewModel!
     let disposeBag = DisposeBag()
     
     public init (provider: AttorneyAPI) {
+        self.homeViewModel = HomeViewModel(provider: provider)
         self.setupViewController()
     }
 }
@@ -22,17 +23,10 @@ class HomeCoordinator: Coordinator {
 extension HomeCoordinator {
     func setupViewController() {
         let homeVC = R.storyboard.home.homeViewController()!
+        homeVC.viewModel = self.homeViewModel
         homeNavigationViewController = UINavigationController(rootViewController: homeVC)
         let itemHome = UITabBarItem(title: "Home", image: R.image.homeTab_icon()!, selectedImage: R.image.homeTab_icon_selected()!)
         itemHome.tag = IndexTabbar.home.rawValue
         homeNavigationViewController.tabBarItem = itemHome
     }
-}
-
-// MARK: - Event
-extension HomeCoordinator {
-    func receiveEventTransition() {
-        
-    }
-    
 }

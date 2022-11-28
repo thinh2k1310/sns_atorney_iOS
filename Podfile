@@ -32,6 +32,8 @@ def common
   pod "ReCaptcha/RxSwift", '~> 1.6.0'
   pod 'SkeletonView', '~> 1.13'
   pod 'lottie-ios', '~> 3.4.1'
+  pod 'ReadMoreTextView'
+  pod 'GrowingTextView', '0.7.2'
 end
 
 def networking

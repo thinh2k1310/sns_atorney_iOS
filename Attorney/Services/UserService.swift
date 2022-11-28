@@ -14,6 +14,7 @@ class UserService {
     static let shared = UserService()
     
     fileprivate let usernameKey = "UsernameKey"
+    fileprivate let userInfoKey = "UserInfoKey"
     fileprivate let pwAccessKey = "PasswordKey"
     fileprivate let lastIdKey = "LastIdKey"
     fileprivate let lastEmailKey = "LastEmailKey"

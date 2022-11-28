@@ -16,6 +16,8 @@ final class Application: NSObject {
     
     var provider: AttorneyAPI!
     
+    var previousVC = UIViewController()
+    
     override private init() {
         super.init()
     }

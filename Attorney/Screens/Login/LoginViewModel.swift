@@ -33,6 +33,7 @@ class LoginViewModel: ViewModel {
 
                 let userInfo = UserInfo(loginResponse: response)
                 UserService.shared.setUserInfo(info: userInfo)
+                UserDefaults.standard.saveObject(userInfo, forKey: UserKey.kUserInfo)
                 UserService.shared.saveAccessToken(token: response.token ?? "")
                 
                 guard let verified = response.data?.verified else {

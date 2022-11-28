@@ -7,11 +7,14 @@
 
 import UIKit
 
-final class DashboardTabBarController: UITabBarController{
+final class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate {
+    
+    var previousController: UIViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTabBar()
+        self.delegate = self
     }
     
     private func configureTabBar() {
@@ -23,4 +26,22 @@ final class DashboardTabBarController: UITabBarController{
         tabBar.layer.shadowColor = UIColor.black.cgColor
         tabBar.layer.shadowOpacity = 0.2
     }
+    
+    private func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) {
+        if previousController == viewController {
+            if let nav = viewController as? UINavigationController, let vc = nav.viewControllers[0] as? HomeViewController {
+                if vc.isViewLoaded && (vc.view.window != nil) {
+                    vc.didReselectTab()
+                }
+            }else if let nav = viewController as? UINavigationController, let vc = nav.viewControllers[0] as? HomeViewController {
+                if vc.isViewLoaded && (vc.view.window != nil) {
+                    vc.didReselectTab()
+                }
+            }else{
+                
+            }
+        }
+        previousController = viewController
+    }
 }
+

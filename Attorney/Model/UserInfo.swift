@@ -35,3 +35,16 @@ struct UserInfo: Codable {
         self.cover = loginResponse.data?.cover
     }
 }
+
+struct ShortUser: Codable {
+    let _id: String?
+    let firstName: String?
+    let lastName : String?
+    let avatar: String?
+    let role: String?
+}
+
+enum UserRole: String {
+    case user = "ROLE_USER"
+    case attorney = "ROLE_ATTORNEY"
+}

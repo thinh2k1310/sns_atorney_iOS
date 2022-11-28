@@ -16,6 +16,8 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
     var provider: AttorneyAPI?
     let disposeBag = DisposeBag()
     var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.invalid
+    
+    weak var handler: ReselectTabHandler?
 
     deinit {
         log.info("deinit: \(self)")
@@ -62,5 +64,17 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
 
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         self.navigationController?.popToRootViewController(animated: true)
+        if Application.shared.previousVC == viewController {
+            if let nav = viewController as? UINavigationController, let vc = nav.viewControllers[0] as? HomeViewController {
+                if vc.isViewLoaded && (vc.view.window != nil) {
+                    vc.didReselectTab()
+                }
+            }
+        }
+        Application.shared.previousVC = viewController
     }
+}
+
+protocol ReselectTabHandler: AnyObject {
+    func didReselectTab()
 }

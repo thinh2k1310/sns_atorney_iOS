@@ -10,7 +10,6 @@ import RxSwift
 
 protocol Coordinator {
     func setupViewController()
-    func receiveEventTransition()
 }
 
 class ApplicationCoordinator {

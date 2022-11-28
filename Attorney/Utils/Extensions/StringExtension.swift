@@ -139,6 +139,17 @@ extension String {
         label.sizeToFit()
         return label.frame.height
     }
+    
+    func heightAsTextView(withConstrainedWidth width: CGFloat, font: UIFont, numberOfLines: Int) -> CGFloat {
+        let textView: UITextView = UITextView(frame: CGRect(x: 0, y: 0, width: width, height: CGFloat.greatestFiniteMagnitude))
+        textView.textContainer.maximumNumberOfLines = numberOfLines
+        textView.textContainer.lineBreakMode = NSLineBreakMode.byWordWrapping
+        textView.font = font
+        textView.text = self
+
+        textView.sizeToFit()
+        return textView.frame.height
+    }
 }
 
 extension String {
@@ -176,5 +187,15 @@ extension String {
         return NumberFormatter().number(from: self)?.doubleValue
     }
 }
+
+extension String {
+   func replace(string: String, replacement: String) -> String {
+       return self.replacingOccurrences(of: string, with: replacement, options: NSString.CompareOptions.literal, range: nil)
+   }
+
+   func removeWhitespace() -> String {
+       return self.replace(string: " ", replacement: "")
+   }
+ }
 
 
