@@ -57,7 +57,7 @@ struct PostDetail: Codable {
     let type: String?
     let totalLikes: Int?
     let totalComments: Int?
-    var isLikePost: Bool?
+    let isLikePost: Bool?
 }
 
 struct PostDetailResponse: Codable {

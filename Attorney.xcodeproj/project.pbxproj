@@ -74,6 +74,8 @@
 		03EE2BC4290D4F2700A8317A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EE2BC3290D4F2700A8317A /* LoginViewModel.swift */; };
 		03EE2BC6290D502D00A8317A /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EE2BC5290D502D00A8317A /* ErrorMessage.swift */; };
 		0EBB24BFF25640264271378A /* Pods_Attorney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0C7BD7D7A2D53E0A8E5ECF4 /* Pods_Attorney.framework */; };
+		F30039F029346EB2006B19CF /* PostDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30039EF29346EB2006B19CF /* PostDetailHeaderView.swift */; };
+		F30039F229346EC4006B19CF /* PostDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F30039F129346EC4006B19CF /* PostDetailHeaderView.xib */; };
 		F31EF4F828F1E18E0043E7AB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F31EF4FA28F1E18E0043E7AB /* Localizable.strings */; };
 		F32C522128F2A73A00E6C840 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C522028F2A73A00E6C840 /* UIColorExtension.swift */; };
 		F32C522328F3262300E6C840 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F32C522228F3262300E6C840 /* Launch Screen.storyboard */; };
@@ -134,6 +136,11 @@
 		F3886F1F28EFEA5B00A14F47 /* MessageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3886F1E28EFEA5B00A14F47 /* MessageCoordinator.swift */; };
 		F3886F2128EFEA6E00A14F47 /* NotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3886F2028EFEA6E00A14F47 /* NotificationCoordinator.swift */; };
 		F3886F2328EFEA8A00A14F47 /* MenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3886F2228EFEA8A00A14F47 /* MenuCoordinator.swift */; };
+		F38C3770293654B6004290AC /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C376F293654B6004290AC /* Like.swift */; };
+		F38C377229365A53004290AC /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C377129365A53004290AC /* Case.swift */; };
+		F38C377429365C02004290AC /* CommonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C377329365C02004290AC /* CommonResponse.swift */; };
+		F3CC097D293508AB00437035 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CC097B293508AB00437035 /* CommentTableViewCell.swift */; };
+		F3CC097E293508AB00437035 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3CC097C293508AB00437035 /* CommentTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -206,6 +213,8 @@
 		1C28909D11430D56557CD478 /* Pods-Attorney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attorney.debug.xcconfig"; path = "Target Support Files/Pods-Attorney/Pods-Attorney.debug.xcconfig"; sourceTree = "<group>"; };
 		4DD08C80DA4F645AE4041E8A /* Pods-Attorney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attorney.release.xcconfig"; path = "Target Support Files/Pods-Attorney/Pods-Attorney.release.xcconfig"; sourceTree = "<group>"; };
 		E0C7BD7D7A2D53E0A8E5ECF4 /* Pods_Attorney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Attorney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F30039EF29346EB2006B19CF /* PostDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailHeaderView.swift; sourceTree = "<group>"; };
+		F30039F129346EC4006B19CF /* PostDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailHeaderView.xib; sourceTree = "<group>"; };
 		F31EF4F928F1E18E0043E7AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F32C522028F2A73A00E6C840 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		F32C522228F3262300E6C840 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -268,6 +277,11 @@
 		F3886F1E28EFEA5B00A14F47 /* MessageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCoordinator.swift; sourceTree = "<group>"; };
 		F3886F2028EFEA6E00A14F47 /* NotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCoordinator.swift; sourceTree = "<group>"; };
 		F3886F2228EFEA8A00A14F47 /* MenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCoordinator.swift; sourceTree = "<group>"; };
+		F38C376F293654B6004290AC /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
+		F38C377129365A53004290AC /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
+		F38C377329365C02004290AC /* CommonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonResponse.swift; sourceTree = "<group>"; };
+		F3CC097B293508AB00437035 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		F3CC097C293508AB00437035 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,6 +346,8 @@
 		03933CC3293119E5001E4631 /* DetailPost */ = {
 			isa = PBXGroup;
 			children = (
+				F30039EE29346E5F006B19CF /* View */,
+				F30039ED29346E57006B19CF /* Cell */,
 				03933CC429311A10001E4631 /* PostDetailViewController.swift */,
 				03933CC62932474F001E4631 /* PostDetailViewModel.swift */,
 			);
@@ -406,6 +422,24 @@
 				4DD08C80DA4F645AE4041E8A /* Pods-Attorney.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F30039ED29346E57006B19CF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F3CC097B293508AB00437035 /* CommentTableViewCell.swift */,
+				F3CC097C293508AB00437035 /* CommentTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		F30039EE29346E5F006B19CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F30039EF29346EB2006B19CF /* PostDetailHeaderView.swift */,
+				F30039F129346EC4006B19CF /* PostDetailHeaderView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F32C522B28F33AA300E6C840 /* Networking */ = {
@@ -546,6 +580,9 @@
 				038B9DF629162D4400039F4D /* ResetPassword.swift */,
 				03B893E72928B42D00803DD9 /* Post */,
 				03C40A0E2933D2400097A905 /* Comment.swift */,
+				F38C376F293654B6004290AC /* Like.swift */,
+				F38C377129365A53004290AC /* Case.swift */,
+				F38C377329365C02004290AC /* CommonResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -855,6 +892,7 @@
 				03D7309328FED13C00BBA498 /* ResetPassword.storyboard in Resources */,
 				F32C525728F5E50200E6C840 /* ProximaNova-Light.otf in Resources */,
 				F37CB02B28E83D890061B273 /* Notifications.storyboard in Resources */,
+				F3CC097E293508AB00437035 /* CommentTableViewCell.xib in Resources */,
 				F32C522928F32D7E00E6C840 /* launchScreen.json in Resources */,
 				039772552912C6460042A435 /* Error.storyboard in Resources */,
 				F32C525828F5E50200E6C840 /* ProximaNova-RegIt.otf in Resources */,
@@ -872,6 +910,7 @@
 				03D7309D28FEEE4D00BBA498 /* VerifyOTP.storyboard in Resources */,
 				F32C525A28F5E50200E6C840 /* ProximaNova-ThinIt.otf in Resources */,
 				F37CB02928E83D5C0061B273 /* Home.storyboard in Resources */,
+				F30039F229346EC4006B19CF /* PostDetailHeaderView.xib in Resources */,
 				F32C525528F5E50200E6C840 /* ProximaNova-Bold.otf in Resources */,
 				03B893F02928C4AB00803DD9 /* LoadmoreIndicatorReusableView.xib in Resources */,
 				F32C522A28F334F200E6C840 /* Assets.xcassets in Resources */,
@@ -989,6 +1028,7 @@
 				03B893FC29290EB000803DD9 /* UserDefaultExtension.swift in Sources */,
 				03A63DA429053C9800C1C72D /* RegistrasionViewModel.swift in Sources */,
 				F32C523728F40A8500E6C840 /* AttorneyAPIProtocol.swift in Sources */,
+				F3CC097D293508AB00437035 /* CommentTableViewCell.swift in Sources */,
 				035424D22912CEB7002235FB /* ErrorViewController.swift in Sources */,
 				035A46D7291414A200A64898 /* TinyLoadingViewController.swift in Sources */,
 				03A63DA229053ABA00C1C72D /* DateExtension.swift in Sources */,
@@ -1028,6 +1068,7 @@
 				F3886F1F28EFEA5B00A14F47 /* MessageCoordinator.swift in Sources */,
 				03EE2BBC290D10EA00A8317A /* Codable.swift in Sources */,
 				F37CB04B28E846C20061B273 /* ActivityIndicator.swift in Sources */,
+				F30039F029346EB2006B19CF /* PostDetailHeaderView.swift in Sources */,
 				0302BBA4292639F0000238A1 /* BaseCustomView.swift in Sources */,
 				F32C523928F4649F00E6C840 /* UserService.swift in Sources */,
 				F37CB04828E843510061B273 /* ColorConstants.swift in Sources */,
@@ -1050,6 +1091,8 @@
 				038F24D928FBEA2700F20009 /* UIFontExtension.swift in Sources */,
 				F32C522D28F33AD700E6C840 /* AttorneySNSAPI.swift in Sources */,
 				03D7309128FED12100BBA498 /* ResetPasswordViewController.swift in Sources */,
+				F38C3770293654B6004290AC /* Like.swift in Sources */,
+				F38C377229365A53004290AC /* Case.swift in Sources */,
 				F37CAFF828E819D10061B273 /* AppDelegate.swift in Sources */,
 				F37CB01E28E8233D0061B273 /* ViewController.swift in Sources */,
 				F32C523528F409C700E6C840 /* RestAPI.swift in Sources */,
@@ -1074,6 +1117,7 @@
 				F32C522F28F33BF700E6C840 /* Application.swift in Sources */,
 				03EE2BBA290D105100A8317A /* ErrorResponse.swift in Sources */,
 				03EE2BBE290D1AAC00A8317A /* ObservableType+Codable.swift in Sources */,
+				F38C377429365C02004290AC /* CommonResponse.swift in Sources */,
 				03EE2BB8290D0DBA00A8317A /* AttorneyError.swift in Sources */,
 				F37CB02028E8260F0061B273 /* ViewModel.swift in Sources */,
 			);

@@ -21,4 +21,8 @@ protocol AttorneyAPI {
     func fetchNewsFeed(request: PostsRequest) -> Single<PostsResponse>
     func getPostDetail(postId: String) -> Single<PostDetailResponse>
     func getPostComments(postId: String) -> Single<PostCommentsResponse>
+    func likePost(likeRequest: LikeRequest) -> Single<LikeResponse>
+    func commentPost(commentRequest: CommentRequest) -> Single<CommonReponse>
+    func deleteComment(commentId: String) -> Single<CommonReponse>
+    func sendDefenceRequest(sendDefenceRequest: DefenceRequest) -> Single<CommonReponse>
 }

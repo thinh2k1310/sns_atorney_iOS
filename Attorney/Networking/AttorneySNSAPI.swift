@@ -19,6 +19,10 @@ enum AttorneySNSAPI {
     case fetchNewsFeed(request: PostsRequest)
     case getPostDetail(postId: String)
     case getPostComments(postId: String)
+    case likePost(likeRequest: LikeRequest)
+    case commentPost(commentRequest: CommentRequest)
+    case deleteComment(commentId: String)
+    case sendDefenceRequest(sendDefenceRequest: DefenceRequest)
 }
 
 extension AttorneySNSAPI: TargetType {
@@ -52,17 +56,33 @@ extension AttorneySNSAPI: TargetType {
             
         case .getPostComments(let postId):
             return "post/\(postId)/comments"
+            
+        case .likePost:
+            return "like"
+            
+        case .commentPost:
+            return "comment"
+        
+        case .deleteComment(let commentId):
+            return "comment/\(commentId)"
+        
+        case .sendDefenceRequest:
+            return  "case/request"
         }
         
     }
     
     var method: Moya.Method {
         switch self {
-        case .loginOTP, .register, .fetchNewsFeed:
+        case .loginOTP, .register, .fetchNewsFeed, .likePost, .commentPost, .sendDefenceRequest:
             return .post
         
         case .validateEmail, .sendOTP, .resetPassword:
             return .put
+            
+        case .deleteComment:
+            return .delete
+    
         default:
             return .get
         }
@@ -94,6 +114,12 @@ extension AttorneySNSAPI: TargetType {
             return .requestJSONEncodable(resetPasswordRequest)
         case .fetchNewsFeed(let request):
             return .requestJSONEncodable(request)
+        case .commentPost(let commentRequest):
+            return .requestJSONEncodable(commentRequest)
+        case .likePost(let likeRequest):
+            return .requestJSONEncodable(likeRequest)
+        case .sendDefenceRequest(let sendDefenceRequest):
+            return .requestJSONEncodable(sendDefenceRequest)
         
         default:
             return .requestPlain

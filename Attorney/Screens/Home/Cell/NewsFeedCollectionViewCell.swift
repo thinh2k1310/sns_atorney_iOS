@@ -12,9 +12,9 @@ import Kingfisher
 import ReadMoreTextView
 
 protocol NewsFeedCollectionViewCellDelegate: AnyObject {
-    func viewDetailPost(_ post : Post?)
-    func likePost(_ post: Post?, user: String?)
-    func requestPost(_ post: Post?, user: String?)
+    func viewDetailPost(_ post : String?)
+    func likePost(_ post: String?)
+    func requestPost(_ post: Post?)
 }
 
 final class NewsFeedCollectionViewCell: UICollectionViewCell {
@@ -71,7 +71,6 @@ final class NewsFeedCollectionViewCell: UICollectionViewCell {
     
     func bindingData(with post: Post) {
         self.post = post
-        self.post?.isLikePost = false
         setupUserView(with: post)
         setupContentView(with: post)
         setupPostImage(with: post)
@@ -164,7 +163,7 @@ final class NewsFeedCollectionViewCell: UICollectionViewCell {
     
     private func setupDefenceButton(with post: Post) {
         if let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo) {
-            defendButton.isHidden = post.user?._id == userInfo.id
+            defendButton.isHidden = (post.user?._id == userInfo.id || post.type == PostType.DISCUSSING.rawValue || userInfo.role != UserRole.attorney.rawValue)
         }
     }
     
@@ -183,31 +182,27 @@ final class NewsFeedCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction private func didTapReadMoreButton(_ sender: Any) {
-        delegate?.viewDetailPost(post)
+        delegate?.viewDetailPost(post?._id)
     }
     
     @IBAction private func didTapLikeButton(_ sender: Any) {
         self.likeButton.isSelected.toggle()
         updateLikeNumber()
         self.isLikePost.toggle()
-        if let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo) {
-            self.delegate?.likePost(self.post, user: userInfo.id)
-        }
+        self.delegate?.likePost(self.post?._id)
     }
     
     @IBAction private func didTapCommentButton(_ sender: Any) {
-        guard let post = post else {
-            return
-        }
-        delegate?.viewDetailPost(post)
+        delegate?.viewDetailPost(self.post?._id)
     }
     
     @IBAction private func didTapDefendButton(_ sender: Any) {
-        
+        self.defendButton.isSelected.toggle()
+        delegate?.requestPost(self.post)
     }
     
     @objc private func seeDetailPost() {
-        delegate?.viewDetailPost(post)
+        delegate?.viewDetailPost(self.post?._id)
     }
     
     private func updateLikeNumber() {
@@ -251,23 +246,4 @@ private extension NewsFeedCollectionViewCell {
         self.postContentTextView.isScrollEnabled = false
         self.postContentTextView.sizeToFit()
     }
-
-//    func displayUIShowMore() {
-//        self.showMoreContentButton.isSelected = !self.showMoreContentButton.isSelected
-//
-//        self.postContentTextView.translatesAutoresizingMaskIntoConstraints = false
-//        if self.showMoreContentButton.isSelected {
-//            self.postContentTextView.textContainer.maximumNumberOfLines = 0
-//        } else {
-//            self.postContentTextView.textContainer.maximumNumberOfLines = self.maxLine
-//        }
-//        self.postContentTextView.sizeToFit()
-//        self.postContentTextView.isScrollEnabled = false
-//        self.contentView.layoutIfNeeded()
-//
-////        if let delegate = self.delegate {
-////            delegate.didSelectedLoadmore(isLoadMore: self.showMoreContentButton.isSelected,
-////                                         height: height + self.textViewBottomConstraint)
-////        }
-//    }
 }

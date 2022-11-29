@@ -52,6 +52,22 @@ extension RestAPI {
     func getPostComments(postId: String) -> Single<PostCommentsResponse> {
         return requestObject(.getPostComments(postId: postId), type: PostCommentsResponse.self)
     }
+    
+    func commentPost(commentRequest: CommentRequest) -> Single<CommonReponse> {
+        return requestObject(.commentPost(commentRequest: commentRequest), type: CommonReponse.self)
+    }
+    
+    func likePost(likeRequest: LikeRequest) -> Single<LikeResponse> {
+        return requestObject(.likePost(likeRequest: likeRequest), type: LikeResponse.self)
+    }
+    
+    func deleteComment(commentId: String) -> Single<CommonReponse> {
+        return requestObject(.deleteComment(commentId: commentId), type: CommonReponse.self)
+    }
+    
+    func sendDefenceRequest(sendDefenceRequest: DefenceRequest) -> Single<CommonReponse> {
+        return requestObject(.sendDefenceRequest(sendDefenceRequest: sendDefenceRequest), type: CommonReponse.self)
+    }
 }
 
 extension RestAPI {

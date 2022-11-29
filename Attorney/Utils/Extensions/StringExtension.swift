@@ -158,7 +158,7 @@ extension String {
         dateFormatter.dateFormat = fortmat
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         dateFormatter.calendar = Calendar(identifier: .gregorian)
-        let date = dateFormatter.date(from: self)!
+        let date = dateFormatter.date(from: self) ?? Date.init()
         return date
     }
 }

@@ -17,10 +17,12 @@ final class HomeViewController: ViewController{
     
     
     var heighOfContent: CGFloat = 0.0
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
+        configureRefreshControl()
         setupData()
     }
     
@@ -72,6 +74,7 @@ final class HomeViewController: ViewController{
         .disposed(by: disposeBag)
 
         viewModel.dataSources.subscribe(onNext: { [weak self] dataSources in
+            self?.refreshControl.endRefreshing()
             if let dataSource = dataSources.first, !dataSource.items.isEmpty {
                 self?.collectionView.isHidden = false
                 self?.noItemView.isHidden = true
@@ -147,11 +150,24 @@ final class HomeViewController: ViewController{
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: HeaderHomeReusableView.identifier)
     }
-
+    
+    private func configureRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        collectionView.addSubview(refreshControl)
+    }
 
     private func configureNavigationBar() {
         self.navigationController?.isNavigationBarHidden = true
 
+    }
+
+    @objc func refresh(_ sender: AnyObject) {
+        guard let viewModel = viewModel as? HomeViewModel else {
+            refreshControl.endRefreshing()
+            return
+        }
+        
+        viewModel.getPosts()
     }
 
 
@@ -198,36 +214,33 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-
-// MARK: - Navigation
-private extension HomeViewController {
-    func gotoDealDetailScreen(post: Post) {
-//        guard let viewModel = self.viewModel as? VouchersListViewModel else { return }
-//        guard let provider = Application.shared.provider else { return }
-//        let dealDetailViewModel = DealDetailViewModel(provider: provider)
-//        dealDetailViewModel.setDealDetail(voucher)
-//        viewModel.navigationStackEvent.onNext(.push(viewModel: dealDetailViewModel,
-//                                                    animated: true))
-    }
-}
-
 // MARK: - NewsFeedCollectionViewCellDelegate
 extension HomeViewController: NewsFeedCollectionViewCellDelegate {
-    func viewDetailPost(_ post: Post?) {
+    func viewDetailPost(_ post: String?) {
         let postDetailVC = R.storyboard.detailPost.postDetailViewController()!
         guard let provider = Application.shared.provider else { return }
         let postDetailVM = PostDetailViewModel(provider: provider)
-        postDetailVM.postId = post?._id
+        postDetailVM.postId = post
         postDetailVC.viewModel = postDetailVM
         self.navigationController?.pushViewController(postDetailVC, animated: true)
     }
     
-    func likePost(_ post: Post?, user: String?) {
-        
+    func likePost(_ post: String?) {
+        guard let viewModel = viewModel as? HomeViewModel else {
+            return
+        }
+        if let post = post {
+            viewModel.likePost(postId: post)
+        }
     }
     
-    func requestPost(_ post: Post?, user: String?) {
-        
+    func requestPost(_ post: Post?) {
+        guard let viewModel = viewModel as? HomeViewModel else {
+            return
+        }
+        if let post = post, let postId = post._id, let customer = post.user?._id {
+            viewModel.sendDefenceRequest(postId: postId, customerId: customer)
+        }
     }
 }
 

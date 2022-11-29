@@ -15,6 +15,7 @@ final class HomeViewModel: ViewModel {
     let isFilter = PublishSubject<Bool>()
     let loadMoreEvent = PublishSubject<Void>()
     let resetPageEvent = PublishSubject<Void>()
+    let sendDefenceRequest = PublishSubject<(Bool,String)>()
     let isLoading = BehaviorRelay<Bool>(value: true)
     
     var canLoadMore = true
@@ -119,6 +120,43 @@ final class HomeViewModel: ViewModel {
             } onFailure: { (_) in
                 print("fetch news feed failed")
             }.disposed(by: disposeBag)
+    }
+    
+    func likePost(postId: String) {
+        guard let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo),
+        let userId = userInfo.id else {
+           return
+        }
+        provider
+            .likePost(likeRequest: LikeRequest(userId: userId, postId: postId))
+    }
+    
+    func sendDefenceRequest(postId: String, customerId: String) {
+        guard let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo),
+        let userId = userInfo.id else {
+           return
+        }
+        provider
+            .sendDefenceRequest(sendDefenceRequest: DefenceRequest(attorneyId: userId, postId: postId, customerId: customerId))
+            .subscribe { [weak self] (response) in
+                guard let self = self else { return }
+                if let success = response.success, let message = response.message {
+                    self.sendDefenceRequest.onNext((success, message))
+                    log.debug("Thinh test \(message)")
+                }
+            } onFailure: { (_) in
+                print("fetch news feed failed")
+            }.disposed(by: disposeBag)
+        
+    }
+    
+    func commentPost(postId: String, content: String) {
+        guard let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo),
+        let userId = userInfo.id else {
+           return
+        }
+        provider
+            .commentPost(commentRequest: CommentRequest(userId: userId, postId: postId, content: content))
     }
 }
 
