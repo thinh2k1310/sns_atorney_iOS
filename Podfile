@@ -34,6 +34,7 @@ def common
   pod 'lottie-ios', '~> 3.4.1'
   pod 'ReadMoreTextView'
   pod 'GrowingTextView', '0.7.2'
+  pod 'DropDown'
 end
 
 def networking

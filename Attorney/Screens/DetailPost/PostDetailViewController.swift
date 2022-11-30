@@ -275,8 +275,8 @@ extension PostDetailViewController: CommentTableViewCellDelegate {
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
-        let message = "Are you sure you want to delete this comment?"
-        let customMessage = NSMutableAttributedString(string: message, attributes: [.font: UIFont.appSemiBoldFont(size: 17), .foregroundColor: UIColor.black])
+        let message = StringConstants.string_delete_comment()
+        let customMessage = NSAttributedString(string: message, attributes: [.font: UIFont.appSemiBoldFont(size: 17), .foregroundColor: Color.colorError])
         alertController.setValue(customMessage, forKey: "attributedMessage")
 
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)

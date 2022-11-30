@@ -79,7 +79,6 @@ final class HomeViewController: ViewController{
                 self?.collectionView.isHidden = false
                 self?.noItemView.isHidden = true
             } else {
-                self?.collectionView.isHidden = true
                 self?.noItemView.isHidden = false
             }
         })
@@ -107,6 +106,18 @@ final class HomeViewController: ViewController{
                 if let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderHomeReusableView.reuseIdentifier, for: indexPath) as? HeaderHomeReusableView {
                     if let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo) {
                         header.configureHeader(with: userInfo)
+                    }
+                    header.delegate = self
+                    header.didSelectFilterItem = { filterItem in
+                        viewModel.filterBy = filterItem
+                        viewModel.resetPage()
+                        viewModel.getPosts()
+                        
+                    }
+                    header.didSelectSortItem = { sortItem in
+                        viewModel.sortBy = sortItem
+                        viewModel.resetPage()
+                        viewModel.getPosts()
                     }
                     return header
                 }
@@ -166,7 +177,7 @@ final class HomeViewController: ViewController{
             refreshControl.endRefreshing()
             return
         }
-        
+        viewModel.resetPage()
         viewModel.getPosts()
     }
 
@@ -253,7 +264,7 @@ extension HomeViewController: UIScrollViewDelegate {
 extension HomeViewController {
     struct Configs {
         static let footerHeight: CGFloat = 67.0
-        static let headerHeight: CGFloat = 150.0
+        static let headerHeight: CGFloat = 200.0
     }
 }
 
@@ -261,4 +272,20 @@ extension HomeViewController: ReselectTabHandler {
     func didReselectTab() {
         collectionView.setContentOffset(.zero, animated: true)
     }
+}
+
+extension HomeViewController: HeaderHomeReusableViewDelegate {
+    func createPost() {
+        let createPostVC = R.storyboard.createPost.createPostViewController()!
+        guard let provider = Application.shared.provider else { return }
+        let createPostVM = PostDetailViewModel(provider: provider)
+        createPostVC.viewModel = createPostVM
+        self.navigationController?.pushViewController(createPostVC, animated: true)
+    }
+    
+    func goToSearchView() {
+        
+    }
+    
+    
 }

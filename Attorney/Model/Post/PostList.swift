@@ -46,5 +46,6 @@ struct PostsRequest: Codable {
 }
 
 struct SortOrder: Codable {
-    let created: Int
+    let created: Int?
+    let totalReactions: Int?
 }

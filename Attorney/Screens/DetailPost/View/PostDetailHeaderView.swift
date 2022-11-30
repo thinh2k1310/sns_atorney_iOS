@@ -117,6 +117,9 @@ final class PostDetailHeaderView: UITableViewHeaderFooterView {
         if let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo) {
             defendButton.isHidden = (post.user?._id == userInfo.id || post.type == PostType.DISCUSSING.rawValue || userInfo.role != UserRole.attorney.rawValue)
         }
+        if let isDenfendPost = post.isDefendPost {
+            self.defendButton.isSelected = isDenfendPost
+        }
     }
     
     private func updateLikeNumber() {

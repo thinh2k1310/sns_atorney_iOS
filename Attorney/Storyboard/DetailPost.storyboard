@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -170,6 +170,7 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" secondItem="8Kg-BT-cGy" secondAttribute="height" multiplier="1.59701" id="Ec2-f5-Xyb"/>
                                     <constraint firstItem="8Kg-BT-cGy" firstAttribute="leading" secondItem="30I-m0-GV0" secondAttribute="leading" id="ael-Fd-9DZ"/>
                                     <constraint firstAttribute="trailing" secondItem="8Kg-BT-cGy" secondAttribute="trailing" id="tuq-Dp-ZuX"/>
                                     <constraint firstItem="8Kg-BT-cGy" firstAttribute="top" secondItem="30I-m0-GV0" secondAttribute="top" constant="10" id="un0-AS-1QP"/>
@@ -208,11 +209,6 @@
             <point key="canvasLocation" x="115.94202898550725" y="45.535714285714285"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="XKm-EG-C3V">
-            <size key="intrinsicContentSize" width="-1" height="30"/>
-        </designable>
-    </designables>
     <resources>
         <image name="backIcon" width="32" height="32"/>
         <image name="reportIcon" width="90" height="90"/>

@@ -21,6 +21,8 @@ final class HomeViewModel: ViewModel {
     var canLoadMore = true
     var isFirstLoad = true
     var title = ""
+    var sortBy: SortItem = .newest
+    var filterBy: FilterItem = .all
     
     private var posts: [Post] = []
 
@@ -52,7 +54,7 @@ final class HomeViewModel: ViewModel {
         
     }
     
-    private func resetPage() {
+    func resetPage() {
         currentPage = 1
         countPage = 1
         maxPage = 1
@@ -103,7 +105,26 @@ final class HomeViewModel: ViewModel {
     }
     
     func getPosts() {
-        let request = PostsRequest(sortOrder: SortOrder(created: 1), type: nil, page: currentPage)
+        var sortOrder: SortOrder = SortOrder(created: -1, totalReactions: nil)
+        switch sortBy {
+        case .newest:
+            sortOrder = SortOrder(created: -1, totalReactions: nil)
+        case .popular:
+            sortOrder = SortOrder(created: nil, totalReactions: -1)
+        case .nearest:
+            break
+        }
+        var filter: String?
+        switch filterBy {
+        case .all:
+            filter = nil
+        case .discussing:
+            filter = FilterItem.discussing.rawValue
+        case .requesting:
+            filter = FilterItem.requesting.rawValue
+        }
+        
+        let request = PostsRequest(sortOrder: sortOrder, type: filter, page: currentPage)
         provider
             .fetchNewsFeed(request: request)
             .trackActivity(self.bodyLoading)

@@ -17,7 +17,9 @@ struct Post: Codable {
     let type: String?
     let totalLikes: Int?
     let totalComments: Int?
-    var isLikePost: Bool?
+    let isLikePost: Bool?
+    let isDefendPost: Bool?
+    let isBlock: Bool?
     
     init(byDefaultValue: Bool) {
         _id = ""
@@ -30,6 +32,8 @@ struct Post: Codable {
         totalLikes = 0
         totalComments = 0
         isLikePost = false
+        isDefendPost = false
+        isBlock = false
     }
 }
 
@@ -58,6 +62,8 @@ struct PostDetail: Codable {
     let totalLikes: Int?
     let totalComments: Int?
     let isLikePost: Bool?
+    let isBlock: Bool?
+    let isDefendPost: Bool?
 }
 
 struct PostDetailResponse: Codable {

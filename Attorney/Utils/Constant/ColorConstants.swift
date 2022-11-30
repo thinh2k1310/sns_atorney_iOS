@@ -33,5 +33,6 @@ struct Color {
                                      blue: 82.0 / 255.0,
                                      alpha: 1.0)
     static let colorPaymentError = UIColor.init(rgb: 0xF85359, alpha: 1)
+    static let F1F1FE = UIColor.init(rgb: 0xF1F1FE, alpha: 1)
    
 }

@@ -139,6 +139,10 @@
 		F38C3770293654B6004290AC /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C376F293654B6004290AC /* Like.swift */; };
 		F38C377229365A53004290AC /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C377129365A53004290AC /* Case.swift */; };
 		F38C377429365C02004290AC /* CommonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C377329365C02004290AC /* CommonResponse.swift */; };
+		F3C9B066293735E40095D09D /* PostCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C9B065293735E40095D09D /* PostCategory.swift */; };
+		F3C9B06D2937D4C20095D09D /* CreatePost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3C9B06C2937D4C10095D09D /* CreatePost.storyboard */; };
+		F3C9B0702937DCC80095D09D /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C9B06F2937DCC80095D09D /* CreatePostViewController.swift */; };
+		F3C9B0722937DCDC0095D09D /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C9B0712937DCDC0095D09D /* CreatePostViewModel.swift */; };
 		F3CC097D293508AB00437035 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CC097B293508AB00437035 /* CommentTableViewCell.swift */; };
 		F3CC097E293508AB00437035 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3CC097C293508AB00437035 /* CommentTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -280,6 +284,10 @@
 		F38C376F293654B6004290AC /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		F38C377129365A53004290AC /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
 		F38C377329365C02004290AC /* CommonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonResponse.swift; sourceTree = "<group>"; };
+		F3C9B065293735E40095D09D /* PostCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCategory.swift; sourceTree = "<group>"; };
+		F3C9B06C2937D4C10095D09D /* CreatePost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePost.storyboard; sourceTree = "<group>"; };
+		F3C9B06F2937DCC80095D09D /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
+		F3C9B0712937DCDC0095D09D /* CreatePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewModel.swift; sourceTree = "<group>"; };
 		F3CC097B293508AB00437035 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		F3CC097C293508AB00437035 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -561,6 +569,7 @@
 		F37CB00C28E81A3D0061B273 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F3C9B064293735CD0095D09D /* Enum */,
 				035A46D02914139100A64898 /* Transitions */,
 				F32C526028F719B500E6C840 /* View */,
 				F37CB01D28E8233D0061B273 /* ViewController.swift */,
@@ -603,6 +612,7 @@
 		F37CB00F28E81AE40061B273 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F3C9B06E2937DB290095D09D /* CreatePost */,
 				03933CC3293119E5001E4631 /* DetailPost */,
 				035A46D52914148B00A64898 /* Transitions */,
 				039772532912C6340042A435 /* Error */,
@@ -650,6 +660,7 @@
 				035A46D32914146200A64898 /* Transitions.storyboard */,
 				03D5839D2914EDF600D0D4E3 /* Success.storyboard */,
 				037665B1292FEEF9002FA7DE /* DetailPost.storyboard */,
+				F3C9B06C2937D4C10095D09D /* CreatePost.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -816,6 +827,23 @@
 			path = Coordinatior;
 			sourceTree = "<group>";
 		};
+		F3C9B064293735CD0095D09D /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				F3C9B065293735E40095D09D /* PostCategory.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		F3C9B06E2937DB290095D09D /* CreatePost */ = {
+			isa = PBXGroup;
+			children = (
+				F3C9B06F2937DCC80095D09D /* CreatePostViewController.swift */,
+				F3C9B0712937DCDC0095D09D /* CreatePostViewModel.swift */,
+			);
+			path = CreatePost;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -906,6 +934,7 @@
 				F32C525428F5E50200E6C840 /* ProximaNova-Black.otf in Resources */,
 				0302BBAD2926609C000238A1 /* NewsFeedCollectionViewCell.xib in Resources */,
 				037665B2292FEEF9002FA7DE /* DetailPost.storyboard in Resources */,
+				F3C9B06D2937D4C20095D09D /* CreatePost.storyboard in Resources */,
 				F32C525C28F5E50200E6C840 /* ProximaNova-Reg.otf in Resources */,
 				03D7309D28FEEE4D00BBA498 /* VerifyOTP.storyboard in Resources */,
 				F32C525A28F5E50200E6C840 /* ProximaNova-ThinIt.otf in Resources */,
@@ -1042,6 +1071,7 @@
 				F32C523128F33D1400E6C840 /* Networking.swift in Sources */,
 				0302BBA22926399A000238A1 /* HeaderHomeReusableView.swift in Sources */,
 				03B893F32928C54500803DD9 /* NewsfeedSkeletonCollectionViewCell.swift in Sources */,
+				F3C9B066293735E40095D09D /* PostCategory.swift in Sources */,
 				F32C523328F33EDC00E6C840 /* Reachablity.swift in Sources */,
 				F37CB05228E849520061B273 /* Configurations.swift in Sources */,
 				03B893F62928CC3500803DD9 /* ReusableViewExtension.swift in Sources */,
@@ -1070,6 +1100,8 @@
 				F37CB04B28E846C20061B273 /* ActivityIndicator.swift in Sources */,
 				F30039F029346EB2006B19CF /* PostDetailHeaderView.swift in Sources */,
 				0302BBA4292639F0000238A1 /* BaseCustomView.swift in Sources */,
+				F3C9B0722937DCDC0095D09D /* CreatePostViewModel.swift in Sources */,
+				F3C9B0702937DCC80095D09D /* CreatePostViewController.swift in Sources */,
 				F32C523928F4649F00E6C840 /* UserService.swift in Sources */,
 				F37CB04828E843510061B273 /* ColorConstants.swift in Sources */,
 				035424D62912D42C002235FB /* VerifyOTPViewModel.swift in Sources */,

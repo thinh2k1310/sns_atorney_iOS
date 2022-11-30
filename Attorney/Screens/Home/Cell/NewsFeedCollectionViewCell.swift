@@ -163,7 +163,10 @@ final class NewsFeedCollectionViewCell: UICollectionViewCell {
     
     private func setupDefenceButton(with post: Post) {
         if let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo) {
-            defendButton.isHidden = (post.user?._id == userInfo.id || post.type == PostType.DISCUSSING.rawValue || userInfo.role != UserRole.attorney.rawValue)
+            defendButton.isHidden = (post.user?._id == userInfo.id || post.type == PostType.DISCUSSING.rawValue || userInfo.role != UserRole.attorney.rawValue || post.isBlock == true)
+        }
+        if let isDenfendPost = post.isDefendPost {
+            self.defendButton.isSelected = isDenfendPost
         }
     }
     
