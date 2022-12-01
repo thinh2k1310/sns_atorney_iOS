@@ -35,6 +35,7 @@ def common
   pod 'ReadMoreTextView'
   pod 'GrowingTextView', '0.7.2'
   pod 'DropDown'
+  pod 'YPImagePicker'
 end
 
 def networking

@@ -280,7 +280,8 @@ extension HomeViewController: HeaderHomeReusableViewDelegate {
         guard let provider = Application.shared.provider else { return }
         let createPostVM = PostDetailViewModel(provider: provider)
         createPostVC.viewModel = createPostVM
-        self.navigationController?.pushViewController(createPostVC, animated: true)
+        createPostVC.modalPresentationStyle = .fullScreen
+        present(createPostVC, animated: true)
     }
     
     func goToSearchView() {

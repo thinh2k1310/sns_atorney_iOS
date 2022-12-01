@@ -31,6 +31,7 @@ final class LoginViewController: ViewController{
         setupTextField()
         setupSignUpLabel()
         setupErrorMessageView()
+        addGestures()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -141,7 +142,17 @@ final class LoginViewController: ViewController{
         errorMessageView.layer.cornerRadius = 16
         errorMessageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         hideErrorMessageView(true)
-        errorTextView.centerVertically()
+        errorTextView.centerVertical()
+    }
+    
+    private func addGestures() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     private func setupTextField() {

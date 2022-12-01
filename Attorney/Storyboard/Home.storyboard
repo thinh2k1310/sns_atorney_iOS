@@ -45,7 +45,7 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZ6-2Y-eBp" userLabel="NoItemView">
-                                <rect key="frame" x="0.0" y="298" width="414" height="200"/>
+                                <rect key="frame" x="0.0" y="348" width="414" height="200"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noDataImage" translatesAutoresizingMaskIntoConstraints="NO" id="kjX-nS-5gq">
                                         <rect key="frame" x="132" y="25" width="150" height="150"/>
@@ -80,7 +80,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="4VG-fA-UWd" secondAttribute="trailing" id="AkH-9v-UY5"/>
                             <constraint firstItem="4VG-fA-UWd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="KNu-22-y1I"/>
                             <constraint firstItem="dZ6-2Y-eBp" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="n7a-WI-2il"/>
-                            <constraint firstItem="dZ6-2Y-eBp" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-50" id="nly-4o-zdr"/>
+                            <constraint firstItem="dZ6-2Y-eBp" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="nly-4o-zdr"/>
                         </constraints>
                     </view>
                     <connections>
