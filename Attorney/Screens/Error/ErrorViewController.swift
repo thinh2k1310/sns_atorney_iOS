@@ -32,11 +32,13 @@ final class ErrorViewController: ViewController {
     }
     
     @IBAction private func didTapTryAgain(_ sender: UIButton) {
-        
+        ErrorViewController.isShowing = false
+        self.dismiss(animated: true)
     }
     
     @IBAction private func didTapGoBack(_ sender: UIButton) {
-        
+        ErrorViewController.isShowing = false
+        self.dismiss(animated: true)
     }
     
     

@@ -99,10 +99,10 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YrF-ZS-lqY" userLabel="Try again">
-                                <rect key="frame" x="57" y="598" width="300" height="50"/>
+                                <rect key="frame" x="107" y="598" width="200" height="50"/>
                                 <color key="backgroundColor" name="AppTintColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="a9v-Yx-g0k"/>
+                                    <constraint firstAttribute="width" constant="200" id="a9v-Yx-g0k"/>
                                     <constraint firstAttribute="height" constant="50" id="ioB-f0-dNk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="14"/>
@@ -132,11 +132,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6h-O8-Rfp" userLabel="Go back">
-                                <rect key="frame" x="57" y="688" width="300" height="50"/>
+                                <rect key="frame" x="107" y="678" width="200" height="50"/>
                                 <color key="backgroundColor" name="AppTintColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="7o2-tV-muN"/>
-                                    <constraint firstAttribute="width" constant="300" id="Pj4-l5-NtS"/>
+                                    <constraint firstAttribute="width" constant="200" id="Pj4-l5-NtS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="14"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -161,7 +161,7 @@
                             <constraint firstItem="hJa-Gm-z1o" firstAttribute="centerX" secondItem="Jcq-n7-tWq" secondAttribute="centerX" id="4bs-0Y-rxp"/>
                             <constraint firstItem="YrF-ZS-lqY" firstAttribute="top" secondItem="hJa-Gm-z1o" secondAttribute="bottom" constant="200" id="Aos-cL-JKe"/>
                             <constraint firstItem="w6h-O8-Rfp" firstAttribute="centerX" secondItem="Jcq-n7-tWq" secondAttribute="centerX" id="Eqs-4m-rqj"/>
-                            <constraint firstItem="w6h-O8-Rfp" firstAttribute="top" secondItem="YrF-ZS-lqY" secondAttribute="bottom" constant="40" id="IKN-7X-fIf"/>
+                            <constraint firstItem="w6h-O8-Rfp" firstAttribute="top" secondItem="YrF-ZS-lqY" secondAttribute="bottom" constant="30" id="IKN-7X-fIf"/>
                             <constraint firstItem="Ych-6b-Mec" firstAttribute="top" secondItem="hJa-Gm-z1o" secondAttribute="bottom" constant="40" id="MMc-yM-jbd"/>
                             <constraint firstItem="lJT-wp-WXP" firstAttribute="leading" secondItem="J2J-2L-Xq2" secondAttribute="leading" constant="40" id="Txk-9P-dDj"/>
                             <constraint firstItem="lJT-wp-WXP" firstAttribute="top" secondItem="Ych-6b-Mec" secondAttribute="bottom" constant="20" id="ZEc-Ar-i0F"/>

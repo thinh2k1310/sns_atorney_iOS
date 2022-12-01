@@ -17,12 +17,13 @@ final class CreatePostViewController: ViewController {
     @IBOutlet private weak var postButton: UIButton!
     @IBOutlet private weak var imageView: UIImageView!
     
-    
-    
-    
 // MARK: - Variables
     let picker = YPImagePicker()
-    
+    var isHideImage: Bool = true {
+        didSet {
+            imageSuperView.isHidden = isHideImage
+        }
+    }
 
 // MARK: - Licycle View
     override func viewDidLoad() {
@@ -45,6 +46,23 @@ final class CreatePostViewController: ViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
         self.tabBarController?.tabBar.isHidden = false
     }
+    
+// MARK: - Binding
+    
+    override func bindViewModel() {
+        super.bindViewModel()
+        
+        guard let viewModel = viewModel as? CreatePostViewModel else { return }
+        viewModel.bodyLoading.asObservable()
+            .bind(to: AttorneyTransition.rx.isTinyAnimating)
+            .disposed(by: disposeBag)
+        
+        viewModel.createPostSuccess
+            .subscribe(onNext: { [weak self] in
+                self?.dismiss(animated: true)
+            })
+    }
+
 // MARK: - Functions
     @objc func dismissKeyboard() {
         view.endEditing(true)
@@ -90,11 +108,13 @@ final class CreatePostViewController: ViewController {
         config.library.preselectedItems = nil
         YPImagePickerConfiguration.shared = config
         picker.navigationBar.backgroundColor = UIColor.white
-    
+        
+        guard let viewModel = viewModel as? CreatePostViewModel else { return }
         picker.didFinishPicking { [unowned picker, weak self] items, _ in
             if let photo = items.singlePhoto {
-                self?.imageSuperView.isHidden = false
+                self?.isHideImage = false
                 self?.imageView.image = photo.image
+                viewModel.media = photo.image
             }
             picker.dismiss(animated: true, completion: nil)
         }
@@ -109,8 +129,21 @@ final class CreatePostViewController: ViewController {
         self.dismiss(animated: true)
     }
     
+    @IBAction private func didTapPostButton(_ sender: Any) {
+        guard let viewModel = viewModel as? CreatePostViewModel else { return }
+        viewModel.content = textView.text
+        viewModel.createPost()
+    }
+    
     @IBAction private func addPhoto(_ sender: Any) {
         present(picker, animated: true, completion: nil)
+    }
+    
+    @IBAction private func didTapRemoveImage(_ sender: Any) {
+        self.isHideImage = true
+        guard let viewModel = viewModel as? CreatePostViewModel else { return }
+        viewModel.media = nil
+        
     }
 }
 

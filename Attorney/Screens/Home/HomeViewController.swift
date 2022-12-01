@@ -276,9 +276,15 @@ extension HomeViewController: ReselectTabHandler {
 
 extension HomeViewController: HeaderHomeReusableViewDelegate {
     func createPost() {
+        guard let viewModel = viewModel as? HomeViewModel else { return }
         let createPostVC = R.storyboard.createPost.createPostViewController()!
         guard let provider = Application.shared.provider else { return }
-        let createPostVM = PostDetailViewModel(provider: provider)
+        let createPostVM = CreatePostViewModel(provider: provider)
+        createPostVM.createPostSuccess
+            .subscribe(onNext: {
+                viewModel.resetPage()
+                viewModel.getPosts()
+            })
         createPostVC.viewModel = createPostVM
         createPostVC.modalPresentationStyle = .fullScreen
         present(createPostVC, animated: true)

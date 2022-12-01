@@ -5,7 +5,7 @@
 //  Created by ThinhTCQ on 11/19/22.
 //
 
-import Foundation
+import UIKit
 
 struct Post: Codable {
     let _id : String?
@@ -70,4 +70,10 @@ struct PostDetailResponse: Codable {
     let success: Bool?
     let data: PostDetail?
     let message: String?
+}
+
+struct CreatePostRequest {
+    let content: String
+    let type: String
+    let media: UIImage?
 }

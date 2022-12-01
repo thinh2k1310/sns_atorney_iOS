@@ -25,4 +25,5 @@ protocol AttorneyAPI {
     func commentPost(commentRequest: CommentRequest) -> Single<CommonReponse>
     func deleteComment(commentId: String) -> Single<CommonReponse>
     func sendDefenceRequest(sendDefenceRequest: DefenceRequest) -> Single<CommonReponse>
+    func createPost(createPostRequest: CreatePostRequest) -> Single<CommonReponse>
 }

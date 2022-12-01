@@ -68,6 +68,10 @@ extension RestAPI {
     func sendDefenceRequest(sendDefenceRequest: DefenceRequest) -> Single<CommonReponse> {
         return requestObject(.sendDefenceRequest(sendDefenceRequest: sendDefenceRequest), type: CommonReponse.self)
     }
+    
+    func createPost(createPostRequest: CreatePostRequest) -> Single<CommonReponse> {
+        return requestObject(.createPost(createPostRequest: createPostRequest), type: CommonReponse.self)
+    }
 }
 
 extension RestAPI {

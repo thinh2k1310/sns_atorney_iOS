@@ -23,6 +23,7 @@ enum AttorneySNSAPI {
     case commentPost(commentRequest: CommentRequest)
     case deleteComment(commentId: String)
     case sendDefenceRequest(sendDefenceRequest: DefenceRequest)
+    case createPost(createPostRequest: CreatePostRequest)
 }
 
 extension AttorneySNSAPI: TargetType {
@@ -68,13 +69,16 @@ extension AttorneySNSAPI: TargetType {
         
         case .sendDefenceRequest:
             return  "case/request"
+            
+        case .createPost:
+            return "post/create"
         }
         
     }
     
     var method: Moya.Method {
         switch self {
-        case .loginOTP, .register, .fetchNewsFeed, .likePost, .commentPost, .sendDefenceRequest:
+        case .loginOTP, .register, .fetchNewsFeed, .likePost, .commentPost, .sendDefenceRequest, .createPost:
             return .post
         
         case .validateEmail, .sendOTP, .resetPassword:
@@ -121,6 +125,16 @@ extension AttorneySNSAPI: TargetType {
         case .sendDefenceRequest(let sendDefenceRequest):
             return .requestJSONEncodable(sendDefenceRequest)
         
+        case .createPost(let request):
+            var multidata = [
+                MultipartFormData(provider: .data(request.content.data(using: String.Encoding.utf8, allowLossyConversion: false)!) , name :"content"),
+                MultipartFormData(provider: .data(request.type.data(using: String.Encoding.utf8, allowLossyConversion: false)!), name :"type")
+            ]
+            if let media = request.media {
+                guard let data = media.jpegData(compressionQuality: 1.0) else { return .requestPlain }
+                multidata.append(MultipartFormData(provider: .data(data), name: "media", fileName: "photo.jpg", mimeType:"image/jpeg"))
+            }
+            return .uploadMultipart(multidata)
         default:
             return .requestPlain
         }
