@@ -34,5 +34,9 @@ struct Color {
                                      alpha: 1.0)
     static let colorPaymentError = UIColor.init(rgb: 0xF85359, alpha: 1)
     static let F1F1FE = UIColor.init(rgb: 0xF1F1FE, alpha: 1)
+    static let green = UIColor.init(rgb: 0x6BCB77)
+    static let lightGreen = UIColor.init(rgb: 0xB3FFAE, alpha: 0.5)
+    static let lightPurple = UIColor.init(rgb: 0xE5B8F4, alpha: 0.5)
+    static let lightRed = UIColor.init(rgb: 0xFF8787, alpha: 0.5)
    
 }

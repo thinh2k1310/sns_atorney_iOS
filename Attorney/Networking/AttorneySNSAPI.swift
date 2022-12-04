@@ -24,12 +24,19 @@ enum AttorneySNSAPI {
     case deleteComment(commentId: String)
     case sendDefenceRequest(sendDefenceRequest: DefenceRequest)
     case createPost(createPostRequest: CreatePostRequest)
+    case getDefenceRequest
+    case acceptDefenceRequest(requestId: String)
+    case denyDefenceRequest(requestId: String)
+    case getAllCase
+    case completeCase(caseId: String)
+    case cancelCase(caseId: String)
+    case getCaseDetail(caseId: String)
 }
 
 extension AttorneySNSAPI: TargetType {
     var baseURL: URL {
         let url = Bundle.main.object(forInfoDictionaryKey: "BaseURL") as? String
-        return URL(string: url ?? "")!
+        return URL(string: "http://localhost:3001/api")!
     }
     
     var path: String {
@@ -72,6 +79,27 @@ extension AttorneySNSAPI: TargetType {
             
         case .createPost:
             return "post/create"
+            
+        case .getDefenceRequest:
+            return "case/request"
+        
+        case .acceptDefenceRequest(let requestId):
+            return "case/request/\(requestId)/accept"
+            
+        case .denyDefenceRequest(let requestId):
+            return "case/request/\(requestId)/cancel"
+            
+        case .getAllCase:
+            return "case/list"
+            
+        case .completeCase(let caseId):
+            return "case/\(caseId)/complete"
+        
+        case .cancelCase(let caseId):
+            return "case/\(caseId)/cancel"
+            
+        case .getCaseDetail(let caseId):
+            return "case/\(caseId)"
         }
         
     }
@@ -81,10 +109,10 @@ extension AttorneySNSAPI: TargetType {
         case .loginOTP, .register, .fetchNewsFeed, .likePost, .commentPost, .sendDefenceRequest, .createPost:
             return .post
         
-        case .validateEmail, .sendOTP, .resetPassword:
+        case .validateEmail, .sendOTP, .resetPassword, .acceptDefenceRequest, .completeCase, .cancelCase:
             return .put
             
-        case .deleteComment:
+        case .deleteComment, .denyDefenceRequest:
             return .delete
     
         default:

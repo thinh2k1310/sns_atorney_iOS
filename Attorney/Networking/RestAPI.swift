@@ -72,6 +72,33 @@ extension RestAPI {
     func createPost(createPostRequest: CreatePostRequest) -> Single<CommonReponse> {
         return requestObject(.createPost(createPostRequest: createPostRequest), type: CommonReponse.self)
     }
+    
+    func getDefenceRequest() -> Single<DefenceRequestResponse> {
+        return requestObject(.getDefenceRequest, type: DefenceRequestResponse.self)
+    }
+    
+    func acceptDefenceRequest(requestId: String) -> Single<CommonReponse> {
+        return requestObject(.acceptDefenceRequest(requestId: requestId), type: CommonReponse.self)
+    }
+
+    func denyDefenceRequest(requestId: String) -> Single<CommonReponse> {
+        return requestObject(.denyDefenceRequest(requestId: requestId), type: CommonReponse.self)
+    }
+    
+    func getAllCase() -> Single<DefenceRequestResponse> {
+        return requestObject(.getAllCase, type: DefenceRequestResponse.self)
+    }
+    func completeCase(caseId: String) -> Single<CommonReponse> {
+        return requestObject(.completeCase(caseId: caseId), type: CommonReponse.self)
+    }
+
+    func cancelCase(caseId: String) -> Single<CommonReponse> {
+        return requestObject(.cancelCase(caseId: caseId), type: CommonReponse.self)
+    }
+    
+    func getCaseDetail(caseId: String) -> Single<CaseDetailResponse> {
+        return requestObject(.getCaseDetail(caseId: caseId), type: CaseDetailResponse.self)
+    }
 }
 
 extension RestAPI {

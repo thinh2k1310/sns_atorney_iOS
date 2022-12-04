@@ -1,5 +1,7 @@
 
-"string_delete_comment" = "Are you sure you want to delete this comment?";
+"string_cancel_case" = "Are you sure to cancel this case?";
+"string_complete_case" = "Are you sure to complete this case?";
+"string_delete_comment" = "Are you sure to delete this comment?";
 "string_dont_have_account" = "Don't have account? ";
 "string_generic_error" = "Attorney is currently experiencing some technical difficulties";
 "string_password" = "Password";
@@ -16,5 +18,6 @@
 "string_tooltip_password_warning_second_line" = "• number (0-9)";
 "string_tooltip_password_warning_third_line" = "• lower case character (a-z)";
 "string_username" = "Username";
+"string_wants_to_defend" = "wants to defend you case";
 "string_welcome" = "Welcome";
 "string_what_on_your_mid" = "What's on your mind, %@?";

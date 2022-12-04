@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ProximaNova-Sbold.otf">
+            <string>ProximaNova-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CaseChildViewController" customModule="Attorney" customModuleProvider="target">
+            <connections>
+                <outlet property="contentTableView" destination="2Jn-CT-V4x" id="0vm-aT-4dP"/>
+                <outlet property="noItemView" destination="BoK-nv-NJz" id="Fju-C7-uKj"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Pdi-oF-NvI"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2Jn-CT-V4x">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BoK-nv-NJz">
+                    <rect key="frame" x="90" y="144" width="234" height="120"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No requests found!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBs-rc-K6U">
+                            <rect key="frame" x="44.5" y="49.5" width="145" height="21"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="17"/>
+                            <color key="textColor" name="7E7E7E"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="DBs-rc-K6U" firstAttribute="centerX" secondItem="BoK-nv-NJz" secondAttribute="centerX" id="gEf-rW-67w"/>
+                        <constraint firstAttribute="height" constant="120" id="gt3-eH-vWs"/>
+                        <constraint firstItem="DBs-rc-K6U" firstAttribute="centerY" secondItem="BoK-nv-NJz" secondAttribute="centerY" id="z6Y-1e-Rpo"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="BoK-nv-NJz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="90" id="Cn8-zO-qvg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="2Jn-CT-V4x" secondAttribute="trailing" id="gNQ-mn-BtA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="BoK-nv-NJz" secondAttribute="trailing" constant="90" id="qg8-ng-i8B"/>
+                <constraint firstItem="BoK-nv-NJz" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="100" id="rvy-BL-dHj"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="2Jn-CT-V4x" secondAttribute="bottom" id="scy-Av-21B"/>
+                <constraint firstItem="2Jn-CT-V4x" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ts3-3G-w2K"/>
+                <constraint firstItem="2Jn-CT-V4x" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="zXl-Lw-VAn"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="41"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="7E7E7E">
+            <color red="0.49411764705882355" green="0.49411764705882355" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

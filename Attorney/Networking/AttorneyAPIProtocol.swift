@@ -24,6 +24,16 @@ protocol AttorneyAPI {
     func likePost(likeRequest: LikeRequest) -> Single<LikeResponse>
     func commentPost(commentRequest: CommentRequest) -> Single<CommonReponse>
     func deleteComment(commentId: String) -> Single<CommonReponse>
-    func sendDefenceRequest(sendDefenceRequest: DefenceRequest) -> Single<CommonReponse>
     func createPost(createPostRequest: CreatePostRequest) -> Single<CommonReponse>
+    
+    // MARK: - Case
+    func sendDefenceRequest(sendDefenceRequest: DefenceRequest) -> Single<CommonReponse>
+    func getDefenceRequest() -> Single<DefenceRequestResponse>
+    func acceptDefenceRequest(requestId: String) -> Single<CommonReponse>
+    func denyDefenceRequest(requestId: String) -> Single<CommonReponse>
+    
+    func getAllCase() -> Single<DefenceRequestResponse>
+    func completeCase(caseId: String) -> Single<CommonReponse>
+    func cancelCase(caseId: String) -> Single<CommonReponse>
+    func getCaseDetail(caseId: String) -> Single<CaseDetailResponse>
 }

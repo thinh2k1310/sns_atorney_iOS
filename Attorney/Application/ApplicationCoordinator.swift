@@ -17,7 +17,7 @@ class ApplicationCoordinator {
     var rootViewController: UIViewController
     private var previousIndex: Int = 0
     var homeCoordinator: HomeCoordinator!
-    var messageCoordinator: MessageCoordinator!
+    var caseCoordinator: CaseCoordinator!
     var notificationCoordinator: NotificationCoordinator!
     var menuCoordinator: MenuCoordinator!
     var defaultControllers: [UIViewController] = []
@@ -34,13 +34,13 @@ class ApplicationCoordinator {
     private func initTabbar(tabBarController: UITabBarController, provider: AttorneyAPI){
         
         self.homeCoordinator = HomeCoordinator(provider: provider)
-        self.messageCoordinator = MessageCoordinator(provider: provider)
+        self.caseCoordinator = CaseCoordinator(provider: provider)
         self.notificationCoordinator = NotificationCoordinator(provider: provider)
         self.menuCoordinator = MenuCoordinator(provider: provider)
 
         defaultControllers = [
             homeCoordinator.homeNavigationViewController,
-            messageCoordinator.messageNavigationViewController,
+            caseCoordinator.caseNavigationViewController,
             notificationCoordinator.notificationNavigationViewController,
             menuCoordinator.menuNavigationViewController
         ]
@@ -93,7 +93,7 @@ class ApplicationCoordinator {
                 return self.homeCoordinator
 
             case .message:
-                return self.messageCoordinator
+                return self.caseCoordinator
 
             case .notification:
                 return self.notificationCoordinator

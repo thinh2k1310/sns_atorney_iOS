@@ -18,6 +18,8 @@ struct Comment: Codable {
 struct ShortPost: Codable {
     let _id : String?
     let user: String?
+    let content: String?
+    let mediaUrl: String?
 }
 
 struct PostCommentsResponse: Codable {

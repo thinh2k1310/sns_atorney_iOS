@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ProximaNova-Sbold.otf">
+            <string>ProximaNova-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CaseSegmentCollectionViewCell" customModule="Attorney" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="178" height="74"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="178" height="74"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your request" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlm-Df-Tn4">
+                        <rect key="frame" x="0.0" y="45" width="178" height="18"/>
+                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fch-av-tmE">
+                        <rect key="frame" x="0.0" y="71" width="178" height="3"/>
+                        <color key="backgroundColor" name="AppTintColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="3" id="dvV-Tc-kcp"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="mlm-Df-Tn4" secondAttribute="bottom" constant="11" id="2La-CQ-WJX"/>
+                <constraint firstItem="Fch-av-tmE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9BF-gG-hUj"/>
+                <constraint firstAttribute="trailing" secondItem="mlm-Df-Tn4" secondAttribute="trailing" id="Jpo-XN-Pof"/>
+                <constraint firstAttribute="trailing" secondItem="Fch-av-tmE" secondAttribute="trailing" id="VEU-So-s0w"/>
+                <constraint firstAttribute="bottom" secondItem="Fch-av-tmE" secondAttribute="bottom" id="k3e-Xs-5Vr"/>
+                <constraint firstItem="mlm-Df-Tn4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="usv-1C-A51"/>
+            </constraints>
+            <size key="customSize" width="178" height="74"/>
+            <connections>
+                <outlet property="highlightView" destination="Fch-av-tmE" id="6f3-0i-QoS"/>
+                <outlet property="menuLabel" destination="mlm-Df-Tn4" id="Sx5-4i-0UH"/>
+            </connections>
+            <point key="canvasLocation" x="230.43478260869566" y="75.669642857142847"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="AppTintColor">
+            <color red="0.31764705882352939" green="0.31764705882352939" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
