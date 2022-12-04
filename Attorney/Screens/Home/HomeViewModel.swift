@@ -170,15 +170,6 @@ final class HomeViewModel: ViewModel {
             }.disposed(by: disposeBag)
         
     }
-    
-    func commentPost(postId: String, content: String) {
-        guard let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo),
-        let userId = userInfo.id else {
-           return
-        }
-        provider
-            .commentPost(commentRequest: CommentRequest(userId: userId, postId: postId, content: content))
-    }
 }
 
 // MARK: - Cell Size calculation

@@ -19,6 +19,7 @@ protocol AttorneyAPI {
     
     // MARK: - Post
     func fetchNewsFeed(request: PostsRequest) -> Single<PostsResponse>
+    func fetchUserPost(request: UserPostsRequest) -> Single<PostsResponse>
     func getPostDetail(postId: String) -> Single<PostDetailResponse>
     func getPostComments(postId: String) -> Single<PostCommentsResponse>
     func likePost(likeRequest: LikeRequest) -> Single<LikeResponse>

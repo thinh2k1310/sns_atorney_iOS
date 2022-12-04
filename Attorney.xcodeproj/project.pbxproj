@@ -158,6 +158,12 @@
 		F38C77CD293AF5F200D27996 /* CaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F38C77CB293AF5F100D27996 /* CaseTableViewCell.xib */; };
 		F38C77D0293B970000D27996 /* CaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C77CF293B970000D27996 /* CaseDetailViewController.swift */; };
 		F38C77D2293B9B4E00D27996 /* CaseDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C77D1293B9B4E00D27996 /* CaseDetailViewModel.swift */; };
+		F38C77D4293C55C500D27996 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C77D3293C55C400D27996 /* MenuViewModel.swift */; };
+		F38C77D8293C668500D27996 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C77D7293C668400D27996 /* ProfileViewController.swift */; };
+		F38C77DA293C669600D27996 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C77D9293C669600D27996 /* ProfileViewModel.swift */; };
+		F38C77DC293C676400D27996 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38C77DB293C676400D27996 /* Profile.storyboard */; };
+		F38C77DF293C961300D27996 /* ProfileHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C77DE293C961200D27996 /* ProfileHeaderReusableView.swift */; };
+		F38C77E1293C964900D27996 /* ProfileHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F38C77E0293C964900D27996 /* ProfileHeaderReusableView.xib */; };
 		F3C9B066293735E40095D09D /* PostCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C9B065293735E40095D09D /* PostCategory.swift */; };
 		F3C9B06D2937D4C20095D09D /* CreatePost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3C9B06C2937D4C10095D09D /* CreatePost.storyboard */; };
 		F3C9B0702937DCC80095D09D /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C9B06F2937DCC80095D09D /* CreatePostViewController.swift */; };
@@ -322,6 +328,12 @@
 		F38C77CB293AF5F100D27996 /* CaseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaseTableViewCell.xib; sourceTree = "<group>"; };
 		F38C77CF293B970000D27996 /* CaseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDetailViewController.swift; sourceTree = "<group>"; };
 		F38C77D1293B9B4E00D27996 /* CaseDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDetailViewModel.swift; sourceTree = "<group>"; };
+		F38C77D3293C55C400D27996 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		F38C77D7293C668400D27996 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F38C77D9293C669600D27996 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		F38C77DB293C676400D27996 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		F38C77DE293C961200D27996 /* ProfileHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderReusableView.swift; sourceTree = "<group>"; };
+		F38C77E0293C964900D27996 /* ProfileHeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderReusableView.xib; sourceTree = "<group>"; };
 		F3C9B065293735E40095D09D /* PostCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCategory.swift; sourceTree = "<group>"; };
 		F3C9B06C2937D4C10095D09D /* CreatePost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePost.storyboard; sourceTree = "<group>"; };
 		F3C9B06F2937DCC80095D09D /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
@@ -533,6 +545,7 @@
 		F32C526028F719B500E6C840 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F38C77DD293C95DC00D27996 /* ProfileHeaderView */,
 				F38C77C9293AF5B600D27996 /* CaseCell */,
 				F38C77B9293A68D800D27996 /* RequestCell */,
 				F37C0346293A078A00674118 /* CaseSegmentView */,
@@ -664,6 +677,7 @@
 		F37CB00F28E81AE40061B273 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F38C77D6293C666700D27996 /* Profile */,
 				F3C9B06E2937DB290095D09D /* CreatePost */,
 				03933CC3293119E5001E4631 /* DetailPost */,
 				035A46D52914148B00A64898 /* Transitions */,
@@ -713,6 +727,7 @@
 				03D5839D2914EDF600D0D4E3 /* Success.storyboard */,
 				037665B1292FEEF9002FA7DE /* DetailPost.storyboard */,
 				F3C9B06C2937D4C10095D09D /* CreatePost.storyboard */,
+				F38C77DB293C676400D27996 /* Profile.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -806,6 +821,7 @@
 			isa = PBXGroup;
 			children = (
 				F37CB03F28E840F50061B273 /* MenuViewController.swift */,
+				F38C77D3293C55C400D27996 /* MenuViewModel.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -932,6 +948,24 @@
 			path = CaseDetail;
 			sourceTree = "<group>";
 		};
+		F38C77D6293C666700D27996 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F38C77D7293C668400D27996 /* ProfileViewController.swift */,
+				F38C77D9293C669600D27996 /* ProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F38C77DD293C95DC00D27996 /* ProfileHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				F38C77DE293C961200D27996 /* ProfileHeaderReusableView.swift */,
+				F38C77E0293C964900D27996 /* ProfileHeaderReusableView.xib */,
+			);
+			path = ProfileHeaderView;
+			sourceTree = "<group>";
+		};
 		F3C9B064293735CD0095D09D /* Enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -1017,6 +1051,7 @@
 				035A46D42914146200A64898 /* Transitions.storyboard in Resources */,
 				F37C034E293A097000674118 /* CaseSegmentCollectionViewCell.xib in Resources */,
 				F38C77BF293A88FC00D27996 /* CaseChildViewController.xib in Resources */,
+				F38C77E1293C964900D27996 /* ProfileHeaderReusableView.xib in Resources */,
 				F37CB02528E83CE90061B273 /* Login.storyboard in Resources */,
 				F3886F1A28EFD1B400A14F47 /* SplashScreen.storyboard in Resources */,
 				F32C525928F5E50200E6C840 /* ProximaNova-Thin.otf in Resources */,
@@ -1042,6 +1077,7 @@
 				F37CB02F28E83DB60061B273 /* Case.storyboard in Resources */,
 				F32C525428F5E50200E6C840 /* ProximaNova-Black.otf in Resources */,
 				0302BBAD2926609C000238A1 /* NewsFeedCollectionViewCell.xib in Resources */,
+				F38C77DC293C676400D27996 /* Profile.storyboard in Resources */,
 				F38C77CD293AF5F200D27996 /* CaseTableViewCell.xib in Resources */,
 				037665B2292FEEF9002FA7DE /* DetailPost.storyboard in Resources */,
 				F3C9B06D2937D4C20095D09D /* CreatePost.storyboard in Resources */,
@@ -1180,6 +1216,7 @@
 				F37CB03A28E840930061B273 /* LoginViewController.swift in Sources */,
 				F37CB01928E81D570061B273 /* ApplicationCoordinator.swift in Sources */,
 				03EE2BB4290D0D3A00A8317A /* PrimitiveSequenceExtension.swift in Sources */,
+				F38C77D4293C55C500D27996 /* MenuViewModel.swift in Sources */,
 				035DF5352901970C00A80C8E /* CoachmarkContent.swift in Sources */,
 				03B893E92928B43800803DD9 /* PostList.swift in Sources */,
 				F38C77B6293A554400D27996 /* UINavigationControllerExtension.swift in Sources */,
@@ -1206,6 +1243,7 @@
 				0302BBA829263C0E000238A1 /* HomeViewModel.swift in Sources */,
 				F37C0350293A188300674118 /* CaseChildViewController.swift in Sources */,
 				035424D42912D316002235FB /* UIViewControllerExtension.swift in Sources */,
+				F38C77D8293C668500D27996 /* ProfileViewController.swift in Sources */,
 				03D730A028FEEF4C00BBA498 /* VerifyOTPViewController.swift in Sources */,
 				03B893F8292907FC00803DD9 /* UIImageViewExtension.swift in Sources */,
 				F37C0352293A199300674118 /* CaseChildViewModel.swift in Sources */,
@@ -1252,6 +1290,7 @@
 				03B893ED2928C43E00803DD9 /* LoadmoreIndicatorReusableView.swift in Sources */,
 				035A46CF291410BB00A64898 /* DigitInputView.swift in Sources */,
 				F37CB04428E841140061B273 /* NotificationsViewController.swift in Sources */,
+				F38C77DF293C961300D27996 /* ProfileHeaderReusableView.swift in Sources */,
 				03EE2BC2290D20BD00A8317A /* Single+Codable.swift in Sources */,
 				03933CC72932474F001E4631 /* PostDetailViewModel.swift in Sources */,
 				03EE2BC4290D4F2700A8317A /* LoginViewModel.swift in Sources */,
@@ -1259,6 +1298,7 @@
 				F32C526328F7259200E6C840 /* UITextFieldExtension.swift in Sources */,
 				03A63D9E2905371300C1C72D /* RegisterViewController.swift in Sources */,
 				0309D987290048B50000F9D6 /* InputTextField.swift in Sources */,
+				F38C77DA293C669600D27996 /* ProfileViewModel.swift in Sources */,
 				035A46D2291413A300A64898 /* AttorneyTransition.swift in Sources */,
 				F3886F1D28EFEA4100A14F47 /* HomeCoordinator.swift in Sources */,
 				0302BBA629263A58000238A1 /* NameDescribable.swift in Sources */,

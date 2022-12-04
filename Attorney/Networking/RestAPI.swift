@@ -45,6 +45,10 @@ extension RestAPI {
         return requestObject(.fetchNewsFeed(request: request), type: PostsResponse.self)
     }
     
+    func fetchUserPost(request: UserPostsRequest) -> Single<PostsResponse> {
+        return requestObject(.fetchUserPost(request: request), type: PostsResponse.self)
+    }
+    
     func getPostDetail(postId: String) -> Single<PostDetailResponse> {
         return requestObject(.getPostDetail(postId: postId), type: PostDetailResponse.self)
     }

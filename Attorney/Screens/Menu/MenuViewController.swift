@@ -6,12 +6,16 @@
 //
 
 import UIKit
+import Kingfisher
 
-final class MenuViewController: ViewController{
+final class MenuViewController: ViewController {
+    @IBOutlet private weak var userImageView: UIImageView!
+    @IBOutlet private weak var userNameLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .orange
+        setupProfileView()
     }
     
     override func setupUI() {
@@ -28,6 +32,27 @@ final class MenuViewController: ViewController{
         tabBarController?.tabBar.isOpaque = false
     }
     
+    private func setupProfileView() {
+        if let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo) {
+            // Avatar
+            let processor = DownsamplingImageProcessor(size: userImageView.bounds.size)
+            userImageView.kf.setImage(
+                with: URL(string: userInfo.avatar ?? ""),
+                placeholder: R.image.placeholderAvatar(),
+                options: [
+                        .processor(processor),
+                        .scaleFactor(UIScreen.main.scale),
+                        .transition(.fade(1)),
+                        .cacheOriginalImage
+                ])
+            userImageView.roundToCircle()
+            
+            // Name
+            let userName = "\(userInfo.firstName ?? "") \(userInfo.lastName ?? "User")"
+            userNameLabel.text = userName
+        }
+    }
+    
     @IBAction private func didTapLogOut(_ sender: UIButton) {
         UserService.shared.removeAccessToken()
         guard let window = AppDelegate.shared()?.window else {
@@ -35,5 +60,36 @@ final class MenuViewController: ViewController{
         }
         let appCoordinator = ApplicationCoordinator(window: window)
         appCoordinator.popToLogin()
+    }
+    
+    @IBAction private func didTapProfileControl(_ sender: Any) {
+        if let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo) {
+            let profileVC = R.storyboard.profile.profileViewController()!
+            guard let provider = Application.shared.provider else { return }
+            let profileVM = ProfileViewModel(provider: provider)
+            profileVM.profileId = userInfo.id
+            profileVC.viewModel = profileVM
+            self.navigationController?.pushViewController(profileVC, animated: true)
+        }
+    }
+    
+    @IBAction private func didTapEmailControl(_ sender: Any) {
+        
+    }
+    
+    @IBAction private func didTapPasswordControl(_ sender: Any) {
+        
+    }
+    
+    @IBAction private func didTapDocuments(_ sender: Any) {
+        
+    }
+    
+    @IBAction private func didTapAbout(_ sender: Any) {
+        
+    }
+    
+    @IBAction private func didTapTerm(_ sender: Any) {
+        
     }
 }

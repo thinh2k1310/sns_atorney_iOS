@@ -45,6 +45,11 @@ struct PostsRequest: Codable {
     let page: Int?
 }
 
+struct UserPostsRequest: Codable {
+    let profileId: String?
+    let page: Int?
+}
+
 struct SortOrder: Codable {
     let created: Int?
     let totalReactions: Int?
