@@ -32,12 +32,12 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hVe-nR-L7Q">
-                    <rect key="frame" x="90" y="144" width="234" height="120"/>
+                    <rect key="frame" x="90" y="124" width="234" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No requests found!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQ7-FE-uMo">
-                            <rect key="frame" x="44.5" y="50" width="145.5" height="20"/>
+                            <rect key="frame" x="44.5" y="14.5" width="145" height="21"/>
                             <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="17"/>
-                            <color key="textColor" name="7E7E7E"/>
+                            <color key="textColor" name="354052"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -45,7 +45,7 @@
                     <constraints>
                         <constraint firstItem="TQ7-FE-uMo" firstAttribute="centerX" secondItem="hVe-nR-L7Q" secondAttribute="centerX" id="SmO-fP-i6y"/>
                         <constraint firstItem="TQ7-FE-uMo" firstAttribute="centerY" secondItem="hVe-nR-L7Q" secondAttribute="centerY" id="mW0-ep-Ij3"/>
-                        <constraint firstAttribute="height" constant="120" id="mop-lQ-NJi"/>
+                        <constraint firstAttribute="height" constant="50" id="mop-lQ-NJi"/>
                     </constraints>
                 </view>
             </subviews>
@@ -55,7 +55,7 @@
                 <constraint firstItem="hVe-nR-L7Q" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="90" id="1HF-Mi-LG1"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nKz-rN-2ZW" secondAttribute="trailing" id="70H-HH-HfL"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="nKz-rN-2ZW" secondAttribute="bottom" id="E4X-tc-lHb"/>
-                <constraint firstItem="hVe-nR-L7Q" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="100" id="ZdE-8h-qgA"/>
+                <constraint firstItem="hVe-nR-L7Q" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="80" id="ZdE-8h-qgA"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hVe-nR-L7Q" secondAttribute="trailing" constant="90" id="jcB-BN-Jis"/>
                 <constraint firstItem="nKz-rN-2ZW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="omj-67-0Bq"/>
                 <constraint firstItem="nKz-rN-2ZW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="yti-3b-5KW"/>
@@ -64,8 +64,8 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="7E7E7E">
-            <color red="0.49411764705882355" green="0.49411764705882355" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="354052">
+            <color red="0.20784313725490197" green="0.25098039215686274" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

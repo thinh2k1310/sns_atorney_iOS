@@ -147,17 +147,17 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Client status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwN-eX-beA">
-                                                <rect key="frame" x="150" y="70" width="88" height="17.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attorney status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwN-eX-beA">
+                                                <rect key="frame" x="150" y="70" width="99" height="17.5"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="88" id="rUy-9Z-euJ"/>
+                                                    <constraint firstAttribute="width" constant="99" id="rUy-9Z-euJ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tk-L3-dPw">
-                                                <rect key="frame" x="246" y="70" width="60" height="17.5"/>
+                                                <rect key="frame" x="257" y="70" width="49" height="17.5"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -185,14 +185,14 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="81c-jN-PkJ" userLabel="Line View">
-                                <rect key="frame" x="0.0" y="284" width="414" height="2"/>
-                                <color key="backgroundColor" name="TFBorder"/>
+                                <rect key="frame" x="0.0" y="284" width="414" height="5"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="2" id="pnm-XW-tPY"/>
+                                    <constraint firstAttribute="height" constant="5" id="pnm-XW-tPY"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zXz-tj-tG2" userLabel="Infomation View">
-                                <rect key="frame" x="0.0" y="488" width="414" height="90"/>
+                                <rect key="frame" x="0.0" y="494" width="414" height="90"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G6I-Dv-pph">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
@@ -275,14 +275,14 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBd-GP-IaH" userLabel="Line View">
-                                <rect key="frame" x="0.0" y="578" width="414" height="2"/>
-                                <color key="backgroundColor" name="TFBorder"/>
+                                <rect key="frame" x="0.0" y="584" width="414" height="5"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="2" id="FYf-U4-EBO"/>
+                                    <constraint firstAttribute="height" constant="5" id="FYf-U4-EBO"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lAH-Hs-n1Z">
-                                <rect key="frame" x="67" y="616" width="280" height="40"/>
+                                <rect key="frame" x="67" y="625" width="280" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9t-Q3-YFz">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="40"/>
@@ -343,7 +343,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Yy5-Yd-ynG" userLabel="Post View">
-                                <rect key="frame" x="0.0" y="286" width="414" height="200"/>
+                                <rect key="frame" x="0.0" y="289" width="414" height="200"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qc4-yj-YYh" userLabel="Image Super View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
@@ -385,10 +385,10 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XDL-nw-QYO" userLabel="Line View 2">
-                                <rect key="frame" x="0.0" y="486" width="414" height="2"/>
-                                <color key="backgroundColor" name="TFBorder"/>
+                                <rect key="frame" x="0.0" y="489" width="414" height="5"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="2" id="uwW-NY-7TR"/>
+                                    <constraint firstAttribute="height" constant="5" id="uwW-NY-7TR"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -420,11 +420,11 @@
                     <connections>
                         <outlet property="attorneyImageView" destination="pXh-ig-abU" id="9Zz-x3-Wdz"/>
                         <outlet property="attorneyNameLabel" destination="A6b-cO-GFM" id="4jY-tH-R3o"/>
-                        <outlet property="attorneyStatusLabel" destination="0b7-CJ-tiT" id="ogC-UK-3B5"/>
+                        <outlet property="attorneyStatusLabel" destination="5tk-L3-dPw" id="9Dy-9T-DRi"/>
                         <outlet property="cancelButton" destination="xsl-6q-OSh" id="erP-sg-12q"/>
                         <outlet property="clientImageView" destination="aIf-Ui-mOJ" id="mYn-ts-gnb"/>
                         <outlet property="clientNameLabel" destination="O4N-Ck-jep" id="ASg-Ev-owi"/>
-                        <outlet property="clientStatusLabel" destination="5tk-L3-dPw" id="glu-GL-7Fl"/>
+                        <outlet property="clientStatusLabel" destination="0b7-CJ-tiT" id="gxC-3i-5Zq"/>
                         <outlet property="completeButton" destination="o9t-Q3-YFz" id="1Tz-Fo-zp2"/>
                         <outlet property="endingTimeLabel" destination="fD1-V5-FOX" id="LAp-dg-5NJ"/>
                         <outlet property="postContentLabel" destination="b9y-gL-bwb" id="KrD-Nh-5hW"/>
@@ -452,11 +452,11 @@
         <namedColor name="FF4052">
             <color red="1" green="0.25098039215686274" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="TFBorder">
-            <color red="0.49803921568627452" green="0.51764705882352946" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

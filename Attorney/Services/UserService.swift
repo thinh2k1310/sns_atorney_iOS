@@ -20,6 +20,8 @@ class UserService {
     fileprivate let lastEmailKey = "LastEmailKey"
     fileprivate let token = "accessToken"
     fileprivate let keychain = Keychain(service: Configurations.App.bundleIdentifier ?? "thinh.com")
+    
+    let userInforChangeEvent = PublishSubject<UserInfo>()
 
     public private (set) var userInfo: UserInfo?
     
@@ -97,5 +99,11 @@ class UserService {
 
     class func saveLastEmail(email: String) {
         UserService.shared.lastEmail = email
+    }
+    
+    func saveUserInfor(user: User) {
+        let userInfor = UserInfo(user: user)
+        UserDefaults.standard.saveObject(userInfor, forKey: UserKey.kUserInfo)
+        userInforChangeEvent.onNext(userInfor)
     }
 }

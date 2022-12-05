@@ -11,3 +11,9 @@ struct CommonReponse: Codable {
     let success: Bool?
     let message: String?
 }
+
+struct ChangeImageResponse: Codable {
+    let success: Bool?
+    let message: String?
+    let data: User?
+}

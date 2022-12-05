@@ -1,38 +1,31 @@
 //
-//  CreatePostViewController.swift
+//  ChangeImageViewController.swift
 //  Attorney
 //
-//  Created by Truong Thinh on 01/12/2022.
+//  Created by ThinhTCQ on 12/5/22.
 //
 
 import UIKit
-import GrowingTextView
+import RxSwift
+import RxCocoa
 import YPImagePicker
+import RealmSwift
 
-final class CreatePostViewController: ViewController {
-// MARK: - IBOutlets
-    @IBOutlet private weak var scrollView: UIScrollView!
-    @IBOutlet private weak var imageSuperView: UIView!
-    @IBOutlet private weak var textView: GrowingTextView!
-    @IBOutlet private weak var postButton: UIButton!
+final class ChangeImageViewController: ViewController {
     @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var changeButton: UIButton!
     
-// MARK: - Variables
     let picker = YPImagePicker()
-    var isHideImage: Bool = true {
-        didSet {
-            imageSuperView.isHidden = isHideImage
-        }
-    }
 
 // MARK: - Licycle View
     override func viewDidLoad() {
         super.viewDidLoad()
         configPicker()
-        imageSuperView.isHidden = true
-        postButton.deactivate()
-        addGestures()
-        textView.delegate = self
+        configTitle()
+        imageView.isHidden = true
+        changeButton.deactivate()
+        present(picker, animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,28 +45,23 @@ final class CreatePostViewController: ViewController {
     override func bindViewModel() {
         super.bindViewModel()
         
-        guard let viewModel = viewModel as? CreatePostViewModel else { return }
+        guard let viewModel = viewModel as? ChangeImageViewModel else { return }
         viewModel.bodyLoading.asObservable()
             .bind(to: AttorneyTransition.rx.isTinyAnimating)
             .disposed(by: disposeBag)
         
-        viewModel.createPostSuccess
-            .subscribe(onNext: { [weak self] in
+        viewModel.changeImageSuccess
+            .subscribe(onNext: { [weak self] user in
+                if let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo) {
+                    if userInfo.id == user.id {
+                        UserService.shared.saveUserInfor(user: user)
+                    }
+                }
                 self?.dismiss(animated: true)
             }).disposed(by: disposeBag)
     }
 
 // MARK: - Functions
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-    
-    private func addGestures() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-        scrollView.addGestureRecognizer(tap)
-    }
     
     private func configPicker() {
         var config = YPImagePickerConfiguration()
@@ -109,17 +97,30 @@ final class CreatePostViewController: ViewController {
         YPImagePickerConfiguration.shared = config
         picker.navigationBar.backgroundColor = UIColor.white
         
-        guard let viewModel = viewModel as? CreatePostViewModel else { return }
+        guard let viewModel = viewModel as? ChangeImageViewModel else { return }
         picker.didFinishPicking { [unowned picker, weak self] items, _ in
+            guard let self = self else { return }
             if let photo = items.singlePhoto {
-                self?.isHideImage = false
-                self?.imageView.image = photo.image
+                self.imageView.isHidden = false
+                self.imageView.image = photo.image
                 viewModel.media = photo.image
             }
             picker.dismiss(animated: true, completion: nil)
+            UIView.transition(with: self.changeButton, duration: 0.4, options: .transitionCrossDissolve, animations: {
+                self.changeButton.activate()
+            })
         }
     }
 
+    private func configTitle() {
+        guard let viewModel = viewModel as? ChangeImageViewModel else { return }
+        switch viewModel.imageType {
+        case .avatar:
+            self.titleLabel.text = ImageType.avatar.rawValue
+        case .cover:
+            self.titleLabel.text = ImageType.cover.rawValue
+        }
+    }
 
 
 
@@ -130,42 +131,14 @@ final class CreatePostViewController: ViewController {
     }
     
     @IBAction private func didTapPostButton(_ sender: Any) {
-        guard let viewModel = viewModel as? CreatePostViewModel else { return }
-        viewModel.content = textView.text
-        viewModel.createPost()
+        guard let viewModel = viewModel as? ChangeImageViewModel else { return }
+        viewModel.changeImage()
     }
     
     @IBAction private func addPhoto(_ sender: Any) {
         present(picker, animated: true, completion: nil)
     }
-    
-    @IBAction private func didTapRemoveImage(_ sender: Any) {
-        self.isHideImage = true
-        guard let viewModel = viewModel as? CreatePostViewModel else { return }
-        viewModel.media = nil
-        
-    }
 }
 
-// MARK: - ScrollView
 
-extension CreatePostViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        view.endEditing(true)
-    }
-}
 
-// MARK: - TextViewDelegate
-
-extension CreatePostViewController: GrowingTextViewDelegate {
-    func textViewDidChange(_ textView: UITextView) {
-        let text = textView.text.trim()
-        if text.isEmpty {
-            postButton.deactivate()
-        } else {
-            UIView.transition(with: postButton, duration: 0.4, options: .transitionCrossDissolve, animations: {
-                self.postButton.activate()
-            })
-        }
-    }
-}

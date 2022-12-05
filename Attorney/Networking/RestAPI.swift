@@ -103,6 +103,18 @@ extension RestAPI {
     func getCaseDetail(caseId: String) -> Single<CaseDetailResponse> {
         return requestObject(.getCaseDetail(caseId: caseId), type: CaseDetailResponse.self)
     }
+    
+    func getProfile(userId: String) -> Single<ProfileResponse> {
+        return requestObject(.getProfile(userId: userId), type: ProfileResponse.self)
+    }
+    
+    func changeAvatar(request: ChangeAvatarRequest) -> Single<ChangeImageResponse> {
+        return requestObject(.changeAvatar(request: request), type: ChangeImageResponse.self)
+    }
+    
+    func changeCover(request: ChangeCoverRequest) -> Single<ChangeImageResponse> {
+        return requestObject(.changeCover(request: request), type: ChangeImageResponse.self)
+    }
 }
 
 extension RestAPI {

@@ -89,9 +89,17 @@ final class ProfileViewController: ViewController {
             switch viewType {
             case UICollectionView.elementKindSectionHeader:
                 if let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ProfileHeaderReusableView.reuseIdentifier, for: indexPath) as? ProfileHeaderReusableView {
-                    if let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo) {
-//                        header.configureHeader(with: userInfo)
-                    }
+                    viewModel.getProfileSuccess.subscribe(onNext: { [weak self] profile in
+                        header.configureHeader(with: profile)
+                        header.delegate = self
+                    })
+                    
+                    UserService.shared.userInforChangeEvent
+                        .subscribe(onNext: { userInfor in
+                            header.configureHeader(with: User(user: userInfor))
+                        })
+                    .disposed(by: self.disposeBag)
+                    
                     return header
                 }
 
@@ -116,8 +124,6 @@ final class ProfileViewController: ViewController {
             self?.collectionView.scrollToTop(animated: false)
         }
         .disposed(by: disposeBag)
-
-
     }
 
     // MARK: - Section 5 - IBAction
@@ -184,7 +190,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let viewWidth = self.view.frame.width
-        let viewHeight = Configs.headerHeight
+        let viewHeight = calculateHeightForHeaderView()
         return CGSize(width: viewWidth - 5, height: viewHeight)
     }
 
@@ -234,6 +240,79 @@ extension ProfileViewController {
         static let footerHeight: CGFloat = 67.0
         static let headerHeight: CGFloat = 620.0
     }
+    
+    private func calculateHeightForHeaderView() -> CGFloat {
+        guard let viewModel = viewModel as? ProfileViewModel else {
+            return 0
+        }
+        var realHeight = Configs.headerHeight
+        if let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo) {
+            if userInfo.role != UserRole.attorney.rawValue {
+                realHeight -= 40.0
+            }
+            
+            if userInfo.dob == nil {
+                realHeight -= 30.0
+            }
+            
+            if userInfo.work == nil {
+                realHeight -= 30.0
+            }
+            
+            if userInfo.address == nil {
+                realHeight -= 30.0
+            }
+            
+            
+        }
+        return realHeight
+    }
 }
 
+extension ProfileViewController: ProfileHeaderReusableViewDelegate {
+    func filterProfile(filter: ProfileFilter?) {
+        
+    }
+    
+    func changeAvatar() {
+        guard let viewModel = viewModel as? ProfileViewModel else { return }
+        let changeImageVC = R.storyboard.changeImage.changeImageViewController()!
+        guard let provider = Application.shared.provider else { return }
+        let changeImageVM = ChangeImageViewModel(provider: provider)
+        changeImageVM.imageType = .avatar
+        changeImageVC.viewModel = changeImageVM
+        changeImageVC.modalPresentationStyle = .fullScreen
+        present(changeImageVC, animated: true)
+    }
+    
+    func changeCover() {
+        guard let viewModel = viewModel as? ProfileViewModel else { return }
+        let changeImageVC = R.storyboard.changeImage.changeImageViewController()!
+        guard let provider = Application.shared.provider else { return }
+        let changeImageVM = ChangeImageViewModel(provider: provider)
+        changeImageVM.imageType = .cover
+        changeImageVC.viewModel = changeImageVM
+        changeImageVC.modalPresentationStyle = .fullScreen
+        present(changeImageVC, animated: true)
+    }
+    
+    func editProfile() {
+        
+    }
+    
+    func createPost() {
+        guard let viewModel = viewModel as? ProfileViewModel else { return }
+        let createPostVC = R.storyboard.createPost.createPostViewController()!
+        guard let provider = Application.shared.provider else { return }
+        let createPostVM = CreatePostViewModel(provider: provider)
+        createPostVM.createPostSuccess
+            .subscribe(onNext: {
+                viewModel.resetPage()
+                viewModel.getPosts()
+            }).disposed(by: disposeBag)
+        createPostVC.viewModel = createPostVM
+        createPostVC.modalPresentationStyle = .fullScreen
+        present(createPostVC, animated: true)
+    }
+}
 

@@ -4,6 +4,7 @@
 "string_delete_comment" = "Are you sure to delete this comment?";
 "string_dont_have_account" = "Don't have account? ";
 "string_generic_error" = "Attorney is currently experiencing some technical difficulties";
+"string_lives_in" = "Lives in %@";
 "string_password" = "Password";
 "string_password_does_not_match" = "Password does not match";
 "string_please_enter_email" = "Please enter a valid email address";
@@ -21,3 +22,4 @@
 "string_wants_to_defend" = "wants to defend you case";
 "string_welcome" = "Welcome";
 "string_what_on_your_mid" = "What's on your mind, %@?";
+"string_works_at" = "Works at %@";

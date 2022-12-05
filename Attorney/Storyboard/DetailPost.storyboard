@@ -209,6 +209,11 @@
             <point key="canvasLocation" x="115.94202898550725" y="45.535714285714285"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="XKm-EG-C3V">
+            <size key="intrinsicContentSize" width="-1" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <image name="backIcon" width="32" height="32"/>
         <image name="reportIcon" width="90" height="90"/>

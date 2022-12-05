@@ -20,6 +20,8 @@ struct UserInfo: Codable {
     var role: String?
     var avatar: String?
     var cover: String?
+    var address: String?
+    var work: String?
     
     init(loginResponse: LoginResponse) {
         self.id = loginResponse.data?.id
@@ -33,6 +35,24 @@ struct UserInfo: Codable {
         self.role = loginResponse.data?.role
         self.avatar = loginResponse.data?.avatar
         self.cover = loginResponse.data?.cover
+        self.address = loginResponse.data?.address
+        self.work = loginResponse.data?.work
+    }
+    
+    init(user: User) {
+        self.id = user.id
+        self.email = user.email
+        self.phoneNumber = user.phoneNumber
+        self.firstName = user.firstName
+        self.lastName = user.lastName
+        self.password = user.password
+        self.dob = user.dob
+        self.gender = user.gender
+        self.role = user.role
+        self.avatar = user.avatar
+        self.cover = user.cover
+        self.address = user.address
+        self.work = user.work
     }
 }
 

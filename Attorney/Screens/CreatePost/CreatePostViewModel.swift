@@ -27,7 +27,7 @@ final class CreatePostViewModel: ViewModel {
                 if response.success == true {
                     self.createPostSuccess.onNext(())
                 }
-            })
+            }).disposed(by: disposeBag)
     }
     
 }

@@ -5,7 +5,7 @@
 //  Created by ThinhTCQ on 10/29/22.
 //
 
-import Foundation
+import UIKit
 
 struct LoginRequest: Codable {
     let email: String
@@ -28,6 +28,8 @@ struct User: Codable {
     var password: String?
     var verified : Bool?
     var dob: String?
+    var address: String?
+    var work: String?
     var gender: String?
     var role: String?
     var avatar: String?
@@ -45,6 +47,22 @@ struct User: Codable {
         case role
         case avatar
         case cover
+    }
+    
+    init(user: UserInfo) {
+        self.id = user.id
+        self.email = user.email
+        self.phoneNumber = user.phoneNumber
+        self.firstName = user.firstName
+        self.lastName = user.lastName
+        self.password = user.password
+        self.dob = user.dob
+        self.gender = user.gender
+        self.role = user.role
+        self.avatar = user.avatar
+        self.cover = user.cover
+        self.address = user.address
+        self.work = user.work
     }
 }
 
@@ -66,4 +84,18 @@ extension LoginResponse: Equatable {
         lhs.data?.avatar == rhs.data?.avatar &&
         lhs.data?.cover == rhs.data?.cover
     }
+}
+
+struct ProfileResponse: Codable {
+    let success: Bool?
+    let message: Bool?
+    let data: User?
+}
+
+struct ChangeAvatarRequest {
+    let media: UIImage?
+}
+
+struct ChangeCoverRequest {
+    let media: UIImage?
 }

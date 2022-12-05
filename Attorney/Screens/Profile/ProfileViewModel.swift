@@ -18,6 +18,7 @@ final class ProfileViewModel: ViewModel {
     let resetPageEvent = PublishSubject<Void>()
     let sendDefenceRequest = PublishSubject<(Bool,String)>()
     let isLoading = BehaviorRelay<Bool>(value: true)
+    let getProfileSuccess = PublishSubject<User>()
     
     var canLoadMore = true
     var isFirstLoad = true
@@ -26,6 +27,8 @@ final class ProfileViewModel: ViewModel {
     private var posts: [Post] = []
     
     var profileId : String?
+    
+    var profile: User?
 
     private let numberPerPage = 15
     private var currentPage = 1
@@ -39,6 +42,7 @@ final class ProfileViewModel: ViewModel {
     private var maxPage = 1 // by default maxPage = 1
     
     override func setupData() {
+        getProfile() 
         binding()
     }
     
@@ -105,12 +109,33 @@ final class ProfileViewModel: ViewModel {
         return [SectionModel<String, Post>(model: "", items: items)]
     }
     
+    func getProfile() {
+        guard let profileId = profileId else {
+            return
+        }
+        provider
+            .getProfile(userId: profileId)
+            .trackActivity(self.bodyLoading)
+            .asSingle()
+            .subscribe { [weak self] (userResponse) in
+                guard let self = self else { return }
+                if let success = userResponse.success, success {
+                    if let user = userResponse.data {
+                        self.profile = userResponse.data
+                        self.getProfileSuccess.onNext(user)
+                    }
+                }
+            } onFailure: { (_) in
+                print("fetch profile failed")
+            }.disposed(by: disposeBag)
+    }
+    
     func getPosts() {
         guard let profileId = profileId else {
             return
         }
 
-        let request = UserPostsRequest(profileId: profileId, page: currentPage)
+        let request = UserPostsRequest(profileId: profileId, pageNumber: currentPage)
         provider
             .fetchUserPost(request: request)
             .trackActivity(self.bodyLoading)

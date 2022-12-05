@@ -80,6 +80,6 @@ final class CaseDetailViewModel: ViewModel {
     private func subscribeReloadEvent(){
         reloadCaseEvent.subscribe(onNext: { [weak self] in
             self?.getCaseDetail()
-        })
+        }).disposed(by: disposeBag)
     }
 }

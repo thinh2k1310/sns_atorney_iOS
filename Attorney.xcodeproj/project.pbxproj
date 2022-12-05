@@ -37,6 +37,9 @@
 		03933CC529311A10001E4631 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03933CC429311A10001E4631 /* PostDetailViewController.swift */; };
 		03933CC72932474F001E4631 /* PostDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03933CC62932474F001E4631 /* PostDetailViewModel.swift */; };
 		039772552912C6460042A435 /* Error.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 039772542912C6460042A435 /* Error.storyboard */; };
+		03A4D042293E532D00C40190 /* ChangeImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03A4D041293E532D00C40190 /* ChangeImage.storyboard */; };
+		03A4D045293E54CE00C40190 /* ChangeImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A4D044293E54CE00C40190 /* ChangeImageViewController.swift */; };
+		03A4D047293E550A00C40190 /* ChangeImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A4D046293E550A00C40190 /* ChangeImageViewModel.swift */; };
 		03A63D9E2905371300C1C72D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A63D9D2905371300C1C72D /* RegisterViewController.swift */; };
 		03A63DA02905388000C1C72D /* ValidationRegistrationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A63D9F2905388000C1C72D /* ValidationRegistrationForm.swift */; };
 		03A63DA229053ABA00C1C72D /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A63DA129053ABA00C1C72D /* DateExtension.swift */; };
@@ -203,6 +206,9 @@
 		03933CC429311A10001E4631 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		03933CC62932474F001E4631 /* PostDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModel.swift; sourceTree = "<group>"; };
 		039772542912C6460042A435 /* Error.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Error.storyboard; sourceTree = "<group>"; };
+		03A4D041293E532D00C40190 /* ChangeImage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangeImage.storyboard; sourceTree = "<group>"; };
+		03A4D044293E54CE00C40190 /* ChangeImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeImageViewController.swift; sourceTree = "<group>"; };
+		03A4D046293E550A00C40190 /* ChangeImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeImageViewModel.swift; sourceTree = "<group>"; };
 		03A63D9D2905371300C1C72D /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		03A63D9F2905388000C1C72D /* ValidationRegistrationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationRegistrationForm.swift; sourceTree = "<group>"; };
 		03A63DA129053ABA00C1C72D /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -418,6 +424,15 @@
 				035424D12912CEB7002235FB /* ErrorViewController.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		03A4D043293E54A200C40190 /* ChangeImage */ = {
+			isa = PBXGroup;
+			children = (
+				03A4D044293E54CE00C40190 /* ChangeImageViewController.swift */,
+				03A4D046293E550A00C40190 /* ChangeImageViewModel.swift */,
+			);
+			path = ChangeImage;
 			sourceTree = "<group>";
 		};
 		03B893E72928B42D00803DD9 /* Post */ = {
@@ -677,6 +692,7 @@
 		F37CB00F28E81AE40061B273 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				03A4D043293E54A200C40190 /* ChangeImage */,
 				F38C77D6293C666700D27996 /* Profile */,
 				F3C9B06E2937DB290095D09D /* CreatePost */,
 				03933CC3293119E5001E4631 /* DetailPost */,
@@ -728,6 +744,7 @@
 				037665B1292FEEF9002FA7DE /* DetailPost.storyboard */,
 				F3C9B06C2937D4C10095D09D /* CreatePost.storyboard */,
 				F38C77DB293C676400D27996 /* Profile.storyboard */,
+				03A4D041293E532D00C40190 /* ChangeImage.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -1084,6 +1101,7 @@
 				F32C525C28F5E50200E6C840 /* ProximaNova-Reg.otf in Resources */,
 				F38C77BD293A690500D27996 /* RequestTableViewCell.xib in Resources */,
 				03D7309D28FEEE4D00BBA498 /* VerifyOTP.storyboard in Resources */,
+				03A4D042293E532D00C40190 /* ChangeImage.storyboard in Resources */,
 				F32C525A28F5E50200E6C840 /* ProximaNova-ThinIt.otf in Resources */,
 				F37CB02928E83D5C0061B273 /* Home.storyboard in Resources */,
 				F30039F229346EC4006B19CF /* PostDetailHeaderView.xib in Resources */,
@@ -1287,6 +1305,7 @@
 				F37CAFF828E819D10061B273 /* AppDelegate.swift in Sources */,
 				F37CB01E28E8233D0061B273 /* ViewController.swift in Sources */,
 				F32C523528F409C700E6C840 /* RestAPI.swift in Sources */,
+				03A4D045293E54CE00C40190 /* ChangeImageViewController.swift in Sources */,
 				03B893ED2928C43E00803DD9 /* LoadmoreIndicatorReusableView.swift in Sources */,
 				035A46CF291410BB00A64898 /* DigitInputView.swift in Sources */,
 				F37CB04428E841140061B273 /* NotificationsViewController.swift in Sources */,
@@ -1297,6 +1316,7 @@
 				038B9DF729162D4400039F4D /* ResetPassword.swift in Sources */,
 				F32C526328F7259200E6C840 /* UITextFieldExtension.swift in Sources */,
 				03A63D9E2905371300C1C72D /* RegisterViewController.swift in Sources */,
+				03A4D047293E550A00C40190 /* ChangeImageViewModel.swift in Sources */,
 				0309D987290048B50000F9D6 /* InputTextField.swift in Sources */,
 				F38C77DA293C669600D27996 /* ProfileViewModel.swift in Sources */,
 				035A46D2291413A300A64898 /* AttorneyTransition.swift in Sources */,

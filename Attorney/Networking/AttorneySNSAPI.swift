@@ -32,6 +32,9 @@ enum AttorneySNSAPI {
     case completeCase(caseId: String)
     case cancelCase(caseId: String)
     case getCaseDetail(caseId: String)
+    case getProfile(userId: String)
+    case changeAvatar(request: ChangeAvatarRequest)
+    case changeCover(request: ChangeCoverRequest)
 }
 
 extension AttorneySNSAPI: TargetType {
@@ -104,6 +107,15 @@ extension AttorneySNSAPI: TargetType {
             
         case .getCaseDetail(let caseId):
             return "case/\(caseId)"
+            
+        case .getProfile(let userId):
+            return "user/\(userId)"
+            
+        case .changeAvatar:
+            return "user/avatar"
+            
+        case .changeCover:
+            return "user/cover"
         }
         
     }
@@ -113,7 +125,7 @@ extension AttorneySNSAPI: TargetType {
         case .loginOTP, .register, .fetchNewsFeed, .likePost, .commentPost, .sendDefenceRequest, .createPost, .fetchUserPost:
             return .post
         
-        case .validateEmail, .sendOTP, .resetPassword, .acceptDefenceRequest, .completeCase, .cancelCase:
+        case .validateEmail, .sendOTP, .resetPassword, .acceptDefenceRequest, .completeCase, .cancelCase, .changeAvatar, .changeCover:
             return .put
             
         case .deleteComment, .denyDefenceRequest:
@@ -169,6 +181,23 @@ extension AttorneySNSAPI: TargetType {
                 multidata.append(MultipartFormData(provider: .data(data), name: "media", fileName: "photo.jpg", mimeType:"image/jpeg"))
             }
             return .uploadMultipart(multidata)
+            
+        case .changeAvatar(let request):
+            var multidata : [MultipartFormData] = []
+            if let media = request.media {
+                guard let data = media.jpegData(compressionQuality: 1.0) else { return .requestPlain }
+                multidata.append(MultipartFormData(provider: .data(data), name: "media", fileName: "photo.jpg", mimeType:"image/jpeg"))
+            }
+            return .uploadMultipart(multidata)
+            
+        case .changeCover(let request):
+            var multidata : [MultipartFormData] = []
+            if let media = request.media {
+                guard let data = media.jpegData(compressionQuality: 1.0) else { return .requestPlain }
+                multidata.append(MultipartFormData(provider: .data(data), name: "media", fileName: "photo.jpg", mimeType:"image/jpeg"))
+            }
+            return .uploadMultipart(multidata)
+
         default:
             return .requestPlain
         }

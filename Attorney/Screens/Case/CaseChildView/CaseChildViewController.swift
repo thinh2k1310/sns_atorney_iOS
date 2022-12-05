@@ -43,9 +43,9 @@ final class CaseChildViewController: ViewController {
         guard let viewModel = viewModel as? CaseChildViewModel else { return }
         
         // Do reset page
-        viewModel.resetPageEvent.subscribe { [weak self] _ in
+        viewModel.resetPageEvent.subscribe(onNext: { [weak self] _ in
             self?.contentTableView.scrollToTop(animated: false)
-        }
+        })
     }
 
     private func subscribeViewModelEvents() {
@@ -57,7 +57,7 @@ final class CaseChildViewController: ViewController {
                 this.updateUIAfterReloadData()
                 this.contentTableView.reloadData()
                 this.contentTableView.isScrollEnabled = true
-            })
+            }).disposed(by: disposeBag)
     }
 
     // MARK: - Section 5 - IBAction

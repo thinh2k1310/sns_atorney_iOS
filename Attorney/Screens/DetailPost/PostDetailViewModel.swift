@@ -57,7 +57,7 @@ final class PostDetailViewModel: ViewModel {
                 } else {
                     self.postDetailEvent.onNext(.errorAPI(message: error.localizedDescription))
                 }
-            })
+            }).disposed(by: disposeBag)
     }
     
     func getPostComments() {
@@ -81,7 +81,7 @@ final class PostDetailViewModel: ViewModel {
                 } else {
                     self.postDetailEvent.onNext(.errorAPI(message: error.localizedDescription))
                 }
-            })
+            }).disposed(by: disposeBag)
     }
     
     func likePost(postId: String) {

@@ -37,4 +37,9 @@ protocol AttorneyAPI {
     func completeCase(caseId: String) -> Single<CommonReponse>
     func cancelCase(caseId: String) -> Single<CommonReponse>
     func getCaseDetail(caseId: String) -> Single<CaseDetailResponse>
+    
+    // MARK: - Profile
+    func getProfile(userId: String) -> Single<ProfileResponse>
+    func changeAvatar(request: ChangeAvatarRequest) -> Single<ChangeImageResponse>
+    func changeCover(request: ChangeCoverRequest) -> Single<ChangeImageResponse>
 }

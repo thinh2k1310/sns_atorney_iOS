@@ -40,9 +40,9 @@ final class RequestChildViewController: ViewController {
             .disposed(by: disposeBag)
         
         // Do reset page
-        viewModel.resetPageEvent.subscribe { [weak self] _ in
+        viewModel.resetPageEvent.subscribe(onNext: { [weak self] _ in
             self?.contentTableView.scrollToTop(animated: false)
-        }
+        }).disposed(by: disposeBag)
     }
 
     private func subscribeViewModelEvents() {
@@ -69,7 +69,7 @@ final class RequestChildViewController: ViewController {
                 this.updateUIAfterReloadData()
                 this.contentTableView.reloadData()
                 this.contentTableView.isScrollEnabled = true
-            })
+            }).disposed(by: disposeBag)
     }
 
     // MARK: - Section 5 - IBAction

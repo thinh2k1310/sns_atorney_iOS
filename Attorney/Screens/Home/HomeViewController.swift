@@ -284,7 +284,7 @@ extension HomeViewController: HeaderHomeReusableViewDelegate {
             .subscribe(onNext: {
                 viewModel.resetPage()
                 viewModel.getPosts()
-            })
+            }).disposed(by: disposeBag)
         createPostVC.viewModel = createPostVM
         createPostVC.modalPresentationStyle = .fullScreen
         present(createPostVC, animated: true)

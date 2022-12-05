@@ -26,7 +26,7 @@ final class HomeViewModel: ViewModel {
     
     private var posts: [Post] = []
 
-    private let numberPerPage = 15
+    private let numberPerPage = 10
     private var currentPage = 1
     private var countPage = 1
     var lastIndexItemOfPage: Int {
@@ -75,7 +75,7 @@ final class HomeViewModel: ViewModel {
         }
 
         if currentPage < maxPage && currentRecordsCount >= posts.count {
-            // fetch API get next page (100 records)
+            // fetch API get next page (10 records)
             currentPage += 1
             getPosts()
             return
@@ -124,7 +124,7 @@ final class HomeViewModel: ViewModel {
             filter = FilterItem.requesting.rawValue
         }
         
-        let request = PostsRequest(sortOrder: sortOrder, type: filter, page: currentPage)
+        let request = PostsRequest(sortOrder: sortOrder, type: filter, pageNumber: currentPage)
         provider
             .fetchNewsFeed(request: request)
             .trackActivity(self.bodyLoading)

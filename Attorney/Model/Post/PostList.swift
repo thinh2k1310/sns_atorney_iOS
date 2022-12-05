@@ -42,12 +42,12 @@ struct MetaData: Codable {
 struct PostsRequest: Codable {
     let sortOrder: SortOrder
     let type: String?
-    let page: Int?
+    let pageNumber: Int?
 }
 
 struct UserPostsRequest: Codable {
     let profileId: String?
-    let page: Int?
+    let pageNumber: Int?
 }
 
 struct SortOrder: Codable {
