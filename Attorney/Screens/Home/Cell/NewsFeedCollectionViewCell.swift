@@ -15,6 +15,7 @@ protocol NewsFeedCollectionViewCellDelegate: AnyObject {
     func viewDetailPost(_ post : String?)
     func likePost(_ post: String?)
     func requestPost(_ post: Post?)
+    func viewProfile(userId: String?)
 }
 
 final class NewsFeedCollectionViewCell: UICollectionViewCell {
@@ -202,6 +203,10 @@ final class NewsFeedCollectionViewCell: UICollectionViewCell {
     @IBAction private func didTapDefendButton(_ sender: Any) {
         self.defendButton.isSelected.toggle()
         delegate?.requestPost(self.post)
+    }
+    
+    @IBAction func didTapUserView(_ sender: Any) {
+        delegate?.viewProfile(userId: self.post?.user?._id)
     }
     
     @objc private func seeDetailPost() {

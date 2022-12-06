@@ -207,6 +207,10 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - NewsFeedCollectionViewCellDelegate
 extension ProfileViewController: NewsFeedCollectionViewCellDelegate {
+    func viewProfile(userId: String?) {
+
+    }
+    
     func viewDetailPost(_ post: String?) {
         let postDetailVC = R.storyboard.detailPost.postDetailViewController()!
         guard let provider = Application.shared.provider else { return }
@@ -247,8 +251,12 @@ extension ProfileViewController {
         }
         var realHeight = Configs.headerHeight
         if let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo) {
-            if userInfo.role != UserRole.attorney.rawValue {
+            if viewModel.profile?.role != UserRole.attorney.rawValue {
                 realHeight -= 40.0
+            }
+            
+            if userInfo.id != viewModel.profile?.role {
+                realHeight -= 150.0
             }
             
             if userInfo.dob == nil {

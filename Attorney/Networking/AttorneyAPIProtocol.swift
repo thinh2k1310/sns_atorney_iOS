@@ -42,4 +42,5 @@ protocol AttorneyAPI {
     func getProfile(userId: String) -> Single<ProfileResponse>
     func changeAvatar(request: ChangeAvatarRequest) -> Single<ChangeImageResponse>
     func changeCover(request: ChangeCoverRequest) -> Single<ChangeImageResponse>
+    func changePassword(request: ChangePasswordRequest) -> Single<ChangePasswordResponse>
 }

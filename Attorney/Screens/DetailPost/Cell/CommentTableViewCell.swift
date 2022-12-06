@@ -10,6 +10,7 @@ import Kingfisher
 
 protocol CommentTableViewCellDelegate: AnyObject {
     func deleteComment(_ commentId: String?)
+    func viewProfile(_ userId: String?)
 }
 
 final class CommentTableViewCell: UITableViewCell {
@@ -68,5 +69,9 @@ final class CommentTableViewCell: UITableViewCell {
             return
         }
         self.delegate?.deleteComment(id)
+    }
+    
+    @IBAction private func didTapUserView(_ sender: Any) {
+        self.delegate?.viewProfile(comment?.userId?._id)
     }
 }

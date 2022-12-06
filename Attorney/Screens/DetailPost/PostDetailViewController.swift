@@ -267,6 +267,16 @@ extension PostDetailViewController: PostDetailHeaderViewDelegate {
 
 // MARK: - Comment Table View Cell Delegate
 extension PostDetailViewController: CommentTableViewCellDelegate {
+    func viewProfile(_ userId: String?) {
+        let profileVC = R.storyboard.profile.profileViewController()!
+        guard let provider = Application.shared.provider,
+        let id = userId else { return }
+        let profileVM = ProfileViewModel(provider: provider)
+        profileVM.profileId = id
+        profileVC.viewModel = profileVM
+        self.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
     func deleteComment(_ commentId: String?) {
         guard let viewModel = viewModel as? PostDetailViewModel,
               let commentId = commentId else {

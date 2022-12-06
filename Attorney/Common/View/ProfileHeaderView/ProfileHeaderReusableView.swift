@@ -35,6 +35,7 @@ final class ProfileHeaderReusableView: UICollectionReusableView {
     @IBOutlet private weak var buttonStackView: UIView!
     @IBOutlet private weak var postsButton: UIButton!
     @IBOutlet private weak var reviewsButton: UIButton!
+    @IBOutlet private weak var createPostView: UIView!
     
     weak var delegate: ProfileHeaderReusableViewDelegate?
     
@@ -46,6 +47,7 @@ final class ProfileHeaderReusableView: UICollectionReusableView {
     func configureHeader(with user: User) {
         setupAvatar(with: user)
         setupCover(with: user)
+        setupUserName(with: user)
         setupDetailView(with: user)
         setupVisibility(with: user)
     }
@@ -127,14 +129,16 @@ final class ProfileHeaderReusableView: UICollectionReusableView {
             }
         }
         if let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo) {
-            if userInfo.id == user.id {
-                changeCoverControl.isHidden = false
-                changeAvatarControl.isHidden = false
-                editProfileControl.isHidden = false
+            if userInfo.id != user.id {
+                changeCoverControl.isHidden = true
+                changeAvatarControl.isHidden = true
+                editProfileControl.isHidden = true
+                createPostView.isHidden = true
             } else {
                 changeCoverControl.isHidden = false
                 changeAvatarControl.isHidden = false
                 editProfileControl.isHidden = false
+                createPostView.isHidden = false
             }
         }
     }

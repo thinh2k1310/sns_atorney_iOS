@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,7 +34,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thinh thinh" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REn-NK-yth">
-                        <rect key="frame" x="56" y="12" width="321" height="21"/>
+                        <rect key="frame" x="56" y="12" width="72.5" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="rYV-Sr-DEG"/>
                         </constraints>
@@ -69,19 +69,32 @@
                         <color key="textColor" name="354052"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DuM-Le-Czv">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="250" id="gDk-JX-YW5"/>
+                            <constraint firstAttribute="height" constant="45" id="rRR-BN-Qet"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <connections>
+                            <action selector="didTapUserView:" destination="r64-pi-CpF" eventType="touchUpInside" id="90t-vc-xGW"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="JTG-d7-abS" firstAttribute="centerY" secondItem="REe-Nf-ib2" secondAttribute="centerY" id="10V-PZ-Do5"/>
+                    <constraint firstItem="DuM-Le-Czv" firstAttribute="leading" secondItem="REe-Nf-ib2" secondAttribute="leading" id="3CE-oN-jUG"/>
                     <constraint firstItem="REn-NK-yth" firstAttribute="top" secondItem="REe-Nf-ib2" secondAttribute="top" constant="12" id="3DJ-sz-rh0"/>
                     <constraint firstAttribute="trailing" secondItem="JTG-d7-abS" secondAttribute="trailing" constant="15" id="3O0-Fi-p7N"/>
                     <constraint firstItem="cRO-j1-AH6" firstAttribute="leading" secondItem="REe-Nf-ib2" secondAttribute="leading" constant="13" id="8Jx-Vf-eT3"/>
                     <constraint firstAttribute="bottom" secondItem="636-sD-C6Z" secondAttribute="bottom" constant="8" id="Pos-Jz-FHf"/>
                     <constraint firstItem="cRO-j1-AH6" firstAttribute="top" secondItem="REe-Nf-ib2" secondAttribute="top" constant="8" id="Sjg-Zw-Tcw"/>
                     <constraint firstItem="REn-NK-yth" firstAttribute="leading" secondItem="cRO-j1-AH6" secondAttribute="trailing" constant="8" id="Y2Z-YI-0cP"/>
+                    <constraint firstItem="DuM-Le-Czv" firstAttribute="top" secondItem="REe-Nf-ib2" secondAttribute="top" id="cIY-BL-9TO"/>
                     <constraint firstItem="eMh-vY-bM5" firstAttribute="top" secondItem="REn-NK-yth" secondAttribute="bottom" constant="8" id="cPh-Kx-rft"/>
                     <constraint firstItem="eMh-vY-bM5" firstAttribute="leading" secondItem="REn-NK-yth" secondAttribute="leading" id="eRe-3G-Vh6"/>
                     <constraint firstItem="636-sD-C6Z" firstAttribute="top" secondItem="eMh-vY-bM5" secondAttribute="bottom" constant="8" id="iAJ-Id-r0a"/>
-                    <constraint firstAttribute="trailing" secondItem="REn-NK-yth" secondAttribute="trailing" constant="40" id="sN4-M4-tX4"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="REn-NK-yth" secondAttribute="trailing" constant="100" id="sN4-M4-tX4"/>
                     <constraint firstAttribute="trailing" secondItem="eMh-vY-bM5" secondAttribute="trailing" constant="40" id="tcu-aR-aYf"/>
                     <constraint firstItem="636-sD-C6Z" firstAttribute="leading" secondItem="cRO-j1-AH6" secondAttribute="trailing" constant="8" id="vgy-KY-KtB"/>
                 </constraints>

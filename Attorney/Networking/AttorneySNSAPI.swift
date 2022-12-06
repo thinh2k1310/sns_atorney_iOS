@@ -35,6 +35,7 @@ enum AttorneySNSAPI {
     case getProfile(userId: String)
     case changeAvatar(request: ChangeAvatarRequest)
     case changeCover(request: ChangeCoverRequest)
+    case changePassword(request: ChangePasswordRequest)
 }
 
 extension AttorneySNSAPI: TargetType {
@@ -59,6 +60,9 @@ extension AttorneySNSAPI: TargetType {
             
         case .resetPassword:
             return "auth/password/reset"
+            
+        case .changePassword:
+            return "auth/password/change"
             
         case .fetchNewsFeed:
             return "post/news"
@@ -125,7 +129,7 @@ extension AttorneySNSAPI: TargetType {
         case .loginOTP, .register, .fetchNewsFeed, .likePost, .commentPost, .sendDefenceRequest, .createPost, .fetchUserPost:
             return .post
         
-        case .validateEmail, .sendOTP, .resetPassword, .acceptDefenceRequest, .completeCase, .cancelCase, .changeAvatar, .changeCover:
+        case .validateEmail, .sendOTP, .resetPassword, .acceptDefenceRequest, .completeCase, .cancelCase, .changeAvatar, .changeCover, .changePassword:
             return .put
             
         case .deleteComment, .denyDefenceRequest:
@@ -170,7 +174,9 @@ extension AttorneySNSAPI: TargetType {
             return .requestJSONEncodable(sendDefenceRequest)
         case .fetchUserPost(let request):
             return .requestJSONEncodable(request)
-        
+        case .changePassword(let request):
+            return .requestJSONEncodable(request)
+            
         case .createPost(let request):
             var multidata = [
                 MultipartFormData(provider: .data(request.content.data(using: String.Encoding.utf8, allowLossyConversion: false)!) , name :"content"),

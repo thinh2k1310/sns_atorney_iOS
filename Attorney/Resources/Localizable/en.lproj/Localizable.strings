@@ -1,5 +1,6 @@
 
 "string_cancel_case" = "Are you sure to cancel this case?";
+"string_change_password" = "Change password successfully";
 "string_complete_case" = "Are you sure to complete this case?";
 "string_delete_comment" = "Are you sure to delete this comment?";
 "string_dont_have_account" = "Don't have account? ";

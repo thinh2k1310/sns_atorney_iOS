@@ -21,6 +21,8 @@
 		035424D22912CEB7002235FB /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035424D12912CEB7002235FB /* ErrorViewController.swift */; };
 		035424D42912D316002235FB /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035424D32912D316002235FB /* UIViewControllerExtension.swift */; };
 		035424D62912D42C002235FB /* VerifyOTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035424D52912D42C002235FB /* VerifyOTPViewModel.swift */; };
+		0359A773293EEA850097F90D /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0359A772293EEA850097F90D /* ChangePasswordViewController.swift */; };
+		0359A776293EEA9D0097F90D /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0359A775293EEA9D0097F90D /* ChangePasswordViewModel.swift */; };
 		035A46CF291410BB00A64898 /* DigitInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A46CE291410BB00A64898 /* DigitInputView.swift */; };
 		035A46D2291413A300A64898 /* AttorneyTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A46D1291413A300A64898 /* AttorneyTransition.swift */; };
 		035A46D42914146200A64898 /* Transitions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 035A46D32914146200A64898 /* Transitions.storyboard */; };
@@ -190,6 +192,8 @@
 		035424D12912CEB7002235FB /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		035424D32912D316002235FB /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		035424D52912D42C002235FB /* VerifyOTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewModel.swift; sourceTree = "<group>"; };
+		0359A772293EEA850097F90D /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		0359A775293EEA9D0097F90D /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		035A46CE291410BB00A64898 /* DigitInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitInputView.swift; sourceTree = "<group>"; };
 		035A46D1291413A300A64898 /* AttorneyTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttorneyTransition.swift; sourceTree = "<group>"; };
 		035A46D32914146200A64898 /* Transitions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transitions.storyboard; sourceTree = "<group>"; };
@@ -378,6 +382,15 @@
 				03B893F22928C54500803DD9 /* NewsfeedSkeletonCollectionViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		0359A774293EEA890097F90D /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				0359A772293EEA850097F90D /* ChangePasswordViewController.swift */,
+				0359A775293EEA9D0097F90D /* ChangePasswordViewModel.swift */,
+			);
+			path = ChangePassword;
 			sourceTree = "<group>";
 		};
 		035A46D02914139100A64898 /* Transitions */ = {
@@ -711,6 +724,7 @@
 				F37CB03328E83E150061B273 /* Register */,
 				F37CB03228E83E0F0061B273 /* Login */,
 				03D583A12914EF2900D0D4E3 /* Success */,
+				0359A774293EEA890097F90D /* ChangePassword */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -1223,6 +1237,7 @@
 				03A63DA429053C9800C1C72D /* RegistrasionViewModel.swift in Sources */,
 				F32C523728F40A8500E6C840 /* AttorneyAPIProtocol.swift in Sources */,
 				F38C77D2293B9B4E00D27996 /* CaseDetailViewModel.swift in Sources */,
+				0359A776293EEA9D0097F90D /* ChangePasswordViewModel.swift in Sources */,
 				F3CC097D293508AB00437035 /* CommentTableViewCell.swift in Sources */,
 				035424D22912CEB7002235FB /* ErrorViewController.swift in Sources */,
 				035A46D7291414A200A64898 /* TinyLoadingViewController.swift in Sources */,
@@ -1326,6 +1341,7 @@
 				F38C77B8293A560100D27996 /* UIBarButtonItem .swift in Sources */,
 				F37CB01728E81BE40061B273 /* DebugLog.swift in Sources */,
 				F38C77C6293A901E00D27996 /* RequestChildViewController.swift in Sources */,
+				0359A773293EEA850097F90D /* ChangePasswordViewController.swift in Sources */,
 				0345C94128FAA5FC0029F4F9 /* AttorneyFormatter.swift in Sources */,
 				038B9DF529162BCD00039F4D /* ResetPasswordViewModel.swift in Sources */,
 				0345C93F28FAA1290029F4F9 /* Keys.swift in Sources */,

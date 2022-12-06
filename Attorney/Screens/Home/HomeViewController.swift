@@ -227,6 +227,16 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - NewsFeedCollectionViewCellDelegate
 extension HomeViewController: NewsFeedCollectionViewCellDelegate {
+    func viewProfile(userId: String?) {
+        let profileVC = R.storyboard.profile.profileViewController()!
+        guard let provider = Application.shared.provider,
+        let id = userId else { return }
+        let profileVM = ProfileViewModel(provider: provider)
+        profileVM.profileId = id
+        profileVC.viewModel = profileVM
+        self.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
     func viewDetailPost(_ post: String?) {
         let postDetailVC = R.storyboard.detailPost.postDetailViewController()!
         guard let provider = Application.shared.provider else { return }

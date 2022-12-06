@@ -28,7 +28,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="619" height="537"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhf-1U-FPu" userLabel="User View">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhf-1U-FPu" userLabel="User View" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="619" height="70"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fad-md-rXa">
@@ -53,6 +53,9 @@
                             <constraint firstItem="Fad-md-rXa" firstAttribute="centerY" secondItem="nhf-1U-FPu" secondAttribute="centerY" id="SbN-EX-0G5"/>
                             <constraint firstItem="Fad-md-rXa" firstAttribute="leading" secondItem="nhf-1U-FPu" secondAttribute="leading" constant="20" id="bEN-pG-hKi"/>
                         </constraints>
+                        <connections>
+                            <action selector="didTapUserView:" destination="V95-xB-Yb0" eventType="touchUpInside" id="nEO-jt-aQ5"/>
+                        </connections>
                     </view>
                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ekf-J0-Ru7" userLabel="Content View">
                         <rect key="frame" x="0.0" y="70" width="619" height="349"/>

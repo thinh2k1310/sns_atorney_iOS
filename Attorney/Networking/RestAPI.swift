@@ -115,6 +115,10 @@ extension RestAPI {
     func changeCover(request: ChangeCoverRequest) -> Single<ChangeImageResponse> {
         return requestObject(.changeCover(request: request), type: ChangeImageResponse.self)
     }
+    
+    func changePassword(request: ChangePasswordRequest) -> Single<ChangePasswordResponse> {
+        return requestObject(.changePassword(request: request), type: ChangePasswordResponse.self)
+    }
 }
 
 extension RestAPI {

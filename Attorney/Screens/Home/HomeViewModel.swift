@@ -26,7 +26,7 @@ final class HomeViewModel: ViewModel {
     
     private var posts: [Post] = []
 
-    private let numberPerPage = 10
+    private let numberPerPage = 9
     private var currentPage = 1
     private var countPage = 1
     var lastIndexItemOfPage: Int {

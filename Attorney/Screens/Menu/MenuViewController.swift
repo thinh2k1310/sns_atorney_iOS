@@ -78,7 +78,11 @@ final class MenuViewController: ViewController {
     }
     
     @IBAction private func didTapPasswordControl(_ sender: Any) {
-        
+        let changePasswordViewController = R.storyboard.resetPassword.changePasswordViewController()!
+        guard let provider = Application.shared.provider else { return }
+        let changePasswordViewModel = ChangePasswordViewModel(provider: provider)
+        changePasswordViewController.viewModel = changePasswordViewModel
+        self.navigationController?.pushViewController(changePasswordViewController, animated: true)
     }
     
     @IBAction private func didTapDocuments(_ sender: Any) {
