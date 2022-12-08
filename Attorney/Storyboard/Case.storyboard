@@ -391,6 +391,15 @@
                                     <constraint firstAttribute="height" constant="5" id="uwW-NY-7TR"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJV-3R-ayp">
+                                <rect key="frame" x="174" y="698" width="108" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="didTapReview:" destination="a4d-B1-ecY" eventType="touchUpInside" id="fJI-Gp-yN2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KQk-xZ-JUf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

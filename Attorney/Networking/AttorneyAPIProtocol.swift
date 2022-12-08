@@ -46,4 +46,8 @@ protocol AttorneyAPI {
     
     // MARK: - Search
     func getAttorney(request: ListAttorneyRequest) -> Single<ListAttorneyResponse>
+    
+    // MARK: - Review
+    func postReview(request: ReviewRequest) -> Single<CommonReponse>
+    func getAttorneyReview(attorneyId: String) -> Single<ReviewResponse>
 }

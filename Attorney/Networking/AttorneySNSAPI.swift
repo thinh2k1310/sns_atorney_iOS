@@ -37,6 +37,8 @@ enum AttorneySNSAPI {
     case changeCover(request: ChangeCoverRequest)
     case changePassword(request: ChangePasswordRequest)
     case getAttorney(request: ListAttorneyRequest)
+    case postReview(request: ReviewRequest)
+    case getAttorneyReview(attorneyId: String)
 }
 
 extension AttorneySNSAPI: TargetType {
@@ -124,13 +126,19 @@ extension AttorneySNSAPI: TargetType {
             
         case .getAttorney:
             return "search/attorneys"
+            
+        case .postReview:
+            return "review"
+            
+        case .getAttorneyReview(let attorneyId):
+            return "review/\(attorneyId)"
         }
         
     }
     
     var method: Moya.Method {
         switch self {
-        case .loginOTP, .register, .fetchNewsFeed, .likePost, .commentPost, .sendDefenceRequest, .createPost, .fetchUserPost, .getAttorney:
+        case .loginOTP, .register, .fetchNewsFeed, .likePost, .commentPost, .sendDefenceRequest, .createPost, .fetchUserPost, .getAttorney, .postReview:
             return .post
         
         case .validateEmail, .sendOTP, .resetPassword, .acceptDefenceRequest, .completeCase, .cancelCase, .changeAvatar, .changeCover, .changePassword:
@@ -181,6 +189,8 @@ extension AttorneySNSAPI: TargetType {
         case .changePassword(let request):
             return .requestJSONEncodable(request)
         case .getAttorney(let request):
+            return .requestJSONEncodable(request)
+        case .postReview(let request):
             return .requestJSONEncodable(request)
             
         case .createPost(let request):

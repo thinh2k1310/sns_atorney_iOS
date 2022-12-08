@@ -123,6 +123,14 @@ extension RestAPI {
     func getAttorney(request: ListAttorneyRequest) -> Single<ListAttorneyResponse> {
         return requestObject(.getAttorney(request: request), type: ListAttorneyResponse.self)
     }
+    
+    func postReview(request: ReviewRequest) -> Single<CommonReponse> {
+        return requestObject(.postReview(request: request), type: CommonReponse.self)
+    }
+    
+    func getAttorneyReview(attorneyId: String) -> Single<ReviewResponse> {
+        return requestObject(.getAttorneyReview(attorneyId: attorneyId), type: ReviewResponse.self)
+    }
 }
 
 extension RestAPI {

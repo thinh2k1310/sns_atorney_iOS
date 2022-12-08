@@ -18,6 +18,7 @@
 		0345C93D28FA71610029F4F9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345C93C28FA71610029F4F9 /* R.generated.swift */; };
 		0345C93F28FAA1290029F4F9 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345C93E28FAA1290029F4F9 /* Keys.swift */; };
 		0345C94128FAA5FC0029F4F9 /* AttorneyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345C94028FAA5FC0029F4F9 /* AttorneyFormatter.swift */; };
+		034D7AA12941D0B000D74BD6 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034D7AA02941D0B000D74BD6 /* Review.swift */; };
 		035424D22912CEB7002235FB /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035424D12912CEB7002235FB /* ErrorViewController.swift */; };
 		035424D42912D316002235FB /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035424D32912D316002235FB /* UIViewControllerExtension.swift */; };
 		035424D62912D42C002235FB /* VerifyOTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035424D52912D42C002235FB /* VerifyOTPViewModel.swift */; };
@@ -78,6 +79,9 @@
 		03ED5A31294194370036B82C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED5A30294194370036B82C /* Category.swift */; };
 		03ED5A35294197D90036B82C /* AttorneyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED5A33294197D90036B82C /* AttorneyCell.swift */; };
 		03ED5A36294197D90036B82C /* AttorneyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03ED5A34294197D90036B82C /* AttorneyCell.xib */; };
+		03ED5A382941ABFD0036B82C /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03ED5A372941ABFD0036B82C /* Review.storyboard */; };
+		03ED5A3B2941B1D90036B82C /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED5A3A2941B1D90036B82C /* ReviewViewController.swift */; };
+		03ED5A3D2941B1E90036B82C /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED5A3C2941B1E90036B82C /* ReviewViewModel.swift */; };
 		03EE2BB2290D060300A8317A /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EE2BB1290D060300A8317A /* Login.swift */; };
 		03EE2BB4290D0D3A00A8317A /* PrimitiveSequenceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EE2BB3290D0D3A00A8317A /* PrimitiveSequenceExtension.swift */; };
 		03EE2BB8290D0DBA00A8317A /* AttorneyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EE2BB7290D0DBA00A8317A /* AttorneyError.swift */; };
@@ -199,6 +203,7 @@
 		0345C93C28FA71610029F4F9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		0345C93E28FAA1290029F4F9 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		0345C94028FAA5FC0029F4F9 /* AttorneyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyFormatter.swift; path = Attorney/Common/AttorneyFormatter.swift; sourceTree = SOURCE_ROOT; };
+		034D7AA02941D0B000D74BD6 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		035424D12912CEB7002235FB /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		035424D32912D316002235FB /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		035424D52912D42C002235FB /* VerifyOTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewModel.swift; sourceTree = "<group>"; };
@@ -259,6 +264,9 @@
 		03ED5A30294194370036B82C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		03ED5A33294197D90036B82C /* AttorneyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttorneyCell.swift; sourceTree = "<group>"; };
 		03ED5A34294197D90036B82C /* AttorneyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttorneyCell.xib; sourceTree = "<group>"; };
+		03ED5A372941ABFD0036B82C /* Review.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
+		03ED5A3A2941B1D90036B82C /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		03ED5A3C2941B1E90036B82C /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 		03EE2BB1290D060300A8317A /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		03EE2BB3290D0D3A00A8317A /* PrimitiveSequenceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimitiveSequenceExtension.swift; sourceTree = "<group>"; };
 		03EE2BB7290D0DBA00A8317A /* AttorneyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttorneyError.swift; sourceTree = "<group>"; };
@@ -559,6 +567,15 @@
 			path = AttorneyCell;
 			sourceTree = "<group>";
 		};
+		03ED5A392941B1C10036B82C /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				03ED5A3A2941B1D90036B82C /* ReviewViewController.swift */,
+				03ED5A3C2941B1E90036B82C /* ReviewViewModel.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
 		4A9757E99D5E2D419360BE07 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -744,6 +761,7 @@
 				F38C377129365A53004290AC /* Case.swift */,
 				F38C377329365C02004290AC /* CommonResponse.swift */,
 				03ED5A30294194370036B82C /* Category.swift */,
+				034D7AA02941D0B000D74BD6 /* Review.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -764,6 +782,7 @@
 		F37CB00F28E81AE40061B273 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				03ED5A392941B1C10036B82C /* Review */,
 				03ED5A2B29418E520036B82C /* ListAttorney */,
 				03ED5A21294183910036B82C /* Category */,
 				03A4D043293E54A200C40190 /* ChangeImage */,
@@ -821,6 +840,7 @@
 				F38C77DB293C676400D27996 /* Profile.storyboard */,
 				03A4D041293E532D00C40190 /* ChangeImage.storyboard */,
 				03ED5A1F294183300036B82C /* ListAttorney.storyboard */,
+				03ED5A372941ABFD0036B82C /* Review.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -1141,6 +1161,7 @@
 			files = (
 				F32C525228F5E50200E6C840 /* ProximaNova-SboldIt.otf in Resources */,
 				03D5839E2914EDF600D0D4E3 /* Success.storyboard in Resources */,
+				03ED5A382941ABFD0036B82C /* Review.storyboard in Resources */,
 				035A46D42914146200A64898 /* Transitions.storyboard in Resources */,
 				F37C034E293A097000674118 /* CaseSegmentCollectionViewCell.xib in Resources */,
 				F38C77BF293A88FC00D27996 /* CaseChildViewController.xib in Resources */,
@@ -1317,6 +1338,7 @@
 				03EE2BB4290D0D3A00A8317A /* PrimitiveSequenceExtension.swift in Sources */,
 				F38C77D4293C55C500D27996 /* MenuViewModel.swift in Sources */,
 				035DF5352901970C00A80C8E /* CoachmarkContent.swift in Sources */,
+				03ED5A3B2941B1D90036B82C /* ReviewViewController.swift in Sources */,
 				03B893E92928B43800803DD9 /* PostList.swift in Sources */,
 				F38C77B6293A554400D27996 /* UINavigationControllerExtension.swift in Sources */,
 				F32C523128F33D1400E6C840 /* Networking.swift in Sources */,
@@ -1377,6 +1399,7 @@
 				03ED5A2A294189FA0036B82C /* CategoryCell.swift in Sources */,
 				F32C523B28F4650E00E6C840 /* UserInfo.swift in Sources */,
 				F37CB04628E841220061B273 /* CaseViewController.swift in Sources */,
+				034D7AA12941D0B000D74BD6 /* Review.swift in Sources */,
 				03A63DA629057B5900C1C72D /* Register.swift in Sources */,
 				03D583A32915050400D0D4E3 /* RequestOTPViewModel.swift in Sources */,
 				F32C523D28F4777F00E6C840 /* UIButtonExtension.swift in Sources */,
@@ -1407,6 +1430,7 @@
 				035A46D2291413A300A64898 /* AttorneyTransition.swift in Sources */,
 				F3886F1D28EFEA4100A14F47 /* HomeCoordinator.swift in Sources */,
 				0302BBA629263A58000238A1 /* NameDescribable.swift in Sources */,
+				03ED5A3D2941B1E90036B82C /* ReviewViewModel.swift in Sources */,
 				F32C526528F725FE00E6C840 /* StringExtension.swift in Sources */,
 				F38C77B8293A560100D27996 /* UIBarButtonItem .swift in Sources */,
 				F37CB01728E81BE40061B273 /* DebugLog.swift in Sources */,

@@ -239,4 +239,16 @@ final class CaseDetailViewController: ViewController {
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
+    
+    @IBAction private func didTapReview(_ sender: Any) {
+        guard let viewModel = viewModel as? CaseDetailViewModel else { return }
+        
+        let reviewVC = R.storyboard.review.reviewViewController()!
+        guard let provider = Application.shared.provider else { return }
+        let reviewVM = ReviewViewModel(provider: provider)
+        reviewVM.caseId = viewModel.caseId
+        reviewVC.viewModel = reviewVM
+        reviewVC.modalPresentationStyle = .fullScreen
+        present(reviewVC, animated: true)
+    }
 }
