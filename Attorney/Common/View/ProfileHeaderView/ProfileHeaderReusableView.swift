@@ -26,6 +26,12 @@ final class ProfileHeaderReusableView: UICollectionReusableView {
     @IBOutlet private weak var editProfileControl: UIControl!
     @IBOutlet private weak var addressView: UIView!
     @IBOutlet private weak var addressLabel: UILabel!
+    @IBOutlet private weak var emailView: UIView!
+    @IBOutlet private weak var emailLabel: UILabel!
+    @IBOutlet private weak var phoneView: UIView!
+    @IBOutlet private weak var phoneNumberLabel: UILabel!
+    @IBOutlet private weak var categoryView: UIView!
+    @IBOutlet private weak var categoryLabel: UILabel!
     @IBOutlet private weak var birthdayView: UIView!
     @IBOutlet private weak var birthdayLabel: UILabel!
     @IBOutlet private weak var workView: UIView!
@@ -117,6 +123,31 @@ final class ProfileHeaderReusableView: UICollectionReusableView {
             workLabel.text = StringConstants.string_works_at(work)
         } else {
             workView.isHidden = true
+        }
+        
+        if let phoneNumber = user.phoneNumber {
+            phoneNumberLabel.text = phoneNumber
+        } else {
+            phoneView.isHidden = true
+        }
+        
+        if let email = user.email {
+            emailLabel.text = email
+        } else {
+            emailView.isHidden = true
+        }
+        
+        if let categories = user.categories, !categories.isEmpty {
+            var text = ""
+            for category in categories {
+                text += "\(category) ,"
+            }
+            if !text.isEmpty {
+                text.removeLast()
+            }
+            categoryLabel.text = text
+        } else {
+            categoryView.isHidden = true
         }
     }
     

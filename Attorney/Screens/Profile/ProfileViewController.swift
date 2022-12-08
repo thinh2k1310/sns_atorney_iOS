@@ -242,7 +242,7 @@ extension ProfileViewController: NewsFeedCollectionViewCellDelegate {
 extension ProfileViewController {
     struct Configs {
         static let footerHeight: CGFloat = 67.0
-        static let headerHeight: CGFloat = 620.0
+        static let headerHeight: CGFloat = 710.0
     }
     
     private func calculateHeightForHeaderView() -> CGFloat {
@@ -250,29 +250,45 @@ extension ProfileViewController {
             return 0
         }
         var realHeight = Configs.headerHeight
-        if let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo) {
+        if let user = viewModel.profile {
             if viewModel.profile?.role != UserRole.attorney.rawValue {
                 realHeight -= 40.0
             }
             
-            if userInfo.id != viewModel.profile?.role {
+            if user.id != viewModel.profile?.id {
                 realHeight -= 150.0
             }
             
-            if userInfo.dob == nil {
+            if user.dob == nil {
                 realHeight -= 30.0
             }
             
-            if userInfo.work == nil {
+            if user.work == nil {
                 realHeight -= 30.0
             }
             
-            if userInfo.address == nil {
+            if user.address == nil {
                 realHeight -= 30.0
             }
             
+            if user.email == nil {
+                realHeight -= 30.0
+            }
             
+            if user.phoneNumber == nil {
+                realHeight -= 30.0
+            }
+            
+            if user.categories == nil {
+                realHeight -= 30.0
+            }
         }
+        if let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo) {
+           if userInfo.id != viewModel.profile?.id {
+                realHeight -= 150.0
+            }
+        }
+        log.debug("\(realHeight)")
         return realHeight
     }
 }

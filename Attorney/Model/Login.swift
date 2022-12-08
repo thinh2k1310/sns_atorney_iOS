@@ -34,6 +34,7 @@ struct User: Codable {
     var role: String?
     var avatar: String?
     var cover: String?
+    var categories: [String]?
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -47,6 +48,7 @@ struct User: Codable {
         case role
         case avatar
         case cover
+        case categories
     }
     
     init(user: UserInfo) {
@@ -63,6 +65,7 @@ struct User: Codable {
         self.cover = user.cover
         self.address = user.address
         self.work = user.work
+        self.categories = user.categories
     }
 }
 

@@ -162,7 +162,7 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Gju-AD-2Re">
-                    <rect key="frame" x="0.0" y="335" width="440" height="240"/>
+                    <rect key="frame" x="0.0" y="335" width="440" height="330"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vw-cq-s9T">
                             <rect key="frame" x="0.0" y="0.0" width="440" height="30"/>
@@ -190,8 +190,86 @@
                                 <constraint firstItem="cRc-bw-s9v" firstAttribute="leading" secondItem="7vw-cq-s9T" secondAttribute="leading" constant="24" id="anI-Ub-SbP"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PBe-l7-tfj">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UES-UC-n16" userLabel="Email View">
                             <rect key="frame" x="0.0" y="30" width="440" height="30"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-email" translatesAutoresizingMaskIntoConstraints="NO" id="EpG-vf-LB8">
+                                    <rect key="frame" x="24" y="5" width="20" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="20" id="2q7-qZ-HlX"/>
+                                        <constraint firstAttribute="height" constant="20" id="84A-Hg-BU1"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lives in Da Nang, Viet Nam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62e-hz-8HN">
+                                    <rect key="frame" x="60" y="6.5" width="167" height="17.5"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="62e-hz-8HN" firstAttribute="leading" secondItem="EpG-vf-LB8" secondAttribute="trailing" constant="16" id="Gys-e5-VvF"/>
+                                <constraint firstItem="62e-hz-8HN" firstAttribute="centerY" secondItem="UES-UC-n16" secondAttribute="centerY" id="Hsf-HX-381"/>
+                                <constraint firstItem="EpG-vf-LB8" firstAttribute="leading" secondItem="UES-UC-n16" secondAttribute="leading" constant="24" id="NyS-rh-JXG"/>
+                                <constraint firstAttribute="height" constant="30" id="TJf-au-fbs"/>
+                                <constraint firstItem="EpG-vf-LB8" firstAttribute="centerY" secondItem="UES-UC-n16" secondAttribute="centerY" id="tR9-ka-dnX"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2r-ZL-nEH" userLabel="Phone View">
+                            <rect key="frame" x="0.0" y="60" width="440" height="30"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-phone" translatesAutoresizingMaskIntoConstraints="NO" id="L56-G3-SKw">
+                                    <rect key="frame" x="24" y="5" width="20" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="20" id="KRV-iU-UHw"/>
+                                        <constraint firstAttribute="height" constant="20" id="vgU-b8-jae"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lives in Da Nang, Viet Nam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tn5-f6-tdt">
+                                    <rect key="frame" x="60" y="6.5" width="167" height="17.5"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="tn5-f6-tdt" firstAttribute="leading" secondItem="L56-G3-SKw" secondAttribute="trailing" constant="16" id="4ci-BG-lo7"/>
+                                <constraint firstItem="L56-G3-SKw" firstAttribute="leading" secondItem="d2r-ZL-nEH" secondAttribute="leading" constant="24" id="D7C-Ot-Qy5"/>
+                                <constraint firstItem="tn5-f6-tdt" firstAttribute="centerY" secondItem="d2r-ZL-nEH" secondAttribute="centerY" id="ICg-om-fnO"/>
+                                <constraint firstItem="L56-G3-SKw" firstAttribute="centerY" secondItem="d2r-ZL-nEH" secondAttribute="centerY" id="KOa-zZ-Y47"/>
+                                <constraint firstAttribute="height" constant="30" id="baU-yY-NSw"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmU-DQ-29H" userLabel="Categories">
+                            <rect key="frame" x="0.0" y="90" width="440" height="30"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-category" translatesAutoresizingMaskIntoConstraints="NO" id="gdb-f4-rlE">
+                                    <rect key="frame" x="24" y="5" width="20" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="20" id="H00-py-3Ex"/>
+                                        <constraint firstAttribute="height" constant="20" id="q1z-DY-dR9"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lives in Da Nang, Viet Nam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZF-im-3LR">
+                                    <rect key="frame" x="60" y="6.5" width="167" height="17.5"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="gdb-f4-rlE" firstAttribute="leading" secondItem="bmU-DQ-29H" secondAttribute="leading" constant="24" id="3Z9-ZN-0D5"/>
+                                <constraint firstAttribute="height" constant="30" id="4HR-T8-0Jb"/>
+                                <constraint firstItem="RZF-im-3LR" firstAttribute="leading" secondItem="gdb-f4-rlE" secondAttribute="trailing" constant="16" id="Awq-bF-NEy"/>
+                                <constraint firstItem="gdb-f4-rlE" firstAttribute="centerY" secondItem="bmU-DQ-29H" secondAttribute="centerY" id="Rbe-di-wFh"/>
+                                <constraint firstItem="RZF-im-3LR" firstAttribute="centerY" secondItem="bmU-DQ-29H" secondAttribute="centerY" id="j5Y-L6-qUV"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PBe-l7-tfj">
+                            <rect key="frame" x="0.0" y="120" width="440" height="30"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="birthdayIcon" translatesAutoresizingMaskIntoConstraints="NO" id="oF1-3U-JJ0">
                                     <rect key="frame" x="24" y="5" width="20" height="20"/>
@@ -217,7 +295,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SOp-bz-mcR">
-                            <rect key="frame" x="0.0" y="60" width="440" height="30"/>
+                            <rect key="frame" x="0.0" y="150" width="440" height="30"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="workIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ogb-zc-AmZ">
                                     <rect key="frame" x="24" y="5" width="20" height="20"/>
@@ -243,7 +321,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5yd-wa-Hra">
-                            <rect key="frame" x="0.0" y="90" width="440" height="150"/>
+                            <rect key="frame" x="0.0" y="180" width="440" height="150"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2BQ-b2-90n">
                                     <rect key="frame" x="20" y="50" width="50" height="50"/>
@@ -318,14 +396,14 @@
                     </subviews>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4y-V8-6Ik" userLabel="Line View">
-                    <rect key="frame" x="0.0" y="575" width="440" height="5"/>
+                    <rect key="frame" x="0.0" y="665" width="440" height="5"/>
                     <color key="backgroundColor" systemColor="systemGray3Color"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="5" id="dmP-Pz-UjX"/>
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8Gt-0s-K2J">
-                    <rect key="frame" x="0.0" y="580" width="440" height="40"/>
+                    <rect key="frame" x="0.0" y="670" width="440" height="40"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJG-mO-qv2">
                             <rect key="frame" x="0.0" y="0.0" width="220" height="40"/>
@@ -395,12 +473,18 @@
                 <outlet property="birthdayLabel" destination="bLn-ak-YCO" id="32K-ut-9xb"/>
                 <outlet property="birthdayView" destination="PBe-l7-tfj" id="a6R-8s-Hiq"/>
                 <outlet property="buttonStackView" destination="8Gt-0s-K2J" id="zwo-Zm-9ja"/>
+                <outlet property="categoryLabel" destination="RZF-im-3LR" id="KJo-L6-WiE"/>
+                <outlet property="categoryView" destination="bmU-DQ-29H" id="gLc-St-dQp"/>
                 <outlet property="changeAvatarControl" destination="XM2-el-UBT" id="Cf4-TG-MfI"/>
                 <outlet property="changeCoverControl" destination="gBJ-iE-QJg" id="ij6-01-E4Q"/>
                 <outlet property="coverImageView" destination="zmS-6R-V1b" id="GdQ-jd-yan"/>
                 <outlet property="createPostView" destination="5yd-wa-Hra" id="m2z-OY-Wz9"/>
                 <outlet property="editProfileControl" destination="x1g-Xb-Ll7" id="QRa-Aj-j1j"/>
+                <outlet property="emailLabel" destination="62e-hz-8HN" id="Nfj-T8-YbK"/>
+                <outlet property="emailView" destination="UES-UC-n16" id="bZj-mh-Wa5"/>
                 <outlet property="miniAvatarImageView" destination="2BQ-b2-90n" id="W1A-q1-ubm"/>
+                <outlet property="phoneNumberLabel" destination="tn5-f6-tdt" id="qbI-Qh-Kik"/>
+                <outlet property="phoneView" destination="d2r-ZL-nEH" id="OpX-pN-2rQ"/>
                 <outlet property="postControl" destination="NaA-Se-Qg0" id="3zi-1v-EmQ"/>
                 <outlet property="postsButton" destination="tJG-mO-qv2" id="4u5-ZJ-d92"/>
                 <outlet property="reviewsButton" destination="7yo-zw-D4F" id="Wnm-xq-9j5"/>
@@ -416,6 +500,9 @@
         <image name="birthdayIcon" width="96" height="96"/>
         <image name="cameraIcon" width="96" height="96"/>
         <image name="editIcon" width="512" height="512"/>
+        <image name="icon-category" width="100" height="100"/>
+        <image name="icon-email" width="100" height="100"/>
+        <image name="icon-phone" width="100" height="100"/>
         <image name="photoImage" width="13" height="12"/>
         <image name="workIcon" width="96" height="96"/>
         <namedColor name="AppTintColor">

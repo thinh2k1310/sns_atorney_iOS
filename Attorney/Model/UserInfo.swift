@@ -22,6 +22,7 @@ struct UserInfo: Codable {
     var cover: String?
     var address: String?
     var work: String?
+    var categories: [String]?
     
     init(loginResponse: LoginResponse) {
         self.id = loginResponse.data?.id
@@ -37,6 +38,7 @@ struct UserInfo: Codable {
         self.cover = loginResponse.data?.cover
         self.address = loginResponse.data?.address
         self.work = loginResponse.data?.work
+        self.categories = loginResponse.data?.categories
     }
     
     init(user: User) {
@@ -53,6 +55,7 @@ struct UserInfo: Codable {
         self.cover = user.cover
         self.address = user.address
         self.work = user.work
+        self.categories = user.categories
     }
 }
 

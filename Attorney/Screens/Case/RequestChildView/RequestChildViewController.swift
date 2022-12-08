@@ -114,7 +114,7 @@ private extension RequestChildViewController {
 extension RequestChildViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let viewModel = self.viewModel as? RequestChildViewModel else { return 0 }
-        return !viewModel.isLoadingRequests ? viewModel.requestsToDisplay.count : 10
+        return !viewModel.isLoadingRequests ? viewModel.requestsToDisplay.count : 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
