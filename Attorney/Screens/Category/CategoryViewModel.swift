@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 
 enum Category: String {
+    case All
     case Administrative
     case Constitutional
     case Finance

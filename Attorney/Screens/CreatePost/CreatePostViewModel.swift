@@ -13,11 +13,12 @@ final class CreatePostViewModel: ViewModel {
     let createPostSuccess = PublishSubject<Void>()
     
     var type: String = PostType.DISCUSSING.rawValue
+    var category: String = Category.Civil.rawValue
     var media: UIImage?
     var content: String = ""
     
     func createPost() {
-        let request = CreatePostRequest(content: content, type: type, media: media)
+        let request = CreatePostRequest(content: content, type: type, media: media, category: category)
         provider
             .createPost(createPostRequest: request)
             .trackActivity(self.bodyLoading)

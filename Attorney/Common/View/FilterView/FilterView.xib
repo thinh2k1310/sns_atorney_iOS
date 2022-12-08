@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ProximaNova-Sbold.otf">
+            <string>ProximaNova-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterView" customModule="Attorney" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="Zhg-mj-CMQ" id="zre-at-zUw"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="VRE-Ca-gDa"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="703" height="374"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Zhg-mj-CMQ">
+                    <rect key="frame" x="0.0" y="0.0" width="703" height="274"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Nis-GE-FXA">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vA1-Ud-56g">
+                    <rect key="frame" x="0.0" y="274" width="703" height="100"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s7y-9c-nSR">
+                            <rect key="frame" x="0.0" y="0.0" width="703" height="1"/>
+                            <color key="backgroundColor" name="TFBorder"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="rdA-v0-ETp"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nb3-td-tOh">
+                            <rect key="frame" x="251.5" y="30" width="200" height="40"/>
+                            <color key="backgroundColor" name="AppTintColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="200" id="2jP-74-1rn"/>
+                                <constraint firstAttribute="height" constant="40" id="QTg-tM-Rbd"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="17"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Create post"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="didTapPost:" destination="-1" eventType="touchUpInside" id="xb8-Nj-ODB"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="s7y-9c-nSR" secondAttribute="trailing" id="Qub-kY-qQQ"/>
+                        <constraint firstItem="s7y-9c-nSR" firstAttribute="leading" secondItem="vA1-Ud-56g" secondAttribute="leading" id="Zcx-IZ-AM7"/>
+                        <constraint firstItem="Nb3-td-tOh" firstAttribute="centerY" secondItem="vA1-Ud-56g" secondAttribute="centerY" id="gOI-zr-nnn"/>
+                        <constraint firstItem="Nb3-td-tOh" firstAttribute="centerX" secondItem="vA1-Ud-56g" secondAttribute="centerX" id="hqb-Uk-LGW"/>
+                        <constraint firstItem="s7y-9c-nSR" firstAttribute="top" secondItem="vA1-Ud-56g" secondAttribute="top" id="w3I-rs-hxW"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Zhg-mj-CMQ" secondAttribute="trailing" id="11f-IJ-uCR"/>
+                <constraint firstAttribute="bottom" secondItem="Zhg-mj-CMQ" secondAttribute="bottom" constant="100" id="7iO-Zg-83y"/>
+                <constraint firstAttribute="trailing" secondItem="vA1-Ud-56g" secondAttribute="trailing" id="9Ok-Rf-fFY"/>
+                <constraint firstAttribute="bottom" secondItem="vA1-Ud-56g" secondAttribute="bottom" id="EiT-C0-yZQ"/>
+                <constraint firstItem="vA1-Ud-56g" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="US9-he-kAw"/>
+                <constraint firstItem="vA1-Ud-56g" firstAttribute="top" secondItem="Zhg-mj-CMQ" secondAttribute="bottom" id="UVZ-h1-eID"/>
+                <constraint firstItem="Zhg-mj-CMQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="jRe-5I-aGl"/>
+                <constraint firstItem="Zhg-mj-CMQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qih-Xj-oph"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="297.82608695652175" y="-417.1875"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="AppTintColor">
+            <color red="0.31764705882352939" green="0.31764705882352939" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TFBorder">
+            <color red="0.49803921568627452" green="0.51764705882352946" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

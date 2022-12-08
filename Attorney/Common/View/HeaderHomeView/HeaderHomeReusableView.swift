@@ -15,15 +15,10 @@ enum SortItem: Int, CaseIterable {
     case nearest
 }
 
-enum FilterItem: String, CaseIterable {
-    case all = "All"
-    case discussing = "DISCUSSING"
-    case requesting = "REQUESTING"
-}
-
 protocol HeaderHomeReusableViewDelegate: AnyObject {
     func createPost()
     func goToSearchView()
+    func showFilter()
 }
 final class HeaderHomeReusableView: UICollectionReusableView {
     static let identifier = "HeaderHomeReusableView"
@@ -35,15 +30,12 @@ final class HeaderHomeReusableView: UICollectionReusableView {
     @IBOutlet private weak var filterControl: UIControl!
     
     var didSelectSortItem: ((SortItem) -> Void)?
-    var didSelectFilterItem: ((FilterItem) -> Void)?
-    let dropdown = DropDown()
     
     weak var delegate: HeaderHomeReusableViewDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         sortBy()
-        configureDropdown()
     }
     
     func configureHeader(with userInfo: UserInfo) {
@@ -78,23 +70,6 @@ final class HeaderHomeReusableView: UICollectionReusableView {
         nearestButton.backgroundColor = option == 2 ? Color.F1F1FE : UIColor.white
     }
     
-    private func configureDropdown() {
-        dropdown.anchorView = filterControl
-        dropdown.dataSource = [FilterItem.all.rawValue, FilterItem.discussing.rawValue, FilterItem.requesting.rawValue]
-        dropdown.direction = .bottom
-        dropdown.bottomOffset = CGPoint(x: 0, y:(dropdown.anchorView?.plainView.bounds.height)!)
-        dropdown.selectRow(at: 0)
-        DropDown.appearance().textColor = Color.textColor
-        DropDown.appearance().selectedTextColor = Color.appTintColor
-        DropDown.appearance().textFont = UIFont.appFont(size: 15)
-        DropDown.appearance().backgroundColor = UIColor.white
-        DropDown.appearance().selectionBackgroundColor = Color.F1F1FE
-        DropDown.appearance().cellHeight = 50
-        dropdown.selectionAction = {[weak self] (index: Int, item: String) in
-            self?.didSelectFilterItem?(FilterItem.allCases[index])
-        }
-    }
-    
     @IBAction private func didTapSearchBar(_ sender: Any) {
         delegate?.goToSearchView()
     }
@@ -112,6 +87,7 @@ final class HeaderHomeReusableView: UICollectionReusableView {
     }
     
     @IBAction private func didTapFilterControl(_ sender: Any) {
-        dropdown.show()
+        delegate?.showFilter()
+        
     }
 }

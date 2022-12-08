@@ -108,12 +108,6 @@ final class HomeViewController: ViewController{
                         header.configureHeader(with: userInfo)
                     }
                     header.delegate = self
-                    header.didSelectFilterItem = { filterItem in
-                        viewModel.filterBy = filterItem
-                        viewModel.resetPage()
-                        viewModel.getPosts()
-                        
-                    }
                     header.didSelectSortItem = { sortItem in
                         viewModel.sortBy = sortItem
                         viewModel.resetPage()
@@ -286,7 +280,40 @@ extension HomeViewController: ReselectTabHandler {
 
 extension HomeViewController: HeaderHomeReusableViewDelegate {
     func createPost() {
-        guard let viewModel = viewModel as? HomeViewModel else { return }
+        let filterVC = R.storyboard.sortAndFilter.filterViewController()!
+        filterVC.modalTransitionStyle = .crossDissolve
+//        filterVC.modalPresentationStyle = .fullScreen
+        filterVC.tappedCreatePost = { [weak self] (action, category) in
+            self?.goToCreatePost(action: action, category: category)
+        }
+        self.navigationController?.present(filterVC, animated: true)
+    }
+    
+    func goToSearchView() {
+        
+    }
+    
+    func showFilter() {
+        guard let viewModel = viewModel as? HomeViewModel else {
+            return
+        }
+        
+        let postFilterVC = R.storyboard.sortAndFilter.postFilterViewController()!
+        postFilterVC.modalTransitionStyle = .crossDissolve
+//        filterVC.modalPresentationStyle = .fullScreen
+        postFilterVC.showResults = { [weak self] (action, categories) in
+            viewModel.filterBy = action
+            viewModel.categories = categories
+            viewModel.resetPage()
+            viewModel.getPosts()
+        }
+        self.navigationController?.present(postFilterVC, animated: true)
+    }
+    
+    private func goToCreatePost(action: PostAction, category: Category) {
+        guard let viewModel = viewModel as? HomeViewModel else {
+            return
+        }
         let createPostVC = R.storyboard.createPost.createPostViewController()!
         guard let provider = Application.shared.provider else { return }
         let createPostVM = CreatePostViewModel(provider: provider)
@@ -295,14 +322,10 @@ extension HomeViewController: HeaderHomeReusableViewDelegate {
                 viewModel.resetPage()
                 viewModel.getPosts()
             }).disposed(by: disposeBag)
+        createPostVM.type = action.value()
+        createPostVM.category = category.rawValue
         createPostVC.viewModel = createPostVM
         createPostVC.modalPresentationStyle = .fullScreen
-        present(createPostVC, animated: true)
+        self.navigationController?.present(createPostVC, animated: true)
     }
-    
-    func goToSearchView() {
-        
-    }
-    
-    
 }

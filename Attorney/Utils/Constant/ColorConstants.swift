@@ -38,5 +38,9 @@ struct Color {
     static let lightGreen = UIColor.init(rgb: 0xB3FFAE, alpha: 0.5)
     static let lightPurple = UIColor.init(rgb: 0xE5B8F4, alpha: 0.5)
     static let lightRed = UIColor.init(rgb: 0xFF8787, alpha: 0.5)
+    static let blackTransparentBgColor = UIColor(red: 0.0 / 255.0,
+                                               green: 0.0 / 255.0,
+                                               blue: 0.0 / 255.0,
+                                               alpha: 0.5)
    
 }

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Filter View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="FilterViewController" id="Y6W-OH-hqX" customClass="FilterViewController" customModule="Attorney" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" customClass="UIControl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJO-6m-eSx">
+                                <rect key="frame" x="0.0" y="44" width="414" height="302"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0R1-oe-9ky" customClass="FilterView" customModule="Attorney" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="346" width="414" height="550"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="550" id="1c0-d3-7Sz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NJO-6m-eSx" secondAttribute="trailing" id="Kny-Mi-y6Q"/>
+                            <constraint firstItem="0R1-oe-9ky" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="MAP-yz-hcT"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0R1-oe-9ky" secondAttribute="trailing" id="YXc-Xz-FB4"/>
+                            <constraint firstItem="NJO-6m-eSx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="dRM-WD-oRp"/>
+                            <constraint firstItem="0R1-oe-9ky" firstAttribute="top" secondItem="NJO-6m-eSx" secondAttribute="bottom" id="qug-yR-Yep"/>
+                            <constraint firstItem="NJO-6m-eSx" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="u3c-26-lzx"/>
+                            <constraint firstAttribute="bottom" secondItem="0R1-oe-9ky" secondAttribute="bottom" id="zN8-xX-XMp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="filterView" destination="0R1-oe-9ky" id="nts-4o-ncr"/>
+                        <outlet property="outsideView" destination="NJO-6m-eSx" id="8Gl-sw-ob0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141" y="89"/>
+        </scene>
+        <!--Post Filter View Controller-->
+        <scene sceneID="zgh-hp-v2h">
+            <objects>
+                <viewController storyboardIdentifier="PostFilterViewController" id="hq9-G4-B31" customClass="PostFilterViewController" customModule="Attorney" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Isl-w6-3tS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ixq-jr-1fP" customClass="PostFilterView" customModule="Attorney" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="346" width="414" height="550"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="550" id="msd-an-fC1"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="k1C-Jq-Hnf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Ixq-jr-1fP" secondAttribute="bottom" id="IRA-xe-auo"/>
+                            <constraint firstItem="k1C-Jq-Hnf" firstAttribute="trailing" secondItem="Ixq-jr-1fP" secondAttribute="trailing" id="Wy3-p5-ZXo"/>
+                            <constraint firstItem="Ixq-jr-1fP" firstAttribute="leading" secondItem="k1C-Jq-Hnf" secondAttribute="leading" id="Z5z-Am-BB5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="postFilterView" destination="Ixq-jr-1fP" id="Thi-pR-jmq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qpc-QL-Eha" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1149" y="106"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

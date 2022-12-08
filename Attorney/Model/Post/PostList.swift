@@ -42,6 +42,7 @@ struct MetaData: Codable {
 struct PostsRequest: Codable {
     let sortOrder: SortOrder
     let type: String?
+    let categories: [String]?
     let pageNumber: Int?
 }
 

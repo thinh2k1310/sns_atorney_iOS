@@ -76,4 +76,5 @@ struct CreatePostRequest {
     let content: String
     let type: String
     let media: UIImage?
+    let category: String
 }

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ProximaNova-Reg.otf">
+            <string>ProximaNova-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="FilterCollectionViewCell" customModule="Attorney" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="365" height="92"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="365" height="92"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheck-radio" translatesAutoresizingMaskIntoConstraints="NO" id="7g4-J8-m54">
+                        <rect key="frame" x="24" y="38" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="ZJT-xC-pu6"/>
+                            <constraint firstAttribute="width" constant="16" id="rWg-pR-Wwh"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PwO-Yc-usY">
+                        <rect key="frame" x="48" y="37.5" width="33.5" height="17.5"/>
+                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
+                        <color key="textColor" name="354052"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="7g4-J8-m54" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="IIs-Q8-UqX"/>
+                <constraint firstItem="7g4-J8-m54" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="WQU-CD-B2P"/>
+                <constraint firstItem="PwO-Yc-usY" firstAttribute="centerY" secondItem="7g4-J8-m54" secondAttribute="centerY" id="tdf-J3-8Qi"/>
+                <constraint firstItem="PwO-Yc-usY" firstAttribute="leading" secondItem="7g4-J8-m54" secondAttribute="trailing" constant="8" id="xjX-dT-kZR"/>
+            </constraints>
+            <size key="customSize" width="365" height="92"/>
+            <connections>
+                <outlet property="categoryLabel" destination="PwO-Yc-usY" id="3OQ-O7-2WY"/>
+                <outlet property="radioImageView" destination="7g4-J8-m54" id="HGU-jm-o7U"/>
+            </connections>
+            <point key="canvasLocation" x="532.60869565217399" y="65.625"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="uncheck-radio" width="96" height="96"/>
+        <namedColor name="354052">
+            <color red="0.20784313725490197" green="0.25098039215686274" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

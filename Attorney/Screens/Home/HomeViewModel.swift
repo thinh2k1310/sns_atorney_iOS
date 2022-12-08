@@ -22,7 +22,8 @@ final class HomeViewModel: ViewModel {
     var isFirstLoad = true
     var title = ""
     var sortBy: SortItem = .newest
-    var filterBy: FilterItem = .all
+    var filterBy: FilterAction = .all
+    var categories: [Category] = [.All]
     
     private var posts: [Post] = []
 
@@ -119,12 +120,22 @@ final class HomeViewModel: ViewModel {
         case .all:
             filter = nil
         case .discussing:
-            filter = FilterItem.discussing.rawValue
+            filter = FilterAction.discussing.rawValue
         case .requesting:
-            filter = FilterItem.requesting.rawValue
+            filter = FilterAction.requesting.rawValue
         }
         
-        let request = PostsRequest(sortOrder: sortOrder, type: filter, pageNumber: currentPage)
+        var cates: [String] = []
+        for cate in categories {
+            if cate == .All {
+                cates.removeAll()
+            } else {
+                cates.append(cate.rawValue)
+            }
+        }
+        let finalCates = cates.isEmpty ? nil : cates
+        
+        let request = PostsRequest(sortOrder: sortOrder, type: filter, categories: finalCates, pageNumber: currentPage)
         provider
             .fetchNewsFeed(request: request)
             .trackActivity(self.bodyLoading)
