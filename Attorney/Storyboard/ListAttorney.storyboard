@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ProximaNova-Sbold.otf">
+            <string>ProximaNova-Semibold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Category View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="CategoryViewController" id="Y6W-OH-hqX" customClass="CategoryViewController" customModule="Attorney" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MZf-SV-ztz">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MZf-SV-ztz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="3jx-5W-Cn8"/>
+                            <constraint firstItem="MZf-SV-ztz" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="6Wp-6h-yvR"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="MZf-SV-ztz" secondAttribute="bottom" id="H8r-gN-7hm"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="MZf-SV-ztz" secondAttribute="trailing" id="Vkt-sd-y7T"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="MZf-SV-ztz" id="dGt-d2-C0l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-197" y="35"/>
+        </scene>
+        <!--List Attorney View Controller-->
+        <scene sceneID="1sN-kY-fya">
+            <objects>
+                <viewController storyboardIdentifier="ListAttorneyViewController" id="HcU-7K-29J" customClass="ListAttorneyViewController" customModule="Attorney" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WzG-hR-GmD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="l6R-Ry-VkD">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No data available!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhC-Yy-CCZ">
+                                <rect key="frame" x="127" y="144" width="160" height="25"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="20"/>
+                                <color key="textColor" name="354052"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yNW-Rq-nPT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nhC-Yy-CCZ" firstAttribute="top" secondItem="yNW-Rq-nPT" secondAttribute="top" constant="100" id="1W2-WV-W1Q"/>
+                            <constraint firstItem="l6R-Ry-VkD" firstAttribute="leading" secondItem="yNW-Rq-nPT" secondAttribute="leading" id="Akc-6E-KNP"/>
+                            <constraint firstItem="l6R-Ry-VkD" firstAttribute="top" secondItem="yNW-Rq-nPT" secondAttribute="top" id="i5b-nP-LNb"/>
+                            <constraint firstItem="yNW-Rq-nPT" firstAttribute="trailing" secondItem="l6R-Ry-VkD" secondAttribute="trailing" id="iVB-en-A1V"/>
+                            <constraint firstItem="nhC-Yy-CCZ" firstAttribute="centerX" secondItem="WzG-hR-GmD" secondAttribute="centerX" id="sHn-9A-0kR"/>
+                            <constraint firstItem="yNW-Rq-nPT" firstAttribute="bottom" secondItem="l6R-Ry-VkD" secondAttribute="bottom" id="tQf-r5-VJC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="noDataLabel" destination="nhC-Yy-CCZ" id="wwJ-WD-chc"/>
+                        <outlet property="tableView" destination="l6R-Ry-VkD" id="PT9-gZ-sKO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="27U-Dl-fth" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1129" y="30"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="354052">
+            <color red="0.20784313725490197" green="0.25098039215686274" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

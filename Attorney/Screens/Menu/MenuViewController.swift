@@ -90,7 +90,11 @@ final class MenuViewController: ViewController {
     }
     
     @IBAction private func didTapAbout(_ sender: Any) {
-        
+        let categoryVC = R.storyboard.listAttorney.categoryViewController()!
+        guard let provider = Application.shared.provider else { return }
+        let categoryVM = CategoryViewModel(provider: provider)
+        categoryVC.viewModel = categoryVM
+        self.navigationController?.pushViewController(categoryVC, animated: true)
     }
     
     @IBAction private func didTapTerm(_ sender: Any) {

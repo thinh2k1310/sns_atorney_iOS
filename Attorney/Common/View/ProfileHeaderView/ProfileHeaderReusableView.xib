@@ -69,7 +69,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x4l-0u-pnp" userLabel="Avatar view">
                     <rect key="frame" x="170" y="150" width="100" height="100"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wim-DY-Gs2">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wim-DY-Gs2">
                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XM2-el-UBT" userLabel="Camera View" customClass="UIControl">
@@ -245,7 +245,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5yd-wa-Hra">
                             <rect key="frame" x="0.0" y="90" width="440" height="150"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2BQ-b2-90n">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2BQ-b2-90n">
                                     <rect key="frame" x="20" y="50" width="50" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="50" id="AHY-Eo-AiW"/>

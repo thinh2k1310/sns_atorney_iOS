@@ -119,6 +119,10 @@ extension RestAPI {
     func changePassword(request: ChangePasswordRequest) -> Single<ChangePasswordResponse> {
         return requestObject(.changePassword(request: request), type: ChangePasswordResponse.self)
     }
+    
+    func getAttorney(request: ListAttorneyRequest) -> Single<ListAttorneyResponse> {
+        return requestObject(.getAttorney(request: request), type: ListAttorneyResponse.self)
+    }
 }
 
 extension RestAPI {

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ProximaNova-Reg.otf">
+            <string>ProximaNova-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="C2I-mH-YlW" customClass="CategoryCell" customModule="Attorney" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C2I-mH-YlW" id="5Vr-6m-2Di">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Civil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHn-om-kGH">
+                        <rect key="frame" x="16" y="11.5" width="31.5" height="21"/>
+                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron-right" translatesAutoresizingMaskIntoConstraints="NO" id="6hF-Co-yQ1">
+                        <rect key="frame" x="383" y="14.5" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="15" id="inc-LF-FRK"/>
+                            <constraint firstAttribute="height" constant="15" id="z4J-BP-SDJ"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="IHn-om-kGH" firstAttribute="leading" secondItem="5Vr-6m-2Di" secondAttribute="leading" constant="16" id="Q5s-Ki-7Wx"/>
+                    <constraint firstAttribute="trailing" secondItem="6hF-Co-yQ1" secondAttribute="trailing" constant="16" id="dyh-vz-3Ih"/>
+                    <constraint firstItem="IHn-om-kGH" firstAttribute="centerY" secondItem="5Vr-6m-2Di" secondAttribute="centerY" id="lkT-ks-oPD"/>
+                    <constraint firstItem="6hF-Co-yQ1" firstAttribute="centerY" secondItem="5Vr-6m-2Di" secondAttribute="centerY" id="qOT-MG-GdJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="categoryNameLabel" destination="IHn-om-kGH" id="fkB-aQ-J7h"/>
+            </connections>
+            <point key="canvasLocation" x="133" y="-303"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="chevron-right" width="96" height="96"/>
+    </resources>
+</document>

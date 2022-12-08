@@ -68,6 +68,16 @@
 		03D7309D28FEEE4D00BBA498 /* VerifyOTP.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D7309C28FEEE4D00BBA498 /* VerifyOTP.storyboard */; };
 		03D730A028FEEF4C00BBA498 /* VerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D7309F28FEEF4C00BBA498 /* VerifyOTPViewController.swift */; };
 		03E318CE292BD3C0004C7791 /* NSAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E318CD292BD3C0004C7791 /* NSAttributedStringExtension.swift */; };
+		03ED5A20294183300036B82C /* ListAttorney.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03ED5A1F294183300036B82C /* ListAttorney.storyboard */; };
+		03ED5A23294183C80036B82C /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED5A22294183C80036B82C /* CategoryViewController.swift */; };
+		03ED5A252941841A0036B82C /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED5A242941841A0036B82C /* CategoryViewModel.swift */; };
+		03ED5A282941894A0036B82C /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03ED5A272941894A0036B82C /* CategoryCell.xib */; };
+		03ED5A2A294189FA0036B82C /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED5A29294189FA0036B82C /* CategoryCell.swift */; };
+		03ED5A2D29418E6B0036B82C /* ListAttorneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED5A2C29418E6B0036B82C /* ListAttorneyViewController.swift */; };
+		03ED5A2F29418E7B0036B82C /* ListAttorneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED5A2E29418E7B0036B82C /* ListAttorneyViewModel.swift */; };
+		03ED5A31294194370036B82C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED5A30294194370036B82C /* Category.swift */; };
+		03ED5A35294197D90036B82C /* AttorneyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED5A33294197D90036B82C /* AttorneyCell.swift */; };
+		03ED5A36294197D90036B82C /* AttorneyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03ED5A34294197D90036B82C /* AttorneyCell.xib */; };
 		03EE2BB2290D060300A8317A /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EE2BB1290D060300A8317A /* Login.swift */; };
 		03EE2BB4290D0D3A00A8317A /* PrimitiveSequenceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EE2BB3290D0D3A00A8317A /* PrimitiveSequenceExtension.swift */; };
 		03EE2BB8290D0DBA00A8317A /* AttorneyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EE2BB7290D0DBA00A8317A /* AttorneyError.swift */; };
@@ -239,6 +249,16 @@
 		03D7309C28FEEE4D00BBA498 /* VerifyOTP.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerifyOTP.storyboard; sourceTree = "<group>"; };
 		03D7309F28FEEF4C00BBA498 /* VerifyOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewController.swift; sourceTree = "<group>"; };
 		03E318CD292BD3C0004C7791 /* NSAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtension.swift; sourceTree = "<group>"; };
+		03ED5A1F294183300036B82C /* ListAttorney.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListAttorney.storyboard; sourceTree = "<group>"; };
+		03ED5A22294183C80036B82C /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		03ED5A242941841A0036B82C /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		03ED5A272941894A0036B82C /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
+		03ED5A29294189FA0036B82C /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		03ED5A2C29418E6B0036B82C /* ListAttorneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAttorneyViewController.swift; sourceTree = "<group>"; };
+		03ED5A2E29418E7B0036B82C /* ListAttorneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAttorneyViewModel.swift; sourceTree = "<group>"; };
+		03ED5A30294194370036B82C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		03ED5A33294197D90036B82C /* AttorneyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttorneyCell.swift; sourceTree = "<group>"; };
+		03ED5A34294197D90036B82C /* AttorneyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttorneyCell.xib; sourceTree = "<group>"; };
 		03EE2BB1290D060300A8317A /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		03EE2BB3290D0D3A00A8317A /* PrimitiveSequenceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimitiveSequenceExtension.swift; sourceTree = "<group>"; };
 		03EE2BB7290D0DBA00A8317A /* AttorneyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttorneyError.swift; sourceTree = "<group>"; };
@@ -501,6 +521,44 @@
 			path = VerifyOTP;
 			sourceTree = "<group>";
 		};
+		03ED5A21294183910036B82C /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				03ED5A262941893C0036B82C /* Cell */,
+				03ED5A22294183C80036B82C /* CategoryViewController.swift */,
+				03ED5A242941841A0036B82C /* CategoryViewModel.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		03ED5A262941893C0036B82C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				03ED5A272941894A0036B82C /* CategoryCell.xib */,
+				03ED5A29294189FA0036B82C /* CategoryCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		03ED5A2B29418E520036B82C /* ListAttorney */ = {
+			isa = PBXGroup;
+			children = (
+				03ED5A32294197B20036B82C /* AttorneyCell */,
+				03ED5A2C29418E6B0036B82C /* ListAttorneyViewController.swift */,
+				03ED5A2E29418E7B0036B82C /* ListAttorneyViewModel.swift */,
+			);
+			path = ListAttorney;
+			sourceTree = "<group>";
+		};
+		03ED5A32294197B20036B82C /* AttorneyCell */ = {
+			isa = PBXGroup;
+			children = (
+				03ED5A33294197D90036B82C /* AttorneyCell.swift */,
+				03ED5A34294197D90036B82C /* AttorneyCell.xib */,
+			);
+			path = AttorneyCell;
+			sourceTree = "<group>";
+		};
 		4A9757E99D5E2D419360BE07 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -685,6 +743,7 @@
 				F38C376F293654B6004290AC /* Like.swift */,
 				F38C377129365A53004290AC /* Case.swift */,
 				F38C377329365C02004290AC /* CommonResponse.swift */,
+				03ED5A30294194370036B82C /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -705,6 +764,8 @@
 		F37CB00F28E81AE40061B273 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				03ED5A2B29418E520036B82C /* ListAttorney */,
+				03ED5A21294183910036B82C /* Category */,
 				03A4D043293E54A200C40190 /* ChangeImage */,
 				F38C77D6293C666700D27996 /* Profile */,
 				F3C9B06E2937DB290095D09D /* CreatePost */,
@@ -759,6 +820,7 @@
 				F3C9B06C2937D4C10095D09D /* CreatePost.storyboard */,
 				F38C77DB293C676400D27996 /* Profile.storyboard */,
 				03A4D041293E532D00C40190 /* ChangeImage.storyboard */,
+				03ED5A1F294183300036B82C /* ListAttorney.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -1110,12 +1172,15 @@
 				0302BBAD2926609C000238A1 /* NewsFeedCollectionViewCell.xib in Resources */,
 				F38C77DC293C676400D27996 /* Profile.storyboard in Resources */,
 				F38C77CD293AF5F200D27996 /* CaseTableViewCell.xib in Resources */,
+				03ED5A36294197D90036B82C /* AttorneyCell.xib in Resources */,
 				037665B2292FEEF9002FA7DE /* DetailPost.storyboard in Resources */,
 				F3C9B06D2937D4C20095D09D /* CreatePost.storyboard in Resources */,
 				F32C525C28F5E50200E6C840 /* ProximaNova-Reg.otf in Resources */,
+				03ED5A282941894A0036B82C /* CategoryCell.xib in Resources */,
 				F38C77BD293A690500D27996 /* RequestTableViewCell.xib in Resources */,
 				03D7309D28FEEE4D00BBA498 /* VerifyOTP.storyboard in Resources */,
 				03A4D042293E532D00C40190 /* ChangeImage.storyboard in Resources */,
+				03ED5A20294183300036B82C /* ListAttorney.storyboard in Resources */,
 				F32C525A28F5E50200E6C840 /* ProximaNova-ThinIt.otf in Resources */,
 				F37CB02928E83D5C0061B273 /* Home.storyboard in Resources */,
 				F30039F229346EC4006B19CF /* PostDetailHeaderView.xib in Resources */,
@@ -1241,6 +1306,7 @@
 				F3CC097D293508AB00437035 /* CommentTableViewCell.swift in Sources */,
 				035424D22912CEB7002235FB /* ErrorViewController.swift in Sources */,
 				035A46D7291414A200A64898 /* TinyLoadingViewController.swift in Sources */,
+				03ED5A2F29418E7B0036B82C /* ListAttorneyViewModel.swift in Sources */,
 				F37C0354293A19A100674118 /* CaseViewModel.swift in Sources */,
 				F38C77C8293A903300D27996 /* RequestChildViewModel.swift in Sources */,
 				03A63DA229053ABA00C1C72D /* DateExtension.swift in Sources */,
@@ -1280,6 +1346,7 @@
 				03D730A028FEEF4C00BBA498 /* VerifyOTPViewController.swift in Sources */,
 				03B893F8292907FC00803DD9 /* UIImageViewExtension.swift in Sources */,
 				F37C0352293A199300674118 /* CaseChildViewModel.swift in Sources */,
+				03ED5A252941841A0036B82C /* CategoryViewModel.swift in Sources */,
 				F38C77CC293AF5F200D27996 /* CaseTableViewCell.swift in Sources */,
 				035DF533290196CF00A80C8E /* CoachmarkPreferences.swift in Sources */,
 				03B893EB2928BC2A00803DD9 /* UIScrollViewExtension.swift in Sources */,
@@ -1307,6 +1374,7 @@
 				F3886F2128EFEA6E00A14F47 /* NotificationCoordinator.swift in Sources */,
 				03D7309628FEDAA300BBA498 /* RequestOTPViewController.swift in Sources */,
 				F38C77D0293B970000D27996 /* CaseDetailViewController.swift in Sources */,
+				03ED5A2A294189FA0036B82C /* CategoryCell.swift in Sources */,
 				F32C523B28F4650E00E6C840 /* UserInfo.swift in Sources */,
 				F37CB04628E841220061B273 /* CaseViewController.swift in Sources */,
 				03A63DA629057B5900C1C72D /* Register.swift in Sources */,
@@ -1332,7 +1400,9 @@
 				F32C526328F7259200E6C840 /* UITextFieldExtension.swift in Sources */,
 				03A63D9E2905371300C1C72D /* RegisterViewController.swift in Sources */,
 				03A4D047293E550A00C40190 /* ChangeImageViewModel.swift in Sources */,
+				03ED5A2D29418E6B0036B82C /* ListAttorneyViewController.swift in Sources */,
 				0309D987290048B50000F9D6 /* InputTextField.swift in Sources */,
+				03ED5A23294183C80036B82C /* CategoryViewController.swift in Sources */,
 				F38C77DA293C669600D27996 /* ProfileViewModel.swift in Sources */,
 				035A46D2291413A300A64898 /* AttorneyTransition.swift in Sources */,
 				F3886F1D28EFEA4100A14F47 /* HomeCoordinator.swift in Sources */,
@@ -1344,6 +1414,7 @@
 				0359A773293EEA850097F90D /* ChangePasswordViewController.swift in Sources */,
 				0345C94128FAA5FC0029F4F9 /* AttorneyFormatter.swift in Sources */,
 				038B9DF529162BCD00039F4D /* ResetPasswordViewModel.swift in Sources */,
+				03ED5A31294194370036B82C /* Category.swift in Sources */,
 				0345C93F28FAA1290029F4F9 /* Keys.swift in Sources */,
 				F38C77BC293A690500D27996 /* RequestTableViewCell.swift in Sources */,
 				F32C522F28F33BF700E6C840 /* Application.swift in Sources */,
@@ -1352,6 +1423,7 @@
 				F38C377429365C02004290AC /* CommonResponse.swift in Sources */,
 				03EE2BB8290D0DBA00A8317A /* AttorneyError.swift in Sources */,
 				F37CB02028E8260F0061B273 /* ViewModel.swift in Sources */,
+				03ED5A35294197D90036B82C /* AttorneyCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

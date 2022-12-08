@@ -9,6 +9,7 @@
 "string_password" = "Password";
 "string_password_does_not_match" = "Password does not match";
 "string_please_enter_email" = "Please enter a valid email address";
+"string_rating" = "Rating: %@";
 "string_register_successfully" = "Register successfully!\n Login with your new account.";
 "string_reset_password" = "Reset password successfully!\n Login with your new password.";
 "string_sign_up" = "SIGN UP";
@@ -19,6 +20,7 @@
 "string_tooltip_password_warning_fourth_line" = "• upper case character (A-Z)";
 "string_tooltip_password_warning_second_line" = "• number (0-9)";
 "string_tooltip_password_warning_third_line" = "• lower case character (a-z)";
+"string_total_cases" = "Total cases: %@";
 "string_username" = "Username";
 "string_wants_to_defend" = "wants to defend you case";
 "string_welcome" = "Welcome";

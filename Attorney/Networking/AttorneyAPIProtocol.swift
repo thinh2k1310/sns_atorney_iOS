@@ -43,4 +43,7 @@ protocol AttorneyAPI {
     func changeAvatar(request: ChangeAvatarRequest) -> Single<ChangeImageResponse>
     func changeCover(request: ChangeCoverRequest) -> Single<ChangeImageResponse>
     func changePassword(request: ChangePasswordRequest) -> Single<ChangePasswordResponse>
+    
+    // MARK: - Search
+    func getAttorney(request: ListAttorneyRequest) -> Single<ListAttorneyResponse>
 }
