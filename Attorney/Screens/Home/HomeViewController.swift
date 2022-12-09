@@ -300,7 +300,7 @@ extension HomeViewController: HeaderHomeReusableViewDelegate {
         
         let postFilterVC = R.storyboard.sortAndFilter.postFilterViewController()!
         postFilterVC.modalTransitionStyle = .crossDissolve
-//        filterVC.modalPresentationStyle = .fullScreen
+//        postFilterVC.modalPresentationStyle = .fullScreen
         postFilterVC.showResults = { [weak self] (action, categories) in
             viewModel.filterBy = action
             viewModel.categories = categories

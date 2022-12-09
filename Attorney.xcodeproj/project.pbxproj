@@ -44,6 +44,9 @@
 		035DF5352901970C00A80C8E /* CoachmarkContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035DF5342901970C00A80C8E /* CoachmarkContent.swift */; };
 		035DF5372901973C00A80C8E /* CoachmarkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035DF5362901973C00A80C8E /* CoachmarkType.swift */; };
 		035DF53929019E8E00A80C8E /* CGReactExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035DF53829019E8E00A80C8E /* CGReactExtension.swift */; };
+		036F8E2F2942DF27005D459E /* CaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036F8E2E2942DF27005D459E /* CaseListViewController.swift */; };
+		036F8E322942E6AA005D459E /* CaseHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036F8E312942E6AA005D459E /* CaseHeaderView.swift */; };
+		036F8E342942E812005D459E /* CaseHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 036F8E332942E812005D459E /* CaseHeaderView.xib */; };
 		037665B2292FEEF9002FA7DE /* DetailPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 037665B1292FEEF9002FA7DE /* DetailPost.storyboard */; };
 		038B9DF529162BCD00039F4D /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038B9DF429162BCD00039F4D /* ResetPasswordViewModel.swift */; };
 		038B9DF729162D4400039F4D /* ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038B9DF629162D4400039F4D /* ResetPassword.swift */; };
@@ -240,6 +243,9 @@
 		035DF5342901970C00A80C8E /* CoachmarkContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachmarkContent.swift; sourceTree = "<group>"; };
 		035DF5362901973C00A80C8E /* CoachmarkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachmarkType.swift; sourceTree = "<group>"; };
 		035DF53829019E8E00A80C8E /* CGReactExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGReactExtension.swift; sourceTree = "<group>"; };
+		036F8E2E2942DF27005D459E /* CaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseListViewController.swift; sourceTree = "<group>"; };
+		036F8E312942E6AA005D459E /* CaseHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseHeaderView.swift; sourceTree = "<group>"; };
+		036F8E332942E812005D459E /* CaseHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaseHeaderView.xib; sourceTree = "<group>"; };
 		037665B1292FEEF9002FA7DE /* DetailPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailPost.storyboard; sourceTree = "<group>"; };
 		038B9DF429162BCD00039F4D /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		038B9DF629162D4400039F4D /* ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassword.swift; sourceTree = "<group>"; };
@@ -500,6 +506,15 @@
 				035DF5362901973C00A80C8E /* CoachmarkType.swift */,
 			);
 			path = CoachmarkView;
+			sourceTree = "<group>";
+		};
+		036F8E302942E690005D459E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				036F8E312942E6AA005D459E /* CaseHeaderView.swift */,
+				036F8E332942E812005D459E /* CaseHeaderView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		03933CC3293119E5001E4631 /* DetailPost */ = {
@@ -1083,9 +1098,11 @@
 		F38C77C0293A8FA500D27996 /* CaseChildView */ = {
 			isa = PBXGroup;
 			children = (
+				036F8E302942E690005D459E /* View */,
 				F37C034F293A188300674118 /* CaseChildViewController.swift */,
 				F37C0351293A199300674118 /* CaseChildViewModel.swift */,
 				F38C77BE293A88FC00D27996 /* CaseChildViewController.xib */,
+				036F8E2E2942DF27005D459E /* CaseListViewController.swift */,
 			);
 			path = CaseChildView;
 			sourceTree = "<group>";
@@ -1227,6 +1244,7 @@
 				F38C77E1293C964900D27996 /* ProfileHeaderReusableView.xib in Resources */,
 				F37CB02528E83CE90061B273 /* Login.storyboard in Resources */,
 				F3886F1A28EFD1B400A14F47 /* SplashScreen.storyboard in Resources */,
+				036F8E342942E812005D459E /* CaseHeaderView.xib in Resources */,
 				F32C525928F5E50200E6C840 /* ProximaNova-Thin.otf in Resources */,
 				F32C525D28F5E50200E6C840 /* ProximaNova-LightIt.otf in Resources */,
 				F32C525F28F5E50200E6C840 /* ProximaNova-BlackIt.otf in Resources */,
@@ -1385,6 +1403,7 @@
 				03A63DA429053C9800C1C72D /* RegistrasionViewModel.swift in Sources */,
 				F32C523728F40A8500E6C840 /* AttorneyAPIProtocol.swift in Sources */,
 				F38C77D2293B9B4E00D27996 /* CaseDetailViewModel.swift in Sources */,
+				036F8E322942E6AA005D459E /* CaseHeaderView.swift in Sources */,
 				0359A776293EEA9D0097F90D /* ChangePasswordViewModel.swift in Sources */,
 				F3CC097D293508AB00437035 /* CommentTableViewCell.swift in Sources */,
 				035424D22912CEB7002235FB /* ErrorViewController.swift in Sources */,
@@ -1491,6 +1510,7 @@
 				03A4D047293E550A00C40190 /* ChangeImageViewModel.swift in Sources */,
 				03ED5A2D29418E6B0036B82C /* ListAttorneyViewController.swift in Sources */,
 				0309D987290048B50000F9D6 /* InputTextField.swift in Sources */,
+				036F8E2F2942DF27005D459E /* CaseListViewController.swift in Sources */,
 				03ED5A23294183C80036B82C /* CategoryViewController.swift in Sources */,
 				F38C77DA293C669600D27996 /* ProfileViewModel.swift in Sources */,
 				035A46D2291413A300A64898 /* AttorneyTransition.swift in Sources */,

@@ -36,3 +36,11 @@ struct CaseDetailResponse: Codable {
     let message: String?
     let data: Case?
 }
+
+struct CasesResponse: Codable {
+    let success: Bool?
+    let message: String?
+    let inProgressCases: [Case]?
+    let completedCases: [Case]?
+    let cancelledCases: [Case]?
+}

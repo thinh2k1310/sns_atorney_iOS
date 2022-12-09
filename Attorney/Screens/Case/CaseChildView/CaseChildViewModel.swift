@@ -10,7 +10,9 @@ import RxSwift
 
 final class CaseChildViewModel: ViewModel {
     
-    var casesToDisplay: [Case] = []
+    var inProgressCases: [Case] = []
+    var completedCases: [Case] = []
+    var cancelledCases: [Case] = []
     var isLoadingCases = true
     let resetPageEvent = PublishSubject<Void>()
     let getRequestsSuccessEvent = PublishSubject<Void>()
@@ -21,7 +23,9 @@ final class CaseChildViewModel: ViewModel {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        casesToDisplay.removeAll()
+        inProgressCases.removeAll()
+        completedCases.removeAll()
+        cancelledCases.removeAll()
     }
     
     override func viewWillAppear() {
@@ -35,13 +39,25 @@ final class CaseChildViewModel: ViewModel {
             .getAllCase()
             .subscribe(onSuccess: { [weak self] response in
                 guard let strongSelf = self else { return }
-                guard let cases = response.data else { return }
+                guard let progress = response.inProgressCases,
+                      let cancel = response.cancelledCases,
+                      let completed = response.completedCases else { return }
                 strongSelf.isLoadingCases = false
-                strongSelf.casesToDisplay = cases
+                strongSelf.inProgressCases = progress
+                strongSelf.completedCases = completed
+                strongSelf.cancelledCases = cancel
                 strongSelf.getRequestsSuccessEvent.onNext(())
             }, onFailure: { _ in
                 self.isLoadingCases = false
             }).disposed(by: disposeBag)
+    }
+    
+    func isEmpty() -> Bool {
+        return inProgressCases.isEmpty && completedCases.isEmpty && cancelledCases.isEmpty
+    }
+    
+    func allCases() -> Int {
+        return inProgressCases.count + completedCases.count + cancelledCases.count
     }
 
 }

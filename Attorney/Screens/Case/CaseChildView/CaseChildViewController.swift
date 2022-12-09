@@ -10,6 +10,7 @@ import RxCocoa
 
 protocol CaseChildViewControllerDelegate: AnyObject {
     func caseChildViewController(_ caseChildViewController: CaseChildViewController, caseDetail : Case, indexPath: IndexPath)
+    func goToCaseList(cases: [Case])
 }
 
 
@@ -69,7 +70,7 @@ private extension CaseChildViewController {
     
     func updateUIAfterReloadData() {
         guard let viewModel = viewModel as? CaseChildViewModel else { return }
-        let isNoCase = viewModel.casesToDisplay.isEmpty
+        let isNoCase = viewModel.isEmpty()
         if !viewModel.isLoadingCases {
             noItemView.isHidden = !isNoCase
             contentTableView.isHidden = isNoCase
@@ -83,6 +84,7 @@ private extension CaseChildViewController {
         contentTableView.dataSource = self
         contentTableView.register(CaseTableViewCell.self)
         contentTableView.contentInsetAdjustmentBehavior = .never
+        contentTableView.registerHeaderFooterNib(CaseHeaderView.self)
 //        tableView.register(PrivilegeListingCardSkeletonTableCell.self)
         view.backgroundColor = .white
         contentTableView.isScrollEnabled = false
@@ -90,7 +92,7 @@ private extension CaseChildViewController {
 
     func scrollToBottom(index: Int) {
         guard let viewModel = viewModel as? CaseChildViewModel else { return }
-        guard !viewModel.casesToDisplay.isEmpty else { return }
+        guard !viewModel.isEmpty() else { return }
         DispatchQueue.main.async {
             let indexPath = IndexPath(row: index, section: 0)
             self.contentTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
@@ -100,9 +102,22 @@ private extension CaseChildViewController {
 
 // MARK: - UITableViewDataSource
 extension CaseChildViewController: UITableViewDataSource, UITableViewDelegate{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        3
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let viewModel = self.viewModel as? CaseChildViewModel else { return 0 }
-        return !viewModel.isLoadingCases ? viewModel.casesToDisplay.count : 10
+        if !viewModel.isLoadingCases {
+            if section == 0 {
+                return min(viewModel.inProgressCases.count, 3)
+            } else if section == 1 {
+                return min(viewModel.completedCases.count, 3)
+            } else if section == 2{
+                return min(viewModel.cancelledCases.count, 3)
+            }
+        }
+        return 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -110,7 +125,13 @@ extension CaseChildViewController: UITableViewDataSource, UITableViewDelegate{
         if !viewModel.isLoadingCases {
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as CaseTableViewCell
             cell.selectionStyle = .none
-            cell.configureCell(with: viewModel.casesToDisplay[indexPath.row])
+            if indexPath.section == 0 {
+                cell.configureCell(with: viewModel.inProgressCases[indexPath.row])
+            } else if indexPath.section == 1 {
+                cell.configureCell(with: viewModel.completedCases[indexPath.row])
+            } else if indexPath.section == 2{
+                cell.configureCell(with: viewModel.cancelledCases[indexPath.row])
+            }
             return cell
         }
 //        let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as PrivilegeListingCardSkeletonTableCell
@@ -119,14 +140,48 @@ extension CaseChildViewController: UITableViewDataSource, UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let viewModel = self.viewModel as? CaseChildViewModel else { return }
-        if viewModel.casesToDisplay.isEmpty { return }
-        guard viewModel.casesToDisplay.count > indexPath.row else { return }
-        let caseDetail = viewModel.casesToDisplay[indexPath.row]
-        delegate?.caseChildViewController(self, caseDetail: caseDetail, indexPath: indexPath)
+        if viewModel.isEmpty() { return }
+        if indexPath.section == 0 {
+            guard viewModel.inProgressCases.count > indexPath.row else { return }
+            let caseDetail = viewModel.inProgressCases[indexPath.row]
+            delegate?.caseChildViewController(self, caseDetail: caseDetail, indexPath: indexPath)
+        } else if indexPath.section == 1 {
+            guard viewModel.completedCases.count > indexPath.row else { return }
+            let caseDetail = viewModel.completedCases[indexPath.row]
+            delegate?.caseChildViewController(self, caseDetail: caseDetail, indexPath: indexPath)
+        } else if indexPath.section == 2{
+            guard viewModel.cancelledCases.count > indexPath.row else { return }
+            let caseDetail = viewModel.cancelledCases[indexPath.row]
+            delegate?.caseChildViewController(self, caseDetail: caseDetail, indexPath: indexPath)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 230.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50.0
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let viewModel = self.viewModel as? CaseChildViewModel else { return UIView() }
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CaseHeaderView.reuseIdentifier) as? CaseHeaderView
+        if section == 0 {
+            headerView?.configureHeader(title: "IN-PROGRESS", cases: viewModel.inProgressCases)
+        } else if section == 1 {
+            headerView?.configureHeader(title: "COMPLETED", cases: viewModel.completedCases)
+        } else if section == 2 {
+            headerView?.configureHeader(title: "CANCELLED", cases: viewModel.cancelledCases)
+        }
+        headerView?.didTapViewAll = { [weak self] cases in
+            self?.delegate?.goToCaseList(cases: cases)
+        }
+        return headerView
     }
 }
 

@@ -89,8 +89,8 @@ extension RestAPI {
         return requestObject(.denyDefenceRequest(requestId: requestId), type: CommonReponse.self)
     }
     
-    func getAllCase() -> Single<DefenceRequestResponse> {
-        return requestObject(.getAllCase, type: DefenceRequestResponse.self)
+    func getAllCase() -> Single<CasesResponse> {
+        return requestObject(.getAllCase, type: CasesResponse.self)
     }
     func completeCase(caseId: String) -> Single<CommonReponse> {
         return requestObject(.completeCase(caseId: caseId), type: CommonReponse.self)

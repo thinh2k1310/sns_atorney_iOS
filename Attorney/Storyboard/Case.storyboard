@@ -447,6 +447,36 @@
             </objects>
             <point key="canvasLocation" x="234.78260869565219" y="69.642857142857139"/>
         </scene>
+        <!--Case List View Controller-->
+        <scene sceneID="g7c-N3-ecS">
+            <objects>
+                <viewController storyboardIdentifier="CaseListViewController" id="cq8-xD-ie9" customClass="CaseListViewController" customModule="Attorney" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OJB-OA-QPX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TJH-rS-XbG">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="a2Y-A4-WaX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TJH-rS-XbG" firstAttribute="top" secondItem="a2Y-A4-WaX" secondAttribute="top" id="Yyf-9i-guM"/>
+                            <constraint firstItem="a2Y-A4-WaX" firstAttribute="trailing" secondItem="TJH-rS-XbG" secondAttribute="trailing" id="n3U-aP-U3q"/>
+                            <constraint firstItem="a2Y-A4-WaX" firstAttribute="bottom" secondItem="TJH-rS-XbG" secondAttribute="bottom" id="sXl-5S-niM"/>
+                            <constraint firstItem="TJH-rS-XbG" firstAttribute="leading" secondItem="a2Y-A4-WaX" secondAttribute="leading" id="vwR-of-yYk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="TJH-rS-XbG" id="uvZ-Mc-Wru"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Chy-Rg-LrK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1075" y="49"/>
+        </scene>
     </scenes>
     <resources>
         <namedColor name="0EA580_Green">

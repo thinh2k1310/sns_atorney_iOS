@@ -125,4 +125,10 @@ extension CaseViewController: CaseChildViewControllerDelegate {
         caseDetailVC.viewModel = caseDetailVM
         self.navigationController?.pushViewController(caseDetailVC, animated: true)
     }
+    
+    func goToCaseList(cases: [Case]) {
+        let caseListVC = R.storyboard.case.caseListViewController()!
+        caseListVC.cases = cases
+        self.navigationController?.pushViewController(caseListVC, animated: true)
+    }
 }

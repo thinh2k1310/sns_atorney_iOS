@@ -33,7 +33,7 @@ protocol AttorneyAPI {
     func acceptDefenceRequest(requestId: String) -> Single<CommonReponse>
     func denyDefenceRequest(requestId: String) -> Single<CommonReponse>
     
-    func getAllCase() -> Single<DefenceRequestResponse>
+    func getAllCase() -> Single<CasesResponse>
     func completeCase(caseId: String) -> Single<CommonReponse>
     func cancelCase(caseId: String) -> Single<CommonReponse>
     func getCaseDetail(caseId: String) -> Single<CaseDetailResponse>
