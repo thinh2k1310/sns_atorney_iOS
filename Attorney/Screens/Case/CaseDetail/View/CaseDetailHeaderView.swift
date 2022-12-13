@@ -84,6 +84,12 @@ final class CaseDetailHeaderView: UITableViewHeaderFooterView {
             } else {
                 reviewButton.isHidden = true
             }
+            
+            if let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo) {
+                if userInfo.role == UserRole.attorney.rawValue {
+                    reviewButton.isHidden = true
+                }
+            }
         }
         let attributedText = NSMutableAttributedString(string: "Leave a review",
                                                        attributes: [

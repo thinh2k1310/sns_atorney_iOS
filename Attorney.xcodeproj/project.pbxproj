@@ -99,6 +99,8 @@
 		03B893F62928CC3500803DD9 /* ReusableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B893F52928CC3500803DD9 /* ReusableViewExtension.swift */; };
 		03B893F8292907FC00803DD9 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B893F7292907FC00803DD9 /* UIImageViewExtension.swift */; };
 		03B893FC29290EB000803DD9 /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B893FB29290EB000803DD9 /* UserDefaultExtension.swift */; };
+		03BBA0282948ABE400C975BB /* Documents.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BBA0272948ABE400C975BB /* Documents.storyboard */; };
+		03BBA02B2948AC6300C975BB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BBA02A2948AC6300C975BB /* WebViewController.swift */; };
 		03C40A0F2933D2400097A905 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C40A0E2933D2400097A905 /* Comment.swift */; };
 		03C8A031290F2CF80093E097 /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C8A030290F2CF80093E097 /* UITextViewExtension.swift */; };
 		03CEB1692948277600EFFD6C /* ViewReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CEB1682948277600EFFD6C /* ViewReviewViewController.swift */; };
@@ -329,6 +331,8 @@
 		03B893F52928CC3500803DD9 /* ReusableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewExtension.swift; sourceTree = "<group>"; };
 		03B893F7292907FC00803DD9 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		03B893FB29290EB000803DD9 /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtension.swift; sourceTree = "<group>"; };
+		03BBA0272948ABE400C975BB /* Documents.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Documents.storyboard; sourceTree = "<group>"; };
+		03BBA02A2948AC6300C975BB /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		03C40A0E2933D2400097A905 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		03C8A030290F2CF80093E097 /* UITextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
 		03CEB1682948277600EFFD6C /* ViewReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReviewViewController.swift; sourceTree = "<group>"; };
@@ -689,6 +693,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		03BBA0292948AC5100C975BB /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				03BBA02A2948AC6300C975BB /* WebViewController.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		03CEB16C2948278A00EFFD6C /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -991,6 +1003,7 @@
 		F37CB00F28E81AE40061B273 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				03BBA0292948AC5100C975BB /* WebView */,
 				036F8E3529431891005D459E /* Search */,
 				03ED5A392941B1C10036B82C /* Review */,
 				03ED5A2B29418E520036B82C /* ListAttorney */,
@@ -1053,6 +1066,7 @@
 				03ED5A1F294183300036B82C /* ListAttorney.storyboard */,
 				03ED5A372941ABFD0036B82C /* Review.storyboard */,
 				034D7AA22942078900D74BD6 /* SortAndFilter.storyboard */,
+				03BBA0272948ABE400C975BB /* Documents.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -1427,6 +1441,7 @@
 				036F8E4F294339E7005D459E /* SearchChildViewController.storyboard in Resources */,
 				F3C9B06D2937D4C20095D09D /* CreatePost.storyboard in Resources */,
 				F32C525C28F5E50200E6C840 /* ProximaNova-Reg.otf in Resources */,
+				03BBA0282948ABE400C975BB /* Documents.storyboard in Resources */,
 				036F8E4929433348005D459E /* SearchDiscoverWithKeywordsView.xib in Resources */,
 				03ED5A282941894A0036B82C /* CategoryCell.xib in Resources */,
 				F38C77BD293A690500D27996 /* RequestTableViewCell.xib in Resources */,
@@ -1568,6 +1583,7 @@
 				03B893E629288DB000803DD9 /* Post.swift in Sources */,
 				F3886F1828EFD06600A14F47 /* SplashViewController.swift in Sources */,
 				F37CB03A28E840930061B273 /* LoginViewController.swift in Sources */,
+				03BBA02B2948AC6300C975BB /* WebViewController.swift in Sources */,
 				F37CB01928E81D570061B273 /* ApplicationCoordinator.swift in Sources */,
 				03EE2BB4290D0D3A00A8317A /* PrimitiveSequenceExtension.swift in Sources */,
 				F38C77D4293C55C500D27996 /* MenuViewModel.swift in Sources */,

@@ -39,4 +39,19 @@ final class ListAttorneyViewModel: ViewModel {
                 }
             }).disposed(by: disposeBag)
     }
+    
+    func sortAttorney(option: Int) {
+        guard !self.arttorneys.isEmpty else {
+            return
+        }
+        
+        if option == 0 {
+            arttorneys = arttorneys.sorted { $0.firstName! < $1.firstName! }
+        } else if option == 1 {
+            arttorneys = arttorneys.sorted { $0.rating ?? 0 > $1.rating ?? 0}
+        } else if option == 2 {
+            arttorneys = arttorneys.sorted { $0.totalReviews ?? 0 > $1.totalReviews ?? 0}
+        }
+        getListAttorneysSuccess.onNext(arttorneys)
+    }
 }

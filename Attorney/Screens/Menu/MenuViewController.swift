@@ -86,7 +86,8 @@ final class MenuViewController: ViewController {
     }
     
     @IBAction private func didTapDocuments(_ sender: Any) {
-        
+        let documentsVC = R.storyboard.documents.webViewController()!
+        self.navigationController?.pushViewController(documentsVC, animated: true)
     }
     
     @IBAction private func didTapAbout(_ sender: Any) {
