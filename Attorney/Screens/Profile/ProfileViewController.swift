@@ -242,7 +242,7 @@ extension ProfileViewController: NewsFeedCollectionViewCellDelegate {
 extension ProfileViewController {
     struct Configs {
         static let footerHeight: CGFloat = 67.0
-        static let headerHeight: CGFloat = 710.0
+        static let headerHeight: CGFloat = 730.0
     }
     
     private func calculateHeightForHeaderView() -> CGFloat {
@@ -252,7 +252,7 @@ extension ProfileViewController {
         var realHeight = Configs.headerHeight
         if let user = viewModel.profile {
             if viewModel.profile?.role != UserRole.attorney.rawValue {
-                realHeight -= 40.0
+                realHeight -= 60.0
             }
             
             if user.id != viewModel.profile?.id {
@@ -337,6 +337,16 @@ extension ProfileViewController: ProfileHeaderReusableViewDelegate {
         createPostVC.viewModel = createPostVM
         createPostVC.modalPresentationStyle = .fullScreen
         present(createPostVC, animated: true)
+    }
+    
+    func viewReview() {
+        guard let viewModel = viewModel as? ProfileViewModel else { return }
+        let reviewVC = R.storyboard.review.viewReviewViewController()!
+        guard let provider = Application.shared.provider else { return }
+        let viewReviewVM = ViewReviewViewModel(provider: provider)
+        viewReviewVM.attorneyId = viewModel.profileId
+        reviewVC.viewModel = viewReviewVM
+        navigationController?.pushViewController(reviewVC, animated: true)
     }
 }
 

@@ -101,6 +101,10 @@
 		03B893FC29290EB000803DD9 /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B893FB29290EB000803DD9 /* UserDefaultExtension.swift */; };
 		03C40A0F2933D2400097A905 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C40A0E2933D2400097A905 /* Comment.swift */; };
 		03C8A031290F2CF80093E097 /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C8A030290F2CF80093E097 /* UITextViewExtension.swift */; };
+		03CEB1692948277600EFFD6C /* ViewReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CEB1682948277600EFFD6C /* ViewReviewViewController.swift */; };
+		03CEB16B2948278400EFFD6C /* ViewReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CEB16A2948278400EFFD6C /* ViewReviewViewModel.swift */; };
+		03CEB16F294827A700EFFD6C /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CEB16D294827A700EFFD6C /* ReviewTableViewCell.swift */; };
+		03CEB170294827A700EFFD6C /* ReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03CEB16E294827A700EFFD6C /* ReviewTableViewCell.xib */; };
 		03D5839E2914EDF600D0D4E3 /* Success.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D5839D2914EDF600D0D4E3 /* Success.storyboard */; };
 		03D583A02914EF2500D0D4E3 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D5839F2914EF2500D0D4E3 /* SuccessViewController.swift */; };
 		03D583A32915050400D0D4E3 /* RequestOTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D583A22915050400D0D4E3 /* RequestOTPViewModel.swift */; };
@@ -327,6 +331,10 @@
 		03B893FB29290EB000803DD9 /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtension.swift; sourceTree = "<group>"; };
 		03C40A0E2933D2400097A905 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		03C8A030290F2CF80093E097 /* UITextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
+		03CEB1682948277600EFFD6C /* ViewReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReviewViewController.swift; sourceTree = "<group>"; };
+		03CEB16A2948278400EFFD6C /* ViewReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReviewViewModel.swift; sourceTree = "<group>"; };
+		03CEB16D294827A700EFFD6C /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		03CEB16E294827A700EFFD6C /* ReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewTableViewCell.xib; sourceTree = "<group>"; };
 		03D5839D2914EDF600D0D4E3 /* Success.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Success.storyboard; sourceTree = "<group>"; };
 		03D5839F2914EF2500D0D4E3 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		03D583A22915050400D0D4E3 /* RequestOTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestOTPViewModel.swift; sourceTree = "<group>"; };
@@ -681,6 +689,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		03CEB16C2948278A00EFFD6C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				03CEB16D294827A700EFFD6C /* ReviewTableViewCell.swift */,
+				03CEB16E294827A700EFFD6C /* ReviewTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		03D583A12914EF2900D0D4E3 /* Success */ = {
 			isa = PBXGroup;
 			children = (
@@ -757,8 +774,11 @@
 		03ED5A392941B1C10036B82C /* Review */ = {
 			isa = PBXGroup;
 			children = (
+				03CEB16C2948278A00EFFD6C /* Cell */,
 				03ED5A3A2941B1D90036B82C /* ReviewViewController.swift */,
 				03ED5A3C2941B1E90036B82C /* ReviewViewModel.swift */,
+				03CEB1682948277600EFFD6C /* ViewReviewViewController.swift */,
+				03CEB16A2948278400EFFD6C /* ViewReviewViewModel.swift */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -1402,6 +1422,7 @@
 				F38C77CD293AF5F200D27996 /* CaseTableViewCell.xib in Resources */,
 				03ED5A36294197D90036B82C /* AttorneyCell.xib in Resources */,
 				037665B2292FEEF9002FA7DE /* DetailPost.storyboard in Resources */,
+				03CEB170294827A700EFFD6C /* ReviewTableViewCell.xib in Resources */,
 				034007EC29421FC100133BBF /* HeaderFilterView.xib in Resources */,
 				036F8E4F294339E7005D459E /* SearchChildViewController.storyboard in Resources */,
 				F3C9B06D2937D4C20095D09D /* CreatePost.storyboard in Resources */,
@@ -1557,6 +1578,7 @@
 				F32C523128F33D1400E6C840 /* Networking.swift in Sources */,
 				0302BBA22926399A000238A1 /* HeaderHomeReusableView.swift in Sources */,
 				03B893F32928C54500803DD9 /* NewsfeedSkeletonCollectionViewCell.swift in Sources */,
+				03CEB16F294827A700EFFD6C /* ReviewTableViewCell.swift in Sources */,
 				F3C9B066293735E40095D09D /* PostCategory.swift in Sources */,
 				F32C523328F33EDC00E6C840 /* Reachablity.swift in Sources */,
 				F37CB05228E849520061B273 /* Configurations.swift in Sources */,
@@ -1571,6 +1593,7 @@
 				036F8E47294332E4005D459E /* SearchKeywordsCollectionCustomLayout.swift in Sources */,
 				F37C034A293A07F000674118 /* CaseSegmentView.swift in Sources */,
 				03C8A031290F2CF80093E097 /* UITextViewExtension.swift in Sources */,
+				03CEB16B2948278400EFFD6C /* ViewReviewViewModel.swift in Sources */,
 				03C40A0F2933D2400097A905 /* Comment.swift in Sources */,
 				03933CC529311A10001E4631 /* PostDetailViewController.swift in Sources */,
 				F37CB04F28E848AE0061B273 /* Observable+Operators.swift in Sources */,
@@ -1582,6 +1605,7 @@
 				035424D42912D316002235FB /* UIViewControllerExtension.swift in Sources */,
 				F38C77D8293C668500D27996 /* ProfileViewController.swift in Sources */,
 				03D730A028FEEF4C00BBA498 /* VerifyOTPViewController.swift in Sources */,
+				03CEB1692948277600EFFD6C /* ViewReviewViewController.swift in Sources */,
 				03B893F8292907FC00803DD9 /* UIImageViewExtension.swift in Sources */,
 				036F8E4D294339B5005D459E /* SearchChildViewController.swift in Sources */,
 				F37C0352293A199300674118 /* CaseChildViewModel.swift in Sources */,

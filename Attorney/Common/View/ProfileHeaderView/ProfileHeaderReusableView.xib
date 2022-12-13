@@ -15,9 +15,6 @@
         <array key="ProximaNova-Reg.otf">
             <string>ProximaNova-Regular</string>
         </array>
-        <array key="ProximaNova-Sbold.otf">
-            <string>ProximaNova-Semibold</string>
-        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -402,62 +399,61 @@
                         <constraint firstAttribute="height" constant="5" id="dmP-Pz-UjX"/>
                     </constraints>
                 </view>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8Gt-0s-K2J">
-                    <rect key="frame" x="0.0" y="670" width="440" height="40"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUC-R5-3gj">
+                    <rect key="frame" x="0.0" y="670" width="440" height="60"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJG-mO-qv2">
-                            <rect key="frame" x="0.0" y="0.0" width="220" height="40"/>
-                            <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="17"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69K-rp-NCP">
+                            <rect key="frame" x="130" y="10" width="180" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="180" id="Saj-ZZ-78J"/>
+                                <constraint firstAttribute="height" constant="40" id="nqy-uE-KSO"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="15"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="Posts">
-                                <color key="titleColor" name="BDBDBD"/>
-                            </state>
-                            <state key="selected" title="Posts">
+                            <state key="normal" title="View attorney's reviews">
                                 <color key="titleColor" name="AppTintColor"/>
                             </state>
                             <connections>
-                                <action selector="didTapFilterButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="zM9-4t-UL1"/>
+                                <action selector="viewReviews:" destination="iN0-l3-epB" eventType="touchUpInside" id="rUo-KH-NkE"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7yo-zw-D4F">
-                            <rect key="frame" x="220" y="0.0" width="220" height="40"/>
-                            <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="17"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="Reviews">
-                                <color key="titleColor" name="BDBDBD"/>
-                            </state>
-                            <state key="selected" title="Reviews">
-                                <color key="titleColor" name="AppTintColor"/>
-                            </state>
-                            <connections>
-                                <action selector="didTapFilterButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="0CE-ma-D99"/>
-                            </connections>
-                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xR8-LD-teA" userLabel="Line View">
+                            <rect key="frame" x="0.0" y="59" width="440" height="1"/>
+                            <color key="backgroundColor" systemColor="systemGray3Color"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="B3w-RT-GSt"/>
+                            </constraints>
+                        </view>
                     </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="tNP-zo-mcQ"/>
+                        <constraint firstItem="69K-rp-NCP" firstAttribute="top" secondItem="zUC-R5-3gj" secondAttribute="top" constant="10" id="6ZA-pe-x6K"/>
+                        <constraint firstAttribute="trailing" secondItem="xR8-LD-teA" secondAttribute="trailing" id="KnR-tL-YBN"/>
+                        <constraint firstAttribute="bottom" secondItem="xR8-LD-teA" secondAttribute="bottom" id="Kwr-7F-7YB"/>
+                        <constraint firstItem="69K-rp-NCP" firstAttribute="centerX" secondItem="zUC-R5-3gj" secondAttribute="centerX" id="TCB-n4-aOF"/>
+                        <constraint firstAttribute="height" constant="60" id="XOh-yN-sy6"/>
+                        <constraint firstItem="xR8-LD-teA" firstAttribute="leading" secondItem="zUC-R5-3gj" secondAttribute="leading" id="Zz0-5X-Cad"/>
                     </constraints>
-                </stackView>
+                </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="zUC-R5-3gj" secondAttribute="trailing" id="0K7-Aq-jhh"/>
                 <constraint firstItem="x4l-0u-pnp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="4pF-Wk-xAK"/>
-                <constraint firstAttribute="trailing" secondItem="8Gt-0s-K2J" secondAttribute="trailing" id="54C-2Q-uRs"/>
                 <constraint firstAttribute="trailing" secondItem="Gju-AD-2Re" secondAttribute="trailing" id="5Gu-dh-x5Y"/>
-                <constraint firstItem="8Gt-0s-K2J" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8cV-HL-oPj"/>
-                <constraint firstItem="8Gt-0s-K2J" firstAttribute="top" secondItem="h4y-V8-6Ik" secondAttribute="bottom" id="BYH-gE-y8q"/>
                 <constraint firstAttribute="trailing" secondItem="3v8-JX-gdU" secondAttribute="trailing" id="CEc-BR-cgk"/>
                 <constraint firstItem="3v8-JX-gdU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="COB-lC-iqK"/>
+                <constraint firstItem="zUC-R5-3gj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GDf-qg-Wvz"/>
                 <constraint firstItem="Zy8-SC-toP" firstAttribute="top" secondItem="3v8-JX-gdU" secondAttribute="bottom" id="Haq-ty-UIL"/>
                 <constraint firstItem="h4y-V8-6Ik" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="IB6-Nj-ogH"/>
                 <constraint firstItem="2ul-V2-T4U" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="KVl-cC-4Ox"/>
                 <constraint firstItem="b2r-Ys-Pe1" firstAttribute="centerX" secondItem="x4l-0u-pnp" secondAttribute="centerX" id="Pkd-mv-4Re"/>
                 <constraint firstAttribute="trailing" secondItem="2ul-V2-T4U" secondAttribute="trailing" id="W2e-xp-tCM"/>
-                <constraint firstItem="8Gt-0s-K2J" firstAttribute="top" secondItem="h4y-V8-6Ik" secondAttribute="bottom" id="WW8-Pf-pk1"/>
                 <constraint firstAttribute="trailing" secondItem="h4y-V8-6Ik" secondAttribute="trailing" id="Wjg-CZ-qrc"/>
                 <constraint firstItem="Gju-AD-2Re" firstAttribute="top" secondItem="3v8-JX-gdU" secondAttribute="bottom" constant="30" id="ZDR-eQ-le0"/>
                 <constraint firstItem="b2r-Ys-Pe1" firstAttribute="top" secondItem="x4l-0u-pnp" secondAttribute="bottom" constant="12" id="aWO-am-tcE"/>
                 <constraint firstItem="h4y-V8-6Ik" firstAttribute="top" secondItem="Gju-AD-2Re" secondAttribute="bottom" id="c5Q-x9-Bw3"/>
+                <constraint firstItem="zUC-R5-3gj" firstAttribute="top" secondItem="h4y-V8-6Ik" secondAttribute="bottom" id="fEO-h2-sNB"/>
                 <constraint firstItem="Zy8-SC-toP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kyV-Pb-0Cx"/>
                 <constraint firstItem="x4l-0u-pnp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="150" id="soq-7n-90Y"/>
                 <constraint firstItem="Gju-AD-2Re" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uZ1-Wb-rmx"/>
@@ -472,7 +468,6 @@
                 <outlet property="avatarImageView" destination="wim-DY-Gs2" id="ADr-Uj-pyX"/>
                 <outlet property="birthdayLabel" destination="bLn-ak-YCO" id="32K-ut-9xb"/>
                 <outlet property="birthdayView" destination="PBe-l7-tfj" id="a6R-8s-Hiq"/>
-                <outlet property="buttonStackView" destination="8Gt-0s-K2J" id="zwo-Zm-9ja"/>
                 <outlet property="categoryLabel" destination="RZF-im-3LR" id="KJo-L6-WiE"/>
                 <outlet property="categoryView" destination="bmU-DQ-29H" id="gLc-St-dQp"/>
                 <outlet property="changeAvatarControl" destination="XM2-el-UBT" id="Cf4-TG-MfI"/>
@@ -486,8 +481,8 @@
                 <outlet property="phoneNumberLabel" destination="tn5-f6-tdt" id="qbI-Qh-Kik"/>
                 <outlet property="phoneView" destination="d2r-ZL-nEH" id="OpX-pN-2rQ"/>
                 <outlet property="postControl" destination="NaA-Se-Qg0" id="3zi-1v-EmQ"/>
-                <outlet property="postsButton" destination="tJG-mO-qv2" id="4u5-ZJ-d92"/>
-                <outlet property="reviewsButton" destination="7yo-zw-D4F" id="Wnm-xq-9j5"/>
+                <outlet property="reviewButton" destination="69K-rp-NCP" id="RzL-11-fB5"/>
+                <outlet property="reviewView" destination="zUC-R5-3gj" id="pbT-Jn-OaS"/>
                 <outlet property="userNameLabel" destination="b2r-Ys-Pe1" id="ky9-xM-yJB"/>
                 <outlet property="workLabel" destination="Wc3-hl-z0t" id="WEU-tA-8vC"/>
                 <outlet property="workView" destination="SOp-bz-mcR" id="K2N-uk-LCr"/>
@@ -507,9 +502,6 @@
         <image name="workIcon" width="96" height="96"/>
         <namedColor name="AppTintColor">
             <color red="0.31764705882352939" green="0.31764705882352939" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="BDBDBD">
-            <color red="0.74117647058823533" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SearchBarBg">
             <color red="0.95294117647058818" green="0.96078431372549022" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

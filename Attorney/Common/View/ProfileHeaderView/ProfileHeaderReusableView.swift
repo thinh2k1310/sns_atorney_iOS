@@ -14,6 +14,7 @@ protocol ProfileHeaderReusableViewDelegate: AnyObject {
     func changeCover()
     func editProfile()
     func createPost()
+    func viewReview()
 }
 
 final class ProfileHeaderReusableView: UICollectionReusableView {
@@ -38,16 +39,14 @@ final class ProfileHeaderReusableView: UICollectionReusableView {
     @IBOutlet private weak var workLabel: UILabel!
     @IBOutlet private weak var miniAvatarImageView: UIImageView!
     @IBOutlet private weak var postControl: UIControl!
-    @IBOutlet private weak var buttonStackView: UIView!
-    @IBOutlet private weak var postsButton: UIButton!
-    @IBOutlet private weak var reviewsButton: UIButton!
     @IBOutlet private weak var createPostView: UIView!
+    @IBOutlet private weak var reviewView: UIView!
+    @IBOutlet private weak var reviewButton: UIButton!
     
     weak var delegate: ProfileHeaderReusableViewDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        filterBy()
     }
     
     func configureHeader(with user: User) {
@@ -154,9 +153,17 @@ final class ProfileHeaderReusableView: UICollectionReusableView {
     func setupVisibility(with user: User) {
         if let role = user.role {
             if role == UserRole.attorney.rawValue {
-                buttonStackView.isHidden = false
+                reviewView.isHidden = false
+                let attributedText = NSMutableAttributedString(string: "View attorney's reviews",
+                                                               attributes: [
+                                                                .font: UIFont.appSemiBoldFont(size: 14),
+                                                                .foregroundColor: Color.appTintColor,
+                                                                .underlineStyle: NSUnderlineStyle.thick.rawValue,
+                                                                .underlineColor: Color.appTintColor
+                                                               ])
+                reviewButton.titleLabel?.attributedText = attributedText
             } else {
-                buttonStackView.isHidden = true
+                reviewView.isHidden = true
             }
         }
         if let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo) {
@@ -174,20 +181,6 @@ final class ProfileHeaderReusableView: UICollectionReusableView {
         }
     }
     
-    private func filterBy(_ option: Int = 0) {
-        postsButton.isSelected = option == 0
-        postsButton.backgroundColor = option == 0 ? Color.F1F1FE : UIColor.white
-        reviewsButton.isSelected = option == 1
-        reviewsButton.backgroundColor = option == 1 ? Color.F1F1FE : UIColor.white
-    }
-    
-    @IBAction private func didTapFilterButton(_ sender: Any) {
-        guard let tag = (sender as? UIButton)?.tag else {
-            return
-        }
-        self.filterBy(tag)
-        self.delegate?.filterProfile(filter: ProfileFilter.allCases[tag])
-    }
     
     @IBAction private func didTapChangeCover (_ sender: Any) {
         self.delegate?.changeCover()
@@ -203,6 +196,10 @@ final class ProfileHeaderReusableView: UICollectionReusableView {
     
     @IBAction private func didTapCreatePost (_ sender: Any) {
         self.delegate?.createPost()
+    }
+    
+    @IBAction private func viewReviews(_ sender: Any) {
+        self.delegate?.viewReview()
     }
     
 }

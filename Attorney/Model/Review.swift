@@ -9,7 +9,7 @@ import Foundation
 
 
 struct Review: Codable {
-    let client: String?
+    let client: ShortUser?
     let attorney: String?
     let cases: String?
     let point: Int?
