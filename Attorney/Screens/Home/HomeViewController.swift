@@ -290,7 +290,11 @@ extension HomeViewController: HeaderHomeReusableViewDelegate {
     }
     
     func goToSearchView() {
-        
+        let searchVC = R.storyboard.searchViewController.searchViewController()!
+        let useCase = DefaultSearchUseCase()
+        let searchViewModel = SearchViewModel(provider: Application.shared.provider, useCase: useCase)
+        searchVC.viewModel = searchViewModel
+        navigationController?.pushViewController(searchVC, animated: true)
     }
     
     func showFilter() {

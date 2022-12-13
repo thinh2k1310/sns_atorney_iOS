@@ -22,13 +22,46 @@ final class CommentTableViewCell: UITableViewCell {
     @IBOutlet private weak var deleteButton: UIButton!
     
     private var comment: Comment?
-    
+    private var caseComment: CaseComment?
     weak var delegate: CommentTableViewCellDelegate?
     
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func bindingUI(with comment: CaseComment) {
+        self.caseComment = comment
+        // Avatar
+        let processor = DownsamplingImageProcessor(size: avatarImageView.bounds.size)
+        avatarImageView.kf.setImage(
+            with: URL(string: comment.userId?.avatar ?? ""),
+            placeholder: R.image.placeholderAvatar(),
+            options: [
+                    .processor(processor),
+                    .scaleFactor(UIScreen.main.scale),
+                    .transition(.fade(1)),
+                    .cacheOriginalImage
+            ])
+        avatarImageView.roundToCircle()
+        
+        // Name
+        let userName = "\(comment.userId?.firstName ?? "") \(comment.userId?.lastName ?? "User")"
+        userNameLabel.text = userName
+        
+        //Comment
+        contentCommentLabel.text = comment.content ?? ""
+        
+        //Time
+        if let time = comment.created {
+            let dateTime = time.convertStringToDate(fortmat: "yyyy-MM-dd'T'HH:mm:ssZ")
+            timeLabel.text = dateTime.timeAgoDisplay()
+        }
+        
+        if let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo) {
+            deleteButton.isHidden = (comment.userId?._id != userInfo.id)
+        }
     }
     
     func configureCell(with comment: Comment) {
@@ -65,13 +98,22 @@ final class CommentTableViewCell: UITableViewCell {
     }
     
     @IBAction private func deleteButtonDidTap(_ sender: Any) {
-        guard let comment = comment, let id = comment._id else {
-            return
+        if let comment = comment, let id = comment._id {
+            self.delegate?.deleteComment(id)
         }
-        self.delegate?.deleteComment(id)
+        
+        if let comment = caseComment, let id = comment._id {
+            self.delegate?.deleteComment(id)
+        }
     }
     
     @IBAction private func didTapUserView(_ sender: Any) {
-        self.delegate?.viewProfile(comment?.userId?._id)
+        if let comment = comment {
+            self.delegate?.viewProfile(comment.userId?._id)
+        }
+        
+        if let comment = caseComment {
+            self.delegate?.viewProfile(comment.userId?._id)
+        }
     }
 }

@@ -33,3 +33,23 @@ struct CommentRequest: Codable {
     let postId: String
     let content: String
 }
+
+struct CaseComment: Codable {
+    let _id: String?
+    let userId: ShortUser?
+    let caseId: String?
+    let content: String?
+    let created: String?
+}
+
+struct CaseCommentsResponse: Codable {
+    let success: Bool?
+    let message: String?
+    let data: [CaseComment]?
+}
+
+struct CaseCommentRequest: Codable {
+    let userId: String
+    let caseId: String
+    let content: String
+}

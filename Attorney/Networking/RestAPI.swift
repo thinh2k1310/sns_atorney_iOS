@@ -131,6 +131,30 @@ extension RestAPI {
     func getAttorneyReview(attorneyId: String) -> Single<ReviewResponse> {
         return requestObject(.getAttorneyReview(attorneyId: attorneyId), type: ReviewResponse.self)
     }
+    
+    func searchAll(request: SearchAllRequest) -> Single<SearchAllResponse> {
+        return requestObject(.searchAll(request: request), type: SearchAllResponse.self)
+    }
+    
+    func searchUsers(request: SearchUsersRequest) -> Single<SearchUsersResponse> {
+        return requestObject(.searchUsers(request: request), type: SearchUsersResponse.self)
+    }
+    
+    func searchPosts(request: SearchPostsRequest) -> Single<SearchPostsResponse> {
+        return requestObject(.searchPosts(request: request), type: SearchPostsResponse.self)
+    }
+    
+    func getCaseComments(caseId: String) -> Single<CaseCommentsResponse> {
+        return requestObject(.getCaseComments(caseId: caseId), type: CaseCommentsResponse.self)
+    }
+    
+    func commentCase(commentRequest: CaseCommentRequest) -> Single<CommonReponse> {
+        return requestObject(.commentCase(commentRequest: commentRequest), type: CommonReponse.self)
+    }
+    
+    func deleteCaseComment(commentId: String) -> Single<CommonReponse> {
+        return requestObject(.deleteCaseComment(commentId: commentId), type: CommonReponse.self)
+    }
 }
 
 extension RestAPI {

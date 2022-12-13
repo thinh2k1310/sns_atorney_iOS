@@ -42,5 +42,6 @@ struct Color {
                                                green: 0.0 / 255.0,
                                                blue: 0.0 / 255.0,
                                                alpha: 0.5)
+    static let colorPaymentSubText = UIColor.init(rgb: 0x7E7E7E, alpha: 1)
    
 }

@@ -10,7 +10,7 @@ import UIKit
 extension UINavigationItem {
     public func showLeftBarItem(isShowLogo: Bool, viewController: UIViewController, backAction: (() -> Void)?) {
         weak var vc = viewController
-        var iconBack = R.image.backIcon()
+        var iconBack = R.image.arrow_left()
         iconBack = iconBack?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         let backButtonItem = UIBarButtonItem(image: iconBack, style: UIBarButtonItem.Style.plain, target: nil, action: nil)
         vc?.navigationItem.leftBarButtonItem = backButtonItem

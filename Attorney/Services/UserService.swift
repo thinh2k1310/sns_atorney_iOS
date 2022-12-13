@@ -22,6 +22,7 @@ class UserService {
     fileprivate let keychain = Keychain(service: Configurations.App.bundleIdentifier ?? "thinh.com")
     
     let userInforChangeEvent = PublishSubject<UserInfo>()
+    let recentKeywordsChangedEvent = PublishSubject<[String]>()
 
     public private (set) var userInfo: UserInfo?
     
@@ -105,5 +106,39 @@ class UserService {
         let userInfor = UserInfo(user: user)
         UserDefaults.standard.saveObject(userInfor, forKey: UserKey.kUserInfo)
         userInforChangeEvent.onNext(userInfor)
+    }
+    
+    func getRecentSearchKeywords() -> [String] {
+        // Call reversed() to make keywords newest on top
+        return (UserDefaults.standard.stringArray(forKey: UserKey.kRecentSearchKeywords) ?? [String]()).reversed()
+    }
+
+    func updateRecentSearchKeywords(keyword: String) {
+        var recentKeywords = UserDefaults.standard.stringArray(forKey: UserKey.kRecentSearchKeywords) ?? [String]()
+
+        // Not append duplicate keyword
+        if recentKeywords.contains(where: {$0.lowercased().elementsEqual(keyword.lowercased())}) {
+            recentKeywords.removeAll(where: {$0.lowercased().elementsEqual(keyword.lowercased())})
+        }
+        // Store keyword
+        recentKeywords.append(keyword)
+        UserDefaults.standard.set(recentKeywords, forKey: UserKey.kRecentSearchKeywords)
+        UserDefaults.standard.synchronize()
+        recentKeywordsChangedEvent.onNext(getRecentSearchKeywords())
+    }
+
+    func removeRecentSearchKeyword(keyword: String) {
+        if var recentKeywords = UserDefaults.standard.stringArray(forKey: UserKey.kRecentSearchKeywords) {
+            recentKeywords.removeAll(where: {$0.elementsEqual(keyword)})
+            UserDefaults.standard.set(recentKeywords, forKey: UserKey.kRecentSearchKeywords)
+            UserDefaults.standard.synchronize()
+            recentKeywordsChangedEvent.onNext(getRecentSearchKeywords())
+        }
+    }
+
+    func removeAllRecentSearch() {
+        UserDefaults.standard.set(nil, forKey: UserKey.kRecentSearchKeywords)
+        UserDefaults.standard.synchronize()
+        recentKeywordsChangedEvent.onNext(getRecentSearchKeywords())
     }
 }

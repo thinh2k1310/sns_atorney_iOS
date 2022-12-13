@@ -38,6 +38,11 @@ protocol AttorneyAPI {
     func cancelCase(caseId: String) -> Single<CommonReponse>
     func getCaseDetail(caseId: String) -> Single<CaseDetailResponse>
     
+    func getCaseComments(caseId: String) -> Single<CaseCommentsResponse>
+    func commentCase(commentRequest: CaseCommentRequest) -> Single<CommonReponse>
+    func deleteCaseComment(commentId: String) -> Single<CommonReponse>
+   
+    
     // MARK: - Profile
     func getProfile(userId: String) -> Single<ProfileResponse>
     func changeAvatar(request: ChangeAvatarRequest) -> Single<ChangeImageResponse>
@@ -46,6 +51,9 @@ protocol AttorneyAPI {
     
     // MARK: - Search
     func getAttorney(request: ListAttorneyRequest) -> Single<ListAttorneyResponse>
+    func searchAll(request: SearchAllRequest) -> Single<SearchAllResponse>
+    func searchUsers(request: SearchUsersRequest) -> Single<SearchUsersResponse>
+    func searchPosts(request: SearchPostsRequest) -> Single<SearchPostsResponse>
     
     // MARK: - Review
     func postReview(request: ReviewRequest) -> Single<CommonReponse>

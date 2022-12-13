@@ -7,25 +7,15 @@
 
 import UIKit
 import RxCocoa
-import Kingfisher 
+import Kingfisher
+import GrowingTextView
+
 final class CaseDetailViewController: ViewController {
     // MARK: - IBOutlets
-    @IBOutlet private weak var clientControl: UIControl!
-    @IBOutlet private weak var clientImageView: UIImageView!
-    @IBOutlet private weak var clientNameLabel: UILabel!
-    @IBOutlet private weak var clientStatusLabel: UILabel!
-    @IBOutlet private weak var attorneyControl: UIControl!
-    @IBOutlet private weak var attorneyImageView: UIImageView!
-    @IBOutlet private weak var attorneyNameLabel: UILabel!
-    @IBOutlet private weak var attorneyStatusLabel: UILabel!
-    @IBOutlet private weak var startingTimeLabel: UILabel!
-    @IBOutlet private weak var endingTimeLabel: UILabel!
-    @IBOutlet private weak var statusLabel: UILabel!
-    @IBOutlet private weak var postImageSuperView: UIView!
-    @IBOutlet private weak var postImageView: UIImageView!
-    @IBOutlet private weak var postContentLabel: UILabel!
-    @IBOutlet private weak var completeButton: UIButton!
-    @IBOutlet private weak var cancelButton: UIButton!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var commentTextView: GrowingTextView!
+    @IBOutlet private weak var sendButton: UIButton!
+    @IBOutlet private weak var textViewBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Variables
     
@@ -39,8 +29,17 @@ final class CaseDetailViewController: ViewController {
     // MARK: - Lifecycle VC
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureWhiteBackground()
         self.navigationItem.title = "Detail Case"
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        configureTableView()
+        self.configureWhiteBackground()
+        
+        //Gesture
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +50,8 @@ final class CaseDetailViewController: ViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -77,127 +78,75 @@ final class CaseDetailViewController: ViewController {
         viewModel.getCaseDetailSuccess
             .subscribe(onNext: { [weak self] caseDetail in
                 self?.whiteBackgroundView.isHidden = true
-                self?.bindingUI(with: caseDetail)
+                self?.tableView.reloadData()
+            }).disposed(by: disposeBag)
+        
+        viewModel.caseCommentsEvent
+            .subscribe(onNext: { [weak self] comments in
+                guard let self = self else { return }
+                self.tableView.reloadData()
+            }).disposed(by: disposeBag)
+        
+        viewModel.reloadComment
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.tableView.scrollToBottom()
             }).disposed(by: disposeBag)
     }
     
     // MARK: - Functions
     
-    private func bindingUI(with caseDetail: Case) {
-        if let client = caseDetail.customer {
-            setupClientView(user: client)
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let isKeyboardShowing = notification.name == UIResponder.keyboardWillShowNotification
+            let tempHeight = keyboardSize.height - 34 - 49 - view.safeAreaInsets.bottom
+            let keyboardHeight = isKeyboardShowing ? tempHeight : 0
+            layoutTextViewWithKeyboard(notification: notification, keyboardHeight: keyboardHeight, keyboardWillShow: isKeyboardShowing)
+            addContentHeightWhenShowKeyboard(isShowKeyboard: isKeyboardShowing, keyboardHeight: CGFloat(keyboardHeight))
         }
-        
-        if let attorney = caseDetail.attorney {
-            setupAttorney(user: attorney)
-        }
-        setupInfoView(with: caseDetail)
-        
-        if let post = caseDetail.post {
-            setupPostView(post: post)
-        }
-        setupStatus(with: caseDetail)
-        if let status = caseDetail.status {
-            if status == CaseStatus.inProgress.rawValue {
-                completeButton.isEnabled = true
-                cancelButton.isEnabled = true
-            } else {
-                completeButton.isEnabled = false
-                completeButton.alpha = 0.5
-                cancelButton.isEnabled = false
-                cancelButton.alpha = 0.5
-            }
-        }
-        
     }
     
-    private func setupPostView(post: ShortPost) {
-        // Image
-        if let image = post.mediaUrl {
-            let processor = DownsamplingImageProcessor(size: postImageView.bounds.size)
-            postImageView.kf.setImage(
-                with: URL(string: image),
-                placeholder: R.image.mockupImage(),
-                options: [
-                        .processor(processor),
-                        .scaleFactor(UIScreen.main.scale),
-                        .transition(.fade(1)),
-                        .cacheOriginalImage
-                ])
+    func layoutTextViewWithKeyboard(notification: NSNotification,keyboardHeight: CGFloat, keyboardWillShow: Bool) {
+        
+        // Keyboard's animation duration
+        let keyboardDuration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
+        
+        // Keyboard's animation curve
+        let keyboardCurve = UIView.AnimationCurve(rawValue: notification.userInfo![UIResponder.keyboardAnimationCurveUserInfoKey] as! Int)!
+        
+        // Change the constant
+        self.textViewBottomConstraint.constant = -keyboardHeight
+        
+        // Animate the view the same way the keyboard animates
+        let animator = UIViewPropertyAnimator(duration: keyboardDuration, curve: keyboardCurve) { [weak self] in
+            // Update Constraints
+            self?.view.layoutIfNeeded()
+        }
+        
+        // Perform the animation
+        animator.startAnimation()
+    }
+    
+    private func addContentHeightWhenShowKeyboard(isShowKeyboard: Bool, keyboardHeight: CGFloat) {
+        if isShowKeyboard {
+            self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
         } else {
-            postImageSuperView.isHidden = true
-        }
-        
-        // Content
-        postContentLabel.text = post.content ?? ""
-    }
-    
-    private func setupInfoView(with cases: Case) {
-        startingTimeLabel.text = cases.startingTime ?? "N/A"
-        endingTimeLabel.text = cases.endingTime ?? "N/A"
-        statusLabel.text = cases.status
-        statusLabel.textColor = colorForStatusLabel(with: cases.status ?? "")
-    }
-    
-    private func colorForStatusLabel(with status: String) -> UIColor {
-        if status == CaseStatus.inProgress.rawValue {
-            return Color.appTintColor
-        } else if status == CaseStatus.cancel.rawValue {
-            return Color.colorError
-        } else if status == CaseStatus.complete.rawValue {
-            return Color.green
-        }
-        return Color.textColor
-    }
-    
-    private func setupClientView(user: ShortUser) {
-        // Avatar
-        let processor = DownsamplingImageProcessor(size: clientImageView.bounds.size)
-        clientImageView.kf.setImage(
-            with: URL(string: user.avatar ?? ""),
-            placeholder: R.image.placeholderAvatar(),
-            options: [
-                    .processor(processor),
-                    .scaleFactor(UIScreen.main.scale),
-                    .transition(.fade(1)),
-                    .cacheOriginalImage
-            ])
-        clientImageView.roundToCircle()
-        
-        // Name
-        let userName = "\(user.firstName ?? "") \(user.lastName ?? "User")"
-        clientNameLabel.text = userName
-    }
-    
-    private func setupStatus(with cases: Case) {
-        if let attorneyStatus = cases.attorneyStatus {
-            attorneyStatusLabel.text = attorneyStatus
-            attorneyStatusLabel.textColor = colorForStatusLabel(with: attorneyStatus)
-        }
-        
-        if let status = cases.customerStatus {
-            clientStatusLabel.text = status
-            clientStatusLabel.textColor = colorForStatusLabel(with: status)
+            self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
     }
     
-    private func setupAttorney(user: ShortUser) {
-        // Avatar
-        let processor = DownsamplingImageProcessor(size: attorneyImageView.bounds.size)
-        attorneyImageView.kf.setImage(
-            with: URL(string: user.avatar ?? ""),
-            placeholder: R.image.placeholderAvatar(),
-            options: [
-                    .processor(processor),
-                    .scaleFactor(UIScreen.main.scale),
-                    .transition(.fade(1)),
-                    .cacheOriginalImage
-            ])
-        attorneyImageView.roundToCircle()
-        
-        // Name
-        let userName = "\(user.firstName ?? "") \(user.lastName ?? "User")"
-        attorneyNameLabel.text = userName
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    private func configureTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        if #available(iOS 13.0, *) {
+            tableView.automaticallyAdjustsScrollIndicatorInsets = false
+        }
+        tableView.registerHeaderFooterNib(CaseDetailHeaderView.self)
+        tableView.register(CommentTableViewCell.self)
     }
     
     private func configureWhiteBackground() {
@@ -206,7 +155,126 @@ final class CaseDetailViewController: ViewController {
     }
     // MARK: - IBActions
     
-    @IBAction private func didTapCompleteButton(_ sender: Any) {
+    @IBAction private func postComment(_ sender: Any) {
+        guard let viewModel = viewModel as? CaseDetailViewModel,
+              let caseId = viewModel.caseId else { return }
+        if !commentTextView.text.isEmpty {
+            let commentContent = commentTextView.text.trimmingCharacters(in: .whitespacesAndNewlines)
+            viewModel.commentCase(caseId: caseId, content: commentContent)
+            commentTextView.endEditing(true)
+            commentTextView.text = ""
+        }
+    }
+}
+
+extension CaseDetailViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let viewModel = viewModel as? CaseDetailViewModel,
+              !viewModel.comments.isEmpty else { return 0 }
+        return viewModel.comments.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let viewModel = viewModel as? CaseDetailViewModel,
+              !viewModel.comments.isEmpty else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CommentTableViewCell.reuseIdentifier, for: indexPath) as? CommentTableViewCell else { return UITableViewCell() }
+        cell.bindingUI(with: viewModel.comments[indexPath.row])
+        cell.selectionStyle = .none
+        cell.delegate = self
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let viewModel = viewModel as? CaseDetailViewModel else { return 0 }
+        return viewModel.cellSizeForComment(at: indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let viewModel = viewModel as? CaseDetailViewModel, let cases = viewModel.cases else { return UIView() }
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CaseDetailHeaderView.reuseIdentifier) as? CaseDetailHeaderView else { return UIView() }
+        headerView.delegate = self
+        headerView.bindingUI(with: cases)
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard let viewModel = viewModel as? CaseDetailViewModel else { return 0}
+        return viewModel.sizeForHeaderView()
+    }
+    
+    
+}
+
+extension CaseDetailViewController: CommentTableViewCellDelegate {
+    func deleteComment(_ commentId: String?) {
+        guard let viewModel = viewModel as? CaseDetailViewModel,
+              let commentId = commentId else {
+            return
+        }
+        
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+        let message = StringConstants.string_delete_comment()
+        let customMessage = NSAttributedString(string: message, attributes: [.font: UIFont.appSemiBoldFont(size: 17), .foregroundColor: Color.colorError])
+        alertController.setValue(customMessage, forKey: "attributedMessage")
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
+        let okAction = UIAlertAction(title: "Yes", style: UIAlertAction.Style.default) { (_) in
+            viewModel.deleteComment(commentId: commentId)
+        }
+
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func viewProfile(_ userId: String?) {
+        let profileVC = R.storyboard.profile.profileViewController()!
+        guard let provider = Application.shared.provider,
+        let id = userId else { return }
+        let profileVM = ProfileViewModel(provider: provider)
+        profileVM.profileId = id
+        profileVC.viewModel = profileVM
+        self.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
+    
+}
+
+extension CaseDetailViewController: CaseDetailHeaderViewDelegate {
+    func goToClient() {
+        guard let viewModel = viewModel as? CaseDetailViewModel else { return }
+        let profileVC = R.storyboard.profile.profileViewController()!
+        guard let provider = Application.shared.provider,
+              let id = viewModel.cases?.customer?._id else { return }
+        let profileVM = ProfileViewModel(provider: provider)
+        profileVM.profileId = id
+        profileVC.viewModel = profileVM
+        self.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
+    func goToAttorney() {
+        guard let viewModel = viewModel as? CaseDetailViewModel else { return }
+        let profileVC = R.storyboard.profile.profileViewController()!
+        guard let provider = Application.shared.provider,
+              let id = viewModel.cases?.attorney?._id else { return }
+        let profileVM = ProfileViewModel(provider: provider)
+        profileVM.profileId = id
+        profileVC.viewModel = profileVM
+        self.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
+    func goToPostDetail() {
+        guard let viewModel = viewModel as? CaseDetailViewModel else { return }
+        let postDetailVC = R.storyboard.detailPost.postDetailViewController()!
+        guard let provider = Application.shared.provider else { return }
+        let postDetailVM = PostDetailViewModel(provider: provider)
+        postDetailVM.postId = viewModel.cases?.post?._id
+        postDetailVC.viewModel = postDetailVM
+        self.navigationController?.pushViewController(postDetailVC, animated: true)
+    }
+    
+    func completeCase() {
         guard let viewModel = viewModel as? CaseDetailViewModel else { return }
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
 
@@ -224,7 +292,7 @@ final class CaseDetailViewController: ViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    @IBAction private func didTapCancelButton(_ sender: Any) {
+    func cancelCase() {
         guard let viewModel = viewModel as? CaseDetailViewModel else { return }
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
 
@@ -242,7 +310,7 @@ final class CaseDetailViewController: ViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    @IBAction private func didTapReview(_ sender: Any) {
+    func reviewCase() {
         guard let viewModel = viewModel as? CaseDetailViewModel else { return }
         
         let reviewVC = R.storyboard.review.reviewViewController()!
@@ -253,4 +321,6 @@ final class CaseDetailViewController: ViewController {
         reviewVC.modalPresentationStyle = .fullScreen
         present(reviewVC, animated: true)
     }
+    
+    
 }

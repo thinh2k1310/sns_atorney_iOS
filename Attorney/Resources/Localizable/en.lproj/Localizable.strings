@@ -10,9 +10,11 @@
 "string_password_does_not_match" = "Password does not match";
 "string_please_enter_email" = "Please enter a valid email address";
 "string_rating" = "Rating: %@";
+"string_recent_searches" = "Recent searches";
 "string_register_successfully" = "Register successfully!\n Login with your new account.";
 "string_reset_password" = "Reset password successfully!\n Login with your new password.";
 "string_sign_up" = "SIGN UP";
+"string_specializes_in" = "Specializes in  %@";
 "string_tooltip_date_of_birth" = "Member must be at least 16 years old for registration in Attorney.";
 "string_tooltip_email_warning" = "The email address must be unique and not shared with another account.";
 "string_tooltip_password_warning" = "Password must include:";

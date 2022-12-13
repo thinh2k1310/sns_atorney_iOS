@@ -39,6 +39,12 @@ enum AttorneySNSAPI {
     case getAttorney(request: ListAttorneyRequest)
     case postReview(request: ReviewRequest)
     case getAttorneyReview(attorneyId: String)
+    case searchAll(request: SearchAllRequest)
+    case searchUsers(request: SearchUsersRequest)
+    case searchPosts(request: SearchPostsRequest)
+    case getCaseComments(caseId: String)
+    case commentCase(commentRequest: CaseCommentRequest)
+    case deleteCaseComment(commentId: String)
 }
 
 extension AttorneySNSAPI: TargetType {
@@ -132,19 +138,37 @@ extension AttorneySNSAPI: TargetType {
             
         case .getAttorneyReview(let attorneyId):
             return "review/\(attorneyId)"
+            
+        case .searchAll:
+            return "search/all"
+            
+        case .searchUsers:
+            return "search/users"
+            
+        case .searchPosts:
+            return "search/posts"
+            
+        case .getCaseComments(let caseId):
+            return "case/\(caseId)/comments"
+            
+        case .commentCase:
+            return "caseComment"
+        
+        case .deleteCaseComment(let commentId):
+            return "caseComment/\(commentId)"
         }
         
     }
     
     var method: Moya.Method {
         switch self {
-        case .loginOTP, .register, .fetchNewsFeed, .likePost, .commentPost, .sendDefenceRequest, .createPost, .fetchUserPost, .getAttorney, .postReview:
+        case .loginOTP, .register, .fetchNewsFeed, .likePost, .commentPost, .sendDefenceRequest, .createPost, .fetchUserPost, .getAttorney, .postReview, .searchAll, .searchUsers,.searchPosts, .commentCase:
             return .post
         
         case .validateEmail, .sendOTP, .resetPassword, .acceptDefenceRequest, .completeCase, .cancelCase, .changeAvatar, .changeCover, .changePassword:
             return .put
             
-        case .deleteComment, .denyDefenceRequest:
+        case .deleteComment, .denyDefenceRequest, .deleteCaseComment:
             return .delete
     
         default:
@@ -192,6 +216,14 @@ extension AttorneySNSAPI: TargetType {
             return .requestJSONEncodable(request)
         case .postReview(let request):
             return .requestJSONEncodable(request)
+        case .searchAll(let request):
+            return .requestJSONEncodable(request)
+        case .searchUsers(let request):
+            return .requestJSONEncodable(request)
+        case .searchPosts(let request):
+            return .requestJSONEncodable(request)
+        case .commentCase(let commentRequest):
+            return .requestJSONEncodable(commentRequest)
             
         case .createPost(let request):
             var multidata = [

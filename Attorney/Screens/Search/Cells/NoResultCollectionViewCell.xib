@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ProximaNova-Reg.otf">
+            <string>ProximaNova-Regular</string>
+        </array>
+        <array key="ProximaNova-Sbold.otf">
+            <string>ProximaNova-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="NoResultCollectionViewCell" customModule="Attorney" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="165"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="165"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kgm-5c-Og8">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="165"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1a-JW-ATA">
+                                <rect key="frame" x="0.0" y="24" width="400" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="n2m-L4-S1o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="22"/>
+                                <color key="textColor" red="0.20784313730000001" green="0.25098039220000001" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Kts-Aa-9TG">
+                                <rect key="frame" x="0.0" y="66" width="400" height="47.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFw-RL-PsJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="47.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="•  Check your spelling" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rh-2q-B7z">
+                                                <rect key="frame" x="8" y="0.0" width="384" height="17.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="17.5" id="iYA-sh-6OT"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
+                                                <color key="textColor" red="0.20784313730000001" green="0.25098039220000001" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="•  Reduce or use more general search terms" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQc-hB-3RE">
+                                                <rect key="frame" x="8" y="21.5" width="392" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="18" id="deC-x8-qjy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
+                                                <color key="textColor" red="0.20784313730000001" green="0.25098039220000001" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="WQc-hB-3RE" firstAttribute="leading" secondItem="fFw-RL-PsJ" secondAttribute="leading" constant="8" id="EdV-Gh-57h"/>
+                                            <constraint firstAttribute="trailing" secondItem="WQc-hB-3RE" secondAttribute="trailing" id="EuJ-c5-OaR"/>
+                                            <constraint firstItem="5Rh-2q-B7z" firstAttribute="top" secondItem="fFw-RL-PsJ" secondAttribute="top" id="UM8-Y5-cIm"/>
+                                            <constraint firstItem="WQc-hB-3RE" firstAttribute="top" secondItem="5Rh-2q-B7z" secondAttribute="bottom" constant="4" id="cwY-2L-wkZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="WQc-hB-3RE" secondAttribute="bottom" constant="8" id="iqb-wB-1Xo"/>
+                                            <constraint firstItem="5Rh-2q-B7z" firstAttribute="leading" secondItem="fFw-RL-PsJ" secondAttribute="leading" constant="8" id="rDA-7M-ObY"/>
+                                            <constraint firstAttribute="trailing" secondItem="5Rh-2q-B7z" secondAttribute="trailing" constant="8" id="wf6-oC-EGd"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="V1a-JW-ATA" secondAttribute="trailing" id="1GI-UC-qwy"/>
+                            <constraint firstItem="V1a-JW-ATA" firstAttribute="top" secondItem="Kgm-5c-Og8" secondAttribute="top" constant="24" id="Hxt-Bo-0cw"/>
+                            <constraint firstItem="Kts-Aa-9TG" firstAttribute="top" secondItem="V1a-JW-ATA" secondAttribute="bottom" constant="10" id="Llo-AQ-iYh"/>
+                            <constraint firstAttribute="trailing" secondItem="Kts-Aa-9TG" secondAttribute="trailing" id="Zab-Ck-xxs"/>
+                            <constraint firstItem="V1a-JW-ATA" firstAttribute="leading" secondItem="Kgm-5c-Og8" secondAttribute="leading" id="ZkH-RT-RgI"/>
+                            <constraint firstItem="Kts-Aa-9TG" firstAttribute="leading" secondItem="Kgm-5c-Og8" secondAttribute="leading" id="qvn-V5-YLj"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="Kgm-5c-Og8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="UFq-EP-J5y"/>
+                <constraint firstAttribute="trailing" secondItem="Kgm-5c-Og8" secondAttribute="trailing" id="WeV-4O-gHM"/>
+                <constraint firstItem="Kgm-5c-Og8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="eCy-Lx-RqD"/>
+                <constraint firstAttribute="bottom" secondItem="Kgm-5c-Og8" secondAttribute="bottom" id="t37-XE-Z4i"/>
+            </constraints>
+            <size key="customSize" width="400" height="165"/>
+            <connections>
+                <outlet property="allTitleView" destination="fFw-RL-PsJ" id="Hz0-wE-hgF"/>
+            </connections>
+            <point key="canvasLocation" x="385.50724637681162" y="92.075892857142847"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

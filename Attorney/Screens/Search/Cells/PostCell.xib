@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ProximaNova-Reg.otf">
+            <string>ProximaNova-Regular</string>
+        </array>
+        <array key="ProximaNova-Sbold.otf">
+            <string>ProximaNova-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="181" id="KGk-i7-Jjw" customClass="PostCell" customModule="Attorney" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="407" height="181"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="407" height="181"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xad-BM-VsY" userLabel="User View" customClass="UIControl">
+                        <rect key="frame" x="0.0" y="0.0" width="407" height="70"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0M1-36-WYu">
+                                <rect key="frame" x="20" y="10" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Aej-CP-X2a"/>
+                                    <constraint firstAttribute="width" constant="50" id="XVS-QW-kd4"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thinh thinh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kr-s9-v2S">
+                                <rect key="frame" x="88" y="24.5" width="86" height="21"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="17"/>
+                                <color key="textColor" name="354052"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="JWX-KR-N3V"/>
+                            <constraint firstItem="5kr-s9-v2S" firstAttribute="leading" secondItem="0M1-36-WYu" secondAttribute="trailing" constant="18" id="Ws5-DG-GEy"/>
+                            <constraint firstItem="0M1-36-WYu" firstAttribute="leading" secondItem="Xad-BM-VsY" secondAttribute="leading" constant="20" id="a7d-Qy-cv7"/>
+                            <constraint firstItem="5kr-s9-v2S" firstAttribute="centerY" secondItem="0M1-36-WYu" secondAttribute="centerY" id="lY9-Ba-i7H"/>
+                            <constraint firstItem="0M1-36-WYu" firstAttribute="centerY" secondItem="Xad-BM-VsY" secondAttribute="centerY" id="qXq-O1-VUi"/>
+                        </constraints>
+                    </view>
+                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzD-WO-dEu">
+                        <rect key="frame" x="10" y="70" width="387" height="91"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <color key="textColor" name="354052"/>
+                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npg-mQ-Ztl">
+                        <rect key="frame" x="0.0" y="180" width="407" height="1"/>
+                        <color key="backgroundColor" name="DFE3E9"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="XX2-Ts-T7B"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="gzD-WO-dEu" firstAttribute="top" secondItem="Xad-BM-VsY" secondAttribute="bottom" id="4KE-72-rBG"/>
+                    <constraint firstItem="Xad-BM-VsY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="9uA-3q-ZFI"/>
+                    <constraint firstAttribute="bottom" secondItem="npg-mQ-Ztl" secondAttribute="bottom" id="CUb-yD-W0v"/>
+                    <constraint firstItem="npg-mQ-Ztl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Gvm-34-vUG"/>
+                    <constraint firstAttribute="trailing" secondItem="npg-mQ-Ztl" secondAttribute="trailing" id="JZQ-Ia-dSJ"/>
+                    <constraint firstItem="gzD-WO-dEu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="OoL-Ci-fcB"/>
+                    <constraint firstAttribute="trailing" secondItem="Xad-BM-VsY" secondAttribute="trailing" id="qDw-X2-iRp"/>
+                    <constraint firstAttribute="bottom" secondItem="gzD-WO-dEu" secondAttribute="bottom" constant="20" id="sih-V9-8aD"/>
+                    <constraint firstItem="Xad-BM-VsY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yfC-4k-YEg"/>
+                    <constraint firstAttribute="trailing" secondItem="gzD-WO-dEu" secondAttribute="trailing" constant="10" id="zGp-zE-Ao8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="postContentTextView" destination="gzD-WO-dEu" id="2WG-uj-YO2"/>
+                <outlet property="userAvatarImageView" destination="0M1-36-WYu" id="BUS-QD-jY3"/>
+                <outlet property="userNameLabel" destination="5kr-s9-v2S" id="nnV-L1-TSo"/>
+            </connections>
+            <point key="canvasLocation" x="194.92753623188406" y="99.441964285714278"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="354052">
+            <color red="0.20784313725490197" green="0.25098039215686274" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="DFE3E9">
+            <color red="0.87450980392156863" green="0.8901960784313725" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

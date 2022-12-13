@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ProximaNova-Reg.otf">
+            <string>ProximaNova-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="RecentSearchCollectionViewCell" customModule="Attorney" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="335" height="74"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="335" height="74"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dkz-UZ-EdM">
+                        <rect key="frame" x="0.0" y="0.0" width="335" height="74"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search keyword" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6R-YQ-AkI">
+                                <rect key="frame" x="0.0" y="28.5" width="300" height="17.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="8SI-va-Xxd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
+                                <color key="textColor" name="354052"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KbJ-LQ-xc6">
+                                <rect key="frame" x="311" y="25" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="2OD-CU-OFm"/>
+                                    <constraint firstAttribute="width" constant="24" id="iTl-3n-4XK"/>
+                                </constraints>
+                                <state key="normal" image="icon-close-grey"/>
+                                <connections>
+                                    <action selector="removeButtonDidTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="9db-fi-RYx"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UhH-EB-nVf">
+                                <rect key="frame" x="-24" y="73" width="383" height="1"/>
+                                <color key="backgroundColor" red="0.87450980389999999" green="0.89019607840000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Vsr-9N-vdU"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UhH-EB-nVf" firstAttribute="leading" secondItem="dkz-UZ-EdM" secondAttribute="leading" constant="-24" id="2vQ-x8-Xei"/>
+                            <constraint firstAttribute="trailing" secondItem="UhH-EB-nVf" secondAttribute="trailing" constant="-24" id="7dO-5P-MP4"/>
+                            <constraint firstItem="KbJ-LQ-xc6" firstAttribute="leading" secondItem="e6R-YQ-AkI" secondAttribute="trailing" constant="10" id="D2P-f4-VX3"/>
+                            <constraint firstAttribute="trailing" secondItem="KbJ-LQ-xc6" secondAttribute="trailing" id="KxK-Jb-9i2"/>
+                            <constraint firstItem="KbJ-LQ-xc6" firstAttribute="centerY" secondItem="dkz-UZ-EdM" secondAttribute="centerY" id="L3Y-Q2-Q8D"/>
+                            <constraint firstAttribute="bottom" secondItem="UhH-EB-nVf" secondAttribute="bottom" id="c69-4Q-8C9"/>
+                            <constraint firstItem="e6R-YQ-AkI" firstAttribute="leading" secondItem="dkz-UZ-EdM" secondAttribute="leading" id="eNt-84-gE3"/>
+                            <constraint firstItem="e6R-YQ-AkI" firstAttribute="centerY" secondItem="dkz-UZ-EdM" secondAttribute="centerY" id="pM6-yC-Dmq"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="D2P-f4-VX3"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="dkz-UZ-EdM" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="3v4-4a-uQV"/>
+                <constraint firstItem="dkz-UZ-EdM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DG9-bd-AuO"/>
+                <constraint firstAttribute="trailing" secondItem="dkz-UZ-EdM" secondAttribute="trailing" id="Kj4-bb-bKg"/>
+                <constraint firstAttribute="bottom" secondItem="dkz-UZ-EdM" secondAttribute="bottom" id="wa6-SG-XZI"/>
+            </constraints>
+            <size key="customSize" width="335" height="74"/>
+            <connections>
+                <outlet property="searchKeywordLabel" destination="e6R-YQ-AkI" id="g2V-hR-tA0"/>
+                <outlet property="searchKeywordLabelWidthCons" destination="8SI-va-Xxd" id="8IQ-qq-Ilq"/>
+            </connections>
+            <point key="canvasLocation" x="338.40579710144931" y="61.607142857142854"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="icon-close-grey" width="24" height="24"/>
+        <namedColor name="354052">
+            <color red="0.20784313725490197" green="0.25098039215686274" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

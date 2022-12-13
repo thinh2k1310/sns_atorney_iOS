@@ -32,7 +32,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SLh-JG-s6T" userLabel="Back View" customClass="UIControl">
                                         <rect key="frame" x="0.0" y="20" width="50" height="30"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backIcon" translatesAutoresizingMaskIntoConstraints="NO" id="eI4-4s-Nnb">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_left" translatesAutoresizingMaskIntoConstraints="NO" id="eI4-4s-Nnb">
                                                 <rect key="frame" x="9" y="-1" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="32" id="0kN-Eg-n4I"/>
@@ -215,7 +215,7 @@
         </designable>
     </designables>
     <resources>
-        <image name="backIcon" width="32" height="32"/>
+        <image name="arrow_left" width="32" height="32"/>
         <image name="reportIcon" width="90" height="90"/>
         <image name="sendIcon" width="512" height="512"/>
         <namedColor name="354052">
