@@ -285,17 +285,22 @@ extension PostDetailViewController: CommentTableViewCellDelegate {
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
-        let message = StringConstants.string_delete_comment()
-        let customMessage = NSAttributedString(string: message, attributes: [.font: UIFont.appSemiBoldFont(size: 17), .foregroundColor: Color.colorError])
-        alertController.setValue(customMessage, forKey: "attributedMessage")
+//        let message = StringConstants.string_delete_comment()
+//        let customMessage = NSAttributedString(string: message, attributes: [.font: UIFont.appSemiBoldFont(size: 17), .foregroundColor: Color.colorError])
+//        alertController.setValue(customMessage, forKey: "attributedMessage")
 
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
-        let okAction = UIAlertAction(title: "Yes", style: UIAlertAction.Style.default) { (_) in
+        let deleteAction = UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive) { (_) in
+            viewModel.deleteComment(commentId: commentId)
+        }
+
+        let editAction = UIAlertAction(title: "Edit", style: UIAlertAction.Style.default) { (_) in
             viewModel.deleteComment(commentId: commentId)
         }
 
         alertController.addAction(cancelAction)
-        alertController.addAction(okAction)
+        alertController.addAction(editAction)
+        alertController.addAction(deleteAction)
         present(alertController, animated: true, completion: nil)
         
     }

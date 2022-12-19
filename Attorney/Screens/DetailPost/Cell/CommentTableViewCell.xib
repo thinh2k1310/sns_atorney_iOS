@@ -52,13 +52,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTG-d7-abS" userLabel="Delete btn">
-                        <rect key="frame" x="380" y="59" width="22" height="22"/>
+                        <rect key="frame" x="387" y="62.5" width="15" height="15"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="22" id="bn6-Ps-aLP"/>
-                            <constraint firstAttribute="width" constant="22" id="p3N-Zo-ZVQ"/>
+                            <constraint firstAttribute="height" constant="15" id="bn6-Ps-aLP"/>
+                            <constraint firstAttribute="width" constant="15" id="p3N-Zo-ZVQ"/>
                         </constraints>
                         <color key="tintColor" systemColor="systemGrayColor"/>
-                        <state key="normal" image="deleteIcon"/>
+                        <state key="normal" image="reportIcon"/>
                         <connections>
                             <action selector="deleteButtonDidTap:" destination="r64-pi-CpF" eventType="touchUpInside" id="krF-xd-cta"/>
                         </connections>
@@ -111,7 +111,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="deleteIcon" width="96" height="96"/>
+        <image name="reportIcon" width="90" height="90"/>
         <namedColor name="354052">
             <color red="0.20784313725490197" green="0.25098039215686274" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
