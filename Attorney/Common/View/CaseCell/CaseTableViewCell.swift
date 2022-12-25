@@ -66,7 +66,7 @@ class CaseTableViewCell: UITableViewCell {
     
     private func setupPostView(post: ShortPost) {
         // Image
-        if let image = post.mediaUrl {
+        if let image = post.mediaUrl, !image.isEmpty {
             let processor = DownsamplingImageProcessor(size: postImageView.bounds.size)
             postImageView.kf.setImage(
                 with: URL(string: image),

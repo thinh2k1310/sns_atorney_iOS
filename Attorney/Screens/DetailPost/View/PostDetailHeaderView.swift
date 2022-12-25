@@ -47,7 +47,7 @@ final class PostDetailHeaderView: UITableViewHeaderFooterView {
         }
         let width = UIScreen.main.bounds.width
         var imageHeight: CGFloat = 0
-        if let _ = post.mediaUrl {
+        if let image = post.mediaUrl, !image.isEmpty {
             imageHeight = width * CGFloat ((post.mediaHeight ?? 1) / (post.mediaWidth ?? 1))
         }
         imageViewHeight.constant = imageHeight
@@ -68,7 +68,7 @@ final class PostDetailHeaderView: UITableViewHeaderFooterView {
     }
     
     private func setupPostImage(with post: PostDetail){
-        if let imageUrl = post.mediaUrl {
+        if let imageUrl = post.mediaUrl, !imageUrl.isEmpty {
             let processor = DownsamplingImageProcessor(size: postImageView.bounds.size)
             postImageView.kf.setImage(
                 with: URL(string: imageUrl),
@@ -115,7 +115,7 @@ final class PostDetailHeaderView: UITableViewHeaderFooterView {
     
     private func setupDefenceButton(with post: PostDetail) {
         if let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo) {
-            defendButton.isHidden = (post.user?._id == userInfo.id || post.type == PostType.DISCUSSING.rawValue || userInfo.role != UserRole.attorney.rawValue)
+            defendButton.isHidden = (post.user?._id == userInfo.id || post.type == PostType.DISCUSSING.rawValue || userInfo.role != UserRole.attorney.rawValue || post.isBlock == true)
         }
         if let isDenfendPost = post.isDefendPost {
             self.defendButton.isSelected = isDenfendPost

@@ -95,6 +95,8 @@ final class HomeViewController: ViewController{
                 cell.delegate = self
                 cell.bindingData(with: item)
                 cell.setupLayout()
+                cell.indexPath = indexPath
+                cell.viewController = self
                 return cell
             }
             return UICollectionViewCell()
@@ -231,10 +233,16 @@ extension HomeViewController: NewsFeedCollectionViewCellDelegate {
         self.navigationController?.pushViewController(profileVC, animated: true)
     }
     
-    func viewDetailPost(_ post: String?) {
+    func viewDetailPost(_ post: String?, indexPath: IndexPath) {
         let postDetailVC = R.storyboard.detailPost.postDetailViewController()!
         guard let provider = Application.shared.provider else { return }
         let postDetailVM = PostDetailViewModel(provider: provider)
+        postDetailVM.updateLikeEvent.subscribe(onNext: { [weak self] (isLike) in
+            if let cell = self?.collectionView.cellForItem(at: indexPath) as? NewsFeedCollectionViewCell {
+                cell.updateLikeNumber(isLike: isLike)
+            }
+            
+        }).disposed(by: disposeBag)
         postDetailVM.postId = post
         postDetailVC.viewModel = postDetailVM
         self.navigationController?.pushViewController(postDetailVC, animated: true)
@@ -305,7 +313,7 @@ extension HomeViewController: HeaderHomeReusableViewDelegate {
         let postFilterVC = R.storyboard.sortAndFilter.postFilterViewController()!
         postFilterVC.modalTransitionStyle = .crossDissolve
 //        postFilterVC.modalPresentationStyle = .fullScreen
-        postFilterVC.showResults = { [weak self] (action, categories) in
+        postFilterVC.showResults = { (action, categories) in
             viewModel.filterBy = action
             viewModel.categories = categories
             viewModel.resetPage()

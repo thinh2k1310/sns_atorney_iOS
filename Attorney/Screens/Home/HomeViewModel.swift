@@ -161,6 +161,10 @@ final class HomeViewModel: ViewModel {
         }
         provider
             .likePost(likeRequest: LikeRequest(userId: userId, postId: postId))
+            .subscribe { response in
+                print("Liked post")
+            }.disposed(by: disposeBag)
+            
     }
     
     func sendDefenceRequest(postId: String, customerId: String) {
@@ -190,7 +194,7 @@ extension HomeViewModel {
         let post = posts[index]
         // Image view height
         var imageHeight: CGFloat = 0
-        if let _ = post.mediaUrl {
+        if let image = post.mediaUrl, !image.isEmpty {
             imageHeight = cellWidth * CGFloat ((post.mediaHeight ?? 1) / (post.mediaWidth ?? 1))
         }
         let contentHeight = (post.content ?? "").heightAsTextView(withConstrainedWidth: cellWidth - 20, font: UIFont.appFont(size: 14), numberOfLines: 5)

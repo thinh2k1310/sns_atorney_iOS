@@ -16,6 +16,7 @@ final class PostDetailViewModel: ViewModel {
     let addCommentSuccess = PublishSubject<Void>()
     let deleteCommentSuccess = PublishSubject<Void>()
     let reloadComment = PublishSubject<Void>()
+    let updateLikeEvent = PublishSubject<Bool>()
     
     var post: PostDetail?
     var comments: [Comment] = []
@@ -91,6 +92,12 @@ final class PostDetailViewModel: ViewModel {
         }
         provider
             .likePost(likeRequest: LikeRequest(userId: userId, postId: postId))
+            .subscribe(onSuccess:  { [weak self] response in
+                print("Liked post")
+                if let isLike = response.like {
+                    self?.updateLikeEvent.onNext(isLike)
+                }
+            }).disposed(by: disposeBag)
     }
     
     func sendDefenceRequest(postId: String, customerId: String) {
@@ -162,7 +169,7 @@ final class PostDetailViewModel: ViewModel {
         guard let post = post else { return 0}
         let width = UIScreen.main.bounds.width
         var imageHeight: CGFloat = 0
-        if let _ = post.mediaUrl {
+        if let image = post.mediaUrl, !image.isEmpty {
             imageHeight = width * CGFloat ((post.mediaHeight ?? 1) / (post.mediaWidth ?? 1))
         }
         let textviewHeight = (post.content ?? "").heightAsLabel(withConstrainedWidth: width - 20, font: UIFont.appFont(size: 14), numberOfLines: 0)

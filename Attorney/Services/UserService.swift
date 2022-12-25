@@ -141,4 +141,11 @@ class UserService {
         UserDefaults.standard.synchronize()
         recentKeywordsChangedEvent.onNext(getRecentSearchKeywords())
     }
+    
+    func getUserInfor() -> UserInfo? {
+        if let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo) {
+            return userInfo
+        }
+        return nil
+    }
 }

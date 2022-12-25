@@ -211,10 +211,16 @@ extension ProfileViewController: NewsFeedCollectionViewCellDelegate {
 
     }
     
-    func viewDetailPost(_ post: String?) {
+    func viewDetailPost(_ post: String?, indexPath: IndexPath) {
         let postDetailVC = R.storyboard.detailPost.postDetailViewController()!
         guard let provider = Application.shared.provider else { return }
         let postDetailVM = PostDetailViewModel(provider: provider)
+        postDetailVM.updateLikeEvent.subscribe(onNext: { [weak self] (isLike) in
+            if let cell = self?.collectionView.cellForItem(at: indexPath) as? NewsFeedCollectionViewCell {
+                cell.updateLikeNumber(isLike: isLike)
+            }
+            
+        }).disposed(by: disposeBag)
         postDetailVM.postId = post
         postDetailVC.viewModel = postDetailVM
         self.navigationController?.pushViewController(postDetailVC, animated: true)

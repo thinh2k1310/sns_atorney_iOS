@@ -193,6 +193,38 @@ final class PostDetailViewController: ViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction private func didTapOptions(_ sender: Any) {
+        guard let viewModel = viewModel as? PostDetailViewModel,
+              let post = viewModel.post else { return }
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
+        let editAction = UIAlertAction(title: "Edit", style: UIAlertAction.Style.default) { [weak self] (_) in
+            
+        }
+        let deleteAction = UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive) { [weak self] (_) in
+            
+        }
+        
+        let reportAction = UIAlertAction(title: "Report", style: UIAlertAction.Style.default) { [weak self] (_) in
+            
+        }
+        
+        alertController.addAction(cancelAction)
+        guard let userInfor = UserService.shared.getUserInfor() else {
+            present(alertController, animated: true, completion: nil)
+            return
+        }
+
+        if userInfor.id == post.user?._id {
+            alertController.addAction(editAction)
+            alertController.addAction(deleteAction)
+        } else {
+            alertController.addAction(reportAction)
+        }
+        present(alertController, animated: true, completion: nil)
+    }
+    
     private func addContentHeightWhenShowKeyboard(isShowKeyboard: Bool, keyboardHeight: CGFloat) {
         if isShowKeyboard {
             self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
@@ -278,29 +310,48 @@ extension PostDetailViewController: CommentTableViewCellDelegate {
     }
     
     func deleteComment(_ commentId: String?) {
-        guard let viewModel = viewModel as? PostDetailViewModel,
+        guard let _ = viewModel as? PostDetailViewModel,
               let commentId = commentId else {
             return
         }
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
-//        let message = StringConstants.string_delete_comment()
-//        let customMessage = NSAttributedString(string: message, attributes: [.font: UIFont.appSemiBoldFont(size: 17), .foregroundColor: Color.colorError])
-//        alertController.setValue(customMessage, forKey: "attributedMessage")
-
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
-        let deleteAction = UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive) { (_) in
-            viewModel.deleteComment(commentId: commentId)
+        let deleteAction = UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive) { [weak self] (_) in
+            self?.selectDelete(commentId)
         }
 
-        let editAction = UIAlertAction(title: "Edit", style: UIAlertAction.Style.default) { (_) in
-            viewModel.deleteComment(commentId: commentId)
+        let editAction = UIAlertAction(title: "Edit", style: UIAlertAction.Style.default) { [weak self] (_) in
+            self?.selectDelete(commentId)
         }
 
         alertController.addAction(cancelAction)
         alertController.addAction(editAction)
         alertController.addAction(deleteAction)
+        present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    private func selectDelete(_ commentId: String?) {
+        guard let viewModel = viewModel as? PostDetailViewModel,
+              let commentId = commentId else {
+            return
+        }
+        
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        
+        let message = StringConstants.string_delete_comment()
+        let customMessage = NSAttributedString(string: message, attributes: [.font: UIFont.appSemiBoldFont(size: 17), .foregroundColor: Color.colorError])
+        alertController.setValue(customMessage, forKey: "attributedMessage")
+
+        let noAction = UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil)
+        let yesAction = UIAlertAction(title: "Yes", style: UIAlertAction.Style.destructive) { (_) in
+            viewModel.deleteComment(commentId: commentId)
+        }
+
+        alertController.addAction(noAction)
+        alertController.addAction(yesAction)
         present(alertController, animated: true, completion: nil)
         
     }

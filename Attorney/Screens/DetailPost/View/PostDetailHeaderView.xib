@@ -47,7 +47,7 @@
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iau-Ec-Adt">
                             <rect key="frame" x="0.0" y="153" width="635" height="200"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tJS-ay-w45">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tJS-ay-w45">
                                     <rect key="frame" x="0.0" y="0.0" width="635" height="200"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="200" id="Y5Z-Ne-gQB"/>

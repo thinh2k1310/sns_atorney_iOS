@@ -12,7 +12,7 @@ import Kingfisher
 import ReadMoreTextView
 
 protocol NewsFeedCollectionViewCellDelegate: AnyObject {
-    func viewDetailPost(_ post : String?)
+    func viewDetailPost(_ post : String?, indexPath: IndexPath)
     func likePost(_ post: String?)
     func requestPost(_ post: Post?)
     func viewProfile(userId: String?)
@@ -38,6 +38,8 @@ final class NewsFeedCollectionViewCell: UICollectionViewCell {
     private var post: Post?
     private var currentLikes: Int = 0
     private var isLikePost: Bool = false
+    var indexPath = IndexPath(index: 0)
+    weak var viewController: UIViewController?
     
     private var lineHeight: CGFloat {
         (self.postContentTextView.font?.lineHeight ?? 1).rounded(.up)
@@ -86,7 +88,7 @@ final class NewsFeedCollectionViewCell: UICollectionViewCell {
         }
         let width = UIScreen.main.bounds.width
         var imageHeight: CGFloat = 0
-        if let _ = post.mediaUrl {
+        if let image = post.mediaUrl, !image.isEmpty {
             imageHeight = width * CGFloat ((post.mediaHeight ?? 1) / (post.mediaWidth ?? 1))
         }
         imageViewHeight.constant = imageHeight
@@ -117,7 +119,7 @@ final class NewsFeedCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupPostImage(with post: Post){
-        if let imageUrl = post.mediaUrl {
+        if let imageUrl = post.mediaUrl, !imageUrl.isEmpty {
             let processor = DownsamplingImageProcessor(size: postImageView.bounds.size)
             postImageView.kf.setImage(
                 with: URL(string: imageUrl),
@@ -186,23 +188,40 @@ final class NewsFeedCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction private func didTapReadMoreButton(_ sender: Any) {
-        delegate?.viewDetailPost(post?._id)
+        delegate?.viewDetailPost(post?._id, indexPath: indexPath)
     }
     
     @IBAction private func didTapLikeButton(_ sender: Any) {
         self.likeButton.isSelected.toggle()
-        updateLikeNumber()
         self.isLikePost.toggle()
+        updateLikeNumber(isLike: self.isLikePost)
         self.delegate?.likePost(self.post?._id)
     }
     
     @IBAction private func didTapCommentButton(_ sender: Any) {
-        delegate?.viewDetailPost(self.post?._id)
+        delegate?.viewDetailPost(self.post?._id, indexPath: indexPath)
     }
     
     @IBAction private func didTapDefendButton(_ sender: Any) {
-        self.defendButton.isSelected.toggle()
-        delegate?.requestPost(self.post)
+        if defendButton.isSelected {
+            self.defendButton.isSelected.toggle()
+            self.delegate?.requestPost(self.post)
+        } else {
+            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+            let message = "Are you sure want to defend this case?"
+            let customMessage = NSAttributedString(string: message, attributes: [.font: UIFont.appSemiBoldFont(size: 17), .foregroundColor: Color.textColor])
+            alertController.setValue(customMessage, forKey: "attributedMessage")
+
+            let noAction = UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil)
+            let yesAction = UIAlertAction(title: "Yes", style: UIAlertAction.Style.default) { [weak self] (_) in
+                self?.defendButton.isSelected.toggle()
+                self?.delegate?.requestPost(self?.post)
+            }
+            
+            alertController.addAction(noAction)
+            alertController.addAction(yesAction)
+            self.viewController?.present(alertController, animated: true, completion: nil)
+        }
     }
     
     @IBAction func didTapUserView(_ sender: Any) {
@@ -210,11 +229,13 @@ final class NewsFeedCollectionViewCell: UICollectionViewCell {
     }
     
     @objc private func seeDetailPost() {
-        delegate?.viewDetailPost(self.post?._id)
+        delegate?.viewDetailPost(self.post?._id, indexPath: indexPath)
     }
     
-    private func updateLikeNumber() {
-        if self.isLikePost {
+    func updateLikeNumber(isLike: Bool) {
+        self.likeButton.isSelected = isLike
+        self.isLikePost = isLike
+        if !isLike {
             currentLikes -= 1
         } else {
             currentLikes += 1
