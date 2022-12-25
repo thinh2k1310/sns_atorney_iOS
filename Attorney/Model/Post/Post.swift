@@ -68,7 +68,7 @@ struct PostDetail: Codable {
 
 struct PostDetailResponse: Codable {
     let success: Bool?
-    let data: PostDetail?
+    let data: Post?
     let message: String?
 }
 
@@ -77,4 +77,9 @@ struct CreatePostRequest {
     let type: String
     let media: UIImage?
     let category: String
+}
+
+struct EditPostRequest: Codable {
+    let id: String
+    let content: String
 }

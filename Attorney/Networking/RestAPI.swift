@@ -155,6 +155,22 @@ extension RestAPI {
     func deleteCaseComment(commentId: String) -> Single<CommonReponse> {
         return requestObject(.deleteCaseComment(commentId: commentId), type: CommonReponse.self)
     }
+    
+    func editComment(editCmtRequest: EditCommentRequest) -> Single<CommonReponse> {
+        return requestObject(.editComment(editCmtRequest: editCmtRequest), type: CommonReponse.self)
+    }
+    
+    func editPost(editPostRequest: EditPostRequest) -> Single<CommonReponse> {
+        return requestObject(.editPost(editPostRequest: editPostRequest), type: CommonReponse.self)
+    }
+    
+    func deletePost(postId: String) -> Single<CommonReponse> {
+        return requestObject(.deletePost(postId: postId), type: CommonReponse.self)
+    }
+    
+    func report(request: ReportRequest) -> Single<CommonReponse> {
+        return requestObject(.report(request: request), type: CommonReponse.self)
+    }
 }
 
 extension RestAPI {

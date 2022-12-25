@@ -16,6 +16,9 @@
 		0302BBAD2926609C000238A1 /* NewsFeedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0302BBAC2926609C000238A1 /* NewsFeedCollectionViewCell.xib */; };
 		03032BC62942532900E48A09 /* PostFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03032BC52942532900E48A09 /* PostFilterViewController.swift */; };
 		0309D987290048B50000F9D6 /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0309D986290048B50000F9D6 /* InputTextField.swift */; };
+		032C89162958B34300A3F586 /* EditComment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 032C89152958B34300A3F586 /* EditComment.storyboard */; };
+		032C89182958B35F00A3F586 /* EditCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032C89172958B35F00A3F586 /* EditCommentViewController.swift */; };
+		032C891B2958B37800A3F586 /* EditCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032C891A2958B37800A3F586 /* EditCommentViewModel.swift */; };
 		034007EB29421FC100133BBF /* HeaderFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034007E929421FC100133BBF /* HeaderFilterView.swift */; };
 		034007EC29421FC100133BBF /* HeaderFilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 034007EA29421FC100133BBF /* HeaderFilterView.xib */; };
 		034007F129424E8100133BBF /* PostFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034007F029424E8100133BBF /* PostFilterView.swift */; };
@@ -101,6 +104,8 @@
 		03B893FC29290EB000803DD9 /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B893FB29290EB000803DD9 /* UserDefaultExtension.swift */; };
 		03BBA0282948ABE400C975BB /* Documents.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BBA0272948ABE400C975BB /* Documents.storyboard */; };
 		03BBA02B2948AC6300C975BB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BBA02A2948AC6300C975BB /* WebViewController.swift */; };
+		03BF9B73295960AD00761E85 /* ReportHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BF9B71295960AD00761E85 /* ReportHeaderView.swift */; };
+		03BF9B74295960AD00761E85 /* ReportHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03BF9B72295960AD00761E85 /* ReportHeaderView.xib */; };
 		03C40A0F2933D2400097A905 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C40A0E2933D2400097A905 /* Comment.swift */; };
 		03C8A031290F2CF80093E097 /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C8A030290F2CF80093E097 /* UITextViewExtension.swift */; };
 		03CEB1692948277600EFFD6C /* ViewReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CEB1682948277600EFFD6C /* ViewReviewViewController.swift */; };
@@ -115,6 +120,13 @@
 		03D7309628FEDAA300BBA498 /* RequestOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D7309528FEDAA300BBA498 /* RequestOTPViewController.swift */; };
 		03D7309D28FEEE4D00BBA498 /* VerifyOTP.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D7309C28FEEE4D00BBA498 /* VerifyOTP.storyboard */; };
 		03D730A028FEEF4C00BBA498 /* VerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D7309F28FEEF4C00BBA498 /* VerifyOTPViewController.swift */; };
+		03DE95DE295931E1007F847C /* EditPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03DE95DD295931E1007F847C /* EditPost.storyboard */; };
+		03DE95E1295932A9007F847C /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE95E0295932A9007F847C /* EditPostViewController.swift */; };
+		03DE95E32959344F007F847C /* EditPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE95E22959344F007F847C /* EditPostViewModel.swift */; };
+		03DE95E5295952A6007F847C /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE95E4295952A6007F847C /* Report.swift */; };
+		03DE95E82959543C007F847C /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE95E72959543C007F847C /* ReportViewController.swift */; };
+		03DE95EA29595449007F847C /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE95E929595449007F847C /* ReportViewModel.swift */; };
+		03DE95EF295955B1007F847C /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03DE95EE295955B1007F847C /* Report.storyboard */; };
 		03E318CE292BD3C0004C7791 /* NSAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E318CD292BD3C0004C7791 /* NSAttributedStringExtension.swift */; };
 		03ED5A20294183300036B82C /* ListAttorney.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03ED5A1F294183300036B82C /* ListAttorney.storyboard */; };
 		03ED5A23294183C80036B82C /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED5A22294183C80036B82C /* CategoryViewController.swift */; };
@@ -248,6 +260,9 @@
 		0302BBAC2926609C000238A1 /* NewsFeedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsFeedCollectionViewCell.xib; sourceTree = "<group>"; };
 		03032BC52942532900E48A09 /* PostFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFilterViewController.swift; sourceTree = "<group>"; };
 		0309D986290048B50000F9D6 /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
+		032C89152958B34300A3F586 /* EditComment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditComment.storyboard; sourceTree = "<group>"; };
+		032C89172958B35F00A3F586 /* EditCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCommentViewController.swift; sourceTree = "<group>"; };
+		032C891A2958B37800A3F586 /* EditCommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCommentViewModel.swift; sourceTree = "<group>"; };
 		034007E929421FC100133BBF /* HeaderFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFilterView.swift; sourceTree = "<group>"; };
 		034007EA29421FC100133BBF /* HeaderFilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderFilterView.xib; sourceTree = "<group>"; };
 		034007F029424E8100133BBF /* PostFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFilterView.swift; sourceTree = "<group>"; };
@@ -333,6 +348,8 @@
 		03B893FB29290EB000803DD9 /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtension.swift; sourceTree = "<group>"; };
 		03BBA0272948ABE400C975BB /* Documents.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Documents.storyboard; sourceTree = "<group>"; };
 		03BBA02A2948AC6300C975BB /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		03BF9B71295960AD00761E85 /* ReportHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportHeaderView.swift; sourceTree = "<group>"; };
+		03BF9B72295960AD00761E85 /* ReportHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportHeaderView.xib; sourceTree = "<group>"; };
 		03C40A0E2933D2400097A905 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		03C8A030290F2CF80093E097 /* UITextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
 		03CEB1682948277600EFFD6C /* ViewReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReviewViewController.swift; sourceTree = "<group>"; };
@@ -347,6 +364,13 @@
 		03D7309528FEDAA300BBA498 /* RequestOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestOTPViewController.swift; sourceTree = "<group>"; };
 		03D7309C28FEEE4D00BBA498 /* VerifyOTP.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerifyOTP.storyboard; sourceTree = "<group>"; };
 		03D7309F28FEEF4C00BBA498 /* VerifyOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewController.swift; sourceTree = "<group>"; };
+		03DE95DD295931E1007F847C /* EditPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditPost.storyboard; sourceTree = "<group>"; };
+		03DE95E0295932A9007F847C /* EditPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
+		03DE95E22959344F007F847C /* EditPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostViewModel.swift; sourceTree = "<group>"; };
+		03DE95E4295952A6007F847C /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		03DE95E72959543C007F847C /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		03DE95E929595449007F847C /* ReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
+		03DE95EE295955B1007F847C /* Report.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Report.storyboard; sourceTree = "<group>"; };
 		03E318CD292BD3C0004C7791 /* NSAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtension.swift; sourceTree = "<group>"; };
 		03ED5A1F294183300036B82C /* ListAttorney.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListAttorney.storyboard; sourceTree = "<group>"; };
 		03ED5A22294183C80036B82C /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -506,6 +530,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		032C89192958B36400A3F586 /* EditComment */ = {
+			isa = PBXGroup;
+			children = (
+				032C89172958B35F00A3F586 /* EditCommentViewController.swift */,
+				032C891A2958B37800A3F586 /* EditCommentViewModel.swift */,
+			);
+			path = EditComment;
+			sourceTree = "<group>";
+		};
 		034007ED2942253400133BBF /* FilterViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -525,6 +558,8 @@
 				034007EA29421FC100133BBF /* HeaderFilterView.xib */,
 				034007F029424E8100133BBF /* PostFilterView.swift */,
 				034007F229424E9000133BBF /* PostFilterView.xib */,
+				03BF9B71295960AD00761E85 /* ReportHeaderView.swift */,
+				03BF9B72295960AD00761E85 /* ReportHeaderView.xib */,
 			);
 			path = FilterView;
 			sourceTree = "<group>";
@@ -743,6 +778,24 @@
 				035424D52912D42C002235FB /* VerifyOTPViewModel.swift */,
 			);
 			path = VerifyOTP;
+			sourceTree = "<group>";
+		};
+		03DE95DF29593293007F847C /* EditPost */ = {
+			isa = PBXGroup;
+			children = (
+				03DE95E0295932A9007F847C /* EditPostViewController.swift */,
+				03DE95E22959344F007F847C /* EditPostViewModel.swift */,
+			);
+			path = EditPost;
+			sourceTree = "<group>";
+		};
+		03DE95E62959540F007F847C /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				03DE95E72959543C007F847C /* ReportViewController.swift */,
+				03DE95E929595449007F847C /* ReportViewModel.swift */,
+			);
+			path = Report;
 			sourceTree = "<group>";
 		};
 		03ED5A21294183910036B82C /* Category */ = {
@@ -983,6 +1036,7 @@
 				F38C377329365C02004290AC /* CommonResponse.swift */,
 				03ED5A30294194370036B82C /* Category.swift */,
 				034D7AA02941D0B000D74BD6 /* Review.swift */,
+				03DE95E4295952A6007F847C /* Report.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1003,6 +1057,8 @@
 		F37CB00F28E81AE40061B273 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				03DE95E62959540F007F847C /* Report */,
+				03DE95DF29593293007F847C /* EditPost */,
 				03BBA0292948AC5100C975BB /* WebView */,
 				036F8E3529431891005D459E /* Search */,
 				03ED5A392941B1C10036B82C /* Review */,
@@ -1029,6 +1085,7 @@
 				03D583A12914EF2900D0D4E3 /* Success */,
 				0359A774293EEA890097F90D /* ChangePassword */,
 				034007ED2942253400133BBF /* FilterViewController */,
+				032C89192958B36400A3F586 /* EditComment */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -1067,6 +1124,9 @@
 				03ED5A372941ABFD0036B82C /* Review.storyboard */,
 				034D7AA22942078900D74BD6 /* SortAndFilter.storyboard */,
 				03BBA0272948ABE400C975BB /* Documents.storyboard */,
+				032C89152958B34300A3F586 /* EditComment.storyboard */,
+				03DE95DD295931E1007F847C /* EditPost.storyboard */,
+				03DE95EE295955B1007F847C /* Report.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -1405,6 +1465,7 @@
 				F32C525928F5E50200E6C840 /* ProximaNova-Thin.otf in Resources */,
 				F32C525D28F5E50200E6C840 /* ProximaNova-LightIt.otf in Resources */,
 				036F8E6429435725005D459E /* SearchFooterView.xib in Resources */,
+				03DE95EF295955B1007F847C /* Report.storyboard in Resources */,
 				F32C525F28F5E50200E6C840 /* ProximaNova-BlackIt.otf in Resources */,
 				034007F329424E9000133BBF /* PostFilterView.xib in Resources */,
 				F31EF4F828F1E18E0043E7AB /* Localizable.strings in Resources */,
@@ -1416,6 +1477,7 @@
 				F3CC097E293508AB00437035 /* CommentTableViewCell.xib in Resources */,
 				F32C522928F32D7E00E6C840 /* launchScreen.json in Resources */,
 				039772552912C6460042A435 /* Error.storyboard in Resources */,
+				032C89162958B34300A3F586 /* EditComment.storyboard in Resources */,
 				F32C525828F5E50200E6C840 /* ProximaNova-RegIt.otf in Resources */,
 				0302BBA029262BD5000238A1 /* HeaderHomeReusableView.xib in Resources */,
 				F37CB02728E83D200061B273 /* DashboardTabbar.storyboard in Resources */,
@@ -1433,7 +1495,9 @@
 				036F8E4029431ABC005D459E /* RecentSearchCollectionViewCell.xib in Resources */,
 				0302BBAD2926609C000238A1 /* NewsFeedCollectionViewCell.xib in Resources */,
 				F38C77DC293C676400D27996 /* Profile.storyboard in Resources */,
+				03DE95DE295931E1007F847C /* EditPost.storyboard in Resources */,
 				F38C77CD293AF5F200D27996 /* CaseTableViewCell.xib in Resources */,
+				03BF9B74295960AD00761E85 /* ReportHeaderView.xib in Resources */,
 				03ED5A36294197D90036B82C /* AttorneyCell.xib in Resources */,
 				037665B2292FEEF9002FA7DE /* DetailPost.storyboard in Resources */,
 				03CEB170294827A700EFFD6C /* ReviewTableViewCell.xib in Resources */,
@@ -1582,6 +1646,7 @@
 				03A63DA229053ABA00C1C72D /* DateExtension.swift in Sources */,
 				03B893E629288DB000803DD9 /* Post.swift in Sources */,
 				F3886F1828EFD06600A14F47 /* SplashViewController.swift in Sources */,
+				03DE95E82959543C007F847C /* ReportViewController.swift in Sources */,
 				F37CB03A28E840930061B273 /* LoginViewController.swift in Sources */,
 				03BBA02B2948AC6300C975BB /* WebViewController.swift in Sources */,
 				F37CB01928E81D570061B273 /* ApplicationCoordinator.swift in Sources */,
@@ -1622,6 +1687,7 @@
 				F38C77D8293C668500D27996 /* ProfileViewController.swift in Sources */,
 				03D730A028FEEF4C00BBA498 /* VerifyOTPViewController.swift in Sources */,
 				03CEB1692948277600EFFD6C /* ViewReviewViewController.swift in Sources */,
+				03BF9B73295960AD00761E85 /* ReportHeaderView.swift in Sources */,
 				03B893F8292907FC00803DD9 /* UIImageViewExtension.swift in Sources */,
 				036F8E4D294339B5005D459E /* SearchChildViewController.swift in Sources */,
 				F37C0352293A199300674118 /* CaseChildViewModel.swift in Sources */,
@@ -1646,7 +1712,10 @@
 				F37CB04828E843510061B273 /* ColorConstants.swift in Sources */,
 				035424D62912D42C002235FB /* VerifyOTPViewModel.swift in Sources */,
 				F32C522128F2A73A00E6C840 /* UIColorExtension.swift in Sources */,
+				032C89182958B35F00A3F586 /* EditCommentViewController.swift in Sources */,
 				03E318CE292BD3C0004C7791 /* NSAttributedStringExtension.swift in Sources */,
+				03DE95E5295952A6007F847C /* Report.swift in Sources */,
+				03DE95EA29595449007F847C /* ReportViewModel.swift in Sources */,
 				03A63DA02905388000C1C72D /* ValidationRegistrationForm.swift in Sources */,
 				03032BC62942532900E48A09 /* PostFilterViewController.swift in Sources */,
 				F37CB04028E840F50061B273 /* MenuViewController.swift in Sources */,
@@ -1681,12 +1750,15 @@
 				03B893ED2928C43E00803DD9 /* LoadmoreIndicatorReusableView.swift in Sources */,
 				035A46CF291410BB00A64898 /* DigitInputView.swift in Sources */,
 				034007EB29421FC100133BBF /* HeaderFilterView.swift in Sources */,
+				03DE95E32959344F007F847C /* EditPostViewModel.swift in Sources */,
 				F37CB04428E841140061B273 /* NotificationsViewController.swift in Sources */,
 				F38C77DF293C961300D27996 /* ProfileHeaderReusableView.swift in Sources */,
 				03EE2BC2290D20BD00A8317A /* Single+Codable.swift in Sources */,
 				03933CC72932474F001E4631 /* PostDetailViewModel.swift in Sources */,
+				03DE95E1295932A9007F847C /* EditPostViewController.swift in Sources */,
 				03EE2BC4290D4F2700A8317A /* LoginViewModel.swift in Sources */,
 				038B9DF729162D4400039F4D /* ResetPassword.swift in Sources */,
+				032C891B2958B37800A3F586 /* EditCommentViewModel.swift in Sources */,
 				F32C526328F7259200E6C840 /* UITextFieldExtension.swift in Sources */,
 				03A63D9E2905371300C1C72D /* RegisterViewController.swift in Sources */,
 				03A4D047293E550A00C40190 /* ChangeImageViewModel.swift in Sources */,

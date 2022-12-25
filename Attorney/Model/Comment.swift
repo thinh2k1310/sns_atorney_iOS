@@ -53,3 +53,8 @@ struct CaseCommentRequest: Codable {
     let caseId: String
     let content: String
 }
+
+struct EditCommentRequest: Codable {
+    let id: String
+    let content: String
+}

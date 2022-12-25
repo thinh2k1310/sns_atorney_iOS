@@ -16,9 +16,9 @@ final class PostDetailViewModel: ViewModel {
     let addCommentSuccess = PublishSubject<Void>()
     let deleteCommentSuccess = PublishSubject<Void>()
     let reloadComment = PublishSubject<Void>()
-    let updateLikeEvent = PublishSubject<Bool>()
+    let deletePostSuccess = PublishSubject<Void>()
     
-    var post: PostDetail?
+    var post: Post?
     var comments: [Comment] = []
     var postId: String?
     
@@ -92,12 +92,29 @@ final class PostDetailViewModel: ViewModel {
         }
         provider
             .likePost(likeRequest: LikeRequest(userId: userId, postId: postId))
-            .subscribe(onSuccess:  { [weak self] response in
-                print("Liked post")
-                if let isLike = response.like {
-                    self?.updateLikeEvent.onNext(isLike)
-                }
+            .subscribe(onSuccess:  { [weak self] _ in
+                self?.getPostDetail()
             }).disposed(by: disposeBag)
+    }
+    
+    func deletePost() {
+        guard let postId = postId else {
+            return
+        }
+
+        provider.deletePost(postId: postId)
+            .trackActivity(self.bodyLoading)
+            .asSingle()
+            .subscribe { [weak self] (response) in
+                guard let self = self else { return }
+                if let success = response.success {
+                    if success {
+                        self.deletePostSuccess.onNext(())
+                    }
+                }
+            } onFailure: { (_) in
+                print("fetch news feed failed")
+            }.disposed(by: disposeBag)
     }
     
     func sendDefenceRequest(postId: String, customerId: String) {
@@ -156,11 +173,13 @@ final class PostDetailViewModel: ViewModel {
     
     private func subcribeReloadComment() {
         addCommentSuccess.subscribe(onNext: { [weak self] in
+            self?.getPostDetail()
             self?.getPostComments()
             self?.reloadComment.onNext(())
         }).disposed(by: disposeBag)
         
         deleteCommentSuccess.subscribe(onNext: { [weak self] in
+            self?.getPostDetail()
             self?.getPostComments()
         }).disposed(by: disposeBag)
     }
@@ -186,6 +205,6 @@ final class PostDetailViewModel: ViewModel {
 }
 
 enum PostDetailResult {
-    case successAPI(post: PostDetail)
+    case successAPI(post: Post)
     case errorAPI(message: String)
 }

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ProximaNova-Reg.otf">
+            <string>ProximaNova-Regular</string>
+        </array>
+        <array key="ProximaNova-Sbold.otf">
+            <string>ProximaNova-Semibold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Report View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ReportViewController" id="Y6W-OH-hqX" customClass="ReportViewController" customModule="Attorney" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9zF-i0-VRN">
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxa-iF-Bbg">
+                                        <rect key="frame" x="181.5" y="9.5" width="51" height="21"/>
+                                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ToJ-dH-kyW">
+                                        <rect key="frame" x="354" y="-5" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="7vK-n2-Xf1"/>
+                                            <constraint firstAttribute="width" constant="50" id="Rdx-R3-aBz"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="icon-close-grey"/>
+                                        <connections>
+                                            <action selector="didTapClose:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hbL-LU-eqQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ToJ-dH-kyW" secondAttribute="trailing" constant="10" id="EvZ-yI-KWX"/>
+                                    <constraint firstItem="uxa-iF-Bbg" firstAttribute="centerX" secondItem="9zF-i0-VRN" secondAttribute="centerX" id="Gq8-cz-aNn"/>
+                                    <constraint firstAttribute="height" constant="60" id="Vxc-d1-nDy"/>
+                                    <constraint firstItem="ToJ-dH-kyW" firstAttribute="centerY" secondItem="uxa-iF-Bbg" secondAttribute="centerY" id="ajG-GQ-PNN"/>
+                                    <constraint firstItem="uxa-iF-Bbg" firstAttribute="centerY" secondItem="9zF-i0-VRN" secondAttribute="centerY" constant="-10" id="pmq-3m-1Dx"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyd-nz-L1G">
+                                <rect key="frame" x="107" y="802" width="200" height="40"/>
+                                <color key="backgroundColor" name="AppTintColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="S3i-OS-njp"/>
+                                    <constraint firstAttribute="height" constant="40" id="Tu3-zx-6z8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="didTapReport:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9mN-ns-75c"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KSC-m7-Haa">
+                                <rect key="frame" x="0.0" y="94" width="414" height="708"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SDq-d1-QR9">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Z15-TG-4Mw">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ldb-Ka-jg0">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9zF-i0-VRN" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="0or-Ww-Nk2"/>
+                            <constraint firstItem="KSC-m7-Haa" firstAttribute="top" secondItem="9zF-i0-VRN" secondAttribute="bottom" constant="-10" id="8TP-XM-IoU"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="cyd-nz-L1G" secondAttribute="bottom" constant="20" id="AmY-tY-STW"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="KSC-m7-Haa" secondAttribute="trailing" id="J4A-Cd-m1Y"/>
+                            <constraint firstItem="9zF-i0-VRN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="KcF-ko-fte"/>
+                            <constraint firstItem="9zF-i0-VRN" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="OW7-oL-Syu"/>
+                            <constraint firstItem="cyd-nz-L1G" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="QmM-gm-dzu"/>
+                            <constraint firstItem="cyd-nz-L1G" firstAttribute="top" secondItem="KSC-m7-Haa" secondAttribute="bottom" id="cpK-si-HS9"/>
+                            <constraint firstItem="KSC-m7-Haa" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="umH-Ft-PWi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="KSC-m7-Haa" id="T6x-x7-iqD"/>
+                        <outlet property="submitButton" destination="cyd-nz-L1G" id="Sga-5m-DJE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-288" y="15"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon-close-grey" width="24" height="24"/>
+        <namedColor name="AppTintColor">
+            <color red="0.31764705882352939" green="0.31764705882352939" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

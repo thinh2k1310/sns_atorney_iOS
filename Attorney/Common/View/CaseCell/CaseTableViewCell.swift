@@ -38,7 +38,7 @@ class CaseTableViewCell: UITableViewCell {
                 setupUserView(user: cases.attorney!, isAttorney: false)
             }
         }
-        setupPostView(post: cases.post!)
+        setupPostView(post: cases.post)
         setupInfoView(with: cases)
         
     }
@@ -64,7 +64,13 @@ class CaseTableViewCell: UITableViewCell {
         userNameLabel.text = userName
     }
     
-    private func setupPostView(post: ShortPost) {
+    private func setupPostView(post: ShortPost?) {
+        guard let post = post else {
+            postImageSuperView.isHidden = true
+            postContentLabel.text = "This content isn't available."
+            return
+        }
+
         // Image
         if let image = post.mediaUrl, !image.isEmpty {
             let processor = DownsamplingImageProcessor(size: postImageView.bounds.size)

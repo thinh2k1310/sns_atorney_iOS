@@ -105,6 +105,22 @@ final class HomeViewModel: ViewModel {
         return [SectionModel<String, Post>(model: "", items: items)]
     }
     
+    func removeItem(at indexPath: IndexPath) {
+        guard var sections = try? dataSources.value() else { return }
+
+        // Get the current section from the indexPath
+        var currentSection = sections[indexPath.section]
+
+        // Remove the item from the section at the specified indexPath
+        currentSection.items.remove(at: indexPath.row)
+
+        // Update the section on section list
+        sections[indexPath.section] = currentSection
+
+        // Inform your subject with the new changes
+        dataSources.onNext(sections)
+    }
+    
     func getPosts() {
         var sortOrder: SortOrder = SortOrder(created: -1, totalReactions: nil)
         switch sortBy {

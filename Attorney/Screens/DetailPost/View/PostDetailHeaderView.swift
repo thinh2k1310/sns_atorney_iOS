@@ -9,9 +9,9 @@ import UIKit
 import Kingfisher
 
 protocol PostDetailHeaderViewDelegate: AnyObject {
-    func commetPost(_ post : PostDetail?)
-    func likePost(_ post: PostDetail?, user: String?)
-    func requestPost(_ post: PostDetail?, user: String?)
+    func commetPost(_ post : Post?)
+    func likePost(_ post: Post?, user: String?)
+    func requestPost(_ post: Post?, user: String?)
 }
 
 final class PostDetailHeaderView: UITableViewHeaderFooterView {
@@ -25,13 +25,13 @@ final class PostDetailHeaderView: UITableViewHeaderFooterView {
     @IBOutlet private weak var imageViewWidth: NSLayoutConstraint!
     @IBOutlet private weak var contentViewHeight: NSLayoutConstraint!
     
-    private var post: PostDetail?
+    private var post: Post?
     private var currentLikes: Int = 0
     private var isLikePost: Bool = false
     
     weak var delegate: PostDetailHeaderViewDelegate?
     
-    func configureHeaderView(post: PostDetail) {
+    func configureHeaderView(post: Post) {
         self.post = post
         setupContentView(with: post)
         setupPostImage(with: post)
@@ -56,7 +56,7 @@ final class PostDetailHeaderView: UITableViewHeaderFooterView {
         contentViewHeight.constant = textviewHeight + imageHeight + 10
     }
     
-    private func setupContentView(with post: PostDetail) {
+    private func setupContentView(with post: Post) {
         self.contentTextView.text = post.content
         self.contentTextView.textContainerInset = UIEdgeInsets.zero
         self.contentTextView.textContainer.lineFragmentPadding = 0
@@ -67,7 +67,7 @@ final class PostDetailHeaderView: UITableViewHeaderFooterView {
     
     }
     
-    private func setupPostImage(with post: PostDetail){
+    private func setupPostImage(with post: Post){
         if let imageUrl = post.mediaUrl, !imageUrl.isEmpty {
             let processor = DownsamplingImageProcessor(size: postImageView.bounds.size)
             postImageView.kf.setImage(
@@ -84,7 +84,7 @@ final class PostDetailHeaderView: UITableViewHeaderFooterView {
         }
     }
     
-    private func setupNumberOfLikesLabel(with post: PostDetail) {
+    private func setupNumberOfLikesLabel(with post: Post) {
         if let numberOfLikes = post.totalLikes, let isLike = post.isLikePost {
             self.currentLikes = numberOfLikes
             self.isLikePost = isLike
@@ -101,7 +101,7 @@ final class PostDetailHeaderView: UITableViewHeaderFooterView {
         }
     }
     
-    private func setupNumberOfCommentLabel(with post: PostDetail){
+    private func setupNumberOfCommentLabel(with post: Post){
         if let numberOfComments = post.totalComments {
             var text = ""
             if numberOfComments <= 1 {
@@ -113,7 +113,7 @@ final class PostDetailHeaderView: UITableViewHeaderFooterView {
         }
     }
     
-    private func setupDefenceButton(with post: PostDetail) {
+    private func setupDefenceButton(with post: Post) {
         if let userInfo : UserInfo = UserDefaults.standard.retrieveObject(forKey: UserKey.kUserInfo) {
             defendButton.isHidden = (post.user?._id == userInfo.id || post.type == PostType.DISCUSSING.rawValue || userInfo.role != UserRole.attorney.rawValue || post.isBlock == true)
         }

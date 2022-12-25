@@ -206,7 +206,7 @@ extension CaseDetailViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension CaseDetailViewController: CommentTableViewCellDelegate {
-    func deleteComment(_ commentId: String?) {
+    func deleteComment(_ commentId: String?, _ content: String?) {
         guard let viewModel = viewModel as? CaseDetailViewModel,
               let commentId = commentId else {
             return

@@ -67,6 +67,8 @@ final class CaseDetailViewModel: ViewModel {
                 if response.success == true {
                     self.reloadCaseEvent.onNext(())
                 }
+            }, onFailure: { [weak self] _ in
+                self?.reloadCaseEvent.onNext(())
             }).disposed(by: disposeBag)
     }
     
@@ -83,6 +85,8 @@ final class CaseDetailViewModel: ViewModel {
                 if response.success == true {
                     self.reloadCaseEvent.onNext(())
                 }
+            }, onFailure: { [weak self] _ in
+                self?.reloadCaseEvent.onNext(())
             }).disposed(by: disposeBag)
     }
     

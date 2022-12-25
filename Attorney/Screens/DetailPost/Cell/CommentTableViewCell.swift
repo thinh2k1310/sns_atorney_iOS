@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 protocol CommentTableViewCellDelegate: AnyObject {
-    func deleteComment(_ commentId: String?)
+    func deleteComment(_ commentId: String?, _ content: String?)
     func viewProfile(_ userId: String?)
 }
 
@@ -98,12 +98,12 @@ final class CommentTableViewCell: UITableViewCell {
     }
     
     @IBAction private func deleteButtonDidTap(_ sender: Any) {
-        if let comment = comment, let id = comment._id {
-            self.delegate?.deleteComment(id)
+        if let comment = comment, let id = comment._id, let content = comment.content {
+            self.delegate?.deleteComment(id, content)
         }
         
         if let comment = caseComment, let id = comment._id {
-            self.delegate?.deleteComment(id)
+            self.delegate?.deleteComment(id, nil)
         }
     }
     

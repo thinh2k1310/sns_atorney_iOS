@@ -235,13 +235,21 @@ extension HomeViewController: NewsFeedCollectionViewCellDelegate {
     
     func viewDetailPost(_ post: String?, indexPath: IndexPath) {
         let postDetailVC = R.storyboard.detailPost.postDetailViewController()!
-        guard let provider = Application.shared.provider else { return }
+        guard let provider = Application.shared.provider, let viewModel = viewModel as? HomeViewModel else { return }
         let postDetailVM = PostDetailViewModel(provider: provider)
-        postDetailVM.updateLikeEvent.subscribe(onNext: { [weak self] (isLike) in
-            if let cell = self?.collectionView.cellForItem(at: indexPath) as? NewsFeedCollectionViewCell {
-                cell.updateLikeNumber(isLike: isLike)
-            }
-            
+        postDetailVM.postDetailEvent
+            .subscribe(onNext: { [weak self] event in
+                switch event {
+                case .successAPI(let post):
+                    if let cell = self?.collectionView.cellForItem(at: indexPath) as? NewsFeedCollectionViewCell {
+                        cell.bindingData(with: post)
+                    }
+                case .errorAPI(let message):
+                    log.debug(message)
+                }
+            }).disposed(by: disposeBag)
+        postDetailVM.deletePostSuccess.subscribe(onNext: {
+            viewModel.removeItem(at: indexPath)
         }).disposed(by: disposeBag)
         postDetailVM.postId = post
         postDetailVC.viewModel = postDetailVM

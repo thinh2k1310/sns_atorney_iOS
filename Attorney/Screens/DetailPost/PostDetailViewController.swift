@@ -27,6 +27,8 @@ final class PostDetailViewController: ViewController {
         view.isHidden = false
         return view
     }()
+    
+    let refreshControl = UIRefreshControl()
 
 // MARK: - Licycle View
     override func viewDidLoad() {
@@ -37,6 +39,7 @@ final class PostDetailViewController: ViewController {
         
         configureTableView()
         self.configureWhiteBackground()
+        self.configureRefreshControl()
         
         //Gesture
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -80,6 +83,7 @@ final class PostDetailViewController: ViewController {
             .subscribe(onNext: { [weak self] event in
                 guard let self = self else { return }
                 self.whiteBackgroundView.isHidden = true
+                self.refreshControl.endRefreshing()
                 switch event {
                 case .successAPI(let post):
                     self.bindingUI(post: post)
@@ -100,6 +104,12 @@ final class PostDetailViewController: ViewController {
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
                 self.tableView.scrollToBottom()
+            }).disposed(by: disposeBag)
+        
+        viewModel.deletePostSuccess
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.showAlertDeleteSuccess()
             }).disposed(by: disposeBag)
             
     }
@@ -154,7 +164,7 @@ final class PostDetailViewController: ViewController {
         whiteBackgroundView.isHidden = false
     }
     
-    private func bindingUI(post: PostDetail) {
+    private func bindingUI(post: Post) {
         guard let user = post.user else { return }
         setupUserView(user: user)
     }
@@ -176,6 +186,20 @@ final class PostDetailViewController: ViewController {
         // Name
         let userName = "\(user.firstName ?? "") \(user.lastName ?? "User")"
         userNameLabel.text = userName
+    }
+    
+    private func configureRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        guard let viewModel = viewModel as? PostDetailViewModel else {
+            refreshControl.endRefreshing()
+            return
+        }
+        viewModel.getPostDetail()
+        viewModel.getPostComments()
     }
     
     @IBAction private func didTapPostButton(_ sender: Any) {
@@ -200,14 +224,14 @@ final class PostDetailViewController: ViewController {
 
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
         let editAction = UIAlertAction(title: "Edit", style: UIAlertAction.Style.default) { [weak self] (_) in
-            
+            self?.editPost()
         }
         let deleteAction = UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive) { [weak self] (_) in
-            
+            self?.deletePost()
         }
         
         let reportAction = UIAlertAction(title: "Report", style: UIAlertAction.Style.default) { [weak self] (_) in
-            
+            self?.reportPost()
         }
         
         alertController.addAction(cancelAction)
@@ -222,6 +246,78 @@ final class PostDetailViewController: ViewController {
         } else {
             alertController.addAction(reportAction)
         }
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func deletePost() {
+        guard let viewModel = viewModel as? PostDetailViewModel else {
+            return
+        }
+        
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        
+        let message = "Are you sure want to delete this post? This action cannot be undone."
+        let customMessage = NSAttributedString(string: message, attributes: [.font: UIFont.appSemiBoldFont(size: 17), .foregroundColor: Color.colorError])
+        alertController.setValue(customMessage, forKey: "attributedMessage")
+
+        let noAction = UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil)
+        let yesAction = UIAlertAction(title: "Yes", style: UIAlertAction.Style.destructive) { (_) in
+            viewModel.deletePost()
+        }
+
+        alertController.addAction(noAction)
+        alertController.addAction(yesAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func editPost() {
+        let editPostVC = R.storyboard.editPost.editPostViewController()!
+        editPostVC.modalPresentationStyle = .fullScreen
+        guard let provider = Application.shared.provider, let viewModel = viewModel as? PostDetailViewModel else { return }
+        guard let postContent = viewModel.post?.content else { return }
+        let editPostVM = EditPostViewModel(provider: provider)
+        editPostVM.postId = viewModel.postId
+        editPostVM.content = postContent
+        editPostVM.editPostSuccess.subscribe(onNext: {
+            viewModel.getPostDetail()
+        }).disposed(by: disposeBag)
+        editPostVC.viewModel = editPostVM
+        self.present(editPostVC, animated: true)
+    }
+    
+    private func reportPost() {
+        let reportVC = R.storyboard.report.reportViewController()!
+        guard let provider = Application.shared.provider, let viewModel = viewModel as? PostDetailViewModel else { return }
+        let reportVM = ReportViewModel(provider: provider)
+        reportVM.showAlertEvent
+            .subscribe(onNext: { [weak self] in
+                self?.showAlertReportSuccess()
+            }).disposed(by: disposeBag)
+        
+        reportVM.reportedUser = viewModel.post?.user?._id
+        reportVM.post = viewModel.postId
+        guard let userInfor = UserService.shared.getUserInfor() else { return }
+        reportVM.reportingUser = userInfor.id
+        reportVM.type = .Post
+        reportVC.viewModel = reportVM
+        self.present(reportVC, animated: true)
+    }
+    
+    private func showAlertReportSuccess() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        
+        let title = "Thanks for letting us know."
+        let customTitle = NSAttributedString(string: title, attributes: [.font: UIFont.appBoldFont(size: 17), .foregroundColor: UIColor.black])
+        let message = "We'll use this information to improve out process. \n We may also use it to help us find and remove inapprotiate content."
+        let customMessage = NSAttributedString(string: message, attributes: [.font: UIFont.appFont(size: 15), .foregroundColor: Color.textColor])
+        alertController.setValue(customMessage, forKey: "attributedMessage")
+        alertController.setValue(customTitle, forKey: "attributedTitle")
+
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: { (_) in
+            alertController.dismiss(animated: true)
+        })
+
+        alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
     
@@ -272,11 +368,11 @@ extension PostDetailViewController: UITableViewDataSource, UITableViewDelegate {
 
 // MARK: - PostDetailHeaderViewDelegate
 extension PostDetailViewController: PostDetailHeaderViewDelegate {
-    func commetPost(_ post: PostDetail?) {
+    func commetPost(_ post: Post?) {
         commentTextView.becomeFirstResponder()
     }
     
-    func likePost(_ post: PostDetail?, user: String?) {
+    func likePost(_ post: Post?, user: String?) {
         guard let viewModel = viewModel as? PostDetailViewModel else {
             return
         }
@@ -285,7 +381,7 @@ extension PostDetailViewController: PostDetailHeaderViewDelegate {
         }
     }
     
-    func requestPost(_ post: PostDetail?, user: String?) {
+    func requestPost(_ post: Post?, user: String?) {
         guard let viewModel = viewModel as? PostDetailViewModel else {
             return
         }
@@ -309,9 +405,10 @@ extension PostDetailViewController: CommentTableViewCellDelegate {
         self.navigationController?.pushViewController(profileVC, animated: true)
     }
     
-    func deleteComment(_ commentId: String?) {
+    func deleteComment(_ commentId: String?, _ content: String?) {
         guard let _ = viewModel as? PostDetailViewModel,
-              let commentId = commentId else {
+              let commentId = commentId,
+              let content = content else {
             return
         }
         
@@ -323,7 +420,7 @@ extension PostDetailViewController: CommentTableViewCellDelegate {
         }
 
         let editAction = UIAlertAction(title: "Edit", style: UIAlertAction.Style.default) { [weak self] (_) in
-            self?.selectDelete(commentId)
+            self?.editComment(commentId: commentId, content: content)
         }
 
         alertController.addAction(cancelAction)
@@ -331,6 +428,20 @@ extension PostDetailViewController: CommentTableViewCellDelegate {
         alertController.addAction(deleteAction)
         present(alertController, animated: true, completion: nil)
         
+    }
+    
+    private func editComment(commentId: String, content: String) {
+        let editCmtVC = R.storyboard.editComment.editCommentViewController()!
+        editCmtVC.modalTransitionStyle = .crossDissolve
+        guard let provider = Application.shared.provider, let viewModel = viewModel as? PostDetailViewModel else { return }
+        let editCmtVM = EditCommentViewModel(provider: provider)
+        editCmtVM.commentId = commentId
+        editCmtVM.content = content
+        editCmtVM.editCommentSuccess.subscribe(onNext: {
+            viewModel.getPostComments()
+        }).disposed(by: disposeBag)
+        editCmtVC.viewModel = editCmtVM
+        self.navigationController?.present(editCmtVC, animated: true)
     }
     
     private func selectDelete(_ commentId: String?) {
@@ -354,5 +465,24 @@ extension PostDetailViewController: CommentTableViewCellDelegate {
         alertController.addAction(yesAction)
         present(alertController, animated: true, completion: nil)
         
+    }
+    
+    private func showAlertDeleteSuccess() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+
+        let message = "Delete post successfully!"
+        let customMessage = NSAttributedString(string: message, attributes: [.font: UIFont.appSemiBoldFont(size: 17), .foregroundColor: Color.textColor])
+        alertController.setValue(customMessage, forKey: "attributedMessage")
+
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: { [weak self] (_) in
+            self?.navigationController?.popViewController(animated: true)
+        })
+
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            alertController.dismiss(animated: true, completion: nil)
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
 }
